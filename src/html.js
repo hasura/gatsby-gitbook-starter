@@ -13,16 +13,10 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <meta name="title" content={config.siteMetadata.title} />
-          <meta name="description" content={config.siteMetadata.description} />
-          <meta property="og:title" content={config.siteMetadata.title} />
-          <meta property="og:description" content={config.siteMetadata.description} />
           {config.siteMetadata.ogImage ? 
             (<meta property="og:image" content={config.siteMetadata.ogImage} />) : null
           }
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:title" content={config.siteMetadata.title} />
-          <meta property="twitter:description" content={config.siteMetadata.description} />
           {config.siteMetadata.ogImage ? 
             (<meta property="twitter:image" content={config.siteMetadata.ogImage} />) : null
           }

@@ -14,7 +14,7 @@ Kick off your project with this boilerplate to create a powerful/flexible docs/t
 
 ## Live Demo
 
-Link to live demo
+Here's a [live demo](https://learn.hasura.io/graphql/react)
 
 ## Setup
 

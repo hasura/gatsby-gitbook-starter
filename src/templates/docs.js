@@ -115,10 +115,24 @@ export default class MDXRuntimeTest extends Component {
         return { title: node.fields.title, url: node.fields.slug };
       });
 
+    // meta tags
+    const metaTitle = mdx.frontmatter.metaTitle;
+    const metaDescription = mdx.frontmatter.metaDescription;
+    let canonicalUrl = config.gatsby.siteUrl;
+    canonicalUrl = config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl; 
+    canonicalUrl = canonicalUrl + mdx.fields.slug;
+
     return (
       <Layout {...this.props}>
         <Helmet>
-          <title>{mdx.fields.title} | {title}</title>
+          {metaTitle ? <title>{metaTitle}</title> : null }
+          {metaTitle ? <meta name="title" content={metaTitle} /> : null}
+          {metaDescription ? <meta name="description" content={metaDescription} /> : null}
+          {metaTitle ? <meta property="og:title" content={metaTitle} /> : null}
+          {metaDescription ? <meta property="og:description" content={metaDescription} /> : null}
+          {metaTitle ? <meta property="twitter:title" content={metaTitle} /> : null}
+          {metaDescription ? <meta property="twitter:description" content={metaDescription} /> : null}
+          <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         <div className={'titleWrapper'}>
           <h1 className={'title'}>
@@ -163,6 +177,10 @@ export const pageQuery = graphql`
         ... on File {
           relativePath
         }
+      }
+      frontmatter {
+        metaTitle
+        metaDescription
       }
     }
     allMdx {
