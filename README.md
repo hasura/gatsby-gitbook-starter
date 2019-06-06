@@ -1,6 +1,8 @@
-# gatsby-gitbook-boilerplate
+# gatsby-gitbook-starter
 
-Kick off your project with this boilerplate to create a powerful/flexible docs/tutorial web apps.
+Kick off your project with this starter to create a powerful/flexible docs/tutorial web apps.
+
+![gatsby-gitbook-starter](https://graphql-engine-cdn.hasura.io/learn-hasura/gatsby-gitbook-starter/assets/documentation_app_blog.png)
 
 ## Features
 - Write using Markdown / [MDX](https://github.com/mdx-js/mdx)
@@ -46,7 +48,7 @@ Open `config.js` for templating variables. Broadly configuration is available fo
     - `links`
 
 - `sidebar` config for navigation links configuration
-    - `forcedNavOrder` for left sidebar navigation order. It should be in the format "/<filename.md>"
+    - `forcedNavOrder` for left sidebar navigation order. It should be in the format "/<filename>"
     - `links`
 
 - `siteMetadata` config for website related configuration
@@ -55,17 +57,23 @@ Open `config.js` for templating variables. Broadly configuration is available fo
     - `ogImage`
     - `docsLocation`
 
-- For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. Currently it supports only one level of nesting.
+- For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. Currently it supports only one level of nesting. The sub navigation is alphabetically ordered.
 
-#### Develop
+## SEO friendly
 
-```
-$ npm start
+This is a static site and comes with all the SEO benefits. Configure meta tags like title and description for each markdown file using MDX Frontmatter
+
+```markdown
+---
+title: "Title of the page"
+metaTitle: "Meta Title Tag for this page"
+metaDescription: "Meta Description Tag for this page"
+---
 ```
 
-#### Build
+Canonical URLs are generated automatically.
 
-```
-$ npm run build
-```
+## Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/hasura/gatsby-gitbook-starter)
 
