@@ -18,7 +18,7 @@ We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https:
 - Automatically generated sidebar navigation, table of contents, previous/next
 - Edit on Github
 - Fully customisable
-- Rich embeds using MDX
+- Rich embeds and live code editor using MDX
 - Easy deployment: Deploy on Netlify / Now.sh / Docker
 
 ## 🔗 Live Demo
@@ -66,6 +66,16 @@ Open `config.js` for templating variables. Broadly configuration is available fo
     - `docsLocation` - The Github URL for Edit on Github
 
 - For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. Currently it supports only one level of nesting. The sub navigation is alphabetically ordered.
+
+## Live Code Editor
+
+To render react components for live editing, add the `react-live=true` to the code section. For example:
+
+```javascript react-live=true
+<button>Edit my text</button>
+```
+
+In the above code, just add `javascript react-live=true` after the triple quote ``` to start rendering react components that can be edited by users.
 
 ## 🤖 SEO friendly
 
