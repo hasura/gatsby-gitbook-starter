@@ -1,10 +1,10 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import {StaticQuery, graphql} from "gatsby";
 import styled from "react-emotion";
-import { ExternalLink } from "react-feather";
-import Link from "./link";
-import './styles.css';
-import config from '../../config';
+import {ExternalLink} from "react-feather";
+import TreeNode from './treeNode';
+import '../styles.css';
+import config from '../../../config';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
@@ -49,55 +49,6 @@ const Sidebar = styled('aside')`
   }
 `;
 
-// eslint-disable-next-line no-unused-vars
-const ListItem = styled(({ className, active, level, ...props }) => {
-  if (level === 0) {
-    return (
-      <li className={className}>
-        <Link {...props} />
-      </li>
-    );
-  } else if (level === 1) {
-    const customClass = active ? 'active' : '';
-    return (
-      <li className={'subLevel ' + customClass}>
-        <Link {...props} />
-      </li>
-    );
-  } else {
-    return (
-      <li className={className}>
-        <Link {...props} />
-      </li>
-    );
-  }
-})`
-  list-style: none;
-
-  a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
-    padding: 0.45rem 0 0.45rem ${props => 2 + (props.level || 0) * 1}rem;
-    display: block;
-    position: relative;
-
-    &:hover {
-      background-color: #542683;
-    }
-
-    ${props =>
-      props.active &&
-      `
-      color: #fff;
-      background-color: #473485;
-    `} // external link icon
-    svg {
-      float: right;
-      margin-right: 1rem;
-    }
-  }
-`;
 
 const Divider = styled(props => (
   <li {...props}>
@@ -115,7 +66,7 @@ const Divider = styled(props => (
   }
 `;
 
-const SidebarLayout = ({ location }) => (
+const SidebarLayout = ({location}) => (
   <StaticQuery
     query={graphql`
       query {
@@ -131,26 +82,26 @@ const SidebarLayout = ({ location }) => (
         }
       }
     `}
-    render={({ allMdx }) => {
+    render={({allMdx}) => {
       const navItems = allMdx.edges
-        .map(({ node }) => node.fields.slug)
+        .map(({node}) => node.fields.slug)
         .filter(slug => slug !== "/")
         .sort()
         .reduce(
           (acc, cur) => {
             if (forcedNavOrder.find(url => url === cur)) {
-              return { ...acc, [cur]: [cur] };
+              return {...acc, [cur]: [cur]};
             }
 
             const prefix = cur.split("/")[1];
 
             if (prefix && forcedNavOrder.find(url => url === `/${prefix}`)) {
-              return { ...acc, [`/${prefix}`]: [...acc[`/${prefix}`], cur] };
+              return {...acc, [`/${prefix}`]: [...acc[`/${prefix}`], cur]};
             } else {
-              return { ...acc, items: [...acc.items, cur] };
+              return {...acc, items: [...acc.items, cur]};
             }
           },
-          { items: [] }
+          {items: []}
         );
 
       const nav = forcedNavOrder
@@ -159,24 +110,24 @@ const SidebarLayout = ({ location }) => (
         }, [])
         .concat(navItems.items)
         .map(slug => {
-          const { node } = allMdx.edges.find(
-            ({ node }) => node.fields.slug === slug
+          const {node} = allMdx.edges.find(
+            ({node}) => node.fields.slug === slug
           );
 
           let isActive = false;
-          if(location && (location.pathname === node.fields.slug || location.pathname === (config.gatsby.pathPrefix + node.fields.slug)) ) {
+          if (location && (location.pathname === node.fields.slug || location.pathname === (config.gatsby.pathPrefix + node.fields.slug))) {
             isActive = true;
           }
 
           return (
-            <ListItem
+            <TreeNode
               key={node.fields.slug}
               to={`${node.fields.slug}`}
               level={node.fields.slug.split("/").length - 2}
               active={isActive}
             >
               {node.fields.title}
-            </ListItem>
+            </TreeNode>
           );
         });
 
@@ -185,9 +136,9 @@ const SidebarLayout = ({ location }) => (
           <ul className={'sideBarUL'}>
             {nav}
             <Divider />
-            {config.sidebar.links.map((link,key) => {
-              if(link.link !== '' && link.text !== '') {
-                return(
+            {config.sidebar.links.map((link, key) => {
+              if (link.link !== '' && link.text !== '') {
+                return (
                   <ListItem key={key} to={link.link}>
                     {link.text}
                     <ExternalLink size={14} />
