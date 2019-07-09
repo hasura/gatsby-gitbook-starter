@@ -1,4 +1,5 @@
 import React from "react";
+import Tree from './tree';
 import {StaticQuery, graphql} from "gatsby";
 import styled from "react-emotion";
 import {ExternalLink} from "react-feather";
@@ -65,6 +66,7 @@ const Divider = styled(props => (
     border-bottom: 1px solid #ede7f3;
   }
 `;
+
 
 const SidebarLayout = ({location}) => (
   <StaticQuery
@@ -134,6 +136,9 @@ const SidebarLayout = ({location}) => (
       return (
         <Sidebar>
           <ul className={'sideBarUL'}>
+            <Tree
+              edges={allMdx.edges}
+            />
             {nav}
             <Divider />
             {config.sidebar.links.map((link, key) => {
