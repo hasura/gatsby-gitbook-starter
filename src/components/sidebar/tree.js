@@ -75,7 +75,7 @@ const TreeNode = ({className = '', url, title, items, ...rest}) => {
         </Link>)
       }
 
-      {!config.sidebar.frontLine && hasChildren ? (
+      {!config.sidebar.frontLine && title && hasChildren ? (
         <button className='collapser'>
           <OpenedSvg />
         </button>
@@ -100,7 +100,7 @@ const Tree = ({edges}) => {
   });
   return (
     <TreeNode
-      className={`${config.sidebar.frontLine ? 'showFrontLine' : ''} firstLevel`}
+      className={`${config.sidebar.frontLine ? 'showFrontLine' : 'hideFrontLine'} firstLevel`}
       {...treeData}
     />
   );

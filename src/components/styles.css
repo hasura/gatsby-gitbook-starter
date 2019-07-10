@@ -221,6 +221,17 @@ pre {
   line-height: 1.5;
   padding: 7px 24px 7px 16px;
 }
+
+.hideFrontLine .collapser{
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.hideFrontLine  .active >a{
+  border-left: 1px solid #e6ecf1;
+  border-left-color: rgb(230, 236, 241);
+}
 .sideBarUL .item{
   list-style: none;
   padding: 0;
@@ -228,13 +239,13 @@ pre {
 .sideBarUL .item >a {
   color: #fff;
   text-decoration: none;
-  display: block;
+  display: inline-block;
   position: relative;
 }
-.sideBarUL .item >a:hover {
+.showFrontLine .item >a:hover {
   background-color: #542683;
 }
-.sideBarUL .item .active >a {
+.showFrontLine .active >a {
   color: #fff;
   background-color: #473485;
 }
