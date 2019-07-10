@@ -35,11 +35,14 @@ const calculateTreeData = edges => {
   }, {items: []});
 }
 
-const TreeNode = styled(({isFirst = false, className, url, title, items, ...rest}) => {
+const TreeNode = ({className = '', url, title, items, ...rest}) => {
   const hasChildren = items.length !== 0;
+  const active =
+    location && (location.pathname === url || location.pathname === (config.gatsby.pathPrefix + url));
+  const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
   return (
     <li
-      className={className}
+      className={calculatedClassName}
     >
       {title && (
         <Link
@@ -51,9 +54,7 @@ const TreeNode = styled(({isFirst = false, className, url, title, items, ...rest
       {hasChildren ? (
         <ul>
           {items.map((item) => (
-            <TreeNode className={!isFirst && hasChildren && config.sidebar.frontLine ? 'subLevel' : ''}
-              active={
-                location && (location.pathname === item.url || location.pathname === (config.gatsby.pathPrefix + item.url))}
+            <TreeNode
               key={item.url}
               {...item}
             />
@@ -62,40 +63,17 @@ const TreeNode = styled(({isFirst = false, className, url, title, items, ...rest
       ) : null}
     </li>
   );
-})`
-  list-style: none;
-    padding: 0.45rem 0 0.45rem 0.45rem;
-    >a {
-      color: #fff;
-    text-decoration: none;
-    display: block;
-    position: relative;
-
-    &:hover {
-      background-color: #542683;
-    }
-
-    ${props =>
-    props.active &&
-    `
-      color: #fff;
-      background-color: #473485;
-    `} // external link icon
-    svg {
-      float: right;
-      margin-right: 1rem;
-    }
-    }
-`;
+}
 
 const Tree = ({edges}) => {
   const [treeData, setState] = useState(() => {
     return calculateTreeData(edges);
   });
   return (
-    <ul>
-      <TreeNode isFirst {...treeData} />
-    </ul>
+    <TreeNode
+      className={`${config.sidebar.frontLine ? 'showFrontLine' : ''} firstLevel`}
+      {...treeData}
+    />
   );
 }
 

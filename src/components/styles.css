@@ -221,30 +221,40 @@ pre {
   line-height: 1.5;
   padding: 7px 24px 7px 16px;
 }
+.sideBarUL .item{
+  list-style: none;
+  padding: 0;
+}
+.sideBarUL .item >a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  position: relative;
+}
+.sideBarUL .item >a:hover {
+  background-color: #542683;
+}
+.sideBarUL .item .active >a {
+  color: #fff;
+  background-color: #473485;
+}
 
-.subLevel {
+.sideBarUL  .item .item{
   margin-left: 16px;
+}
+
+.firstLevel>ul>.item{
+  margin-left: 0 !important;
+}
+
+.showFrontLine  .item .item{
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
-  padding: 7px 24px 7px 16px;
+  padding: 0;
   width: calc(100% - 16px) !important;
 }
 
-.subLevel:hover {
-  background-color: #542683;
-}
-
-.subLevel a {
-  line-height: 1.5;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 0 0 !important;
-  display: block;
-}
-
-.subLevel.active {
+.showFrontLine .item .active>a {
   color: rgb(116, 76, 188);
   border-color: rgb(230,236,241) !important;
   border-style: solid none solid solid;
@@ -252,9 +262,6 @@ pre {
   background-color: #fff;
 }
 
-.subLevel.active a {
-  color: rgb(116, 76, 188);
-}
 
 .titleWrapper {
   display: flex;

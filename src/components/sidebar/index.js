@@ -139,7 +139,6 @@ const SidebarLayout = ({location}) => (
             <Tree
               edges={allMdx.edges}
             />
-            {nav}
             <Divider />
             {config.sidebar.links.map((link, key) => {
               if (link.link !== '' && link.text !== '') {
