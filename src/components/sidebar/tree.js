@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from "react-emotion";
 import Link from "../link";
+import OpenedSvg from '../images/opened';
 import config from '../../../config';
 
 const calculateTreeData = edges => {
@@ -73,6 +74,12 @@ const TreeNode = ({className = '', url, title, items, ...rest}) => {
           {title}
         </Link>)
       }
+
+      {!config.sidebar.frontLine && hasChildren ? (
+        <button className='collapser'>
+          <OpenedSvg />
+        </button>
+      ) : null}
       {hasChildren ? (
         <ul>
           {items.map((item) => (
