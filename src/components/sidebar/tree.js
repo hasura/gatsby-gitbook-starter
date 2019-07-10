@@ -4,7 +4,7 @@ import Link from "../link";
 import config from '../../../config';
 
 const calculateTreeData = edges => {
-  return edges.reduce((accu, {node: {fields: {slug, title}}}) => {
+  const tree = edges.reduce((accu, {node: {fields: {slug, title}}}) => {
     const parts = slug.split('/');
     let {items: prevItems} = accu;
     for (const part of parts.slice(1, -1)) {
@@ -33,6 +33,28 @@ const calculateTreeData = edges => {
     }
     return accu;
   }, {items: []});
+  const {sidebar: {forcedNavOrder = []}} = config;
+  const tmp = [...forcedNavOrder];
+  tmp.reverse();
+  return tmp.reduce((accu, slug) => {
+    const parts = slug.split('/');
+    let {items: prevItems} = accu;
+    for (const part of parts.slice(1, -1)) {
+      let tmp = prevItems.find(({label}) => label == part);
+      if (tmp) {
+        if (!tmp.items) {
+          tmp.items = [];
+        }
+      } else {
+        tmp = {label: part, items: []};
+        prevItems.push(tmp)
+      }
+      prevItems = tmp.items;
+    }
+    const index = prevItems.findIndex(({label}) => label === parts[parts.length - 1]);
+    accu.items.unshift(prevItems.splice(index, 1)[0]);
+    return accu;
+  }, tree);
 }
 
 const TreeNode = ({className = '', url, title, items, ...rest}) => {
