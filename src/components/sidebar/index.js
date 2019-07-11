@@ -3,7 +3,6 @@ import Tree from './tree';
 import {StaticQuery, graphql} from "gatsby";
 import styled from "react-emotion";
 import {ExternalLink} from "react-feather";
-import TreeNode from './treeNode';
 import '../styles.css';
 import config from '../../../config';
 
@@ -85,54 +84,6 @@ const SidebarLayout = ({location}) => (
       }
     `}
     render={({allMdx}) => {
-      const navItems = allMdx.edges
-        .map(({node}) => node.fields.slug)
-        .filter(slug => slug !== "/")
-        .sort()
-        .reduce(
-          (acc, cur) => {
-            if (forcedNavOrder.find(url => url === cur)) {
-              return {...acc, [cur]: [cur]};
-            }
-
-            const prefix = cur.split("/")[1];
-
-            if (prefix && forcedNavOrder.find(url => url === `/${prefix}`)) {
-              return {...acc, [`/${prefix}`]: [...acc[`/${prefix}`], cur]};
-            } else {
-              return {...acc, items: [...acc.items, cur]};
-            }
-          },
-          {items: []}
-        );
-
-      const nav = forcedNavOrder
-        .reduce((acc, cur) => {
-          return acc.concat(navItems[cur]);
-        }, [])
-        .concat(navItems.items)
-        .map(slug => {
-          const {node} = allMdx.edges.find(
-            ({node}) => node.fields.slug === slug
-          );
-
-          let isActive = false;
-          if (location && (location.pathname === node.fields.slug || location.pathname === (config.gatsby.pathPrefix + node.fields.slug))) {
-            isActive = true;
-          }
-
-          return (
-            <TreeNode
-              key={node.fields.slug}
-              to={`${node.fields.slug}`}
-              level={node.fields.slug.split("/").length - 2}
-              active={isActive}
-            >
-              {node.fields.title}
-            </TreeNode>
-          );
-        });
-
       return (
         <Sidebar>
           <ul className={'sideBarUL'}>

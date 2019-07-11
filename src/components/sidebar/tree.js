@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
-import styled from "react-emotion";
-import Link from "../link";
-import OpenedSvg from '../images/opened';
-import ClosedSvg from '../images/closed';
 import config from '../../../config';
+import TreeNode from './treeNode';
 
 const calculateTreeData = edges => {
   const tree = edges.reduce((accu, {node: {fields: {slug, title}}}) => {
@@ -59,49 +56,6 @@ const calculateTreeData = edges => {
   }, tree);
 }
 
-const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, ...rest}) => {
-  const isCollapsed = collapsed[url];
-  const collapse = () => {
-    setCollapsed(url);
-  }
-  const hasChildren = items.length !== 0;
-  const active =
-    location && (location.pathname === url || location.pathname === (config.gatsby.pathPrefix + url));
-  const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
-  return (
-    <li
-      className={calculatedClassName}
-    >
-      {title && (
-        <Link
-          to={url}
-        >
-          {title}
-        </Link>)
-      }
-
-      {!config.sidebar.frontLine && title && hasChildren ? (
-        <button
-          onClick={collapse}
-          className='collapser'>
-          {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
-        </button>
-      ) : null}
-      {!isCollapsed && hasChildren ? (
-        <ul>
-          {items.map((item) => (
-            <TreeNode
-              key={item.url}
-              setCollapsed={setCollapsed}
-              collapsed={collapsed}
-              {...item}
-            />
-          ))}
-        </ul>
-      ) : null}
-    </li>
-  );
-}
 
 const Tree = ({edges}) => {
   const [treeData] = useState(() => {
