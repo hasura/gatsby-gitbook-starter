@@ -1,6 +1,6 @@
 import react from 'react';
 
-const OpenedSvg = () => (
+const ClosedSvg = () => (
 <svg viewBox="0 0 926.23699 573.74994"  x="0px" y="0px" width="10" height="10" ><g transform="translate(904.92214,-879.1482)"><path d="
           m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
           -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
@@ -10,8 +10,7 @@ const OpenedSvg = () => (
           55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
           -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
           -104.0616 -231.873,-231.248 z
-        " fill="#fff"></path></g></svg>
+        " fill="#FFF"></path></g></svg>
+)
 
-);
-
-export default OpenedSvg;
+export default ClosedSvg;
