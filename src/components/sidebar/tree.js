@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from "react-emotion";
 import Link from "../link";
 import OpenedSvg from '../images/opened';
+import ClosedSvg from '../images/closed';
 import config from '../../../config';
 
 const calculateTreeData = edges => {
@@ -58,7 +59,11 @@ const calculateTreeData = edges => {
   }, tree);
 }
 
-const TreeNode = ({className = '', url, title, items, ...rest}) => {
+const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, ...rest}) => {
+  const isCollapsed = collapsed[url];
+  const collapse = () => {
+    setCollapsed(url);
+  }
   const hasChildren = items.length !== 0;
   const active =
     location && (location.pathname === url || location.pathname === (config.gatsby.pathPrefix + url));
@@ -76,15 +81,19 @@ const TreeNode = ({className = '', url, title, items, ...rest}) => {
       }
 
       {!config.sidebar.frontLine && title && hasChildren ? (
-        <button className='collapser'>
-          <OpenedSvg />
+        <button
+          onClick={collapse}
+          className='collapser'>
+          {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
         </button>
       ) : null}
-      {hasChildren ? (
+      {!isCollapsed && hasChildren ? (
         <ul>
           {items.map((item) => (
             <TreeNode
               key={item.url}
+              setCollapsed={setCollapsed}
+              collapsed={collapsed}
               {...item}
             />
           ))}
@@ -95,12 +104,21 @@ const TreeNode = ({className = '', url, title, items, ...rest}) => {
 }
 
 const Tree = ({edges}) => {
-  const [treeData, setState] = useState(() => {
+  const [treeData] = useState(() => {
     return calculateTreeData(edges);
   });
+  const [collapsed, setCollapsed] = useState({});
+  const toggle = (url) => {
+    setCollapsed({
+      ...collapsed,
+      [url]: !collapsed[url],
+    });
+  }
   return (
     <TreeNode
       className={`${config.sidebar.frontLine ? 'showFrontLine' : 'hideFrontLine'} firstLevel`}
+      setCollapsed={toggle}
+      collapsed={collapsed}
       {...treeData}
     />
   );
