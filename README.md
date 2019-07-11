@@ -57,6 +57,8 @@ Open `config.js` for templating variables. Broadly configuration is available fo
 
 - `sidebar` config for navigation links configuration
     - `forcedNavOrder` for left sidebar navigation order. It should be in the format "/<filename>"
+    - `frontLine` - whether to show a front line at the beginning of a nested menu.(Collapsing capability would be turned of if this option is set to true)
+    - `links` - Links on the bottom left of the sidebar
     - `links` - Links on the bottom left of the sidebar
 
 - `siteMetadata` config for website related configuration
@@ -65,7 +67,7 @@ Open `config.js` for templating variables. Broadly configuration is available fo
     - `ogImage` - Social Media share og:image tag
     - `docsLocation` - The Github URL for Edit on Github
 
-- For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. Currently it supports only one level of nesting. The sub navigation is alphabetically ordered.
+- For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. The sub navigation is alphabetically ordered.
 
 ## Live Code Editor
 
