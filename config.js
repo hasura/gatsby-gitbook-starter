@@ -21,7 +21,8 @@ const config = {
 		],
 		"links": [
 			{ "text": "", "link": ""},
-		]
+		],
+		"frontline": false
 	},
 	"siteMetadata": {
 		"title": "Gatsby Gitbook Boilerplate | Hasura",
