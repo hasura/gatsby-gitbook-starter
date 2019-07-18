@@ -3,7 +3,8 @@ import config from '../../../config';
 import TreeNode from './treeNode';
 
 const calculateTreeData = edges => {
-  const tree = edges.reduce((accu, {node: {fields: {slug, title}}}) => {
+  const originalData = config.sidebar.ignoreIndex ? edges.filter(({node: {fields: {slug}}}) => slug !== '/') : edges;
+  const tree = originalData.reduce((accu, {node: {fields: {slug, title}}}) => {
     const parts = slug.split('/');
     let {items: prevItems} = accu;
     for (const part of parts.slice(1, -1)) {
@@ -53,13 +54,13 @@ const calculateTreeData = edges => {
     // sort items alphabetically.
     prevItems.map((item) => {
       item.items = item.items
-        .sort(function(a,b) {
-          if ( a.label < b.label )
-              return -1;
-          if ( a.label > b.label )
-              return 1;
+        .sort(function (a, b) {
+          if (a.label < b.label)
+            return -1;
+          if (a.label > b.label)
+            return 1;
           return 0;
-      });
+        });
     })
     const index = prevItems.findIndex(({label}) => label === parts[parts.length - 1]);
     accu.items.unshift(prevItems.splice(index, 1)[0]);
