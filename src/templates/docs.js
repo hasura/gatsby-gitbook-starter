@@ -108,11 +108,13 @@ export default class MDXRuntimeTest extends Component {
       }, [])
       .concat(navItems.items)
       .map(slug => {
-        const { node } = allMdx.edges.find(
-          ({ node }) => node.fields.slug === slug
-        );
+        if(slug) {
+          const { node } = allMdx.edges.find(
+            ({ node }) => node.fields.slug === slug
+          );
 
-        return { title: node.fields.title, url: node.fields.slug };
+          return { title: node.fields.title, url: node.fields.slug };
+        }
       });
 
     // meta tags

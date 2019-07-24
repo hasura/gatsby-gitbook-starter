@@ -6,15 +6,17 @@ class NextPrevious extends React.Component {
     const { mdx, nav } = this.props;
     let currentIndex;
     const currentPaginationInfo = nav.map((el, index) => {
-      if (el.url === mdx.fields.slug) {
+      if (el && (el.url === mdx.fields.slug)) {
         currentIndex = index;
       }
     });
     const nextInfo = {};
     const previousInfo = {};
     if (currentIndex === undefined) { // index
-      nextInfo.url = nav[0].url;
-      nextInfo.title = nav[0].title;
+      if(nav[0]) {
+        nextInfo.url = nav[0].url;
+        nextInfo.title = nav[0].title;
+      }
       previousInfo.url = null;
       previousInfo.title = null;
       currentIndex = -1;
@@ -31,8 +33,10 @@ class NextPrevious extends React.Component {
     } else if (currentIndex) { // any other page
       nextInfo.url = nav[currentIndex+1].url;
       nextInfo.title = nav[currentIndex+1].title;
-      previousInfo.url = nav[currentIndex-1].url;
-      previousInfo.title = nav[currentIndex-1].title;
+      if(nav[currentIndex-1]) {
+        previousInfo.url = nav[currentIndex-1].url;
+        previousInfo.title = nav[currentIndex-1].title;
+      }
     }
     return (
       <div className={'nextPreviousWrapper'}>

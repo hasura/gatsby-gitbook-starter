@@ -188,6 +188,8 @@ pre {
   font-weight: 500;
   line-height: 1.5;
   padding: 7px 24px 7px 16px;
+  padding-left: 10px;
+  padding-right: 25px;
   border-style: solid none solid solid;
   border-width: 1px 0px 1px 1px;
   border-color: transparent currentcolor transparent transparent;
@@ -222,29 +224,68 @@ pre {
   padding: 7px 24px 7px 16px;
 }
 
-.subLevel {
+.hideFrontLine .collapser{
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-top: 7px;
+  position: absolute;
+  right: 20px;
+  z-index: 1;
+}
+
+.hideFrontLine  .active >a{
+  background-color: #fff;
+  color: #663399 !important;
+}
+.firstLevel ul li .collapser svg path {
+  fill: #fff;
+}
+.active .collapser >svg >path {
+  fill: #663399 !important;
+}
+
+.firstLevel ul .item ul .item {
+  border-left: 1px solid #e6ecf1;
+}
+
+.sideBarUL .item{
+  list-style: none;
+  padding: 0;
+}
+.sideBarUL .item >a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-right: 35px;
+  padding-left: 15px;
+}
+.showFrontLine .item >a:hover {
+  background-color: #542683;
+}
+.showFrontLine .active >a {
+  color: #fff;
+  background-color: #473485;
+}
+
+.sideBarUL  .item .item{
   margin-left: 16px;
+}
+
+.firstLevel>ul>.item{
+  margin-left: 0 !important;
+}
+  
+.showFrontLine  .item .item{
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
-  padding: 7px 24px 7px 16px;
+  padding: 0;
   width: calc(100% - 16px) !important;
 }
 
-.subLevel:hover {
-  background-color: #542683;
-}
-
-.subLevel a {
-  line-height: 1.5;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 0 0 !important;
-  display: block;
-}
-
-.subLevel.active {
+.showFrontLine .item .active>a {
   color: rgb(116, 76, 188);
   border-color: rgb(230,236,241) !important;
   border-style: solid none solid solid;
@@ -252,9 +293,6 @@ pre {
   background-color: #fff;
 }
 
-.subLevel.active a {
-  color: rgb(116, 76, 188);
-}
 
 .titleWrapper {
   display: flex;
