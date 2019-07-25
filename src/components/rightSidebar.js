@@ -89,10 +89,11 @@ const SidebarLayout = ({ location }) => (
             if ((item.node.fields.slug === location.pathname) || (config.gatsby.pathPrefix + item.node.fields.slug) === location.pathname) {
               if (item.node.tableOfContents.items) {
                 innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
+                  const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';
                   return (
                     <ListItem
                       key={index}
-                      to={`#${innerItem.title}`}
+                      to={`#${itemId}`}
                       level={1}
                     >
                       {innerItem.title}
