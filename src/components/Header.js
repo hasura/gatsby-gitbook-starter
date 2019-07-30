@@ -17,7 +17,10 @@ const Header = ({location}) => (
               githubUrl
               helpUrl
               tweetText
-              logo
+              logo {
+                link
+                image
+              }
               headerLinks {
                 link
                 text
@@ -41,6 +44,7 @@ const Header = ({location}) => (
           }
         }
       } = data;
+      const finalLogoLink = logo.link !== '' ? logo.link : '/';
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navbar navbar-default navBarDefault'}>
@@ -51,13 +55,13 @@ const Header = ({location}) => (
                 <span className={'icon-bar'}></span>
                 <span className={'icon-bar'}></span>
               </button>
-              <Link to="/" className={'navbar-brand navBarBrand'}>
-                {logo !== '' ?
-                  (<img className={'img-responsive'} src={logo} alt={'logo'} />)
+              <Link to={finalLogoLink} className={'navbar-brand navBarBrand'}>
+                {logo.image !== '' ?
+                  (<img className={'img-responsive'} src={logo.image} alt={'logo'} />)
                   :
                   (<img className={'img-responsive'} src={logoImg} alt={'logo'} />)
                 }
-                {headerTitle}
+                <div className={"headerTitle"} dangerouslySetInnerHTML={{__html: headerTitle}} />
               </Link>
             </div>
             <div id="navbar" className={'navbar-collapse collapse navBarCollapse'}>
