@@ -245,11 +245,11 @@ pre {
 }
 
 .hideFrontLine  .active >a{
-  background-color: #fff;
-  color: #663399 !important;
+  background-color: #542683;
+  color: #fff !important;
 }
 .firstLevel ul li .collapser svg path {
-  fill: #fff;
+  fill: #fff !important;
 }
 .active .collapser >svg >path {
   fill: #663399 !important;
@@ -271,6 +271,10 @@ pre {
   width: 100%;
   padding-right: 35px;
   padding-left: 15px;
+}
+.sideBarUL .item>a:hover {
+  background-color: #542683;
+  color: #fff !important;
 }
 .showFrontLine .item >a:hover {
   background-color: #542683;
@@ -296,11 +300,11 @@ pre {
 }
 
 .showFrontLine .item .active>a {
-  color: rgb(116, 76, 188);
   border-color: rgb(230,236,241) !important;
   border-style: solid none solid solid;
   border-width: 1px 0px 1px 1px;
-  background-color: #fff;
+  background-color: #542683;
+  color: #fff;
 }
 
 
