@@ -499,10 +499,52 @@ img {
   font-size: 16px;
   padding: 10px 15px;
 }
+
+.communitySection {
+  font-size: 24px;
+  font-weight: 700;
+}
+.authorSection, .authorName {
+  display: flex;
+  align-items: center;
+}
+.authorImg img
+{
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  min-width: 75px;
+  max-width: 75px;
+  min-height: 75px;
+  max-height: 75px;
+}
+.authorDetails
+{
+  padding-left: 10px;
+}
+.authorDesc
+{
+  padding-top: 5px;
+  font-size: 14px;
+}
+.authorName img {
+  margin-left: 10px;
+  display: inline-block;
+  width: 20px;
+}
+.authorName img:hover {
+  opacity: 0.7;
+}
+
 @media (max-width: 767px) {
   hr {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  .separator {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .navbar-collapse {
