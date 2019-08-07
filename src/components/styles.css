@@ -189,7 +189,7 @@ pre {
 
 .sideBarUL li {
   list-style-type: none;
-  width: 100%;
+  width: auto;
 }
 
 .sideBarUL li a {
@@ -291,7 +291,7 @@ pre {
 .firstLevel>ul>.item{
   margin-left: 0 !important;
 }
-  
+
 .showFrontLine  .item .item{
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
