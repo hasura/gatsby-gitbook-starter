@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
+import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import styled, { injectGlobal } from "react-emotion";
 import { Layout, Link } from "$components";
 import NextPrevious from '../components/NextPrevious';
@@ -121,7 +121,7 @@ export default class MDXRuntimeTest extends Component {
     const metaTitle = mdx.frontmatter.metaTitle;
     const metaDescription = mdx.frontmatter.metaDescription;
     let canonicalUrl = config.gatsby.siteUrl;
-    canonicalUrl = config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl; 
+    canonicalUrl = config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
     canonicalUrl = canonicalUrl + mdx.fields.slug;
 
     return (
@@ -147,7 +147,7 @@ export default class MDXRuntimeTest extends Component {
           </Edit>
         </div>
         <div className={'mainWrapper'}>
-          <MDXRenderer>{mdx.code.body}</MDXRenderer>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
         </div>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />
@@ -171,9 +171,7 @@ export const pageQuery = graphql`
         title
         slug
       }
-      code {
-        body
-      }
+      body
       tableOfContents
       parent {
         ... on File {

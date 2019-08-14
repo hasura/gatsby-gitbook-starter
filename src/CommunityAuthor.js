@@ -3,7 +3,7 @@ import './components/styles.css';
 
 const CommunityAuthor = ({name, imageUrl, twitterUrl, githubUrl, description}) => {
     return(
-        <React.Fragment>
+        <>
         	<h2 className="communitySection">About the community author</h2>
         	<hr className="separator" />
         	<div className="authorSection">
@@ -22,7 +22,7 @@ const CommunityAuthor = ({name, imageUrl, twitterUrl, githubUrl, description}) =
         		</div>
         	</div>
         	<hr className="separator" />
-        </React.Fragment>
+        </>
     )
 };
 
