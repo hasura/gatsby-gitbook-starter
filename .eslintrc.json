@@ -4,5 +4,12 @@
   },
   "globals": {
     "graphql": false
+  },
+  "parserOptions": {
+    "ecmaVersion": 10,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }
