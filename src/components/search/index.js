@@ -10,7 +10,7 @@ import algoliasearch from "algoliasearch/lite"
 import { Root, HitsWrapper, PoweredBy } from "./styles"
 import Input from "./Input"
 import * as hitComps from "./hitComps"
-
+import '../styles.css';
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
     // res && res.query && res.nbHits > 0 ? children : `No results for '${state.query}'`
@@ -53,7 +53,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
       root={{ Root, props: { ref } }}
     >
       <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-      <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+      <HitsWrapper className={'hitWrapper'} show={query.length > 0 && focus} asGrid={hitsAsGrid}>
         {indices.map(({ name, title, hitComp }) => (
           <Index key={name} indexName={name}>
             <header>

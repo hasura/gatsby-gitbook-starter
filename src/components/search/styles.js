@@ -7,7 +7,6 @@ export const Root = styled.div`
   position: relative;
   display: grid;
   grid-gap: 1em;
-  background-color: #fff;
 `
 
 export const SearchIcon = styled(Search)`

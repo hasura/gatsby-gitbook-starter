@@ -75,20 +75,20 @@ const Header = ({location}) => (
                 <Sidebar location={location} />
                 <hr/>
               </div>
-                <ul className={'nav navbar-nav navBarUL'}>
-                  {githubUrl !== '' ?
-                    (<li className={'githubBtn'}>
-                      <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
-                    </li>) : null}
-                  {helpUrl !== '' ? 
-                    (<li><a href={helpUrl}>Need Help?</a></li>) : null
-                  }
-                </ul>
-              <div className={'searchWrapper'}>
-                <Search collapse={false} indices={searchIndices} />
-              </div>
+              <ul className={'nav navbar-nav navBarUL'}>
+                {githubUrl !== '' ?
+                  (<li className={'githubBtn'}>
+                    <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
+                  </li>) : null}
+                {helpUrl !== '' ?
+                  (<li><a href={helpUrl}>Need Help?</a></li>) : null
+                }
+                <div className={'searchWrapper'}>
+                  <Search collapse={false} indices={searchIndices} />
+                </div>
+              </ul>
               <ul className={'nav navbar-nav navBarUL navbar-right'}>
-                {tweetText !== '' ? 
+                {tweetText !== '' ?
                   (<li>
                     <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank">
                       <img className={'twitterIcon'} src={twitter} alt={'Twitter'} />
