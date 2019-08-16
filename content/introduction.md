@@ -1,32 +1,48 @@
 ---
-title: "Introduction"
-metaTitle: "This is the title tag of this page"
-metaDescription: "This is the meta description"
+title: "Course introduction"
+metaTitle: "Course Introduction | GraphQL React Apollo Tutorial"
+metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your React app with Apollo, in the shortest amount of time possible."
 ---
 
-Some introduction text. Lists out all the headings from h1 to h6. Easy to customise.
+GraphQL is becoming the new way to use APIs in modern web and mobile apps.
 
-# Heading H1
-Heading 1 text
+However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of a new technology.
 
-## Heading H2
-Heading 2 text
+So, we put together a powerful and concise course that will introduce you to GraphQL and integrating GraphQL into your frontend stack, in the shortest amount of time possible.
 
-### Heading H3
-Heading 3 text
+We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
 
-#### Heading H4
-Heading 4 text
+## Key topics and takeways:
 
-##### Heading H5
-Heading 5 text
+- GraphQL vs REST
+- GraphQL queries, mutations, subscriptions
+- Setting up a GraphQL client with Apollo
+- Integrating GraphQL queries in your react app
+- Integrating GraphQL mutations with query variables to handle form input
+- Updating local state after a GraphQL mutation (form input) using Apollo cache
+- Optimistic updates to local state and UI after GraphQL mutations for a slick UX
+- Using subscriptions with subscription components
+- Building a real-time feed with notifications using mutations and subscriptions
 
-###### Heading H6
-Heading 6 text
+## What will we be building?
+We will be building a realtime todo app using authenticated GraphQL APIs.
 
-## Lists
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
+Try this deployed version of the app to see what we'll be building:
+https://learn-hasura-todo-app.netlify.com/
+
+## Will this course teach React concepts as well?
+No, we will be simulating a scenario where we already have a GraphQL API and the basic UI of a React app built. Our task in this scenario is to integrate the GraphQL APIs into our react app to build a complete and working app.
+
+If you're new to React, we recommend going through this [official tutorial](https://reactjs.org/tutorial/tutorial.html) and then coming back here!
+
+## What do I need to take this tutorial?
+You need to have npm/yarn & node 8+ running.
+
+## How long will this tutorial take?
+Less than 2 hours
+
+## Other courses
+
+**Frontend**: GraphQL for: [Vue](https://learn.hasura.io/graphql/vue), [React Native](https://learn.hasura.io/graphql/react-native), [iOS](https://learn.hasura.io/graphql/ios)
+
+**Backend**: [Building a realtime GraphQL backend with Hasura](https://learn.hasura.io/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)

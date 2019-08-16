@@ -4,6 +4,12 @@ import GitHubButton from 'react-github-btn'
 import Link from "./link";
 import './styles.css';
 
+import Search from "./search/index";
+
+const searchIndices = [
+  { name: `test`, title: `Results`, hitComp: `PageHit` },
+];
+
 import Sidebar from "./sidebar";
 
 const Header = ({location}) => (
@@ -78,7 +84,9 @@ const Header = ({location}) => (
                     (<li><a href={helpUrl}>Need Help?</a></li>) : null
                   }
                 </ul>
-              }
+              <div className={'searchWrapper'}>
+                <Search collapse={false} indices={searchIndices} />
+              </div>
               <ul className={'nav navbar-nav navBarUL navbar-right'}>
                 {tweetText !== '' ? 
                   (<li>

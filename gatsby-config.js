@@ -1,4 +1,5 @@
 require("dotenv").config();
+const queries = require("./src/utils/algolia");
 const config = require("./config");
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,
@@ -25,6 +26,16 @@ module.exports = {
           component: require.resolve(`./src/templates/docs.js`)
       }
     },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries,
+        chunkSize: 10000, // default: 1000
+      },
+    },
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
