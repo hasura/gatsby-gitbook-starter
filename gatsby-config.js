@@ -51,12 +51,12 @@ const plugins = [
     },
   },
 ];
-if (config.header.search && config.header.search.enabled && process.env.GATSBY_ALGOLIA_APP_ID && process.env.ALGOLIA_ADMIN_KEY) {
+if (config.header.search && config.header.search.enabled && config.header.search.algoliaAppId && config.header.search.algoliaAdminKey) {
   plugins.push({
     resolve: `gatsby-plugin-algolia`,
     options: {
-      appId: process.env.GATSBY_ALGOLIA_APP_ID, // algolia search only key, exposed to the client
-      apiKey: process.env.ALGOLIA_ADMIN_KEY, // algolia admin key to index
+      appId: config.header.search.algoliaAppId, // algolia application id
+      apiKey: config.header.search.algoliaAdminKey, // algolia admin key to index
       queries,
       chunkSize: 10000, // default: 1000
     }}

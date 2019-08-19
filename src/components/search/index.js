@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react"
+import React, { useState, useEffect, createRef } from "react";
 import {
   InstantSearch,
   Index,
@@ -6,8 +6,9 @@ import {
   Configure,
   Pagination,
   connectStateResults,
-} from "react-instantsearch-dom"
-import algoliasearch from "algoliasearch/lite"
+} from "react-instantsearch-dom";
+import algoliasearch from "algoliasearch/lite";
+import config from "../../../config.js";
 
 import styled, { css } from 'styled-components';
 import { PoweredBy } from "./styles"
@@ -123,8 +124,8 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
   const [query, setQuery] = useState(``)
   const [focus, setFocus] = useState(false)
   const searchClient = algoliasearch(
-    process.env.GATSBY_ALGOLIA_APP_ID,
-    process.env.GATSBY_ALGOLIA_SEARCH_KEY
+    config.header.search.algoliaAppId,
+    config.header.search.algoliaSearchKey
   )
   useClickOutside(ref, () => setFocus(false))
   const displayResult = (query.length > 0 && focus) ? 'showResults' : 'hideResults';
