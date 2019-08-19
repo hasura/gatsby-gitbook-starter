@@ -14,6 +14,10 @@ const config = {
 		"links": [
 			{ "text": "", "link": ""}
 		],
+		"search": {
+			"enabled": false,
+			"indexName": ""
+		}
 	},
 	"sidebar": {
 		"forcedNavOrder": [

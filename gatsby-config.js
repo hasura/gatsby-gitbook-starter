@@ -1,6 +1,67 @@
 require("dotenv").config();
 const queries = require("./src/utils/algolia");
 const config = require("./config");
+const plugins = [
+  'gatsby-plugin-sitemap',
+  'gatsby-plugin-sharp',
+  {
+    resolve: `gatsby-plugin-layout`,
+    options: {
+        component: require.resolve(`./src/templates/docs.js`)
+    }
+  },
+  'gatsby-plugin-styled-components',
+  {
+    resolve: 'gatsby-plugin-mdx',
+    options: {
+      gatsbyRemarkPlugins: [
+        {
+          resolve: "gatsby-remark-images",
+          options: {
+            maxWidth: 1035,
+            sizeByPixelDensity: true
+          }
+        },
+        {
+          resolve: 'gatsby-remark-copy-linked-files'
+        }
+      ],
+      extensions: [".mdx", ".md"]
+    }
+  },
+  'gatsby-plugin-emotion',
+  'gatsby-plugin-remove-trailing-slashes',
+  'gatsby-plugin-react-helmet',
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "docs",
+      path: `${__dirname}/content/`
+    }
+  },
+  {
+    resolve: `gatsby-plugin-gtag`,
+    options: {
+      // your google analytics tracking id
+      trackingId: config.gatsby.gaTrackingId,
+      // Puts tracking script in the head instead of the body
+      head: true,
+      // enable ip anonymization
+      anonymize: false,
+    },
+  },
+];
+if (config.header.search && config.header.search.enabled && process.env.GATSBY_ALGOLIA_APP_ID && process.env.ALGOLIA_ADMIN_KEY) {
+  plugins.push({
+    resolve: `gatsby-plugin-algolia`,
+    options: {
+      appId: process.env.GATSBY_ALGOLIA_APP_ID, // algolia search only key, exposed to the client
+      apiKey: process.env.ALGOLIA_ADMIN_KEY, // algolia admin key to index
+      queries,
+      chunkSize: 10000, // default: 1000
+    }}
+  )
+}
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,
   siteMetadata: {
@@ -17,63 +78,5 @@ module.exports = {
     headerLinks: config.header.links,
     siteUrl: config.gatsby.siteUrl,
   },
-  plugins: [
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-          component: require.resolve(`./src/templates/docs.js`)
-      }
-    },
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        queries,
-        chunkSize: 10000, // default: 1000
-      },
-    },
-    'gatsby-plugin-styled-components',
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 1035,
-              sizeByPixelDensity: true
-            }
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files'
-          }
-        ],
-        extensions: [".mdx", ".md"]
-      }
-    },
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-remove-trailing-slashes',
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "docs",
-        path: `${__dirname}/content/`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: config.gatsby.gaTrackingId,
-        // Puts tracking script in the head instead of the body
-        head: true,
-        // enable ip anonymization
-        anonymize: false,
-      },
-    },
-  ]
+  plugins: plugins
 };

@@ -3,18 +3,100 @@ import {
   InstantSearch,
   Index,
   Hits,
+  Configure,
+  Pagination,
   connectStateResults,
 } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 
-import { Root, HitsWrapper, PoweredBy } from "./styles"
-import Input from "./Input"
+import styled, { css } from 'styled-components';
+import { PoweredBy } from "./styles"
+import { Search } from "styled-icons/fa-solid/Search"
+import Input from "./input"
 import * as hitComps from "./hitComps"
 import '../styles.css';
+
+const SearchIcon = styled(Search)`
+  width: 1em;
+  pointer-events: none;
+`
+
+const HitsWrapper = styled.div`
+  display: ${props => (props.show ? `grid` : `none`)};
+  max-height: 80vh;
+  overflow: scroll;
+  z-index: 2;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5em);
+  width: 80vw;
+  max-width: 30em;
+  box-shadow: 0 0 5px 0;
+  padding: 0.7em 1em 0.4em;
+  background: white;
+  border-radius: ${props => props.theme.smallBorderRadius};
+  > * + * {
+    padding-top: 1em !important;
+    border-top: 2px solid ${props => props.theme.darkGray};
+  }
+  li + li {
+    margin-top: 0.7em;
+    padding-top: 0.7em;
+    border-top: 1px solid ${props => props.theme.lightGray};
+  }
+  * {
+    margin-top: 0;
+    padding: 0;
+    color: black !important;
+  }
+  ul {
+    list-style: none;
+  }
+  mark {
+    color: ${props => props.theme.lightBlue};
+    background: ${props => props.theme.darkBlue};
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3em;
+    h3 {
+      color: black;
+      background: ${props => props.theme.gray};
+      padding: 0.1em 0.4em;
+      border-radius: ${props => props.theme.smallBorderRadius};
+    }
+  }
+  h3 {
+    color: black;
+    margin: 0 0 0.5em;
+  }
+  h4 {
+    color: black;
+    margin-bottom: 0.3em;
+  }
+`
+const Root = styled.div`
+  position: relative;
+  display: grid;
+  grid-gap: 1em;
+`
+
+const focus = css`
+  background: white;
+  color: ${props => props.theme.darkBlue};
+  cursor: text;
+  width: 5em;
+  + ${SearchIcon} {
+    color: ${props => props.theme.darkBlue};
+    margin: 0.3em;
+  }
+`
+
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
-    // res && res.query && res.nbHits > 0 ? children : `No results for '${state.query}'`
-    res && res.query && res.nbHits > 0 ? children : null
+    res && res.query && res.nbHits > 0 ? children : `No results for '${state.query}'`
 )
 
 const Stats = connectStateResults(
@@ -36,7 +118,7 @@ const useClickOutside = (ref, handler, events) => {
   })
 }
 
-export default function Search({ indices, collapse, hitsAsGrid }) {
+export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
   const ref = createRef()
   const [query, setQuery] = useState(``)
   const [focus, setFocus] = useState(false)
@@ -45,6 +127,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
   )
   useClickOutside(ref, () => setFocus(false))
+  const displayResult = (query.length > 0 && focus) ? 'showResults' : 'hideResults';
   return (
     <InstantSearch
       searchClient={searchClient}
@@ -53,20 +136,18 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
       root={{ Root, props: { ref } }}
     >
       <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-      <HitsWrapper className={'hitWrapper'} show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-        {indices.map(({ name, title, hitComp }) => (
-          <Index key={name} indexName={name}>
-            <header>
-              <h3>{title}</h3>
-              <Stats />
-            </header>
-            <Results>
-              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-            </Results>
-          </Index>
-        ))}
+      <HitsWrapper className={'hitWrapper ' + displayResult} show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+        {indices.map(({ name, title, hitComp }) => {
+          return (
+            <Index key={name} indexName={name}>
+              <Results>
+                <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+              </Results>
+            </Index>
+          )})}
         <PoweredBy />
       </HitsWrapper>
+      <Configure hitsPerPage={5} />
     </InstantSearch>
   )
 }
