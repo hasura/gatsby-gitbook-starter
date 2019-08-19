@@ -22,6 +22,17 @@ body {
   color: red;
   background-color: #ffcccc;
 }
+.navBarParent
+{
+  width: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+.navBarULRight {
+  position: absolute;
+  right: 30px;
+}
 
 .githubIcon {
   width: 15px;
@@ -54,12 +65,54 @@ body {
   display: flex;
   align-items: center;
 }
-
+.formElement
+{
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+}
+.formElement:focus {
+  outline: none;
+  border: none;
+} 
+.searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
+  outline: none;
+  border: 0;
+}
+.searchWrapper
+{
+  padding-left: 20px;
+}
+.hitWrapper
+{
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  position: absolute;
+  width: 500px;
+  top: 60px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
+  height: auto;
+  max-height: 80vh;
+  overflow: scroll;
+  right: 0px;
+}
+.showResults {
+  display: block;
+}
+.hideResults {
+  display: none;
+}
+.hitWrapper span {
+  color: black;
+  font-size: 14px;
+}
 .headerTitle a {
   color: #fff;
 }
 
-.headerTitle a:hover, .headerTitle:hover {
+.headerTitle a:hover {
   text-decoration: none;
   opacity: 0.8;
 }
@@ -513,6 +566,10 @@ img {
   font-size: 16px;
   padding: 10px 15px;
 }
+.githubBtn span span {
+  display: flex;
+  align-items: center;
+}
 
 .communitySection {
   font-size: 24px;
@@ -555,12 +612,16 @@ img {
     margin-top: 0;
     margin-bottom: 0;
   }
-
+  .navBarParent {
+    display: block;
+  }
   .separator {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-
+  .navBarULRight {
+    position: static;
+  }
   .navbar-collapse {
     padding-left: 0;
     padding-right: 0;
@@ -574,6 +635,7 @@ img {
 
   .navBarUL li a {
     font-size: 14px;
+    padding: 10px 10px;
   }
 
   .navBarDefault {
@@ -582,11 +644,16 @@ img {
 
   .navBarToggle {
     margin-top: 15px;
+    margin-right: 0;
+    height: 44px;
   }
-
+  .navBarHeader {
+    display: flex;
+  }
   .navBarBrand {
     font-size: 20px;
-    padding: 15px
+    padding: 15px;
+    padding-left: 0;
   }
 
   .titleWrapper {
@@ -618,5 +685,54 @@ img {
   .mobileView {
     text-align: left !important;
     padding-left: 0 !important;
+  }
+  .searchWrapper {
+    position: absolute;
+    right: 15px;
+    padding-left: 10px;
+  }
+  .hitWrapper {
+    width: 100%;
+    right: 0;
+    top: 35px;
+    max-height: fit-content;
+  }
+  .formElement {
+    width: 165px;
+  }
+  .searchInput {
+    width: 130px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .navBarDefault {
+    padding: 10px;
+  }
+  .navBarBrand {
+    font-size: 22px;
+  }
+  .navBarCollapse {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .githubBtn {
+    padding: 10px 10px;
+  }
+  .navBarUL li a {
+    padding: 10px 10px;
+  }
+  .searchWrapper {
+    padding-left: 0px;
+  }
+  .formElement {
+    width: 171px;
+  }
+  .searchInput {
+    width: 136px;
+  }
+  .navBarCollapse {
+    display: flex !important;
+    align-items: center;
   }
 }

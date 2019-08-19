@@ -14,6 +14,7 @@ We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https:
 - Write using Markdown / [MDX](https://github.com/mdx-js/mdx)
 - GitBook style theme
 - Syntax Highlighting using Prism [`Bonus`: Code diff highlighting]
+- Search Integration with Algolia
 - Google Analytics Integration
 - Automatically generated sidebar navigation, table of contents, previous/next
 - Edit on Github
@@ -54,6 +55,7 @@ Open `config.js` for templating variables. Broadly configuration is available fo
     - `helpUrl` - Help URL for pointing to resources
     - `tweetText` - Tweet text
     - `links` - Links on the top right
+    - `search` - Enable search and [configure Algolia](https://www.gatsbyjs.org/docs/adding-search-with-algolia/)
 
 - `sidebar` config for navigation links configuration
     - `forcedNavOrder` for left sidebar navigation order. It should be in the format "/<filename>"
