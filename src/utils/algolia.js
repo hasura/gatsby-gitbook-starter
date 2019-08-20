@@ -1,3 +1,5 @@
+import config from "../../config.js";
+
 const pageQuery = `{
   pages: allMdx {
     edges {
@@ -27,11 +29,13 @@ const flatten = arr =>
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }
 
+const indexName = config.header.search ? config.header.search.indexName : '';
+
 const queries = [
   {
     query: pageQuery,
     transformer: ({ data }) => flatten(data.pages.edges),
-    indexName: `test`,
+    indexName: `${indexName}`,
     settings,
   },
 ]
