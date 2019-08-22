@@ -6,7 +6,7 @@ import './styles.css';
 import config from '../../config.js';
 
 import Search from './search/index';
-
+const help = require('./images/help.svg');
 const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
 
 let searchIndices = [];
@@ -76,45 +76,49 @@ const Header = ({location}) => (
                 <span className={'icon-bar'}></span>
               </button>
             </div>
-            <div id="navbar" className={'navbar-collapse collapse navBarCollapse'}>
-              <div className="navBarParent">
-                <div className={'visible-xs'}>
-                  <Sidebar location={location} />
-                  <hr/>
-                </div>
-                <ul className={'nav navbar-nav navBarUL'}>
-                  {githubUrl !== '' ?
-                    (<li className={'githubBtn'}>
-                      <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
-                    </li>) : null}
-                  {helpUrl !== '' ?
-                    (<li><a href={helpUrl}>Need Help?</a></li>) : null
-                  }
-                </ul>
-                <ul className={'nav navbar-nav navBarUL navbar-right navBarULRight'}>
-                  {tweetText !== '' ?
-                    (<li>
-                      <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank">
-                        <img className={'twitterIcon'} src={twitter} alt={'Twitter'} />
-                      </a>
-                     </li>) : null
-                  }
-                  {headerLinks.map((link, key) => {
-                    if(link.link !== '' && link.text !== '') {
-                      return(
-                        <li key={key}>
-                          <a href={link.link} target="_blank">{link.text}</a>
-                        </li>
-                      );
-                    }
-                  })}
-                  {isSearchEnabled ? (
-                    <div className={'searchWrapper'}>
-                      <Search collapse indices={searchIndices} />
-                    </div>
-                    ): null}
-                </ul>
+            {isSearchEnabled ? (
+              <div className={'searchWrapper hidden-xs navBarUL'}>
+                <Search collapse indices={searchIndices} />
               </div>
+              ): null}
+            <div id="navbar" className={'navbar-collapse collapse navBarCollapse'}>
+              <div className={'visible-xs'}>
+                <Sidebar location={location} />
+                <hr/>
+                {isSearchEnabled ? (
+                  <div className={'searchWrapper navBarUL'}>
+                    <Search collapse indices={searchIndices} />
+                  </div>
+                  ): null}
+              </div>
+              <ul className={'nav navbar-nav navBarUL navBarNav navbar-right navBarULRight'}>
+                {headerLinks.map((link, key) => {
+                  if(link.link !== '' && link.text !== '') {
+                    return(
+                      <li key={key}>
+                        <a href={link.link} target="_blank" dangerouslySetInnerHTML={{__html: link.text}} />
+                      </li>
+                    );
+                  }
+                })}
+                {helpUrl !== '' ?
+                  (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
+                }
+                {(tweetText !== '' || githubUrl !== '') ?
+                  (<li className="divider hidden-xs"></li>): null
+                }
+                {tweetText !== '' ?
+                  (<li>
+                    <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank">
+                      <img className={'twitterIcon'} src={twitter} alt={'Twitter'} />
+                    </a>
+                   </li>) : null
+                }
+                {githubUrl !== '' ?
+                  (<li className={'githubBtn'}>
+                    <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
+                  </li>) : null}
+              </ul>
             </div>
           </nav>
         </div>

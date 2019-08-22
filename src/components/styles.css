@@ -29,11 +29,16 @@ body {
   display: flex;
   align-items: center;
 }
-.navBarULRight {
-  position: absolute;
-  right: 30px;
+.divider
+{
+  height: 30px;
+  margin: 0 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
-
+.navBarULRight {
+  /* position: absolute;
+  right: 30px; */
+}
 .githubIcon {
   width: 15px;
   margin-right: 5px;
@@ -67,21 +72,37 @@ body {
 }
 .formElement
 {
-  background-color: #fff;
+  background-color: transparent;
   padding: 4px;
-  border-radius: 4px;
+  /* border-radius: 4px; */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 .formElement:focus {
   outline: none;
   border: none;
-} 
+}
+.formElement svg path {
+  fill: #fff;
+}
+.searchInput {
+  width: calc(100% - 26px);
+  background-color: transparent !important;
+  border-width: 0 !important;
+  color: rgba(255, 255, 255, 0.5);
+}
 .searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
   outline: none;
   border: 0;
 }
 .searchWrapper
 {
-  padding-left: 20px;
+  padding-left: 0px;
+  padding-right: 20px;
+  flex: 1;
+  max-width: 600px;
+}
+.searchWrapper a {
+  font-weight: 500;
 }
 .hitWrapper
 {
@@ -89,14 +110,13 @@ body {
   padding: 4px;
   border-radius: 4px;
   position: absolute;
-  width: 500px;
-  top: 60px;
+  max-width: 600px;
+  top: 70px;
   border: 1px solid #ccc;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
   height: auto;
   max-height: 80vh;
   overflow: scroll;
-  right: 0px;
 }
 .showResults {
   display: block;
@@ -118,7 +138,7 @@ body {
 }
 
 .navBarCollapse {
-  flex: 1;
+  padding-left: 0;
 }
 
 .logoWrapper {
@@ -151,7 +171,10 @@ body {
   z-index: 1;
   padding: 15px;
 }
-
+.navBarHeader {
+  min-width: 335px;
+  padding-right: 20px;
+}
 .navBarBrand {
   height: auto;
   font-size: 28px;
@@ -178,7 +201,7 @@ body {
   line-height: 1em;
   opacity: 1;
 }
-.navBarUL
+.navBarNav
 {
   display: flex;
   align-items: center;
@@ -564,7 +587,8 @@ img {
   display: flex;
   align-items: center;
   font-size: 16px;
-  padding: 10px 15px;
+  padding: 10px 0px;
+  padding-left: 15px;
 }
 .githubBtn span span {
   display: flex;
@@ -629,8 +653,8 @@ img {
 
   .navBarUL {
     display: flex;
-    padding-left: 16px;
     align-items: center;
+    margin: 7.5px 0px;
   }
 
   .navBarUL li a {
@@ -643,17 +667,20 @@ img {
   }
 
   .navBarToggle {
-    margin-top: 15px;
     margin-right: 0;
     height: 44px;
   }
   .navBarHeader {
     display: flex;
+    min-width: auto;
+    padding-right: 0;
+    align-items: center;
   }
   .navBarBrand {
     font-size: 20px;
     padding: 15px;
     padding-left: 0;
+    flex: 1;
   }
 
   .titleWrapper {
@@ -687,21 +714,15 @@ img {
     padding-left: 0 !important;
   }
   .searchWrapper {
-    position: absolute;
-    right: 15px;
-    padding-left: 10px;
+    padding: 10px 0;
+    padding-top: 20px;
   }
   .hitWrapper {
     width: 100%;
     right: 0;
     top: 35px;
     max-height: fit-content;
-  }
-  .formElement {
-    width: 165px;
-  }
-  .searchInput {
-    width: 130px;
+    position: static;
   }
 }
 
@@ -712,6 +733,9 @@ img {
   .navBarBrand {
     font-size: 22px;
   }
+  .navBarHeader {
+    min-width: 240px;
+  }
   .navBarCollapse {
     padding-right: 10px;
     padding-left: 10px;
@@ -719,17 +743,18 @@ img {
   .githubBtn {
     padding: 10px 10px;
   }
+  .divider {
+    margin: 0 5px;
+    height: 20px;
+  }
+  .hitWrapper {
+    max-width: 500px;
+  }
   .navBarUL li a {
-    padding: 10px 10px;
+    padding: 10px 5px;
   }
   .searchWrapper {
     padding-left: 0px;
-  }
-  .formElement {
-    width: 171px;
-  }
-  .searchInput {
-    width: 136px;
   }
   .navBarCollapse {
     display: flex !important;
