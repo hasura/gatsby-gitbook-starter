@@ -82,8 +82,8 @@ const Sidebar = styled('aside')`
   }
   @media only screen and (max-width: 1023px) {
     width: 100%;
-    position: relative;
-    height: auto;
+    /* position: relative; */
+    height: 100vh;
   }
 `;
 
