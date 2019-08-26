@@ -110,7 +110,7 @@ const Header = ({location}) => (
                 {tweetText !== '' ?
                   (<li>
                     <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank">
-                      <img className={'twitterIcon'} src={twitter} alt={'Twitter'} />
+                      <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
                     </a>
                    </li>) : null
                 }

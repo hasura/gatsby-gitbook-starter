@@ -208,7 +208,7 @@ body {
   display: flex;
   align-items: center;
 }
-.navBarUL li a img
+.navBarUL li a img, .navBarUL li a .shareIcon
 {
   width: 20px;
 }
