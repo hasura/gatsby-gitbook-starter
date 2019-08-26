@@ -100,6 +100,7 @@ body {
   padding-right: 20px;
   flex: 1;
   max-width: 600px;
+  position: relative;
 }
 .searchWrapper a {
   font-weight: 500;
@@ -111,12 +112,13 @@ body {
   border-radius: 4px;
   position: absolute;
   max-width: 600px;
-  top: 70px;
+  top: 40px;
   border: 1px solid #ccc;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
   height: auto;
   max-height: 80vh;
   overflow: scroll;
+  left: 0;
 }
 .showResults {
   display: block;
@@ -206,7 +208,7 @@ body {
   display: flex;
   align-items: center;
 }
-.navBarUL li a img
+.navBarUL li a img, .navBarUL li a .shareIcon
 {
   width: 20px;
 }
