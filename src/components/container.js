@@ -1,4 +1,4 @@
-import system from "system-components/emotion";
+import system from "@rebass/components/emotion";
 
 const Container = system(
   {
