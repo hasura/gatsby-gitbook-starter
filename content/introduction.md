@@ -1,7 +1,7 @@
 ---
-title: "Introduction"
-metaTitle: "This is the title tag of this page"
-metaDescription: "This is the meta description"
+title: "Overview"
+metaTitle: "What scaling up is all about"
+metaDescription: "This is a site all about taking your business from some revenue to the next stage. Suggestions you can't get anywhere else."
 ---
 
 Some introduction text. Lists out all the headings from h1 to h6. Easy to customise.
