@@ -75,7 +75,7 @@ const Tree = ({edges}) => {
   });
   const defaultCollapsed = {};
   treeData.items.forEach(item => {
-    if (config.sidebar.collapsedNav.includes(item.url)) {
+    if (config.sidebar.collapsedNav && config.sidebar.collapsedNav.includes(item.url)) {
       defaultCollapsed[item.url] = true;
     } else {
       defaultCollapsed[item.url] = false;
