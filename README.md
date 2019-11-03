@@ -71,6 +71,21 @@ Open `config.js` for templating variables. Broadly configuration is available fo
 
 - For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. The sub navigation is alphabetically ordered.
 
+### Algolia Configuration
+To have Algolia correctly running on local environment, you have first login in your algolia dashboard and create an algolia index. Then you go on config.js and update the `search` object to:
+```...,
+		"search": {
+			"enabled": true,
+			"indexName": "MY_INDEX_NAME",
+			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
+			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
+		}...,
+```
+Once you have done, you must launch a local or remote build for sending to Algolia the information needed to fill the index. You can do so by running `npm run dev`.
+
+At this point you can go back to Algolia's dashboad and set your "Searchables attributes".
+
 ## Live Code Editor
 
 To render react components for live editing, add the `react-live=true` to the code section. For example:
