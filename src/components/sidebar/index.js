@@ -1,7 +1,7 @@
 import React from "react";
 import Tree from './tree';
 import {StaticQuery, graphql} from "gatsby";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import {ExternalLink} from "react-feather";
 import '../styles.css';
 import config from '../../../config';

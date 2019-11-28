@@ -1,6 +1,8 @@
-import system from "@rebass/components/emotion";
+import { system } from "styled-system";
+import styled from "styled-components";
 
-const Pre = system(
+const Pre = styled("pre")(
+  system(
   {
     is: "pre",
     fontSize: 1,
@@ -13,7 +15,7 @@ const Pre = system(
   "fontFamily",
   "space",
   "color"
-);
+  ));
 Pre.displayName = "Pre";
 
 export default Pre;

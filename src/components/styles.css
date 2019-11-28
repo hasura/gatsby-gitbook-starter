@@ -108,10 +108,11 @@ body {
 .hitWrapper
 {
   background-color: #fff;
-  padding: 4px;
+  padding: 0.7em 1em 0.4em;
   border-radius: 4px;
   position: absolute;
-  max-width: 600px;
+  width: 80vw;
+  max-width: 30em;
   top: 40px;
   border: 1px solid #ccc;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
@@ -119,6 +120,18 @@ body {
   max-height: 80vh;
   overflow: scroll;
   left: 0;
+}
+.hitWrapper ul li {
+  margin-top: 0.7em;
+  padding-top: 0.7em;
+  border-top: 1px solid;
+  list-style-type: none;
+}
+.hitWrapper ul li:first-child {
+  border-top: 0px;
+  margin-top: 0px;
+  color: black !important;
+  padding: 0px;
 }
 .showResults {
   display: block;

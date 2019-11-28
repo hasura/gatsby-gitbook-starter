@@ -20,7 +20,7 @@ import '../styles.css';
 const SearchIcon = styled(Search)`
   width: 1em;
   pointer-events: none;
-`
+`;
 
 const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
@@ -96,19 +96,15 @@ const focus = css`
 `
 
 const Results = connectStateResults(
-  ({ searchState: state, searchResults: res, children }) =>
-    res && res.query && res.nbHits > 0 ? children : `No results for '${state.query}'`
-)
-
-const Stats = connectStateResults(
-  ({ searchResults: res }) =>
-    res && res.query && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
+  ({ searching, searchState: state, searchResults: res }) =>
+    (searching && `Searching...`) ||
+    (res && res.nbHits === 0 && `No results for '${state.query}'`)
 )
 
 const useClickOutside = (ref, handler, events) => {
   if (!events) events = [`mousedown`, `touchstart`]
   const detectClickOutside = event =>
-    !ref.current.contains(event.target) && handler()
+    ref && ref.current && !ref.current.contains(event.target) && handler()
   useEffect(() => {
     for (const event of events)
       document.addEventListener(event, detectClickOutside)
@@ -138,12 +134,11 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
     >
       <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
       <HitsWrapper className={'hitWrapper ' + displayResult} show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-        {indices.map(({ name, title, hitComp }) => {
+        {indices.map(({ name, title, hitComp, type }) => {
           return (
             <Index key={name} indexName={name}>
-              <Results>
-                <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-              </Results>
+              <Results />
+              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
             </Index>
           )})}
         <PoweredBy />

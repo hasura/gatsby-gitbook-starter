@@ -1,8 +1,10 @@
-import system from "@rebass/components/emotion";
+import { system } from "styled-system";
+import styled from "styled-components";
 
-const Heading = system(
+const Heading = styled('h1')(
+  system(
   {
-    is: "h2",
+    is: 'h1',
     fontSize: 5,
     fontWeight: "700",
     lineHeight: 1.5,
@@ -12,7 +14,9 @@ const Heading = system(
   "fontFamily",
   "color",
   "textAlign"
-);
+  ));
 Heading.displayName = "Heading";
 
 export default Heading;
+
+

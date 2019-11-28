@@ -1,6 +1,8 @@
-import system from "@rebass/components/emotion";
+import { system } from "styled-system";
+import styled from "styled-components";
 
-const Text = system(
+const Text = styled("p")(
+  system(
   {
     m: 0
   },
@@ -11,7 +13,7 @@ const Text = system(
   "fontWeight",
   "textAlign",
   "lineHeight"
-);
+  ));
 Text.displayName = "Text";
 
 export default Text;

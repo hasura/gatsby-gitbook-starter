@@ -62,7 +62,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
               const diffStyle = {'userSelect': 'none', 'MozUserSelect': '-moz-none', 'WebkitUserSelect': 'none'};
               let splitToken;
               return (
-                <div {...lineProps}>
+                <div {...lineProps} key={line+i}>
                   {line.map((token, key) => {
                     if(isDiff) {
                       if ((key === 0 || key === 1) & (token.content.charAt(0) === '+' || token.content.charAt(0) === '-')) {
@@ -70,7 +70,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
                           splitToken = { 'types': ['template-string','string'], 'content': token.content.slice(1)};
                           const firstChar = { 'types': ['operator'], 'content': token.content.charAt(0)};
                           return (
-                            <React.Fragment>
+                            <React.Fragment key={token+key}>
                               <span {...getTokenProps({ token: firstChar, key })} style={diffStyle} />
                               <span {...getTokenProps({ token: splitToken, key })} />
                             </React.Fragment>
