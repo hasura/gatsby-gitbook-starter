@@ -72,7 +72,8 @@ Open `config.js` for templating variables. Broadly configuration is available fo
 - For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. The sub navigation is alphabetically ordered.
 
 ### Algolia Configuration
-To have Algolia correctly running on local environment, you have first login in your algolia dashboard and create an algolia index. Then you go on config.js and update the `search` object to:
+
+To setup Algolia, go to `config.js` and update the `search` object to look like the one below:
 ```...,
 		"search": {
 			"enabled": true,
@@ -82,9 +83,7 @@ To have Algolia correctly running on local environment, you have first login in 
 			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
 		}...,
 ```
-Once you have done, you must launch a local or remote build for sending to Algolia the information needed to fill the index. You can do so by running `npm run dev`.
-
-At this point you can go back to Algolia's dashboad and set your "Searchables attributes".
+Values for Algolia App ID, Search Key, and Admin Key can be obtained from Algolia Dashboard with the right set of permissions. Replace `MY_INDEX_NAME` with the Algolia Index name of your choice. To build the Algolia index, you need to run `npm run build` which will do a gatsby build along with content indexing in Algolia.
 
 ## Live Code Editor
 
