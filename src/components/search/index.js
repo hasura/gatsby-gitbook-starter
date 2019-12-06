@@ -85,17 +85,6 @@ const Root = styled.div`
   grid-gap: 1em;
 `
 
-const focus = css`
-  background: white;
-  color: ${props => props.theme.darkBlue};
-  cursor: text;
-  width: 5em;
-  + ${SearchIcon} {
-    color: ${props => props.theme.darkBlue};
-    margin: 0.3em;
-  }
-`
-
 const Results = connectStateResults(
   ({ searching, searchState: state, searchResults: res }) =>
     (searching && `Searching...`) ||

@@ -747,6 +747,12 @@ img {
   font-size: 0.9375em;
 }
 
+.poweredBy {
+  font-size: 0.6em; 
+  text-align: end; 
+  padding: 0;
+}
+
 @media (max-width: 767px) {
   hr {
     margin-top: 0;

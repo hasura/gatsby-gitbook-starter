@@ -36,7 +36,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
         theme={prismTheme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <p className={className + ' pre'} style={style} p={3}>
+          <pre className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {
               let lineClass = {};
               let isDiff = false;
@@ -85,7 +85,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
                    } )}
                 </div>
             )})}
-          </p>
+          </pre>
         )}
       </Highlight>
     );

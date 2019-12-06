@@ -41,6 +41,7 @@
     "react-feather": "^2.0.3",
     "react-github-btn": "^1.1.1",
     "react-helmet": "^5.2.1",
+    "react-id-generator": "^3.0.0",
     "react-instantsearch-dom": "^6.0.0",
     "react-live": "^2.2.2",
     "styled-components": "^4.4.1",

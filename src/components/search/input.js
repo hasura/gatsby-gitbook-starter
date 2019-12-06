@@ -10,7 +10,7 @@ const SearchIcon = styled(Search)`
   pointer-events: none;
   margin-right: 10px
 `
-const focus = css`
+const focus = (props) => css`
   background: white;
   color: ${props => props.theme.darkBlue};
   cursor: text;
@@ -20,21 +20,21 @@ const focus = css`
     margin: 0.3em;
   }
 `
-const collapse = css`
+const collapse = (props) => css`
   width: 0;
   cursor: pointer;
   color: ${props => props.theme.lightBlue};
   + ${SearchIcon} {
     color: white;
   }
-  ${props => props.focus && focus}
+  ${props => props.focus && focus()}
   margin-left: ${props => (props.focus ? `-1.6em` : `-1em`)};
   padding-left: ${props => (props.focus ? `1.6em` : `1em`)};
   ::placeholder {
     color: ${props => props.theme.gray};
   }
 `
-const expand = css`
+const expand = (props) => css`
   background: ${props => props.theme.veryLightGray};
   width: 6em;
   margin-left: -1.6em;
@@ -51,7 +51,7 @@ const Input = styled.input`
   transition: ${props => props.theme.shortTrans};
   border-radius: ${props => props.theme.smallBorderRadius};
   {hightlight-next-line}
-  ${props => (props.collapse ? collapse : expand)};
+  ${props => (props.collapse ? collapse() : expand())};
 `
 const Form = styled.form`
   display: flex;
