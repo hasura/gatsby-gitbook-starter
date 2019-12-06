@@ -4,8 +4,6 @@ import prismTheme from "prism-react-renderer/themes/vsDark";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import '../styles.css';
 
-import Pre from "./pre";
-
 /** Removes the last token from a code example if it's empty. */
 function cleanTokens(tokens) {
   const tokensLength = tokens.length;
@@ -38,7 +36,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
         theme={prismTheme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <Pre className={className} style={style} p={3}>
+          <p className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {
               let lineClass = {};
               let isDiff = false;
@@ -87,7 +85,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
                    } )}
                 </div>
             )})}
-          </Pre>
+          </p>
         )}
       </Highlight>
     );
