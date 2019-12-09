@@ -6,7 +6,17 @@
   box-sizing: border-box;
   font-display: swap;
 }
+::-webkit-input-placeholder { /* Edge */
+  color: #C2C2C2;
+}
 
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #C2C2C2;
+}
+
+::placeholder {
+  color: #C2C2C2;
+}
 html, body {
   font-family: -apple-system,
     BlinkMacSystemFont,
@@ -122,7 +132,8 @@ body {
   width: calc(100% - 26px);
   background-color: transparent !important;
   border-width: 0 !important;
-  color: rgba(255, 255, 255, 0.5);
+  color: #C2C2C2;
+
 }
 .searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
   outline: none;
@@ -748,8 +759,8 @@ img {
 }
 
 .poweredBy {
-  font-size: 0.6em; 
-  text-align: end; 
+  font-size: 0.6em;
+  text-align: end;
   padding: 0;
 }
 
@@ -786,6 +797,7 @@ img {
 
   .navBarDefault {
     display: block;
+    padding-bottom: 50px
   }
 
   .navBarToggle {
@@ -834,6 +846,9 @@ img {
   .searchWrapper {
     padding: 10px 0;
     padding-top: 20px;
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 30px);
   }
   .hitWrapper {
     width: 100%;
