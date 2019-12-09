@@ -37,6 +37,14 @@ const HitsWrapper = styled.div`
   box-shadow: 0 0 5px 0;
   padding: 0.7em 1em 0.4em;
   background: white;
+  @media only screen and (max-width: 991px) {
+    width: 400px;
+    max-width: 400px;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    max-width: 500px;
+  }
   border-radius: ${props => props.theme.smallBorderRadius};
   > * + * {
     padding-top: 1em !important;
@@ -83,6 +91,9 @@ const Root = styled.div`
   position: relative;
   display: grid;
   grid-gap: 1em;
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const Results = connectStateResults(

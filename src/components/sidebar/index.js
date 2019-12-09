@@ -71,19 +71,21 @@ const Sidebar = styled('aside')`
   background: -ms-linear-gradient(top, #372476, #3b173b);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #372476, #3b173b);
-  @media only screen and (max-width: 767px) {
-    padding-left: 0px;
-    background-color: #372476;
-    background: #372476;
+
+  @media only screen and (max-width: 1023px) {
+    width: 100%;
+    /* position: relative; */
+    height: 100vh;
   }
   @media (min-width: 767px) and (max-width:1023px)
   {
     padding-left: 0;
   }
-  @media only screen and (max-width: 1023px) {
-    width: 100%;
-    /* position: relative; */
-    height: 100vh;
+  @media only screen and (max-width: 767px) {
+    padding-left: 0px;
+    background-color: #372476;
+    background: #372476;
+    height: auto;
   }
 `;
 
