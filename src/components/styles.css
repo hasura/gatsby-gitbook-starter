@@ -748,8 +748,8 @@ img {
 }
 
 .poweredBy {
-  font-size: 0.6em; 
-  text-align: end; 
+  font-size: 0.6em;
+  text-align: end;
   padding: 0;
 }
 
@@ -786,6 +786,7 @@ img {
 
   .navBarDefault {
     display: block;
+    padding-bottom: 50px
   }
 
   .navBarToggle {
@@ -834,6 +835,9 @@ img {
   .searchWrapper {
     padding: 10px 0;
     padding-top: 20px;
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 30px);
   }
   .hitWrapper {
     width: 100%;
