@@ -6,7 +6,17 @@
   box-sizing: border-box;
   font-display: auto;
 }
+::-webkit-input-placeholder { /* Edge */
+  color: #C2C2C2;
+}
 
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #C2C2C2;
+}
+
+::placeholder {
+  color: #C2C2C2;
+}
 html, body {
   font-family: -apple-system,
     BlinkMacSystemFont,
@@ -122,7 +132,8 @@ body {
   width: calc(100% - 26px);
   background-color: transparent !important;
   border-width: 0 !important;
-  color: rgba(255, 255, 255, 0.5);
+  color: #C2C2C2;
+
 }
 .searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
   outline: none;
