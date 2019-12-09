@@ -1,5 +1,6 @@
 import React from "react";
 import CodeBlock from "./codeBlock";
+import AnchorTag from "./anchor";
 import '../styles.css';
 
 export default {
@@ -12,7 +13,7 @@ export default {
   p: props => <p className='paragraph' {...props} />,
   pre: props => <pre className='pre' {...props} />,
   code: CodeBlock,
-  // TODO add `a`
+  a: AnchorTag
   // TODO add `img`
   // TODO add `blockquote`
   // TODO add `ul`
