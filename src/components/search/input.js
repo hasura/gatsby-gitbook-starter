@@ -43,6 +43,11 @@ const expand = (props) => css`
     margin: 0.3em;
   }
 `
+
+const collapseExpand = (props) => css`
+  ${props => (props.collapse ? collapse() : expand())}
+`
+
 const Input = styled.input`
   outline: none;
   border: none;
@@ -50,8 +55,7 @@ const Input = styled.input`
   background: white;
   transition: ${props => props.theme.shortTrans};
   border-radius: ${props => props.theme.smallBorderRadius};
-  {hightlight-next-line}
-  ${props => (props.collapse ? collapse() : expand())};
+  {collapseExpand}
 `
 const Form = styled.form`
   display: flex;
@@ -60,7 +64,6 @@ const Form = styled.form`
 `
 
 export default connectSearchBox(({ refine, ...rest }) => {
-  const searchCustom = '';
   const preventSubmit = (e) => {
     e.preventDefault();
   }
@@ -68,7 +71,7 @@ export default connectSearchBox(({ refine, ...rest }) => {
     <Form className={'formElement'} onSubmit={preventSubmit}>
       <SearchIcon />
       <Input
-        className={'searchInput ' + searchCustom}
+        className={'searchInput '}
         type="text"
         placeholder="Search"
         aria-label="Search"

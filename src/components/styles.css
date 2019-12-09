@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-display: auto;
+  font-display: swap;
 }
 
 html, body {
@@ -339,7 +339,7 @@ pre {
   padding: 7px 24px 7px 16px;
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
-  color: #9DAAB6;
+  color: #4C5767;
 }
 
 .rightSideBarUL {
