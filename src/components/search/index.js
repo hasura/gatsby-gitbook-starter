@@ -10,7 +10,8 @@ import {
 import algoliasearch from "algoliasearch/lite";
 import config from "../../../config.js";
 
-import styled, { css } from 'styled-components';
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 import { PoweredBy } from "./styles"
 import { Search } from "styled-icons/fa-solid/Search"
 import Input from "./input"
@@ -20,7 +21,7 @@ import '../styles.css';
 const SearchIcon = styled(Search)`
   width: 1em;
   pointer-events: none;
-`
+`;
 
 const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
@@ -36,6 +37,14 @@ const HitsWrapper = styled.div`
   box-shadow: 0 0 5px 0;
   padding: 0.7em 1em 0.4em;
   background: white;
+  @media only screen and (max-width: 991px) {
+    width: 400px;
+    max-width: 400px;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    max-width: 500px;
+  }
   border-radius: ${props => props.theme.smallBorderRadius};
   > * + * {
     padding-top: 1em !important;
@@ -82,33 +91,21 @@ const Root = styled.div`
   position: relative;
   display: grid;
   grid-gap: 1em;
-`
-
-const focus = css`
-  background: white;
-  color: ${props => props.theme.darkBlue};
-  cursor: text;
-  width: 5em;
-  + ${SearchIcon} {
-    color: ${props => props.theme.darkBlue};
-    margin: 0.3em;
+  @media only screen and (max-width: 767px) {
+    width: 100%;
   }
 `
 
 const Results = connectStateResults(
-  ({ searchState: state, searchResults: res, children }) =>
-    res && res.query && res.nbHits > 0 ? children : `No results for '${state.query}'`
-)
-
-const Stats = connectStateResults(
-  ({ searchResults: res }) =>
-    res && res.query && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
+  ({ searching, searchState: state, searchResults: res }) =>
+    (searching && `Searching...`) ||
+    (res && res.nbHits === 0 && `No results for '${state.query}'`)
 )
 
 const useClickOutside = (ref, handler, events) => {
   if (!events) events = [`mousedown`, `touchstart`]
   const detectClickOutside = event =>
-    !ref.current.contains(event.target) && handler()
+    ref && ref.current && !ref.current.contains(event.target) && handler()
   useEffect(() => {
     for (const event of events)
       document.addEventListener(event, detectClickOutside)
@@ -138,12 +135,11 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
     >
       <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
       <HitsWrapper className={'hitWrapper ' + displayResult} show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-        {indices.map(({ name, title, hitComp }) => {
+        {indices.map(({ name, title, hitComp, type }) => {
           return (
             <Index key={name} indexName={name}>
-              <Results>
-                <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-              </Results>
+              <Results />
+              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
             </Index>
           )})}
         <PoweredBy />

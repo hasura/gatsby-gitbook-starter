@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import Link from "./link";
 import './styles.css';
 import config from '../../config';
@@ -113,7 +113,7 @@ const SidebarLayout = ({ location }) => (
         return (
           <Sidebar>
             <ul className={'rightSideBarUL'}>
-              <div className={'rightSideTitle'}>CONTENTS</div>
+              <li className={'rightSideTitle'}>CONTENTS</li>
               {finalNavItems}
             </ul>
           </Sidebar>

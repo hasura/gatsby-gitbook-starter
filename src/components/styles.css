@@ -1,4 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-display: swap;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: #C2C2C2;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #C2C2C2;
+}
+
+::placeholder {
+  color: #C2C2C2;
+}
+html, body {
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Roboto Light",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+
+  font-size: 16px;
+}
+
+a {
+  transition: color 0.15s;
+  color: #663399;
+}
+
+
 body {
   font-family: 'Roboto';
 }
@@ -88,7 +132,8 @@ body {
   width: calc(100% - 26px);
   background-color: transparent !important;
   border-width: 0 !important;
-  color: rgba(255, 255, 255, 0.5);
+  color: #C2C2C2;
+
 }
 .searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
   outline: none;
@@ -108,10 +153,11 @@ body {
 .hitWrapper
 {
   background-color: #fff;
-  padding: 4px;
+  padding: 0.7em 1em 0.4em;
   border-radius: 4px;
   position: absolute;
-  max-width: 600px;
+  width: 80vw;
+  max-width: 30em;
   top: 40px;
   border: 1px solid #ccc;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
@@ -119,6 +165,18 @@ body {
   max-height: 80vh;
   overflow: scroll;
   left: 0;
+}
+.hitWrapper ul li {
+  margin-top: 0.7em;
+  padding-top: 0.7em;
+  border-top: 1px solid;
+  list-style-type: none;
+}
+.hitWrapper ul li:first-child {
+  border-top: 0px;
+  margin-top: 0px;
+  color: black !important;
+  padding: 0px;
 }
 .showResults {
   display: block;
@@ -292,7 +350,7 @@ pre {
   padding: 7px 24px 7px 16px;
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
-  color: #9DAAB6;
+  color: #4C5767;
 }
 
 .rightSideBarUL {
@@ -385,7 +443,6 @@ pre {
   color: #fff;
 }
 
-
 .titleWrapper {
   display: flex;
   align-items: center;
@@ -476,7 +533,7 @@ pre {
   display: block;
   margin: 0px;
   padding: 0px;
-  color: rgb(157, 170, 182);
+  color: #6E6E6E;
 }
 
 .smallContent span {
@@ -633,6 +690,80 @@ img {
   opacity: 0.7;
 }
 
+.heading1 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading4 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading5 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading6 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.paragraph {
+  margin: 16px 0px 32px;
+  line-height: 1.625;
+}
+
+.pre {
+  font-size: 14px;
+  margin: 0px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.mainWrapper code {
+  background: #f9f7fb;
+  border: 1px solid #ede7f3;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9375em;
+}
+
+.poweredBy {
+  font-size: 0.6em;
+  text-align: end;
+  padding: 0;
+}
+
 @media (max-width: 767px) {
   hr {
     margin-top: 0;
@@ -666,6 +797,7 @@ img {
 
   .navBarDefault {
     display: block;
+    padding-bottom: 50px
   }
 
   .navBarToggle {
@@ -688,10 +820,6 @@ img {
   .titleWrapper {
     padding: 0 15px;
     display: block;
-  }
-
-  .mobileView {
-    text-align: center !important;
   }
 
   .gitBtn {
@@ -718,6 +846,9 @@ img {
   .searchWrapper {
     padding: 10px 0;
     padding-top: 20px;
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 30px);
   }
   .hitWrapper {
     width: 100%;

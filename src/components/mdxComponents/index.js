@@ -1,24 +1,19 @@
 import React from "react";
-import Heading from "../heading";
-import Text from "./text";
-import Code from "./code";
 import CodeBlock from "./codeBlock";
-import Pre from "./pre";
 import AnchorTag from "./anchor";
+import '../styles.css';
 
-/* eslint-disable react/display-name */
 export default {
-  h1: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h1" fontSize={[5, 6]} />,
-  h2: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h2" fontSize={[4]} />,
-  h3: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h3" fontSize={3} />,
-  h4: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h4" fontSize={2} />,
-  h5: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h5" fontSize={1} />,
-  h6: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h6" fontSize={0} />,
-  p: props => <Text {...props} is="p" lineHeight={1.625} mt={3} mb={4} />,
-  pre: Pre,
+  h1: props => <h1 className='heading1' id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />,
+  h2: props => <h2 className='heading2' id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />,
+  h3: props => <h3 className='heading3' id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />,
+  h4: props => <h4 className='heading4' id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />,
+  h5: props => <h5 className='heading5' id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />,
+  h6: props => <h6 className='heading6' id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />,
+  p: props => <p className='paragraph' {...props} />,
+  pre: props => <pre className='pre' {...props} />,
   code: CodeBlock,
-  inlineCode: props => <Code {...props} />,
-  a: props => <AnchorTag {...props} />
+  a: AnchorTag
   // TODO add `img`
   // TODO add `blockquote`
   // TODO add `ul`
