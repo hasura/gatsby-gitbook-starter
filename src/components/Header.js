@@ -96,7 +96,7 @@ const Header = ({location}) => (
                   if(link.link !== '' && link.text !== '') {
                     return(
                       <li key={key}>
-                        <a href={link.link} target="_blank" dangerouslySetInnerHTML={{__html: link.text}} />
+                        <a href={link.link} target="_blank" rel="noopener" dangerouslySetInnerHTML={{__html: link.text}} />
                       </li>
                     );
                   }
@@ -109,7 +109,7 @@ const Header = ({location}) => (
                 }
                 {tweetText !== '' ?
                   (<li>
-                    <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank">
+                    <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank" rel="noopener">
                       <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
                     </a>
                    </li>) : null

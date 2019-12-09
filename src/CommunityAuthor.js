@@ -13,8 +13,8 @@ const CommunityAuthor = ({name, imageUrl, twitterUrl, githubUrl, description}) =
         		<div className="authorDetails">
 	        		<div className="authorName">
 	        			<strong>{name}</strong>
-	        			{twitterUrl ? (<a href={twitterUrl} target="_blank"><img src="https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-icon.svg" /></a>) : null}
-	        			{githubUrl ? (<a href={githubUrl} target="_blank"><img src="https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/github-icon.svg" /></a>) : null}
+	        			{twitterUrl ? (<a href={twitterUrl} target="_blank" rel="noopener"><img src="https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-icon.svg" alt="Twitter Icon" aria-label="Twitter" /></a>) : null}
+	        			{githubUrl ? (<a href={githubUrl} target="_blank" rel="noopener"><img src="https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/github-icon.svg" alt="Github Icon" aria-label="Github" /></a>) : null}
 	        		</div>
 	        		<div className="authorDesc">
                         {description}
