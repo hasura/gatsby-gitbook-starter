@@ -8,7 +8,7 @@ const CommunityAuthor = ({name, imageUrl, twitterUrl, githubUrl, description}) =
         	<hr className="separator" />
         	<div className="authorSection">
         		<div className="authorImg">
-        			<img src={imageUrl} />
+        			<img src={imageUrl} alt={name} />
         		</div>
         		<div className="authorDetails">
 	        		<div className="authorName">
