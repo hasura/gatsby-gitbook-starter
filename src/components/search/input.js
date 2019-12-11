@@ -61,6 +61,10 @@ const Form = styled.form`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    margin-left: 15px;
+  }
 `
 
 export default connectSearchBox(({ refine, ...rest }) => {
