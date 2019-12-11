@@ -783,6 +783,9 @@ img {
     padding-left: 0;
     padding-right: 0;
   }
+  .navBarCollapse {
+    padding-bottom: 50px;
+  }
 
   .navBarUL {
     display: flex;
@@ -797,7 +800,6 @@ img {
 
   .navBarDefault {
     display: block;
-    padding-bottom: 50px
   }
 
   .navBarToggle {
@@ -847,7 +849,7 @@ img {
     padding: 10px 0;
     padding-top: 20px;
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     width: calc(100% - 30px);
   }
   .hitWrapper {
