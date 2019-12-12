@@ -26,12 +26,12 @@ export default class HTML extends React.Component {
           <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
             crossOrigin="anonymous" />
-          <script
-  			    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
-          </script>
+          <noscript key="noscript">Your browser does not support JavaScript!</noscript>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossOrigin="anonymous"></script>
           <script 
             defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js">
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"
+            crossOrigin="anonymous">
           </script>
           {this.props.headComponents}
         </head>

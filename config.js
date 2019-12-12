@@ -24,6 +24,7 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
+			"/",
 			"/introduction",
     		"/codeblock"
 		],
@@ -49,8 +50,14 @@ const config = {
 			"background_color": "#6b37bf",
 			"theme_color": "#6b37bf",
 			"display": "standalone",
-			"icon": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
-			"crossOrigin": "use-credentials"
+			"crossOrigin": "use-credentials",
+			icons: [
+				{
+					src: "src/pwa-512.png",
+					sizes: `512x512`,
+					type: `image/png`,
+				},
+			],
 		},
 	}
 };

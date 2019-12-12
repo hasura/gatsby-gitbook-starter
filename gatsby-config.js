@@ -11,6 +11,15 @@ const plugins = [
     }
   },
   'gatsby-plugin-emotion',
+  'gatsby-plugin-remove-trailing-slashes',
+  'gatsby-plugin-react-helmet',
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "docs",
+      path: `${__dirname}/content/`
+    }
+  },
   {
     resolve: 'gatsby-plugin-mdx',
     options: {
@@ -27,15 +36,6 @@ const plugins = [
         }
       ],
       extensions: [".mdx", ".md"]
-    }
-  },
-  'gatsby-plugin-remove-trailing-slashes',
-  'gatsby-plugin-react-helmet',
-  {
-    resolve: "gatsby-source-filesystem",
-    options: {
-      name: "docs",
-      path: `${__dirname}/content/`
     }
   },
   {
@@ -68,7 +68,12 @@ if (config.pwa.enabled && config.pwa.manifest) {
       resolve: `gatsby-plugin-manifest`,
       options: {...config.pwa.manifest},
   });
-  plugins.push('gatsby-plugin-offline');
+  plugins.push({
+    resolve: 'gatsby-plugin-offline',
+    options: {
+      appendScript: require.resolve(`./src/custom-sw-code.js`),
+    },
+  });
 } else {
   plugins.push('gatsby-plugin-remove-serviceworker');
 }
