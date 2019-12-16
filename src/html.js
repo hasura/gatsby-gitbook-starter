@@ -23,14 +23,21 @@ export default class HTML extends React.Component {
           {config.siteMetadata.favicon ?
             (<link rel="shortcut icon" type="image/svg" href={config.siteMetadata.favicon} />) : null
           }
-          <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
-            crossOrigin="anonymous" />
           <noscript key="noscript">Your browser does not support JavaScript!</noscript>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossOrigin="anonymous"></script>
+          <link 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
+            integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" 
+            crossOrigin="anonymous" 
+          />
           <script 
-            defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" 
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" 
+            crossOrigin="anonymous">
+          </script>
+          <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" 
+            integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" 
             crossOrigin="anonymous">
           </script>
           {this.props.headComponents}

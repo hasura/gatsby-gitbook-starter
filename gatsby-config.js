@@ -63,7 +63,7 @@ if (config.header.search && config.header.search.enabled && config.header.search
   )
 }
 // check and add pwa functionality
-if (config.pwa.enabled && config.pwa.manifest) {
+if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
   plugins.push({
       resolve: `gatsby-plugin-manifest`,
       options: {...config.pwa.manifest},
