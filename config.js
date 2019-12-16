@@ -42,7 +42,7 @@ const config = {
 		"favicon": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
 	},
 	"pwa": {
-		"enabled": true, // disabling this will also remove the existing service worker.
+		"enabled": false, // disabling this will also remove the existing service worker.
 		"manifest": {
 			"name": "Gatsby Gitbook Starter",
 			"short_name": "GitbookStarter",
