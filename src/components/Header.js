@@ -5,7 +5,9 @@ import Link from './link';
 import './styles.css';
 import config from '../../config.js';
 
-import Search from './search/index';
+import Loadable from 'react-loadable';
+import LoadingProvider from './mdxComponents/loading';
+
 const help = require('./images/help.svg');
 const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
 
@@ -17,6 +19,11 @@ if(isSearchEnabled && config.header.search.indexName) {
 }
 
 import Sidebar from "./sidebar";
+
+const LoadableComponent = Loadable({
+  loader: () => import('./search/index'),
+  loading: LoadingProvider,
+});
 
 const Header = ({location}) => (
   <StaticQuery
@@ -78,7 +85,7 @@ const Header = ({location}) => (
             </div>
             {isSearchEnabled ? (
               <div className={'searchWrapper hidden-xs navBarUL'}>
-                <Search collapse indices={searchIndices} />
+                <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
               ): null}
             <div id="navbar" className={'navbar-collapse collapse navBarCollapse'}>
@@ -87,7 +94,7 @@ const Header = ({location}) => (
                 <hr/>
                 {isSearchEnabled ? (
                   <div className={'searchWrapper navBarUL'}>
-                    <Search collapse indices={searchIndices} />
+                    <LoadableComponent collapse={true} indices={searchIndices} />
                   </div>
                   ): null}
               </div>

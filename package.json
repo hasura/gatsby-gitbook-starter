@@ -12,6 +12,7 @@
     "@mdx-js/loader": "^1.5.1",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
+    "@philpl/buble": "^0.19.7",
     "@playlyfe/gql": "^2.6.2",
     "algoliasearch": "^3.35.1",
     "dotenv": "^8.2.0",
@@ -47,6 +48,7 @@
     "react-id-generator": "^3.0.0",
     "react-instantsearch-dom": "^6.0.0",
     "react-live": "^2.2.2",
+    "react-loadable": "^5.5.0",
     "styled-components": "^4.4.1",
     "styled-icons": "^9.0.1"
   },

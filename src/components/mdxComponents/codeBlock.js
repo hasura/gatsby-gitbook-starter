@@ -1,7 +1,8 @@
 import * as React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import prismTheme from "prism-react-renderer/themes/vsDark";
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
+import Loadable from 'react-loadable';
+import LoadingProvider from './loading';
 import '../styles.css';
 
 /** Removes the last token from a code example if it's empty. */
@@ -17,15 +18,16 @@ function cleanTokens(tokens) {
   return tokens;
 }
 
+const LoadableComponent = Loadable({
+  loader: () => import('./LiveProvider'),
+  loading: LoadingProvider,
+});
+
 /* eslint-disable react/jsx-key */
 const CodeBlock = ({ children: exampleCode, ...props }) => {
   if (props["react-live"]) {
     return (
-      <LiveProvider code={exampleCode}>
-        <LiveEditor />
-        <LiveError />
-        <LivePreview />
-      </LiveProvider>
+       <LoadableComponent code={exampleCode} />
     );
   } else {
     return (
