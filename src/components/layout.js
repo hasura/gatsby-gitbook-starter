@@ -45,13 +45,13 @@ const Layout = ({ children, location }) => (
   <ThemeProvider location={location}>
     <MDXProvider components={mdxComponents}>
       <Wrapper>
-        <LeftSideBarWidth className={'hidden-xs'}>
+        <LeftSideBarWidth className={'hiddenMobile'}>
           <Sidebar location={location} />
         </LeftSideBarWidth>
         <Content>
           <MaxWidth>{children}</MaxWidth>
         </Content>
-        <RightSideBarWidth className={'hidden-xs'}>
+        <RightSideBarWidth className={'hiddenMobile'}>
           <RightSidebar location={location} />
         </RightSideBarWidth>
       </Wrapper>
