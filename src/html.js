@@ -24,24 +24,6 @@ export default class HTML extends React.Component {
             (<link rel="shortcut icon" type="image/svg" href={config.siteMetadata.favicon} />) : null
           }
           <noscript key="noscript">Your browser does not support JavaScript!</noscript>
-          {/*
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
-            integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE="
-            crossOrigin="anonymous"
-          />
-          <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
-            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-            crossOrigin="anonymous">
-          </script>
-          <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"
-            integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4="
-            crossOrigin="anonymous">
-          </script>
-          */}
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
@@ -58,14 +40,11 @@ export default class HTML extends React.Component {
             __html: `
             function navBarClose() {
               document.getElementById("navbar").classList.toggle("responsive");
-              console.log('Click');
             }
             document.addEventListener('click',function(e){
-              console.log(e.target);
               if(e.target && e.target.tagName.toLowerCase() === 'a'){
-                    //do something
-                    navBarClose();
-               }
+                navBarClose();
+              }
            });
             `
           }}
