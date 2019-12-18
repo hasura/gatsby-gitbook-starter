@@ -23,7 +23,7 @@ export default class HTML extends React.Component {
           {config.siteMetadata.favicon ?
             (<link rel="shortcut icon" type="image/svg" href={config.siteMetadata.favicon} />) : null
           }
-          <noscript key="noscript">Your browser does not support JavaScript!</noscript>
+          <noscript key="noscript"></noscript>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
