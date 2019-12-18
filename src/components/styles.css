@@ -866,7 +866,6 @@ img {
 
   .navBarDefault {
     display: block;
-    max-height: none;
   }
 
   .navBarToggle {
