@@ -9,10 +9,10 @@ const config = {
 		"logoLink": "https://learn.hasura.io",
 		"title": "Gatsby Gitbook Boilerplate",
 		"githubUrl": "https://github.com/hasura/gatsby-gitbook-boilerplate",
-		"helpUrl": "abcd",
-		"tweetText": "abcd",
+		"helpUrl": "",
+		"tweetText": "",
 		"links": [
-			{ "text": "abcs", "link": "andbn"}
+			{ "text": "", "link": ""}
 		],
 		"search": {
 			"enabled": false,
