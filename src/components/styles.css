@@ -688,6 +688,7 @@ img {
   font-size: 16px;
   padding: 10px 0px;
   padding-left: 15px;
+  max-height: 40px;
 }
 .githubBtn span span {
   display: flex;
@@ -816,6 +817,9 @@ img {
   .headerTitle {
     padding-right: 50px;
     font-size: 20px;
+  }
+  .navBarBrand {
+    min-height: 40px;
   }
   .navBarBrand img {
     margin-right: 8px;
