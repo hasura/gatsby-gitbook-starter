@@ -267,6 +267,7 @@ a:hover {
   z-index: 1;
   padding: 15px;
   position: relative;
+  max-height: 72px;
 }
 .navBarHeader {
   min-width: 335px;
