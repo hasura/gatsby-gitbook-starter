@@ -15,6 +15,7 @@ We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https:
 - GitBook style theme
 - Syntax Highlighting using Prism [`Bonus`: Code diff highlighting]
 - Search Integration with Algolia
+- Progressive Web App, Works Offline
 - Google Analytics Integration
 - Automatically generated sidebar navigation, table of contents, previous/next
 - Edit on Github
@@ -74,16 +75,44 @@ Open `config.js` for templating variables. Broadly configuration is available fo
 ### Algolia Configuration
 
 To setup Algolia, go to `config.js` and update the `search` object to look like the one below:
+
 ```...,
-		"search": {
-			"enabled": true,
-			"indexName": "MY_INDEX_NAME",
-			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
-			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
-		}...,
+	"search": {
+		"enabled": true,
+		"indexName": "MY_INDEX_NAME",
+		"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
+		"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+		"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
+	},
 ```
+
 Values for Algolia App ID, Search Key, and Admin Key can be obtained from Algolia Dashboard with the right set of permissions. Replace `MY_INDEX_NAME` with the Algolia Index name of your choice. To build the Algolia index, you need to run `npm run build` which will do a gatsby build along with content indexing in Algolia.
+
+### Progressive Web App, Offline
+
+To enable PWA, go to `config.js` and update the `pwa` object to look like the one below:
+
+```
+   "pwa": {
+        "enabled": false, // disabling this will also remove the existing service worker.
+        "manifest": {
+            "name": "Gatsby Gitbook Starter",
+            "short_name": "GitbookStarter",
+            "start_url": "/",
+            "background_color": "#6b37bf",
+            "theme_color": "#6b37bf",
+            "display": "standalone",
+            "crossOrigin": "use-credentials",
+            icons: [
+                {
+                    src: "src/pwa-512.png",
+                    sizes: `512x512`,
+                    type: `image/png`,
+                },
+            ],
+        },
+    }
+```
 
 ## Live Code Editor
 

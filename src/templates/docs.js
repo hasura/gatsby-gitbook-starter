@@ -39,6 +39,9 @@ const Edit = styled('div')`
 export default class MDXRuntimeTest extends Component {
   render() {
     const { data } = this.props;
+    if(!data) {
+      return null;
+    }
     const {
       allMdx,
       mdx,

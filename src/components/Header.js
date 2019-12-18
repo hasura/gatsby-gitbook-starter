@@ -5,7 +5,9 @@ import Link from './link';
 import './styles.css';
 import config from '../../config.js';
 
-import Search from './search/index';
+import Loadable from 'react-loadable';
+import LoadingProvider from './mdxComponents/loading';
+
 const help = require('./images/help.svg');
 const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
 
@@ -17,6 +19,20 @@ if(isSearchEnabled && config.header.search.indexName) {
 }
 
 import Sidebar from "./sidebar";
+
+const LoadableComponent = Loadable({
+  loader: () => import('./search/index'),
+  loading: LoadingProvider,
+});
+
+function myFunction() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
 
 const Header = ({location}) => (
   <StaticQuery
@@ -59,44 +75,39 @@ const Header = ({location}) => (
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
       return (
         <div className={'navBarWrapper'}>
-          <nav className={'navbar navbar-default navBarDefault'}>
-            <div className={'navbar-header navBarHeader'}>
-              <Link to={finalLogoLink} className={'navbar-brand navBarBrand'}>
-                {logo.image !== '' ?
-                  (<img className={'img-responsive'} src={logo.image} alt={'logo'} />)
-                  :
-                  (<img className={'img-responsive'} src={logoImg} alt={'logo'} />)
-                }
-                <div className={"headerTitle"} dangerouslySetInnerHTML={{__html: headerTitle}} />
+          <nav className={'navBarDefault'}>
+            <div className={'navBarHeader'}>
+              <Link to={finalLogoLink} className={'navBarBrand'}>
+                <img className={'img-responsive displayInline'} src={(logo.image !== '') ? logo.image : logoImg} alt={'logo'} />
               </Link>
-              <button type="button" className={'navbar-toggle collapsed navBarToggle'} data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span className={'sr-only'}>Toggle navigation</span>
-                <span className={'icon-bar'}></span>
-                <span className={'icon-bar'}></span>
-                <span className={'icon-bar'}></span>
-              </button>
+              <div className={"headerTitle displayInline"} dangerouslySetInnerHTML={{__html: headerTitle}} />
+              <span onClick={myFunction} className={'navBarToggle'}>
+                <span className={'iconBar'}></span>
+                <span className={'iconBar'}></span>
+                <span className={'iconBar'}></span>
+              </span>
             </div>
             {isSearchEnabled ? (
-              <div className={'searchWrapper hidden-xs navBarUL'}>
-                <Search collapse indices={searchIndices} />
+              <div className={'searchWrapper hiddenMobile navBarUL'}>
+                <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
               ): null}
-            <div id="navbar" className={'navbar-collapse collapse navBarCollapse'}>
-              <div className={'visible-xs'}>
+            <div id="navbar" className={'topnav'}>
+              <div className={'visibleMobile'}>
                 <Sidebar location={location} />
                 <hr/>
                 {isSearchEnabled ? (
-                  <div className={'searchWrapper navBarUL'}>
-                    <Search collapse indices={searchIndices} />
+                  <div className={'searchWrapper'}>
+                    <LoadableComponent collapse={true} indices={searchIndices} />
                   </div>
                   ): null}
               </div>
-              <ul className={'nav navbar-nav navBarUL navBarNav navbar-right navBarULRight'}>
+              <ul className={'navBarUL navBarNav navBarULRight'}>
                 {headerLinks.map((link, key) => {
                   if(link.link !== '' && link.text !== '') {
                     return(
                       <li key={key}>
-                        <a href={link.link} target="_blank" rel="noopener" dangerouslySetInnerHTML={{__html: link.text}} />
+                        <a className="sidebarLink" href={link.link} target="_blank" rel="noopener" dangerouslySetInnerHTML={{__html: link.text}} />
                       </li>
                     );
                   }
@@ -105,7 +116,7 @@ const Header = ({location}) => (
                   (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
                 }
                 {(tweetText !== '' || githubUrl !== '') ?
-                  (<li className="divider hidden-xs"></li>): null
+                  (<li className="divider hiddenMobile"></li>): null
                 }
                 {tweetText !== '' ?
                   (<li>

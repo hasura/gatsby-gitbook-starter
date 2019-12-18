@@ -13,26 +13,17 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          {config.siteMetadata.ogImage ? 
+          {config.siteMetadata.ogImage ?
             (<meta property="og:image" content={config.siteMetadata.ogImage} />) : null
           }
           <meta property="twitter:card" content="summary_large_image" />
-          {config.siteMetadata.ogImage ? 
+          {config.siteMetadata.ogImage ?
             (<meta property="twitter:image" content={config.siteMetadata.ogImage} />) : null
           }
           {config.siteMetadata.favicon ?
             (<link rel="shortcut icon" type="image/svg" href={config.siteMetadata.favicon} />) : null
           }
-          <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
-            crossOrigin="anonymous" />
-          <script
-  			    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
-          </script>
-          <script 
-            defer
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js">
-          </script>
+          <noscript key="noscript"></noscript>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
@@ -47,11 +38,14 @@ export default class HTML extends React.Component {
           defer
           dangerouslySetInnerHTML={{
             __html: `
-            $(document).on('click','.navbar-collapse.in',function(e) {
-              if( $(e.target).is('a') ) {
-                $(this).collapse('hide');
+            function navBarClose() {
+              document.getElementById("navbar").classList.toggle("responsive");
+            }
+            document.addEventListener('click',function(e){
+              if(e.target && e.target.tagName.toLowerCase() === 'a'){
+                navBarClose();
               }
-            });
+           });
             `
           }}
           />

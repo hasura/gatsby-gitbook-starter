@@ -11,6 +11,15 @@ const plugins = [
     }
   },
   'gatsby-plugin-emotion',
+  'gatsby-plugin-remove-trailing-slashes',
+  'gatsby-plugin-react-helmet',
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "docs",
+      path: `${__dirname}/content/`
+    }
+  },
   {
     resolve: 'gatsby-plugin-mdx',
     options: {
@@ -29,15 +38,6 @@ const plugins = [
       extensions: [".mdx", ".md"]
     }
   },
-  'gatsby-plugin-remove-trailing-slashes',
-  'gatsby-plugin-react-helmet',
-  {
-    resolve: "gatsby-source-filesystem",
-    options: {
-      name: "docs",
-      path: `${__dirname}/content/`
-    }
-  },
   {
     resolve: `gatsby-plugin-gtag`,
     options: {
@@ -50,6 +50,7 @@ const plugins = [
     },
   },
 ];
+// check and add algolia
 if (config.header.search && config.header.search.enabled && config.header.search.algoliaAppId && config.header.search.algoliaAdminKey) {
   plugins.push({
     resolve: `gatsby-plugin-algolia`,
@@ -60,6 +61,21 @@ if (config.header.search && config.header.search.enabled && config.header.search
       chunkSize: 10000, // default: 1000
     }}
   )
+}
+// check and add pwa functionality
+if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
+  plugins.push({
+      resolve: `gatsby-plugin-manifest`,
+      options: {...config.pwa.manifest},
+  });
+  plugins.push({
+    resolve: 'gatsby-plugin-offline',
+    options: {
+      appendScript: require.resolve(`./src/custom-sw-code.js`),
+    },
+  });
+} else {
+  plugins.push('gatsby-plugin-remove-serviceworker');
 }
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,

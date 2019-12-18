@@ -46,10 +46,44 @@ a {
 body {
   font-family: 'Roboto';
 }
+.visibleMobile {
+  display: none;
+}
 
 .video-responsive {
   position: relative;
   padding-bottom: 56.2%;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.displayInline {
+  display: inline-block;
+}
+.navBarToggle {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  width: 36px;
+  height: 33px;
+  position: absolute;
+  right: 20px;
+  padding: 8px 5px;
+  display: none;
+}
+.navBarToggle .iconBar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  margin: 0 auto;
+  margin-top: 4px;
+  background-color: #fff;
+}
+.navBarToggle .iconBar:first-child {
+  margin-top: 0px;
 }
 .video-responsive iframe{
   position: absolute;
@@ -188,6 +222,13 @@ body {
   color: black;
   font-size: 14px;
 }
+.headerTitle {
+  height: auto;
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #fff !important;
+}
 .headerTitle a {
   color: #fff;
 }
@@ -196,11 +237,6 @@ body {
   text-decoration: none;
   opacity: 0.8;
 }
-
-.navBarCollapse {
-  padding-left: 0;
-}
-
 .logoWrapper {
   padding: 21px 0;
   padding-left: 20px;
@@ -230,21 +266,19 @@ body {
   -o-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
   z-index: 1;
   padding: 15px;
+  position: relative;
 }
 .navBarHeader {
   min-width: 335px;
   padding-right: 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 .navBarBrand {
-  height: auto;
-  font-size: 28px;
-  line-height: 1.5;
-  font-weight: 500;
-  color: #fff !important;
   padding: 0px 0px;
   display: flex;
   align-items: center;
-
 }
 
 .navBarBrand img {
@@ -252,7 +286,12 @@ body {
   margin-right: 16px;
   display: inline-block;
 }
-
+.navBarUL li {
+  list-style-type: none;
+}
+.navBarUL {
+  -webkit-overflow-scrolling: touch;
+}
 .navBarUL li a {
   font-family: 'Roboto';
   color: #fff !important;
@@ -260,6 +299,7 @@ body {
   font-weight: 500;
   line-height: 1em;
   opacity: 1;
+  padding: 10px 15px;
 }
 .navBarNav
 {
@@ -763,8 +803,36 @@ img {
   text-align: end;
   padding: 0;
 }
-
+.topnav {
+  -webkit-transition: top 0.5s, bottom 0.5s;
+}
 @media (max-width: 767px) {
+  .responsive {
+    margin-top: 15px;
+    position: relative;
+    padding-bottom: 20px;
+    border-top: 1px solid #fff;
+  }
+  .headerTitle {
+    padding-right: 50px;
+    font-size: 20px;
+  }
+  .navBarBrand img {
+    margin-right: 8px;
+  }
+  .topnav.responsive .visibleMobile {
+    display: block;
+  }
+  .topnav .navBarUL {
+    display: none;
+  }
+  .topnav.responsive .navBarUL{
+    display: block;
+    text-align: left;
+  }
+  .hiddenMobile {
+    display: none !important;
+  }
   hr {
     margin-top: 0;
     margin-bottom: 0;
@@ -779,23 +847,17 @@ img {
   .navBarULRight {
     position: static;
   }
-  .navbar-collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .navBarCollapse {
-    padding-bottom: 50px;
-  }
-
   .navBarUL {
     display: flex;
     align-items: center;
     margin: 7.5px 0px;
   }
-
+  .navBarUL li {
+    height: 37px;
+  }
   .navBarUL li a {
     font-size: 14px;
-    padding: 10px 10px;
+    padding: 10px 15px;
   }
 
   .navBarDefault {
@@ -804,7 +866,7 @@ img {
 
   .navBarToggle {
     margin-right: 0;
-    height: 44px;
+    display: block;
   }
   .navBarHeader {
     display: flex;
@@ -814,9 +876,10 @@ img {
   }
   .navBarBrand {
     font-size: 20px;
-    padding: 15px;
+    padding: 0 0;
     padding-left: 0;
-    flex: 1;
+    flex: initial;
+    padding-right: 15px;
   }
 
   .titleWrapper {
@@ -846,10 +909,10 @@ img {
     padding-left: 0 !important;
   }
   .searchWrapper {
-    padding: 10px 0;
+    padding: 0px 0;
     padding-top: 20px;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     width: calc(100% - 30px);
   }
   .hitWrapper {
@@ -870,10 +933,7 @@ img {
   }
   .navBarHeader {
     min-width: 240px;
-  }
-  .navBarCollapse {
-    padding-right: 10px;
-    padding-left: 10px;
+    flex: initial;
   }
   .githubBtn {
     padding: 10px 10px;
@@ -890,9 +950,5 @@ img {
   }
   .searchWrapper {
     padding-left: 0px;
-  }
-  .navBarCollapse {
-    display: flex !important;
-    align-items: center;
   }
 }
