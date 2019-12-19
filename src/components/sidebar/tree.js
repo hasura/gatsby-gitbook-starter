@@ -73,7 +73,15 @@ const Tree = ({edges}) => {
   const [treeData] = useState(() => {
     return calculateTreeData(edges);
   });
-  const [collapsed, setCollapsed] = useState({});
+  const defaultCollapsed = {};
+  treeData.items.forEach(item => {
+    if (config.sidebar.collapsedNav && config.sidebar.collapsedNav.includes(item.url)) {
+      defaultCollapsed[item.url] = true;
+    } else {
+      defaultCollapsed[item.url] = false;
+    }
+  });
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const toggle = (url) => {
     setCollapsed({
       ...collapsed,
@@ -90,4 +98,4 @@ const Tree = ({edges}) => {
   );
 }
 
-export default Tree 
+export default Tree

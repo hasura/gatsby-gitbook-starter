@@ -410,14 +410,14 @@ pre {
   padding: 7px 24px 7px 16px;
 }
 
-.hideFrontLine .collapser{
+.hideFrontLine .collapser {
   background: transparent;
   border: none;
   outline: none;
-  margin-top: 7px;
   position: absolute;
   right: 20px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .hideFrontLine  .active >a{
@@ -442,7 +442,8 @@ pre {
 .sideBarUL .item >a {
   color: #fff;
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
   width: 100%;
   padding-right: 35px;
@@ -468,7 +469,7 @@ pre {
   margin-left: 0 !important;
 }
 
-.showFrontLine  .item .item{
+.showFrontLine  .item .item {
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
   padding: 0;

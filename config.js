@@ -27,6 +27,9 @@ const config = {
 			"/introduction",
     		"/codeblock"
 		],
+    	"collapsedNav": [
+      		"/codeblock"
+    	],
 		"links": [
 			{ "text": "Hasura", "link": "https://hasura.io"},
 		],
