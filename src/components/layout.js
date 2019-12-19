@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { MDXProvider } from "@mdx-js/react";
 import ThemeProvider from "./themeProvider";
 import mdxComponents from "./mdxComponents";
@@ -45,13 +45,13 @@ const Layout = ({ children, location }) => (
   <ThemeProvider location={location}>
     <MDXProvider components={mdxComponents}>
       <Wrapper>
-        <LeftSideBarWidth className={'hidden-xs'}>
+        <LeftSideBarWidth className={'hiddenMobile'}>
           <Sidebar location={location} />
         </LeftSideBarWidth>
         <Content>
           <MaxWidth>{children}</MaxWidth>
         </Content>
-        <RightSideBarWidth className={'hidden-xs'}>
+        <RightSideBarWidth className={'hiddenMobile'}>
           <RightSidebar location={location} />
         </RightSideBarWidth>
       </Wrapper>

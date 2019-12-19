@@ -1,11 +1,89 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-display: swap;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: #C2C2C2;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #C2C2C2;
+}
+
+::placeholder {
+  color: #C2C2C2;
+}
+html, body {
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Roboto Light",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+
+  font-size: 16px;
+}
+
+a {
+  transition: color 0.15s;
+  color: #663399;
+}
+
+
 body {
   font-family: 'Roboto';
+}
+.visibleMobile {
+  display: none;
 }
 
 .video-responsive {
   position: relative;
   padding-bottom: 56.2%;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.displayInline {
+  display: inline-block;
+}
+.navBarToggle {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  width: 36px;
+  height: 33px;
+  position: absolute;
+  right: 20px;
+  padding: 8px 5px;
+  display: none;
+}
+.navBarToggle .iconBar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  margin: 0 auto;
+  margin-top: 4px;
+  background-color: #fff;
+}
+.navBarToggle .iconBar:first-child {
+  margin-top: 0px;
 }
 .video-responsive iframe{
   position: absolute;
@@ -88,7 +166,8 @@ body {
   width: calc(100% - 26px);
   background-color: transparent !important;
   border-width: 0 !important;
-  color: rgba(255, 255, 255, 0.5);
+  color: #C2C2C2;
+
 }
 .searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
   outline: none;
@@ -108,10 +187,11 @@ body {
 .hitWrapper
 {
   background-color: #fff;
-  padding: 4px;
+  padding: 0.7em 1em 0.4em;
   border-radius: 4px;
   position: absolute;
-  max-width: 600px;
+  width: 80vw;
+  max-width: 30em;
   top: 40px;
   border: 1px solid #ccc;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
@@ -119,6 +199,18 @@ body {
   max-height: 80vh;
   overflow: scroll;
   left: 0;
+}
+.hitWrapper ul li {
+  margin-top: 0.7em;
+  padding-top: 0.7em;
+  border-top: 1px solid;
+  list-style-type: none;
+}
+.hitWrapper ul li:first-child {
+  border-top: 0px;
+  margin-top: 0px;
+  color: black !important;
+  padding: 0px;
 }
 .showResults {
   display: block;
@@ -130,6 +222,13 @@ body {
   color: black;
   font-size: 14px;
 }
+.headerTitle {
+  height: auto;
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #fff !important;
+}
 .headerTitle a {
   color: #fff;
 }
@@ -138,11 +237,6 @@ body {
   text-decoration: none;
   opacity: 0.8;
 }
-
-.navBarCollapse {
-  padding-left: 0;
-}
-
 .logoWrapper {
   padding: 21px 0;
   padding-left: 20px;
@@ -172,21 +266,19 @@ body {
   -o-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
   z-index: 1;
   padding: 15px;
+  position: relative;
 }
 .navBarHeader {
   min-width: 335px;
   padding-right: 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 .navBarBrand {
-  height: auto;
-  font-size: 28px;
-  line-height: 1.5;
-  font-weight: 500;
-  color: #fff !important;
   padding: 0px 0px;
   display: flex;
   align-items: center;
-
 }
 
 .navBarBrand img {
@@ -194,7 +286,12 @@ body {
   margin-right: 16px;
   display: inline-block;
 }
-
+.navBarUL li {
+  list-style-type: none;
+}
+.navBarUL {
+  -webkit-overflow-scrolling: touch;
+}
 .navBarUL li a {
   font-family: 'Roboto';
   color: #fff !important;
@@ -202,6 +299,7 @@ body {
   font-weight: 500;
   line-height: 1em;
   opacity: 1;
+  padding: 10px 15px;
 }
 .navBarNav
 {
@@ -292,7 +390,7 @@ pre {
   padding: 7px 24px 7px 16px;
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
-  color: #9DAAB6;
+  color: #4C5767;
 }
 
 .rightSideBarUL {
@@ -385,7 +483,6 @@ pre {
   color: #fff;
 }
 
-
 .titleWrapper {
   display: flex;
   align-items: center;
@@ -476,7 +573,7 @@ pre {
   display: block;
   margin: 0px;
   padding: 0px;
-  color: rgb(157, 170, 182);
+  color: #6E6E6E;
 }
 
 .smallContent span {
@@ -591,6 +688,7 @@ img {
   font-size: 16px;
   padding: 10px 0px;
   padding-left: 15px;
+  max-height: 40px;
 }
 .githubBtn span span {
   display: flex;
@@ -633,7 +731,112 @@ img {
   opacity: 0.7;
 }
 
+.heading1 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading4 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading5 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.heading6 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.paragraph {
+  margin: 16px 0px 32px;
+  line-height: 1.625;
+}
+
+.pre {
+  font-size: 14px;
+  margin: 0px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.mainWrapper code {
+  background: #f9f7fb;
+  border: 1px solid #ede7f3;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9375em;
+}
+
+.poweredBy {
+  font-size: 0.6em;
+  text-align: end;
+  padding: 0;
+}
+.topnav {
+  -webkit-transition: top 0.5s, bottom 0.5s;
+}
 @media (max-width: 767px) {
+  .responsive {
+    margin-top: 15px;
+    position: relative;
+    padding-bottom: 20px;
+    border-top: 1px solid #fff;
+  }
+  .headerTitle {
+    padding-right: 50px;
+    font-size: 20px;
+  }
+  .navBarBrand {
+    min-height: 40px;
+  }
+  .navBarBrand img {
+    margin-right: 8px;
+  }
+  .topnav.responsive .visibleMobile {
+    display: block;
+  }
+  .topnav .navBarUL {
+    display: none;
+  }
+  .topnav.responsive .navBarUL{
+    display: block;
+    text-align: left;
+  }
+  .hiddenMobile {
+    display: none !important;
+  }
   hr {
     margin-top: 0;
     margin-bottom: 0;
@@ -648,20 +851,17 @@ img {
   .navBarULRight {
     position: static;
   }
-  .navbar-collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .navBarUL {
     display: flex;
     align-items: center;
     margin: 7.5px 0px;
   }
-
+  .navBarUL li {
+    height: 37px;
+  }
   .navBarUL li a {
     font-size: 14px;
-    padding: 10px 10px;
+    padding: 10px 15px;
   }
 
   .navBarDefault {
@@ -670,7 +870,7 @@ img {
 
   .navBarToggle {
     margin-right: 0;
-    height: 44px;
+    display: block;
   }
   .navBarHeader {
     display: flex;
@@ -680,18 +880,15 @@ img {
   }
   .navBarBrand {
     font-size: 20px;
-    padding: 15px;
+    padding: 0 0;
     padding-left: 0;
-    flex: 1;
+    flex: initial;
+    padding-right: 15px;
   }
 
   .titleWrapper {
     padding: 0 15px;
     display: block;
-  }
-
-  .mobileView {
-    text-align: center !important;
   }
 
   .gitBtn {
@@ -716,8 +913,11 @@ img {
     padding-left: 0 !important;
   }
   .searchWrapper {
-    padding: 10px 0;
+    padding: 0px 0;
     padding-top: 20px;
+    position: absolute;
+    bottom: 0px;
+    width: calc(100% - 30px);
   }
   .hitWrapper {
     width: 100%;
@@ -737,10 +937,7 @@ img {
   }
   .navBarHeader {
     min-width: 240px;
-  }
-  .navBarCollapse {
-    padding-right: 10px;
-    padding-left: 10px;
+    flex: initial;
   }
   .githubBtn {
     padding: 10px 10px;
@@ -757,9 +954,5 @@ img {
   }
   .searchWrapper {
     padding-left: 0px;
-  }
-  .navBarCollapse {
-    display: flex !important;
-    align-items: center;
   }
 }
