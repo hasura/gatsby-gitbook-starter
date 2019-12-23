@@ -700,6 +700,9 @@ img {
   font-size: 24px;
   font-weight: 700;
 }
+.authorSection {
+  padding: 20px 0;
+}
 .authorSection, .authorName {
   display: flex;
   align-items: center;
