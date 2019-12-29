@@ -2,24 +2,24 @@ const config = {
 	"gatsby": {
 		"pathPrefix": "notes/",
 		"siteUrl": "https://orlovcs.tech",
-		"gaTrackingId": null
+		"gaTrackingId": "UA-116546024-2"
 	},
 	"header": {
-		"logo": "src/512.png",
-		"logoLink": "https://orlovcs.tech",
-		"title": "<a>orlovcs</a> / notes/",
+		"logo": "src/icon/apple-icon-60x60.png",
+		"logoLink": "512.png",
+		"title": "<a href='https://orlovcs.tech'><b>orlovcs</a>/notes/",
 		"githubUrl": "https://orlovcs.tech",
-		"helpUrl": "",
+		"helpUrl": "https://orlovcs.tech",
 		"tweetText": "",
 		"links": [
-			{ "text": "", "link": ""}
+			{ "text": "Link to ", "link": ""}
 		],
 		"search": {
-			"enabled": false,
-			"indexName": "",
-			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
-			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
+			"enabled": true,
+			"indexName": "wiki",
+			"algoliaAppId": "BSB8ZM9DNS",
+			"algoliaSearchKey": "fdd84d5e99f47de9aba30175f9835217",
+			"algoliaAdminKey": ""
 		}
 	},
 	"sidebar": {
@@ -35,7 +35,7 @@ const config = {
 			
 		],
 		"frontline": false,
-		"ignoreIndex": true,
+		"ignoreIndex": false,
 	},
 	"siteMetadata": {
 		"title": "Gatsby Gitbook Boilerplate | Hasura",
