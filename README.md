@@ -1,4 +1,4 @@
-# Notes
+# /notes/
 
 
 ## Motivation
@@ -11,6 +11,7 @@ I wanted to have a searchable wiki-like static interface for all my lecture cour
 - Convert all notes to markdown and upload them in bulk
 - Add a search feature with syntax highlighting such as Algolia
 - Add a proof of concept course
+- Test interface on mobile
 
 
 ## 🔥 Features

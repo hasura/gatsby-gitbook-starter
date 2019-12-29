@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-display: swap;
+  color: #f8f8f8;
 }
 ::-webkit-input-placeholder { /* Edge */
   color: #C2C2C2;
@@ -45,6 +46,7 @@ a {
 
 body {
   font-family: 'Roboto';
+  background-color: #1b1f22;
 }
 .visibleMobile {
   display: none;
@@ -319,7 +321,8 @@ a:hover {
 }
 pre {
   border: 0 !important;
-  background-color: rgb(245, 247, 249); /* !important; */
+  background-color: #1b1f22; /* !important; */
+  border: #ccc;
 }
 
 .mainWrapper ul, .mainWrapper ol {
@@ -542,8 +545,8 @@ pre {
   flex-direction: row;
   align-items: center;
   place-self: stretch;
-  color: rgb(36, 42, 49);
-  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  background-color: #1b1f22;
   border-radius: 3px;
   border: 1px solid rgb(230, 236, 241);
   transition: border 200ms ease 0s;
@@ -608,8 +611,8 @@ pre {
   flex-direction: row;
   align-items: center;
   place-self: stretch;
-  color: rgb(36, 42, 49);
-  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  background-color: #1b1f22;
   border-radius: 3px;
   border: 1px solid rgb(230, 236, 241);
   transition: border 200ms ease 0s;
@@ -793,9 +796,11 @@ img {
   margin: 0px;
   padding: 16px;
   overflow: auto;
+  border: 1px solid rgb(230, 236, 241) !important;
 }
 
 .mainWrapper code {
+  color: #1b1f22;
   background: #f9f7fb;
   border: 1px solid #ede7f3;
   border-radius: 4px;

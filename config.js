@@ -5,10 +5,10 @@ const config = {
 		"gaTrackingId": null
 	},
 	"header": {
-		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png",
-		"logoLink": "https://orlovs.tech",
-		"title": "/notes/",
-		"githubUrl": "https://github.com/hasura/gatsby-gitbook-boilerplate",
+		"logo": "src/512.png",
+		"logoLink": "https://orlovcs.tech",
+		"title": "<a>orlovcs</a> / notes/",
+		"githubUrl": "https://orlovcs.tech",
 		"helpUrl": "",
 		"tweetText": "",
 		"links": [
@@ -25,13 +25,14 @@ const config = {
 	"sidebar": {
 		"forcedNavOrder": [
 			"/introduction",
-    		"/codeblock"
+			 "/codeblock",
+			 
 		],
     	"collapsedNav": [
       		"/codeblock"
     	],
 		"links": [
-			{ "text": "Hasura", "link": "https://orlovcs.tech},
+			
 		],
 		"frontline": false,
 		"ignoreIndex": true,
@@ -55,7 +56,7 @@ const config = {
 			"crossOrigin": "use-credentials",
 			icons: [
 				{
-					src: "src/pwa-512.png",
+					src: "src/512.png",
 					sizes: `512x512`,
 					type: `image/png`,
 				},
