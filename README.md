@@ -1,14 +1,17 @@
-# gatsby-gitbook-starter
+# Notes
 
-Kick off your project with this starter to create a powerful/flexible docs/tutorial web apps.
-
-![gatsby-gitbook-starter](https://graphql-engine-cdn.hasura.io/learn-hasura/gatsby-gitbook-starter/assets/documentation_app_blog.png)
 
 ## Motivation
 
-We wanted to create a [GraphQL tutorial](https://learn.hasura.io) series. The content would be written by developers for various languages/frameworks and what better than writing it in Markdown! And since this is a tutorial series we also needed rich embeds, syntax highlighting and more customisations.
+I wanted to have a searchable wiki-like static interface for all my lecture course notes from university and for other topics. I first tried to use laverna however this required me to inject my own notes database into localstorage of every visitor's browser which did not seem feasible. I have considered BookStack as well but it seemed redundant. Therefore using Gatsby.js with a search plugin and this wiki theme made the most sense. 
 
-We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https://learn.hasura.io). To serve all these requirements, we decided to use Gatsby + MDX (Markdown + JSX) to extend markdown and used a neat consistent theme like the one at [GitBook](https://www.gitbook.com) and deployed as docker containers.
+## TODO
+- Change theme to accomodate the main site: orlovcs.github.io
+- Add course sections and sub-sections to the sidebar
+- Convert all notes to markdown and upload them in bulk
+- Add a search feature with syntax highlighting such as Algolia
+- Add a proof of concept course
+
 
 ## 🔥 Features
 - Write using Markdown / [MDX](https://github.com/mdx-js/mdx)
@@ -22,10 +25,6 @@ We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https:
 - Fully customisable
 - Rich embeds and live code editor using MDX
 - Easy deployment: Deploy on Netlify / Now.sh / Docker
-
-## 🔗 Live Demo
-
-Here's a [live demo](https://learn.hasura.io/graphql/react)
 
 ## 🚀 Quickstart
 
@@ -137,8 +136,4 @@ metaDescription: "Meta Description Tag for this page"
 ```
 
 Canonical URLs are generated automatically.
-
-## ☁️ Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/hasura/gatsby-gitbook-starter)
 

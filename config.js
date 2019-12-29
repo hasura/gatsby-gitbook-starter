@@ -1,13 +1,13 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/",
-		"siteUrl": "https://learn.hasura.io",
+		"pathPrefix": "notes/",
+		"siteUrl": "https://orlovcs.tech",
 		"gaTrackingId": null
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png",
-		"logoLink": "https://learn.hasura.io",
-		"title": "Gatsby Gitbook Boilerplate",
+		"logoLink": "https://orlovs.tech",
+		"title": "/notes/",
 		"githubUrl": "https://github.com/hasura/gatsby-gitbook-boilerplate",
 		"helpUrl": "",
 		"tweetText": "",
@@ -31,7 +31,7 @@ const config = {
       		"/codeblock"
     	],
 		"links": [
-			{ "text": "Hasura", "link": "https://hasura.io"},
+			{ "text": "Hasura", "link": "https://orlovcs.tech},
 		],
 		"frontline": false,
 		"ignoreIndex": true,
