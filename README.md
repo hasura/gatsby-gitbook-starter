@@ -6,12 +6,12 @@
 I wanted to have a searchable wiki-like static interface for all my lecture course notes from university and for other topics. I first tried to use laverna however this required me to inject my own notes database into localstorage of every visitor's browser which did not seem feasible. I have considered BookStack as well but it seemed redundant. Therefore using Gatsby.js with a search plugin and this wiki theme made the most sense. 
 
 ## TODO
-- Change theme to accomodate the main site: orlovcs.github.io
-- Add course sections and sub-sections to the sidebar
+- <s>Change theme to accomodate the main site: orlovcs.github.io</s>
+- <s>Add course sections and sub-sections to the sidebar</s>
 - Convert all notes to markdown and upload them in bulk
-- Add a search feature with syntax highlighting such as Algolia
-- Add a proof of concept course
-- Test interface on mobile
+- <s>Add a search feature with syntax highlighting such as Algolia</s>
+- <s>Add a proof of concept course</s>
+- <s>Test interface on mobile</s>
 
 
 ## 🔥 Features

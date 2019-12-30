@@ -19,7 +19,7 @@ const config = {
 			"indexName": "wiki",
 			"algoliaAppId": "BSB8ZM9DNS",
 			"algoliaSearchKey": "fdd84d5e99f47de9aba30175f9835217",
-			"algoliaAdminKey": "510f8f573ea23cbc60707b0985101123"
+			"algoliaAdminKey": ""
 		}
 	},
 	"sidebar": {
