@@ -5,9 +5,9 @@ const config = {
 		"gaTrackingId": "UA-116546024-2"
 	},
 	"header": {
-		"logo": "src/icon/apple-icon-60x60.png",
-		"logoLink": "512.png",
-		"title": "<a href='https://orlovcs.tech'><b>orlovcs</a>/notes/",
+		"logo": "src/favicon.png",
+		"logoLink": "https://orlovcs.tech",
+		"title": "<a href='https://orlovcs.tech'><b>orlovcs</a>/<a href='https://orlovcs.tech/notes'><b>notes</a>/",
 		"githubUrl": "https://orlovcs.tech",
 		"helpUrl": "https://orlovcs.tech",
 		"tweetText": "",
@@ -35,14 +35,14 @@ const config = {
 			
 		],
 		"frontline": false,
-		"ignoreIndex": false,
+		"ignoreIndex": true,
 	},
 	"siteMetadata": {
 		"title": "Gatsby Gitbook Boilerplate | Hasura",
 		"description": "Documentation built with mdx. Powering learn.hasura.io ",
 		"ogImage": null,
 		"docsLocation": "https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content",
-		"favicon": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
+		"favicon": "src/favicon.png"
 	},
 	"pwa": {
 		"enabled": false, // disabling this will also remove the existing service worker.

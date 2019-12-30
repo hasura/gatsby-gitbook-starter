@@ -34,9 +34,9 @@ const HitsWrapper = styled.div`
   top: calc(100% + 0.5em);
   width: 80vw;
   max-width: 30em;
-  box-shadow: 0 0 5px 0;
   padding: 0.7em 1em 0.4em;
-  background: white;
+  background: #1b1f22;
+  color: white;
   @media only screen and (max-width: 991px) {
     width: 400px;
     max-width: 400px;
@@ -58,7 +58,7 @@ const HitsWrapper = styled.div`
   * {
     margin-top: 0;
     padding: 0;
-    color: black !important;
+    color: #c3c3c3 !important;
   }
   ul {
     list-style: none;

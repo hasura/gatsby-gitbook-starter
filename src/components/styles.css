@@ -141,7 +141,7 @@ a:hover {
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-  background-color: #542683;
+  background-color: #1b1f22;
 }
 
 .headerWrapper {
@@ -255,17 +255,14 @@ a:hover {
 
 /* Header section starts here */
 .navBarDefault {
-  background-color: #372476;
+  background-color: #1b1f22;
   border-radius: 0;
   border-top: 0;
   margin-bottom: 0;
   border: 0;
   display: flex;
   align-items: center;
-  box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
-  -webkit-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
-  -moz-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.8);
-  -o-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
+  border-bottom: 1px solid #e6ecf1;
   z-index: 1;
   padding: 15px;
   position: relative;
@@ -343,19 +340,20 @@ pre {
 .headerNav {
   font-family: 'Roboto';
   padding: 0px 24px;
-  color: rgb(116, 76, 188);
+  color: rgba(255, 31, 236, 0.5);
   font-size: 16px;
   font-weight: 500;
   line-height: 1em;
 }
 
 .headerNav a {
-  color: rgb(116, 76, 188);
+  color: rgb(187, 16, 202);
   text-decoration: none;
 }
 
 .headerNav a:hover {
   text-decoration: none;
+  color: #C2C2C2;
 }
 
 .logoWrapper img {
@@ -391,19 +389,20 @@ pre {
   text-transform: uppercase;
   letter-spacing: 1.2px;
   padding: 7px 24px 7px 16px;
-  border-left: 1px solid #e6ecf1;
-  border-left-color: rgb(230, 236, 241);
+
   color: #4C5767;
 }
 
 .rightSideBarUL {
   margin-top: 32px;
+  color: #C2C2C2;
 }
 
 .rightSideBarUL li {
   list-style-type: none;
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
+  color: #C2C2C2;
 }
 
 .rightSideBarUL li a {
@@ -411,6 +410,7 @@ pre {
   font-weight: 500;
   line-height: 1.5;
   padding: 7px 24px 7px 16px;
+  color: #C2C2C2;
 }
 
 .hideFrontLine .collapser {
@@ -424,14 +424,14 @@ pre {
 }
 
 .hideFrontLine  .active >a{
-  background-color: #542683;
+  background-color: #fd00dea1;
   color: #fff !important;
 }
 .firstLevel ul li .collapser svg path {
   fill: #fff !important;
 }
 .active .collapser >svg >path {
-  fill: #663399 !important;
+  fill: #fd00dea1 !important;
 }
 
 .firstLevel ul .item ul .item {
@@ -453,15 +453,15 @@ pre {
   padding-left: 15px;
 }
 .sideBarUL .item>a:hover {
-  background-color: #542683;
+  background-color: #f108d6b7;
   color: #fff !important;
 }
 .showFrontLine .item >a:hover {
-  background-color: #542683;
+  background-color: #00ccff9a;
 }
 .showFrontLine .active >a {
   color: #fff;
-  background-color: #473485;
+  background-color: #fd00dea1
 }
 
 .sideBarUL  .item .item{
@@ -789,6 +789,7 @@ img {
 .paragraph {
   margin: 16px 0px 32px;
   line-height: 1.625;
+  font-size: 13px;
 }
 
 .pre {
@@ -962,6 +963,7 @@ img {
     padding: 10px 5px;
   }
   .searchWrapper {
-    padding-left: 0px;
+    padding-left: 10px;
+    bottom: -10px;
   }
 }

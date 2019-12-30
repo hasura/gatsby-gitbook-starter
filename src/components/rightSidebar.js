@@ -9,8 +9,6 @@ const forcedNavOrder = config.sidebar.forcedNavOrder;
 
 const Sidebar = styled('aside')`
   width: 100%;
-  background-color: #fff;
-  border-right: 1px solid #ede7f3;
   height: 100vh;
   overflow: auto;
   position: fixed;
@@ -18,6 +16,7 @@ const Sidebar = styled('aside')`
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
+  border-left: 1px solid #e6ecf1;
   top: 0;
   @media only screen and (max-width: 50rem) {
     width: 100%;
@@ -50,7 +49,6 @@ const ListItem = styled(({ className, active, level, ...props }) => {
     ${props =>
       props.active &&
       `
-      color: #663399;
       border-color: rgb(230,236,241) !important;
       border-style: solid none solid solid;
       border-width: 1px 0px 1px 1px;
