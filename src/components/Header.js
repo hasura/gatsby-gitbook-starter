@@ -72,7 +72,7 @@ const Header = ({location}) => (
           }
         }
       } = data;
-      const finalLogoLink = logo.link !== '' ? logo.link : '/';
+      const finalLogoLink = logo.link !== '' ? logo.link : 'https://hasura.io/';
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>

@@ -152,22 +152,27 @@ a:hover {
 {
   background-color: transparent;
   padding: 4px;
-  /* border-radius: 4px; */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  position: relative;
 }
 .formElement:focus {
   outline: none;
   border: none;
 }
 .formElement svg path {
-  fill: #fff;
+  fill: #2fd2c5;
 }
 .searchInput {
-  width: calc(100% - 26px);
-  background-color: transparent !important;
+  width: 100%;
+  background-color: rgba(28,211,198,.12) !important;
   border-width: 0 !important;
   color: #C2C2C2;
-
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  opacity: .6;
+  padding-left: 38px;
+  max-width: 600px;
 }
 .searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
   outline: none;
@@ -178,7 +183,6 @@ a:hover {
   padding-left: 0px;
   padding-right: 20px;
   flex: 1;
-  max-width: 600px;
   position: relative;
 }
 .searchWrapper a {
@@ -224,10 +228,12 @@ a:hover {
 }
 .headerTitle {
   height: auto;
-  font-size: 28px;
+  font-size: 16px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 300;
   color: #fff !important;
+  margin-top: 16px;
+  text-transform: uppercase;
 }
 .headerTitle a {
   color: #fff;
@@ -253,25 +259,21 @@ a:hover {
 
 /* Header section starts here */
 .navBarDefault {
-  background-color: #372476;
+  background-color: #001934;
   border-radius: 0;
   border-top: 0;
   margin-bottom: 0;
   border: 0;
   display: flex;
   align-items: center;
-  box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
-  -webkit-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
-  -moz-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.8);
-  -o-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
   z-index: 1;
   padding: 15px;
   position: relative;
+  height: 80px;
 }
 .navBarHeader {
   min-width: 335px;
   padding-right: 20px;
-  flex: 1;
   display: flex;
   align-items: center;
 }
@@ -282,8 +284,8 @@ a:hover {
 }
 
 .navBarBrand img {
-  width: 40px;
-  margin-right: 16px;
+  width: 120px;
+  margin-right: 6px;
   display: inline-block;
 }
 .navBarUL li {
@@ -820,7 +822,7 @@ img {
   }
   .headerTitle {
     padding-right: 50px;
-    font-size: 20px;
+    font-size: 16px;
   }
   .navBarBrand {
     min-height: 40px;

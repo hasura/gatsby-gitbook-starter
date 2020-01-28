@@ -5,18 +5,18 @@ const config = {
 		"gaTrackingId": null
 	},
 	"header": {
-		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png",
+		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg",
 		"logoLink": "https://learn.hasura.io",
-		"title": "Gatsby Gitbook Boilerplate",
+		"title": "<a href='https://learn.hasura.io'><img className='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
 		"githubUrl": "https://github.com/hasura/gatsby-gitbook-boilerplate",
 		"helpUrl": "",
-		"tweetText": "",
+		"tweetText": "abcd",
 		"links": [
-			{ "text": "", "link": ""}
+			{ "text": "aaa", "link": "bbb"}
 		],
 		"search": {
-			"enabled": false,
-			"indexName": "",
+			"enabled": true,
+			"indexName": "learn-hasura-test",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
