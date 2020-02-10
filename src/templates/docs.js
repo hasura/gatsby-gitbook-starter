@@ -61,7 +61,10 @@ export default class MDXRuntimeTest extends Component {
             return { ...acc, [cur]: [cur] };
           }
 
-          const prefix = cur.split("/")[1];
+          let prefix = cur.split("/")[1];
+          if(config.gatsby && config.gatsby.trailingSlash) {
+            prefix = prefix + '/';
+          }
 
           if (prefix && forcedNavOrder.find(url => url === `/${prefix}`)) {
             return { ...acc, [`/${prefix}`]: [...acc[`/${prefix}`], cur] };
