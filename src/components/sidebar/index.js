@@ -6,8 +6,6 @@ import {ExternalLink} from "react-feather";
 import '../styles.css';
 import config from '../../../config';
 
-const forcedNavOrder = config.sidebar.forcedNavOrder;
-
 // eslint-disable-next-line no-unused-vars
 const ListItem = styled(({ className, active, level, ...props }) => {
     return (

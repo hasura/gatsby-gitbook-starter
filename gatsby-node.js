@@ -1,6 +1,7 @@
 const componentWithMDXScope = require("gatsby-plugin-mdx/component-with-mdx-scope");
 const path = require("path");
 const startCase = require("lodash.startcase");
+const config = require("./config");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -74,11 +75,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value = "";
     }
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value: `/${value}`
-    });
+    if(config.gatsby && config.gatsby.trailingSlash) {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: value === "" ? `/` : `/${value}/`
+      });
+    } else {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: `/${value}`
+      });
+    }
 
     createNodeField({
       name: "id",

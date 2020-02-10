@@ -2,7 +2,8 @@ const config = {
 	"gatsby": {
 		"pathPrefix": "/",
 		"siteUrl": "https://learn.hasura.io",
-		"gaTrackingId": null
+		"gaTrackingId": null,
+		"trailingSlash": false
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png",
@@ -24,11 +25,11 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
+			"/introduction", // add trailing slash if enabled above
     		"/codeblock"
 		],
     	"collapsedNav": [
-      		"/codeblock"
+      		"/codeblock" // add trailing slash if enabled above
     	],
 		"links": [
 			{ "text": "Hasura", "link": "https://hasura.io"},
