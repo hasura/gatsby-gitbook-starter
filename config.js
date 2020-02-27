@@ -7,12 +7,26 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg",
 		"logoLink": "https://learn.hasura.io",
-		"title": "<a href='https://learn.hasura.io'><img className='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
+		"title": "<a href='https://learn.hasura.io'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
 		"githubUrl": "https://github.com/hasura/gatsby-gitbook-boilerplate",
 		"helpUrl": "",
-		"tweetText": "abcd",
+		"tweetText": "",
+		"social": `<li>
+		    <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
+		      <div class="twitterBtn">
+		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Discord'}/>
+		      </div>
+		    </a>
+		  </li>
+			<li>
+		    <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
+		      <div class="discordBtn">
+		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
+		      </div>
+		    </a>
+		  </li>`,
 		"links": [
-			{ "text": "aaa", "link": "bbb"}
+			{ "text": "", "link": ""}
 		],
 		"search": {
 			"enabled": true,
@@ -35,6 +49,7 @@ const config = {
 		],
 		"frontline": false,
 		"ignoreIndex": true,
+		"title": "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
 	},
 	"siteMetadata": {
 		"title": "Gatsby Gitbook Boilerplate | Hasura",

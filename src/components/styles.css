@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +46,50 @@ a {
 body {
   font-family: 'Roboto';
 }
+.socialWrapper {
+  display: flex;
+  align-items: center;
+}
+.socialWrapper li {
+  display: inline-block;
+}
+.socialWrapper li a {
+  display: contents;
+}
+.removePadd {
+  padding: 0 !important;
+}
+.visibleMobileView {
+  display: none !important;
+}
+.discordBtn, .twitterBtn {
+  border-radius: 4px;
+  border: solid 1px #d1d2d3;
+  background-color: #f1f5f8;
+  width: 20px;
+  height: 20px;
+  padding-top: 2px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .8;
+  cursor: pointer;
+}
+.twitterBtn img {
+  width: 12px !important;
+}
+.discordBtn img {
+  width: 10px !important;
+}
+.discordBtn:hover, .twitterBtn:hover {
+  opacity: 1;
+}
+.discordBtn {
+  img {
+    width: 10px;
+  }
+}
 .visibleMobile {
   display: none;
 }
@@ -64,7 +108,7 @@ a:hover {
   display: inline-block;
 }
 .navBarToggle {
-  border: 1px solid #fff;
+  border: 0px solid #fff;
   border-radius: 4px;
   width: 36px;
   height: 33px;
@@ -80,7 +124,7 @@ a:hover {
   border-radius: 1px;
   margin: 0 auto;
   margin-top: 4px;
-  background-color: #fff;
+  background-color: #001934;
 }
 .navBarToggle .iconBar:first-child {
   margin-top: 0px;
@@ -423,7 +467,7 @@ pre {
 }
 
 .hideFrontLine  .active >a{
-  background-color: #542683;
+  background-color: rgba(28,211,198,.12);
   color: #fff !important;
 }
 .firstLevel ul li .collapser svg path {
@@ -452,7 +496,7 @@ pre {
   padding-left: 15px;
 }
 .sideBarUL .item>a:hover {
-  background-color: #542683;
+  background-color: rgba(28,211,198,.12);
   color: #fff !important;
 }
 .showFrontLine .item >a:hover {
@@ -498,7 +542,7 @@ pre {
   font-size: 32px;
   line-height: 1.5;
   font-weight: 500;
-  border-left: 2px solid rgb(116, 76, 188);
+  border-left: 2px solid #001934;
   padding: 0 16px;
   flex: 1;
   margin-top: 0;
@@ -638,13 +682,13 @@ pre {
 }
 
 .nextBtn:hover, .previousBtn:hover {
-  color: rgb(116, 76, 188);
+  color: #001934;
   text-decoration: none;
-  border: 1px solid rgb(116, 76, 188);
+  border: 1px solid #001934;
 }
 
 .nextBtn:hover .rightArrow, .previousBtn:hover .leftArrow {
-  color: rgb(116, 76, 188);
+  color: #001934;
 }
 
 /* tables.css */
@@ -813,7 +857,55 @@ img {
 .topnav {
   -webkit-transition: top 0.5s, bottom 0.5s;
 }
+.bgColor {
+  height: 60px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f8f8f8;
+  position: relative;
+  display: none;
+}
+.sidebarTitle {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f8f8f8;
+  padding: 18px 16px;
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 600;
+  color: #001934;
+  display: flex;
+  align-items: center;
+}
+.sideBarShow {
+  display: none;
+}
+.sidebarTitle a {
+  color: #001934;
+}
+.greenCircle {
+  width: 8px;
+  height: 8px;
+  background-color: #1cd3c6;
+  border-radius: 50%;
+  margin: 0 12px;
+}
 @media (max-width: 767px) {
+  .formElement svg path {
+    fill: #001934;
+  }
+  .visibleMobileView {
+    display: block !important;
+  }
+  .sideBarShow {
+    display: flex;
+  }
+  .sidebarTitle {
+    box-shadow: none;
+  }
+  .socialWrapper {
+    position: absolute;
+    right: 10px;
+    top: 29px;
+  }
   .responsive {
     margin-top: 15px;
     position: relative;
@@ -832,6 +924,12 @@ img {
   }
   .topnav.responsive .visibleMobile {
     display: block;
+  }
+  .bgColor {
+    display: block;
+  }
+  .searchInput {
+    color: #001934;
   }
   .topnav .navBarUL {
     display: none;
@@ -872,11 +970,15 @@ img {
 
   .navBarDefault {
     display: block;
+    height: auto;
   }
 
   .navBarToggle {
     margin-right: 0;
     display: block;
+    position: absolute;
+    left: 11px;
+    top: 15px;
   }
   .navBarHeader {
     display: flex;
@@ -889,7 +991,7 @@ img {
     padding: 0 0;
     padding-left: 0;
     flex: initial;
-    padding-right: 15px;
+    padding-right: 0px;
   }
 
   .titleWrapper {
@@ -920,10 +1022,13 @@ img {
   }
   .searchWrapper {
     padding: 0px 0;
-    padding-top: 20px;
+    padding-top: 0px;
     position: absolute;
     bottom: 0px;
-    width: calc(100% - 30px);
+    width: calc(100% - 70px);
+    position: absolute;
+    left: 40px;
+    top: 8px;
   }
   .hitWrapper {
     width: 100%;

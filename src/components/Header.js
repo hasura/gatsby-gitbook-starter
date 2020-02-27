@@ -60,6 +60,8 @@ const Header = ({location}) => (
     render={(data) => {
       const logoImg = require('./images/logo.svg');
       const twitter = require('./images/twitter.svg');
+      const discordBrandsBlock = require('./images/discord-brands-block.svg');
+      const twitterBrandsBlock = require('./images/twitter-brands-block.svg');
       const {
         site: {
           siteMetadata: {
@@ -81,12 +83,12 @@ const Header = ({location}) => (
                 <img className={'img-responsive displayInline'} src={(logo.image !== '') ? logo.image : logoImg} alt={'logo'} />
               </Link>
               <div className={"headerTitle displayInline"} dangerouslySetInnerHTML={{__html: headerTitle}} />
-              <span onClick={myFunction} className={'navBarToggle'}>
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-              </span>
             </div>
+            { config.header.social ? (
+                <ul className="socialWrapper visibleMobileView" dangerouslySetInnerHTML={{__html: config.header.social}}>
+                </ul>
+            ) : null
+            }
             {isSearchEnabled ? (
               <div className={'searchWrapper hiddenMobile navBarUL'}>
                 <LoadableComponent collapse={true} indices={searchIndices} />
@@ -96,11 +98,6 @@ const Header = ({location}) => (
               <div className={'visibleMobile'}>
                 <Sidebar location={location} />
                 <hr/>
-                {isSearchEnabled ? (
-                  <div className={'searchWrapper'}>
-                    <LoadableComponent collapse={true} indices={searchIndices} />
-                  </div>
-                  ): null}
               </div>
               <ul className={'navBarUL navBarNav navBarULRight'}>
                 {headerLinks.map((link, key) => {
@@ -115,15 +112,23 @@ const Header = ({location}) => (
                 {helpUrl !== '' ?
                   (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
                 }
-                {(tweetText !== '' || githubUrl !== '') ?
-                  (<li className="divider hiddenMobile"></li>): null
-                }
+
                 {tweetText !== '' ?
                   (<li>
                     <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank" rel="noopener">
                       <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
                     </a>
                    </li>) : null
+                }
+                {(tweetText !== '' || githubUrl !== '') ?
+                  (<li className="divider hiddenMobile"></li>): null
+                }
+                { config.header.social ? (
+                  <li className={'hiddenMobile'}>
+                    <ul className="socialWrapper" dangerouslySetInnerHTML={{__html: config.header.social}}>
+                    </ul>
+                  </li>
+                ) : null
                 }
                 {githubUrl !== '' ?
                   (<li className={'githubBtn'}>
@@ -132,6 +137,20 @@ const Header = ({location}) => (
               </ul>
             </div>
           </nav>
+          <div className={'bgColor'}>
+            <div className={'navBarDefault removePadd'}>
+              <span onClick={myFunction} className={'navBarToggle'}>
+                <span className={'iconBar'}></span>
+                <span className={'iconBar'}></span>
+                <span className={'iconBar'}></span>
+              </span>
+            </div>
+            {isSearchEnabled ? (
+              <div className={'searchWrapper'}>
+                <LoadableComponent collapse={true} indices={searchIndices} />
+              </div>
+              ): null}
+          </div>
         </div>
       );
     }}
