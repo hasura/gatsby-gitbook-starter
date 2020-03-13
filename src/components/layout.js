@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { MDXProvider } from "@mdx-js/react";
-import ThemeProvider from "./themeProvider";
-import mdxComponents from "./mdxComponents";
-import Sidebar from "./sidebar";
-import RightSidebar from "./rightSidebar";
+import React from 'react';
+import styled from '@emotion/styled';
+import { MDXProvider } from '@mdx-js/react';
+import ThemeProvider from './themeProvider';
+import mdxComponents from './mdxComponents';
+import Sidebar from './sidebar';
+import RightSidebar from './rightSidebar';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -29,7 +29,6 @@ const Content = styled('main')`
 `;
 
 const MaxWidth = styled('div')`
-
   @media only screen and (max-width: 50rem) {
     width: 100%;
     position: relative;
