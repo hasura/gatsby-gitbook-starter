@@ -1,14 +1,49 @@
 import * as React from 'react';
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
-import { default as defaultTheme } from './theme';
+
+import { lightTheme, darkTheme } from './theme';
 import Header from './Header';
 import './styles.css';
 
-export default function ThemeProvider({ children, theme = {}, location }) {
-  return (
-    <div>
-      <Header location={location} />
-      <EmotionThemeProvider theme={{ ...defaultTheme, ...theme }}>{children}</EmotionThemeProvider>
-    </div>
-  );
+class ThemeProvider extends React.Component {
+  state = {
+    isDarkThemeActive: false,
+  };
+
+  componentDidMount() {
+    this.retrieveActiveTheme();
+  }
+
+  retrieveActiveTheme = () => {
+    const isDarkThemeActive = JSON.parse(window.localStorage.getItem('isDarkThemeActive'));
+
+    this.setState({ isDarkThemeActive });
+  };
+
+  toggleActiveTheme = () => {
+    this.setState(prevState => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
+
+    window.localStorage.setItem('isDarkThemeActive', JSON.stringify(!this.state.isDarkThemeActive));
+  };
+
+  render() {
+    const { children, location } = this.props;
+
+    const { isDarkThemeActive } = this.state;
+
+    const currentActiveTheme = isDarkThemeActive ? darkTheme : lightTheme;
+
+    return (
+      <div>
+        <Header
+          location={location}
+          isDarkThemeActive={isDarkThemeActive}
+          toggleActiveTheme={this.toggleActiveTheme}
+        />
+        <EmotionThemeProvider theme={currentActiveTheme}>{children}</EmotionThemeProvider>
+      </div>
+    );
+  }
 }
+
+export default ThemeProvider;

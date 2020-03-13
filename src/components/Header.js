@@ -40,7 +40,7 @@ function myFunction() {
   }
 }
 
-const Header = ({ location }) => (
+const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
   <StaticQuery
     query={graphql`
       query headerTitleQuery {
@@ -160,7 +160,10 @@ const Header = ({ location }) => (
                   </li>
                 ) : null}
                 <li>
-                  <DarkModeSwitch />
+                  <DarkModeSwitch
+                    isDarkThemeActive={isDarkThemeActive}
+                    toggleActiveTheme={toggleActiveTheme}
+                  />
                 </li>
               </ul>
             </div>

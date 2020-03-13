@@ -1,4 +1,4 @@
-export theme from './theme';
+export * from './theme';
 export mdxComponents from './mdxComponents';
 export ThemeProvider from './themeProvider';
 export Layout from './layout';

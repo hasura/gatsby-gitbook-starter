@@ -10,7 +10,6 @@ export default class HTML extends React.Component {
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <title>Gatsby Gitbook Boilerplate</title>
           {config.siteMetadata.ogImage ? (
             <meta property="og:image" content={config.siteMetadata.ogImage} />
           ) : null}

@@ -9,6 +9,7 @@ import RightSidebar from './rightSidebar';
 const Wrapper = styled('div')`
   display: flex;
   justify-content: space-between;
+  background: ${({ theme }) => theme.colors.background};
 
   @media only screen and (max-width: 767px) {
     display: block;
@@ -20,6 +21,7 @@ const Content = styled('main')`
   flex-grow: 1;
   margin: 0px 88px;
   margin-top: 3rem;
+  background: ${({ theme }) => theme.colors.background};
 
   @media only screen and (max-width: 1023px) {
     padding-left: 0;
