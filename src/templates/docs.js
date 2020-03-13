@@ -39,6 +39,7 @@ const Edit = styled('div')`
 export default class MDXRuntimeTest extends Component {
   render() {
     const { data } = this.props;
+
     if (!data) {
       return null;
     }
@@ -49,6 +50,7 @@ export default class MDXRuntimeTest extends Component {
         siteMetadata: { docsLocation, title },
       },
     } = data;
+
     const gitHub = require('../components/images/github.svg');
 
     const navItems = allMdx.edges
@@ -62,6 +64,7 @@ export default class MDXRuntimeTest extends Component {
           }
 
           let prefix = cur.split('/')[1];
+
           if (config.gatsby && config.gatsby.trailingSlash) {
             prefix = prefix + '/';
           }
@@ -90,8 +93,11 @@ export default class MDXRuntimeTest extends Component {
 
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
+
     const metaDescription = mdx.frontmatter.metaDescription;
+
     let canonicalUrl = config.gatsby.siteUrl;
+
     canonicalUrl =
       config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
     canonicalUrl = canonicalUrl + mdx.fields.slug;

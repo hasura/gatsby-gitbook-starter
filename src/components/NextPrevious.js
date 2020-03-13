@@ -4,14 +4,19 @@ import './styles.css';
 class NextPrevious extends React.Component {
   render() {
     const { mdx, nav } = this.props;
+
     let currentIndex;
+
     const currentPaginationInfo = nav.map((el, index) => {
       if (el && el.url === mdx.fields.slug) {
         currentIndex = index;
       }
     });
+
     const nextInfo = {};
+
     const previousInfo = {};
+
     if (currentIndex === undefined) {
       // index
       if (nav[0]) {

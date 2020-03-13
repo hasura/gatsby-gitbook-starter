@@ -87,6 +87,7 @@ const HitsWrapper = styled.div`
     margin-bottom: 0.3em;
   }
 `;
+
 const Root = styled.div`
   position: relative;
   display: grid;
@@ -105,6 +106,7 @@ const useClickOutside = (ref, handler, events) => {
   if (!events) events = [`mousedown`, `touchstart`];
   const detectClickOutside = event =>
     ref && ref.current && !ref.current.contains(event.target) && handler();
+
   useEffect(() => {
     for (const event of events) document.addEventListener(event, detectClickOutside);
     return () => {
@@ -115,14 +117,19 @@ const useClickOutside = (ref, handler, events) => {
 
 export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
   const ref = createRef();
+
   const [query, setQuery] = useState(``);
+
   const [focus, setFocus] = useState(false);
+
   const searchClient = algoliasearch(
     config.header.search.algoliaAppId,
     config.header.search.algoliaSearchKey
   );
+
   useClickOutside(ref, () => setFocus(false));
   const displayResult = query.length > 0 && focus ? 'showResults' : 'hideResults';
+
   return (
     <InstantSearch
       searchClient={searchClient}

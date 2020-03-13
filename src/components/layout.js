@@ -34,12 +34,15 @@ const MaxWidth = styled('div')`
     position: relative;
   }
 `;
+
 const LeftSideBarWidth = styled('div')`
   width: 298px;
 `;
+
 const RightSideBarWidth = styled('div')`
   width: 224px;
 `;
+
 const Layout = ({ children, location }) => (
   <ThemeProvider location={location}>
     <MDXProvider components={mdxComponents}>

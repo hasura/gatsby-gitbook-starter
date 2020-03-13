@@ -79,10 +79,13 @@ const SidebarLayout = ({ location }) => (
     `}
     render={({ allMdx }) => {
       let navItems = [];
+
       let finalNavItems;
+
       if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
         const navItems = allMdx.edges.map((item, index) => {
           let innerItems;
+
           if (item !== undefined) {
             if (
               item.node.fields.slug === location.pathname ||
@@ -93,6 +96,7 @@ const SidebarLayout = ({ location }) => (
                   const itemId = innerItem.title
                     ? innerItem.title.replace(/\s+/g, '').toLowerCase()
                     : '#';
+
                   return (
                     <ListItem key={index} to={`#${itemId}`} level={1}>
                       {innerItem.title}

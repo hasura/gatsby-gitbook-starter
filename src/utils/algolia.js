@@ -27,6 +27,7 @@ const flatten = arr =>
     ...fields,
     ...rest,
   }));
+
 const settings = { attributesToSnippet: [`excerpt:20`] };
 
 const indexName = config.header.search ? config.header.search.indexName : '';

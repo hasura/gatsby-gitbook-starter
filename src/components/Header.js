@@ -9,9 +9,11 @@ import Loadable from 'react-loadable';
 import LoadingProvider from './mdxComponents/loading';
 
 const help = require('./images/help.svg');
+
 const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
 
 let searchIndices = [];
+
 if (isSearchEnabled && config.header.search.indexName) {
   searchIndices.push({
     name: `${config.header.search.indexName}`,
@@ -29,6 +31,7 @@ const LoadableComponent = Loadable({
 
 function myFunction() {
   var x = document.getElementById('navbar');
+
   if (x.className === 'topnav') {
     x.className += ' responsive';
   } else {
@@ -60,13 +63,17 @@ const Header = ({ location }) => (
     `}
     render={data => {
       const logoImg = require('./images/logo.svg');
+
       const twitter = require('./images/twitter.svg');
+
       const {
         site: {
           siteMetadata: { headerTitle, githubUrl, helpUrl, tweetText, logo, headerLinks },
         },
       } = data;
+
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
+
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>

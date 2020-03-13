@@ -8,10 +8,12 @@ import '../styles.css';
 /** Removes the last token from a code example if it's empty. */
 function cleanTokens(tokens) {
   const tokensLength = tokens.length;
+
   if (tokensLength === 0) {
     return tokens;
   }
   const lastToken = tokens[tokensLength - 1];
+
   if (lastToken.length === 1 && lastToken[0].empty) {
     return tokens.slice(0, tokensLength - 1);
   }
@@ -34,7 +36,9 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
           <pre className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {
               let lineClass = {};
+
               let isDiff = false;
+
               if (line[0] && line[0].content.length && line[0].content[0] === '+') {
                 lineClass = { backgroundColor: 'rgba(76, 175, 80, 0.2)' };
                 isDiff = true;
@@ -49,13 +53,16 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
                 isDiff = true;
               }
               const lineProps = getLineProps({ line, key: i });
+
               lineProps.style = lineClass;
               const diffStyle = {
                 userSelect: 'none',
                 MozUserSelect: '-moz-none',
                 WebkitUserSelect: 'none',
               };
+
               let splitToken;
+
               return (
                 <div {...lineProps} key={line + i}>
                   {line.map((token, key) => {
@@ -73,6 +80,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
                             types: ['operator'],
                             content: token.content.charAt(0),
                           };
+
                           return (
                             <React.Fragment key={token + key}>
                               <span

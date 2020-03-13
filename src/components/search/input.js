@@ -10,6 +10,7 @@ const SearchIcon = styled(Search)`
   pointer-events: none;
   margin-right: 10px;
 `;
+
 const focus = props => css`
   background: white;
   color: ${props => props.theme.darkBlue};
@@ -20,6 +21,7 @@ const focus = props => css`
     margin: 0.3em;
   }
 `;
+
 const collapse = props => css`
   width: 0;
   cursor: pointer;
@@ -34,6 +36,7 @@ const collapse = props => css`
     color: ${props => props.theme.gray};
   }
 `;
+
 const expand = props => css`
   background: ${props => props.theme.veryLightGray};
   width: 6em;
@@ -57,6 +60,7 @@ const Input = styled.input`
   border-radius: ${props => props.theme.smallBorderRadius};
   {collapseExpand}
 `;
+
 const Form = styled.form`
   display: flex;
   flex-direction: row-reverse;
@@ -71,6 +75,7 @@ export default connectSearchBox(({ refine, ...rest }) => {
   const preventSubmit = e => {
     e.preventDefault();
   };
+
   return (
     <Form className={'formElement'} onSubmit={preventSubmit}>
       <SearchIcon />
