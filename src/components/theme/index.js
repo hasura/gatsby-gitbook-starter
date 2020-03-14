@@ -8,12 +8,16 @@ export const lightTheme = {
   ...baseTheme,
   colors: {
     background: '#fff',
+    heading: '#000',
+    text: '#3B454E',
   },
 };
 
 export const darkTheme = {
   ...baseTheme,
   colors: {
-    background: '#000',
+    background: '#111216',
+    heading: '#fff',
+    text: '#fff',
   },
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import CodeBlock from './codeBlock';
 import AnchorTag from './anchor';
-import '../styles.css';
 
 export default {
   h1: props => (

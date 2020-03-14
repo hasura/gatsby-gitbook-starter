@@ -3,12 +3,24 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from '@emotion/styled';
+
 import { Layout, Link } from '$components';
 import NextPrevious from '../components/NextPrevious';
-import '../components/styles.css';
 import config from '../../config';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
+
+const StyledHeading = styled('h1')`
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 500;
+  border-left: 2px solid rgb(116, 76, 188);
+  padding: 0 16px;
+  flex: 1;
+  margin-top: 0;
+  padding-top: 0;
+  color: ${props => props.theme.colors.heading};
+`;
 
 const Edit = styled('div')`
   padding: 1rem 1.5rem;
@@ -117,7 +129,7 @@ export default class MDXRuntimeTest extends Component {
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         <div className={'titleWrapper'}>
-          <h1 className={'title'}>{mdx.fields.title}</h1>
+          <StyledHeading>{mdx.fields.title}</StyledHeading>
           <Edit className={'mobileView'}>
             {docsLocation && (
               <Link className={'gitBtn'} to={`${docsLocation}/${mdx.parent.relativePath}`}>

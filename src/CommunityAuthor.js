@@ -1,5 +1,4 @@
 import React from 'react';
-import './components/styles.css';
 
 const CommunityAuthor = ({ name, imageUrl, twitterUrl, githubUrl, description }) => {
   return (

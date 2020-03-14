@@ -7,7 +7,6 @@ import Loadable from 'react-loadable';
 import config from '../../config.js';
 import LoadingProvider from './mdxComponents/loading';
 import { DarkModeSwitch } from './DarkModeSwitch';
-import './styles.css';
 
 const help = require('./images/help.svg');
 
