@@ -21,13 +21,13 @@ const Content = styled('main')`
   display: flex;
   flex-grow: 1;
   margin: 0px 88px;
-  margin-top: 3rem;
+  padding-top: 3rem;
   background: ${({ theme }) => theme.colors.background};
 
   @media only screen and (max-width: 1023px) {
     padding-left: 0;
     margin: 0 10px;
-    margin-top: 3rem;
+    padding-top: 3rem;
   }
 `;
 
