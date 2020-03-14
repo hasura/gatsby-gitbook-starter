@@ -457,48 +457,6 @@ export const baseStyles = injectGlobal`
     padding: 50px 0;
   }
 
-  .nextPreviousWrapper {
-    margin: 0px;
-    padding: 0px;
-    width: auto;
-    display: grid;
-    grid-template-rows: auto;
-    column-gap: 24px;
-    grid-template-columns: calc(50% - 8px) calc(50% - 8px);
-  }
-
-  .previousBtn {
-    cursor: pointer;
-    -moz-box-align: center;
-    -moz-box-direction: normal;
-    -moz-box-orient: horizontal;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    place-self: stretch;
-    color: rgb(36, 42, 49);
-    background-color: rgb(255, 255, 255);
-    border-radius: 3px;
-    border: 1px solid rgb(230, 236, 241);
-    transition: border 200ms ease 0s;
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
-    text-decoration: none;
-  }
-
-  .leftArrow {
-    display: block;
-    margin: 0px;
-    color: rgb(157, 170, 182);
-    flex: 0 0 auto;
-    font-size: 24px;
-    transition: color 200ms ease 0s;
-    padding: 16px;
-    padding-right: 16px;
-  }
-
   .preRightWrapper {
     display: block;
     margin: 0px;
@@ -520,68 +478,13 @@ export const baseStyles = injectGlobal`
     font-weight: 400;
   }
 
-  .nextPreviousTitle {
-    display: block;
-    margin: 0px;
-    padding: 0px;
-    transition: color 200ms ease 0s;
-  }
-
-  .nextPreviousTitle span {
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 500;
-  }
-
-  .nextBtn {
-    cursor: pointer;
-    -moz-box-align: center;
-    -moz-box-direction: normal;
-    -moz-box-orient: horizontal;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    place-self: stretch;
-    color: rgb(36, 42, 49);
-    background-color: rgb(255, 255, 255);
-    border-radius: 3px;
-    border: 1px solid rgb(230, 236, 241);
-    transition: border 200ms ease 0s;
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
-    text-decoration: none;
-  }
-
-  .rightArrow {
-    flex: 0 0 auto;
-    font-size: 24px;
-    transition: color 200ms ease 0s;
-    padding: 16px;
-    padding-left: 16px;
-    display: block;
-    margin: 0px;
-    color: rgb(157, 170, 182);
-  }
+  /* **************************** */
 
   .nextRightWrapper {
     display: block;
     margin: 0px;
     padding: 16px;
     flex: 1 1 0%;
-  }
-
-  .nextBtn:hover,
-  .previousBtn:hover {
-    color: rgb(116, 76, 188);
-    text-decoration: none;
-    border: 1px solid rgb(116, 76, 188);
-  }
-
-  .nextBtn:hover .rightArrow,
-  .previousBtn:hover .leftArrow {
-    color: rgb(116, 76, 188);
   }
 
   /* tables.css */
@@ -838,19 +741,11 @@ export const baseStyles = injectGlobal`
       display: inline-block;
     }
 
-    .nextPreviousWrapper {
-      display: block;
-      padding: 0 15px;
-    }
-
-    .previousBtn {
-      margin-bottom: 20px;
-    }
-
     .mobileView {
       text-align: left !important;
       padding-left: 0 !important;
     }
+
     .searchWrapper {
       padding: 0px 0;
       padding-top: 20px;

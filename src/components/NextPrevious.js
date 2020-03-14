@@ -1,5 +1,8 @@
 import React from 'react';
 import Link from './link';
+
+import { StyledNextPrevious } from './styles/PageNavigationButtons';
+
 class NextPrevious extends React.Component {
   render() {
     const { mdx, nav } = this.props;
@@ -46,8 +49,9 @@ class NextPrevious extends React.Component {
         previousInfo.title = nav[currentIndex - 1].title;
       }
     }
+
     return (
-      <div className={'nextPreviousWrapper'}>
+      <StyledNextPrevious>
         {previousInfo.url && currentIndex >= 0 ? (
           <Link to={nav[currentIndex - 1].url} className={'previousBtn'}>
             <div className={'leftArrow'}>
@@ -112,7 +116,7 @@ class NextPrevious extends React.Component {
             </div>
           </Link>
         ) : null}
-      </div>
+      </StyledNextPrevious>
     );
   }
 }
