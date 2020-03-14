@@ -734,7 +734,12 @@ export const baseStyles = injectGlobal`
     line-height: 1.625;
   }
 
-  
+  .pre {
+    font-size: 14px;
+    margin: 0px;
+    padding: 16px;
+    overflow: auto;
+  } 
 
   .poweredBy {
     font-size: 0.6em;
