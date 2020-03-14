@@ -300,16 +300,9 @@ export const baseStyles = injectGlobal`
   .navBarUL li a .shareIcon {
     width: 20px;
   }
-  .mainWrapper {
-    color: rgb(59, 69, 78);
-    max-width: 750px;
-  }
+
   .navBarUL li a:hover {
     opacity: 0.7;
-  }
-  pre {
-    border: 0 !important;
-    background-color: rgb(245, 247, 249); /* !important; */
   }
 
   blockquote {
@@ -318,22 +311,6 @@ export const baseStyles = injectGlobal`
     padding: 0px 0px 0px 12px;
     border-left: 4px solid rgb(230, 236, 241);
     border-color: rgb(230, 236, 241);
-  }
-
-  .mainWrapper ul,
-  .mainWrapper ol {
-    -webkit-padding-start: 40px;
-    -moz-padding-start: 40px;
-    -o-padding-start: 40px;
-    margin: 24px 0px;
-    padding: 0px 0px 0px 2em;
-  }
-
-  .mainWrapper ul li,
-  .mainWrapper ol li {
-    font-size: 16px;
-    line-height: 1.8;
-    font-weight: 400;
   }
 
   /* Header section ends here */
@@ -379,35 +356,6 @@ export const baseStyles = injectGlobal`
     border-style: solid none solid solid;
     border-width: 1px 0px 1px 1px;
     border-color: transparent currentcolor transparent transparent;
-  }
-
-  .rightSideTitle {
-    font-size: 10px;
-    line-height: 1;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    padding: 7px 24px 7px 16px;
-    border-left: 1px solid #e6ecf1;
-    border-left-color: rgb(230, 236, 241);
-    color: #4c5767;
-  }
-
-  .rightSideBarUL {
-    margin-top: 32px;
-  }
-
-  .rightSideBarUL li {
-    list-style-type: none;
-    border-left: 1px solid #e6ecf1;
-    border-left-color: rgb(230, 236, 241);
-  }
-
-  .rightSideBarUL li a {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.5;
-    padding: 7px 24px 7px 16px;
   }
 
   .hideFrontLine .collapser {
@@ -490,17 +438,6 @@ export const baseStyles = injectGlobal`
     padding-bottom: 40px;
     border-bottom: 1px solid rgb(230, 236, 241);
     margin-bottom: 32px;
-  }
-
-  .title {
-    font-size: 32px;
-    line-height: 1.5;
-    font-weight: 500;
-    border-left: 2px solid rgb(116, 76, 188);
-    padding: 0 16px;
-    flex: 1;
-    margin-top: 0;
-    padding-top: 0;
   }
 
   .gitBtn {
@@ -797,20 +734,7 @@ export const baseStyles = injectGlobal`
     line-height: 1.625;
   }
 
-  .pre {
-    font-size: 14px;
-    margin: 0px;
-    padding: 16px;
-    overflow: auto;
-  }
-
-  .mainWrapper code {
-    background: #f9f7fb;
-    border: 1px solid #ede7f3;
-    border-radius: 4px;
-    padding: 2px 6px;
-    font-size: 0.9375em;
-  }
+  
 
   .poweredBy {
     font-size: 0.6em;
@@ -907,10 +831,6 @@ export const baseStyles = injectGlobal`
 
     .gitBtn {
       display: inline-block;
-    }
-
-    .mainWrapper {
-      padding: 0 15px;
     }
 
     .nextPreviousWrapper {
