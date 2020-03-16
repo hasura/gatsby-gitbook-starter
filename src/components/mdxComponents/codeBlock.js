@@ -3,7 +3,6 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import prismTheme from 'prism-react-renderer/themes/vsDark';
 import Loadable from 'react-loadable';
 import LoadingProvider from './loading';
-import '../styles.css';
 
 /** Removes the last token from a code example if it's empty. */
 function cleanTokens(tokens) {

@@ -2,11 +2,11 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import GitHubButton from 'react-github-btn';
 import Link from './link';
-import './styles.css';
-import config from '../../config.js';
-
 import Loadable from 'react-loadable';
+
+import config from '../../config.js';
 import LoadingProvider from './mdxComponents/loading';
+import { DarkModeSwitch } from './DarkModeSwitch';
 
 const help = require('./images/help.svg');
 
@@ -39,7 +39,7 @@ function myFunction() {
   }
 }
 
-const Header = ({ location }) => (
+const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
   <StaticQuery
     query={graphql`
       query headerTitleQuery {
@@ -158,6 +158,12 @@ const Header = ({ location }) => (
                     </GitHubButton>
                   </li>
                 ) : null}
+                <li>
+                  <DarkModeSwitch
+                    isDarkThemeActive={isDarkThemeActive}
+                    toggleActiveTheme={toggleActiveTheme}
+                  />
+                </li>
               </ul>
             </div>
           </nav>

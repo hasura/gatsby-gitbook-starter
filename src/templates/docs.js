@@ -2,39 +2,13 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
-import styled from '@emotion/styled';
+
 import { Layout, Link } from '$components';
 import NextPrevious from '../components/NextPrevious';
-import '../components/styles.css';
 import config from '../../config';
+import { Edit, StyledHeading, StyledMainWrapper } from '../components/styles/Docs';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
-
-const Edit = styled('div')`
-  padding: 1rem 1.5rem;
-  text-align: right;
-
-  a {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1em;
-    text-decoration: none;
-    color: #555;
-    border: 1px solid rgb(211, 220, 228);
-    cursor: pointer;
-    border-radius: 3px;
-    transition: all 0.2s ease-out 0s;
-    text-decoration: none;
-    color: rgb(36, 42, 49);
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
-    height: 30px;
-    padding: 5px 16px;
-    &:hover {
-      background-color: rgb(245, 247, 249);
-    }
-  }
-`;
 
 export default class MDXRuntimeTest extends Component {
   render() {
@@ -117,7 +91,7 @@ export default class MDXRuntimeTest extends Component {
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         <div className={'titleWrapper'}>
-          <h1 className={'title'}>{mdx.fields.title}</h1>
+          <StyledHeading>{mdx.fields.title}</StyledHeading>
           <Edit className={'mobileView'}>
             {docsLocation && (
               <Link className={'gitBtn'} to={`${docsLocation}/${mdx.parent.relativePath}`}>
@@ -126,9 +100,9 @@ export default class MDXRuntimeTest extends Component {
             )}
           </Edit>
         </div>
-        <div className={'mainWrapper'}>
+        <StyledMainWrapper>
           <MDXRenderer>{mdx.body}</MDXRenderer>
-        </div>
+        </StyledMainWrapper>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />
         </div>
