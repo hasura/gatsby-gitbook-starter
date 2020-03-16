@@ -59,7 +59,7 @@ export const baseStyles = injectGlobal`
     display: inline-block;
   }
   .navBarToggle {
-    border: 1px solid #fff;
+    border: 0px solid #fff;
     border-radius: 4px;
     width: 36px;
     height: 33px;
@@ -75,7 +75,7 @@ export const baseStyles = injectGlobal`
     border-radius: 1px;
     margin: 0 auto;
     margin-top: 4px;
-    background-color: #fff;
+    background-color: #001934;
   }
   .navBarToggle .iconBar:first-child {
     margin-top: 0px;
@@ -153,7 +153,7 @@ export const baseStyles = injectGlobal`
     border: none;
   }
   .formElement svg path {
-    fill: #fff;
+    fill: #2fd2c5;
   }
   .searchInput {
     width: 100%;
@@ -253,6 +253,9 @@ export const baseStyles = injectGlobal`
   }
 
   /* Header section starts here */
+  .removePadd {
+    padding: 0 !important;
+  }
   .navBarDefault {
     background-color: #001934;
     border-radius: 0;
@@ -736,6 +739,9 @@ export const baseStyles = injectGlobal`
     .bgColor {
       display: block;
     }
+    .formElement svg path {
+      fill: #001934;
+    }
     .visibleMobileView {
       display: block !important;
     }
@@ -811,6 +817,9 @@ export const baseStyles = injectGlobal`
     .navBarToggle {
       margin-right: 0;
       display: block;
+      position: absolute;
+      left: 11px;
+      top: 15px;
     }
     .navBarHeader {
       display: flex;
