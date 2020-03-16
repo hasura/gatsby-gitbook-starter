@@ -1,16 +1,17 @@
-import React from "react"
-import { connectSearchBox } from "react-instantsearch-dom"
+import React from 'react';
+import { connectSearchBox } from 'react-instantsearch-dom';
 
-import styled from "@emotion/styled";
-import { css } from "@emotion/core";
-import { Search } from "styled-icons/fa-solid/Search";
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { Search } from 'styled-icons/fa-solid/Search';
 
 const SearchIcon = styled(Search)`
   width: 1em;
   pointer-events: none;
-  margin-right: 10px
-`
-const focus = (props) => css`
+  margin-right: 10px;
+`;
+
+const focus = props => css`
   background: white;
   color: ${props => props.theme.darkBlue};
   cursor: text;
@@ -19,8 +20,9 @@ const focus = (props) => css`
     color: ${props => props.theme.darkBlue};
     margin: 0.3em;
   }
-`
-const collapse = (props) => css`
+`;
+
+const collapse = props => css`
   width: 0;
   cursor: pointer;
   color: ${props => props.theme.lightBlue};
@@ -33,8 +35,9 @@ const collapse = (props) => css`
   ::placeholder {
     color: ${props => props.theme.gray};
   }
-`
-const expand = (props) => css`
+`;
+
+const expand = props => css`
   background: ${props => props.theme.veryLightGray};
   width: 6em;
   margin-left: -1.6em;
@@ -42,11 +45,11 @@ const expand = (props) => css`
   + ${SearchIcon} {
     margin: 0.3em;
   }
-`
+`;
 
-const collapseExpand = (props) => css`
+const collapseExpand = props => css`
   ${props => (props.collapse ? collapse() : expand())}
-`
+`;
 
 const Input = styled.input`
   outline: none;
@@ -56,7 +59,8 @@ const Input = styled.input`
   transition: ${props => props.theme.shortTrans};
   border-radius: ${props => props.theme.smallBorderRadius};
   {collapseExpand}
-`
+`;
+
 const Form = styled.form`
   display: flex;
   flex-direction: row-reverse;
@@ -65,12 +69,13 @@ const Form = styled.form`
     width: 100%;
     margin-left: 15px;
   }
-`
+`;
 
 export default connectSearchBox(({ refine, ...rest }) => {
-  const preventSubmit = (e) => {
+  const preventSubmit = e => {
     e.preventDefault();
-  }
+  };
+
   return (
     <Form className={'formElement'} onSubmit={preventSubmit}>
       <SearchIcon />
@@ -83,5 +88,5 @@ export default connectSearchBox(({ refine, ...rest }) => {
         {...rest}
       />
     </Form>
-  )}
-);
+  );
+});

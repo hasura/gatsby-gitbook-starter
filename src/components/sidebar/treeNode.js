@@ -1,41 +1,40 @@
-import React from "react";
+import React from 'react';
 import OpenedSvg from '../images/opened';
 import ClosedSvg from '../images/closed';
 import config from '../../../config';
-import Link from "../link";
+import Link from '../link';
 
-const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, ...rest}) => {
+const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, ...rest }) => {
   const isCollapsed = collapsed[url];
+
   const collapse = () => {
     setCollapsed(url);
-  }
+  };
+
   const hasChildren = items.length !== 0;
+
   let location;
-  if(typeof(document) != 'undefined') {
+
+  if (typeof document != 'undefined') {
     location = document.location;
   }
   const active =
-    location && (location.pathname === url || location.pathname === (config.gatsby.pathPrefix + url));
+    location && (location.pathname === url || location.pathname === config.gatsby.pathPrefix + url);
+
   const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
+
   return (
-    <li
-      className={calculatedClassName}
-    >
+    <li className={calculatedClassName}>
       {title && (
-        <Link
-          to={url}
-        >
+        <Link to={url}>
           {title}
           {!config.sidebar.frontLine && title && hasChildren ? (
-            <button
-              onClick={collapse}
-              aria-label='collapse'
-              className='collapser'>
+            <button onClick={collapse} aria-label="collapse" className="collapser">
               {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
             </button>
           ) : null}
-        </Link>)
-      }
+        </Link>
+      )}
 
       {!isCollapsed && hasChildren ? (
         <ul>
@@ -51,5 +50,6 @@ const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, .
       ) : null}
     </li>
   );
-}
-export default TreeNode
+};
+
+export default TreeNode;
