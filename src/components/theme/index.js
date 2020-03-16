@@ -4,7 +4,7 @@ const baseTheme = {
   },
 };
 
-export const lightTheme = {
+const lightTheme = {
   ...baseTheme,
   colors: {
     background: '#fff',
@@ -14,7 +14,7 @@ export const lightTheme = {
   },
 };
 
-export const darkTheme = {
+const darkTheme = {
   ...baseTheme,
   colors: {
     background: '#111216',
@@ -23,3 +23,5 @@ export const darkTheme = {
     preFormattedText: '#000',
   },
 };
+
+export { lightTheme, darkTheme };
