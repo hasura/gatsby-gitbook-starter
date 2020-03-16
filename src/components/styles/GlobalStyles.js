@@ -178,7 +178,6 @@ export const baseStyles = injectGlobal`
     padding-left: 0px;
     padding-right: 20px;
     flex: 1;
-    max-width: 600px;
     position: relative;
   }
   .searchWrapper a {
@@ -851,10 +850,13 @@ export const baseStyles = injectGlobal`
 
     .searchWrapper {
       padding: 0px 0;
-      padding-top: 20px;
+      padding-top: 0px;
       position: absolute;
       bottom: 0px;
-      width: calc(100% - 30px);
+      width: calc(100% - 70px);
+      position: absolute;
+      left: 40px;
+      top: 8px;
     }
     .hitWrapper {
       width: 100%;
