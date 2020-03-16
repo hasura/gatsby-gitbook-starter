@@ -24,6 +24,10 @@ const Content = styled('main')`
   padding-top: 3rem;
   background: ${({ theme }) => theme.colors.background};
 
+  table tr {
+    background: ${({ theme }) => theme.colors.background};
+  }
+
   @media only screen and (max-width: 1023px) {
     padding-left: 0;
     margin: 0 10px;

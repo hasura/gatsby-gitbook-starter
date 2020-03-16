@@ -494,7 +494,6 @@ export const baseStyles = injectGlobal`
 
   table tr {
     border-top: 1px solid #cccccc;
-    background-color: white;
     margin: 0;
     padding: 0;
   }
