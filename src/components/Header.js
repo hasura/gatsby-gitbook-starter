@@ -65,14 +65,19 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
       const logoImg = require('./images/logo.svg');
 
       const twitter = require('./images/twitter.svg');
+
       const discordBrandsBlock = require('./images/discord-brands-block.svg');
+
       const twitterBrandsBlock = require('./images/twitter-brands-block.svg');
+
       const {
         site: {
           siteMetadata: { headerTitle, githubUrl, helpUrl, tweetText, logo, headerLinks },
         },
       } = data;
+
       const finalLogoLink = logo.link !== '' ? logo.link : 'https://hasura.io/';
+
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>

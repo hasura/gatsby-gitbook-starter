@@ -133,7 +133,7 @@ export const baseStyles = injectGlobal`
 
   .navbar-default .navbar-toggle:focus,
   .navbar-default .navbar-toggle:hover {
-    background-color: #542683;
+    background-color: #001933;
   }
 
   .headerWrapper {
@@ -403,14 +403,14 @@ export const baseStyles = injectGlobal`
   .headerNav {
     font-family: 'Roboto';
     padding: 0px 24px;
-    color: rgb(116, 76, 188);
+    color: #001933;
     font-size: 16px;
     font-weight: 500;
     line-height: 1em;
   }
 
   .headerNav a {
-    color: rgb(116, 76, 188);
+    color: #001933;
     text-decoration: none;
   }
 
@@ -455,14 +455,14 @@ export const baseStyles = injectGlobal`
   }
 
   .hideFrontLine .active > a {
-    background-color: #542683;
+    background-color: #001933;
     color: #fff !important;
   }
   .firstLevel ul li .collapser svg path {
     fill: #fff !important;
   }
   .active .collapser > svg > path {
-    fill: #663399 !important;
+    fill: #001933 !important;
   }
 
   .firstLevel ul .item ul .item {
@@ -485,11 +485,11 @@ export const baseStyles = injectGlobal`
   }
 
   .showFrontLine .item > a:hover {
-    background-color: #542683;
+    background-color: #001933;
   }
   .showFrontLine .active > a {
     /* color: #fff; */
-    background-color: #473485;
+    background-color: #001933;
   }
 
   .sideBarUL .item .item {
@@ -511,7 +511,7 @@ export const baseStyles = injectGlobal`
     border-color: rgb(230, 236, 241) !important;
     border-style: solid none solid solid;
     border-width: 1px 0px 1px 1px;
-    background-color: #542683;
+    background-color: #001933;
     color: #fff;
   }
 
