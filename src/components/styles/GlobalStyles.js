@@ -33,7 +33,7 @@ export const baseStyles = injectGlobal`
 
   a {
     transition: color 0.15s;
-    color: #663399;
+    /* color: #663399; */
   }
 
   body {
@@ -373,7 +373,7 @@ export const baseStyles = injectGlobal`
   }
   /* Header section ends here */
   .sidebarTitle {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    /* box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16); */
     background-color: #f8f8f8;
     padding: 18px 16px;
     font-family: 'Poppins';
@@ -383,12 +383,15 @@ export const baseStyles = injectGlobal`
     display: flex;
     align-items: center;
   }
+
   .sideBarShow {
     display: none;
   }
+
   .sidebarTitle a {
     color: #001934;
   }
+
   .greenCircle {
     width: 8px;
     height: 8px;
@@ -396,6 +399,7 @@ export const baseStyles = injectGlobal`
     border-radius: 50%;
     margin: 0 12px;
   }
+
   .headerNav {
     font-family: 'Roboto';
     padding: 0px 24px;
@@ -428,7 +432,7 @@ export const baseStyles = injectGlobal`
   }
 
   .sideBarUL li a {
-    color: #fff;
+    /* color: #fff; */
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5;
@@ -470,7 +474,7 @@ export const baseStyles = injectGlobal`
     padding: 0;
   }
   .sideBarUL .item > a {
-    color: #fff;
+    /* color: #fff; */
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -479,15 +483,12 @@ export const baseStyles = injectGlobal`
     padding-right: 35px;
     padding-left: 15px;
   }
-  .sideBarUL .item > a:hover {
-    background-color: #542683;
-    color: #fff !important;
-  }
+
   .showFrontLine .item > a:hover {
     background-color: #542683;
   }
   .showFrontLine .active > a {
-    color: #fff;
+    /* color: #fff; */
     background-color: #473485;
   }
 

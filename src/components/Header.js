@@ -84,13 +84,17 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                   alt={'logo'}
                 />
               </Link>
-              <div className={"headerTitle displayInline"} dangerouslySetInnerHTML={{__html: headerTitle}} />
+              <div
+                className={'headerTitle displayInline'}
+                dangerouslySetInnerHTML={{ __html: headerTitle }}
+              />
             </div>
-            { config.header.social ? (
-                <ul className="socialWrapper visibleMobileView" dangerouslySetInnerHTML={{__html: config.header.social}}>
-                </ul>
-            ) : null
-            }
+            {config.header.social ? (
+              <ul
+                className="socialWrapper visibleMobileView"
+                dangerouslySetInnerHTML={{ __html: config.header.social }}
+              ></ul>
+            ) : null}
             {isSearchEnabled ? (
               <div className={'searchWrapper hiddenMobile navBarUL'}>
                 <LoadableComponent collapse={true} indices={searchIndices} />
@@ -99,7 +103,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
             <div id="navbar" className={'topnav'}>
               <div className={'visibleMobile'}>
                 <Sidebar location={location} />
-                <hr/>
+                <hr />
               </div>
               <ul className={'navBarUL navBarNav navBarULRight'}>
                 {headerLinks.map((link, key) => {
@@ -117,31 +121,47 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                     );
                   }
                 })}
-                {helpUrl !== '' ?
-                  (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
-                }
+                {helpUrl !== '' ? (
+                  <li>
+                    <a href={helpUrl}>
+                      <img src={help} alt={'Help icon'} />
+                    </a>
+                  </li>
+                ) : null}
 
-                {tweetText !== '' ?
-                  (<li>
-                    <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank" rel="noopener">
+                {tweetText !== '' ? (
+                  <li>
+                    <a
+                      href={'https://twitter.com/intent/tweet?&text=' + tweetText}
+                      target="_blank"
+                      rel="noopener"
+                    >
                       <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
                     </a>
-                   </li>) : null
-                }
-                {(tweetText !== '' || githubUrl !== '') ?
-                  (<li className="divider hiddenMobile"></li>): null
-                }
-                { config.header.social ? (
-                  <li className={'hiddenMobile'}>
-                    <ul className="socialWrapper" dangerouslySetInnerHTML={{__html: config.header.social}}>
-                    </ul>
                   </li>
-                ) : null
-                }
-                {githubUrl !== '' ?
-                  (<li className={'githubBtn'}>
-                    <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
-                  </li>) : null}
+                ) : null}
+                {tweetText !== '' || githubUrl !== '' ? (
+                  <li className="divider hiddenMobile"></li>
+                ) : null}
+                {config.header.social ? (
+                  <li className={'hiddenMobile'}>
+                    <ul
+                      className="socialWrapper"
+                      dangerouslySetInnerHTML={{ __html: config.header.social }}
+                    ></ul>
+                  </li>
+                ) : null}
+                {githubUrl !== '' ? (
+                  <li className={'githubBtn'}>
+                    <GitHubButton
+                      href={githubUrl}
+                      data-show-count="true"
+                      aria-label="Star on GitHub"
+                    >
+                      Star
+                    </GitHubButton>
+                  </li>
+                ) : null}
                 <li>
                   <DarkModeSwitch
                     isDarkThemeActive={isDarkThemeActive}
@@ -163,7 +183,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
               <div className={'searchWrapper'}>
                 <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
-              ): null}
+            ) : null}
           </div>
         </div>
       );

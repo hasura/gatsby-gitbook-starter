@@ -52,7 +52,8 @@ body {
 .visibleMobileView {
   display: none !important;
 }
-.discordBtn, .twitterBtn {
+.discordBtn,
+.twitterBtn {
   border-radius: 4px;
   border: solid 1px #d1d2d3;
   background-color: #f1f5f8;
@@ -63,7 +64,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: .8;
+  opacity: 0.8;
   cursor: pointer;
 }
 .twitterBtn img {
@@ -72,7 +73,8 @@ body {
 .discordBtn img {
   width: 10px !important;
 }
-.discordBtn:hover, .twitterBtn:hover {
+.discordBtn:hover,
+.twitterBtn:hover {
   opacity: 1;
 }
 .discordBtn {
@@ -196,13 +198,13 @@ a:hover {
 }
 .searchInput {
   width: 100%;
-  background-color: rgba(28,211,198,.12) !important;
+  background-color: rgba(28, 211, 198, 0.12) !important;
   border-width: 0 !important;
-  color: #C2C2C2;
+  color: #c2c2c2;
   padding: 10px;
   border-radius: 5px;
   color: #fff;
-  opacity: .6;
+  opacity: 0.6;
   padding-left: 38px;
   max-width: 600px;
 }
@@ -468,8 +470,8 @@ blockquote {
   cursor: pointer;
 }
 
-.hideFrontLine  .active >a{
-  background-color: rgba(28,211,198,.12);
+.hideFrontLine .active > a {
+  background-color: rgba(28, 211, 198, 0.12);
   color: #fff !important;
 }
 .firstLevel ul li .collapser svg path {
@@ -497,8 +499,8 @@ blockquote {
   padding-right: 35px;
   padding-left: 15px;
 }
-.sideBarUL .item>a:hover {
-  background-color: rgba(28,211,198,.12);
+.sideBarUL .item > a:hover {
+  background-color: rgba(28, 211, 198, 0.12);
   color: #fff !important;
 }
 .showFrontLine .item > a:hover {
@@ -683,13 +685,15 @@ blockquote {
   flex: 1 1 0%;
 }
 
-.nextBtn:hover, .previousBtn:hover {
+.nextBtn:hover,
+.previousBtn:hover {
   color: #001934;
   text-decoration: none;
   border: 1px solid #001934;
 }
 
-.nextBtn:hover .rightArrow, .previousBtn:hover .leftArrow {
+.nextBtn:hover .rightArrow,
+.previousBtn:hover .leftArrow {
   color: #001934;
 }
 

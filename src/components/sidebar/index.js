@@ -30,7 +30,7 @@ const ListItem = styled(({ className, active, level, ...props }) => {
     ${props =>
       props.active &&
       `
-      color: #663399;
+      // color: #663399;
       border-color: rgb(230,236,241) !important;
       border-style: solid none solid solid;
       border-width: 1px 0px 1px 1px;
@@ -45,8 +45,6 @@ const ListItem = styled(({ className, active, level, ...props }) => {
 
 const Sidebar = styled('aside')`
   width: 100%;
-  /* background-color: rgb(245, 247, 249); */
-  /* border-right: 1px solid #ede7f3; */
   height: 100vh;
   overflow: auto;
   position: fixed;
@@ -56,20 +54,20 @@ const Sidebar = styled('aside')`
   position: sticky;
   top: 0;
   padding-right: 0;
-  background-color: #001934;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
   @media only screen and (max-width: 1023px) {
     width: 100%;
     /* position: relative; */
     height: 100vh;
   }
+
   @media (min-width: 767px) and (max-width: 1023px) {
     padding-left: 0;
   }
+
   @media only screen and (max-width: 767px) {
     padding-left: 0px;
-    background-color: #001934;
-    background: #001934;
     height: auto;
   }
 `;
@@ -109,11 +107,12 @@ const SidebarLayout = ({ location }) => (
     render={({ allMdx }) => {
       return (
         <Sidebar>
-          {
-            config.sidebar.title ? (
-              <div className={'sidebarTitle hiddenMobile'} dangerouslySetInnerHTML={{__html: config.sidebar.title}} />
-            ) : null
-          }
+          {config.sidebar.title ? (
+            <div
+              className={'sidebarTitle hiddenMobile'}
+              dangerouslySetInnerHTML={{ __html: config.sidebar.title }}
+            />
+          ) : null}
           <ul className={'sideBarUL'}>
             <Tree edges={allMdx.edges} />
             {config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
