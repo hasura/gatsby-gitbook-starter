@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
 import GitHubButton from 'react-github-btn';
 import Link from './link';
@@ -38,6 +39,19 @@ function myFunction() {
     x.className = 'topnav';
   }
 }
+
+const StyledBgDiv = styled('div')`
+  height: 60px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f8f8f8;
+  position: relative;
+  display: none;
+  background: ${props => (props.isDarkThemeActive ? '#001932' : undefined)};
+
+  @media (max-width: 767px) {
+    display: block;
+  }
+`;
 
 const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
   <StaticQuery
@@ -176,7 +190,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
               </ul>
             </div>
           </nav>
-          <div className={'bgColor'}>
+          <StyledBgDiv isDarkThemeActive={isDarkThemeActive}>
             <div className={'navBarDefault removePadd'}>
               <span onClick={myFunction} className={'navBarToggle'}>
                 <span className={'iconBar'}></span>
@@ -189,7 +203,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                 <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
             ) : null}
-          </div>
+          </StyledBgDiv>
         </div>
       );
     }}

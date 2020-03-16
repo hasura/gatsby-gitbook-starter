@@ -54,7 +54,7 @@ const Sidebar = styled('aside')`
   position: sticky;
   top: 0;
   padding-right: 0;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
 
   @media only screen and (max-width: 1023px) {
     width: 100%;

@@ -319,13 +319,7 @@ export const baseStyles = injectGlobal`
     border: 0 !important;
     background-color: rgb(245, 247, 249); /* !important; */
   }
-  .bgColor {
-    height: 60px;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    background-color: #f8f8f8;
-    position: relative;
-    display: none;
-  }
+  
   blockquote {
     color: rgb(116, 129, 141);
     margin: 0px 0px 24px;
@@ -736,9 +730,6 @@ export const baseStyles = injectGlobal`
   }
 
   @media (max-width: 767px) {
-    .bgColor {
-      display: block;
-    }
     .formElement svg path {
       fill: #001934;
     }
@@ -820,13 +811,16 @@ export const baseStyles = injectGlobal`
       position: absolute;
       left: 11px;
       top: 15px;
+      background: #fff;
     }
+
     .navBarHeader {
       display: flex;
       min-width: auto;
       padding-right: 0;
       align-items: center;
     }
+
     .navBarBrand {
       font-size: 20px;
       padding: 0 0;
