@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect, createRef } from 'react';
 import {
   InstantSearch,
   Index,
@@ -6,16 +6,16 @@ import {
   Configure,
   Pagination,
   connectStateResults,
-} from "react-instantsearch-dom";
-import algoliasearch from "algoliasearch/lite";
-import config from "../../../config.js";
+} from 'react-instantsearch-dom';
+import algoliasearch from 'algoliasearch/lite';
+import config from '../../../config.js';
 
-import styled from "@emotion/styled";
-import { css } from "@emotion/core";
-import { PoweredBy } from "./styles"
-import { Search } from "styled-icons/fa-solid/Search"
-import Input from "./input"
-import * as hitComps from "./hitComps"
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { PoweredBy } from './styles';
+import { Search } from 'styled-icons/fa-solid/Search';
+import Input from './input';
+import * as hitComps from './hitComps';
 import '../styles.css';
 
 const SearchIcon = styled(Search)`
@@ -86,7 +86,8 @@ const HitsWrapper = styled.div`
     color: black;
     margin-bottom: 0.3em;
   }
-`
+`;
+
 const Root = styled.div`
   position: relative;
   display: grid;
@@ -94,38 +95,41 @@ const Root = styled.div`
   @media only screen and (max-width: 767px) {
     width: 100%;
   }
-`
+`;
 
 const Results = connectStateResults(
   ({ searching, searchState: state, searchResults: res }) =>
-    (searching && `Searching...`) ||
-    (res && res.nbHits === 0 && `No results for '${state.query}'`)
-)
+    (searching && `Searching...`) || (res && res.nbHits === 0 && `No results for '${state.query}'`)
+);
 
 const useClickOutside = (ref, handler, events) => {
-  if (!events) events = [`mousedown`, `touchstart`]
+  if (!events) events = [`mousedown`, `touchstart`];
   const detectClickOutside = event =>
-    ref && ref.current && !ref.current.contains(event.target) && handler()
+    ref && ref.current && !ref.current.contains(event.target) && handler();
+
   useEffect(() => {
-    for (const event of events)
-      document.addEventListener(event, detectClickOutside)
+    for (const event of events) document.addEventListener(event, detectClickOutside);
     return () => {
-      for (const event of events)
-        document.removeEventListener(event, detectClickOutside)
-    }
-  })
-}
+      for (const event of events) document.removeEventListener(event, detectClickOutside);
+    };
+  });
+};
 
 export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
-  const ref = createRef()
-  const [query, setQuery] = useState(``)
-  const [focus, setFocus] = useState(false)
+  const ref = createRef();
+
+  const [query, setQuery] = useState(``);
+
+  const [focus, setFocus] = useState(false);
+
   const searchClient = algoliasearch(
     config.header.search.algoliaAppId,
     config.header.search.algoliaSearchKey
-  )
-  useClickOutside(ref, () => setFocus(false))
-  const displayResult = (query.length > 0 && focus) ? 'showResults' : 'hideResults';
+  );
+
+  useClickOutside(ref, () => setFocus(false));
+  const displayResult = query.length > 0 && focus ? 'showResults' : 'hideResults';
+
   return (
     <InstantSearch
       searchClient={searchClient}
@@ -134,17 +138,22 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
       root={{ Root, props: { ref } }}
     >
       <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-      <HitsWrapper className={'hitWrapper ' + displayResult} show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+      <HitsWrapper
+        className={'hitWrapper ' + displayResult}
+        show={query.length > 0 && focus}
+        asGrid={hitsAsGrid}
+      >
         {indices.map(({ name, title, hitComp, type }) => {
           return (
             <Index key={name} indexName={name}>
               <Results />
               <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
             </Index>
-          )})}
+          );
+        })}
         <PoweredBy />
       </HitsWrapper>
       <Configure hitsPerPage={5} />
     </InstantSearch>
-  )
+  );
 }
