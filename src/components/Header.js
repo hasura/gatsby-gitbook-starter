@@ -133,7 +133,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                           className="sidebarLink"
                           href={link.link}
                           target="_blank"
-                          rel="noopener"
+                          rel="noopener noreferrer"
                           dangerouslySetInnerHTML={{ __html: link.text }}
                         />
                       </li>
@@ -153,7 +153,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                     <a
                       href={'https://twitter.com/intent/tweet?&text=' + tweetText}
                       target="_blank"
-                      rel="noopener"
+                      rel="noopener noreferrer"
                     >
                       <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
                     </a>
@@ -192,7 +192,13 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
           </nav>
           <StyledBgDiv isDarkThemeActive={isDarkThemeActive}>
             <div className={'navBarDefault removePadd'}>
-              <span onClick={myFunction} className={'navBarToggle'}>
+              <span
+                onClick={myFunction}
+                className={'navBarToggle'}
+                onKeyDown={myFunction}
+                role="button"
+                tabIndex={0}
+              >
                 <span className={'iconBar'}></span>
                 <span className={'iconBar'}></span>
                 <span className={'iconBar'}></span>

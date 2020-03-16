@@ -55,7 +55,9 @@ export const Sidebar = styled('aside')`
 export const ListItem = styled(({ className, active, level, ...props }) => {
   return (
     <li className={className}>
-      <a href={props.to} {...props} />
+      <a href={props.to} {...props}>
+        {props.children}
+      </a>
     </li>
   );
 })`
