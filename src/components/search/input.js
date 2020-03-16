@@ -12,8 +12,9 @@ const SearchIcon = styled(Search)`
   position: absolute;
   left: 15px;
   color: #2fd2c5;
-`
-const focus = (props) => css`
+`;
+
+const focus = props => css`
   background: white;
   color: ${props => props.theme.darkBlue};
   cursor: text;
@@ -89,5 +90,5 @@ export default connectSearchBox(({ refine, ...rest }) => {
         {...rest}
       />
     </Form>
-  )}
-);
+  );
+});
