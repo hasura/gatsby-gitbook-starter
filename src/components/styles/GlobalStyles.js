@@ -29,6 +29,7 @@ export const baseStyles = injectGlobal`
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
     font-size: 16px;
+    scroll-behavior: smooth;
   }
 
   a {
@@ -449,7 +450,7 @@ export const baseStyles = injectGlobal`
   }
 
   .hideFrontLine .active > a {
-    background-color: #001933;
+    background-color: #1ed3c6;
     color: #fff !important;
   }
   .firstLevel ul li .collapser svg path {
@@ -505,7 +506,7 @@ export const baseStyles = injectGlobal`
     border-color: rgb(230, 236, 241) !important;
     border-style: solid none solid solid;
     border-width: 1px 0px 1px 1px;
-    background-color: #001933;
+    background-color: #1ed3c6 !important;
     color: #fff;
   }
 
