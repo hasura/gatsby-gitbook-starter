@@ -468,8 +468,9 @@ export const baseStyles = injectGlobal`
     list-style: none;
     padding: 0;
   }
+
   .sideBarUL .item > a {
-    /* color: #fff; */
+    color: #1ED3C6;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -482,6 +483,7 @@ export const baseStyles = injectGlobal`
   .showFrontLine .item > a:hover {
     background-color: #001933;
   }
+
   .showFrontLine .active > a {
     /* color: #fff; */
     background-color: #001933;
