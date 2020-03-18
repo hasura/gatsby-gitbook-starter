@@ -57,6 +57,11 @@ export const StyledMainWrapper = styled.div`
     }
   }
 
+  a {
+    transition: color 0.15s;
+    color: ${props => props.theme.colors.link};
+  }
+
   code {
     border: 1px solid #ede7f3;
     border-radius: 4px;
