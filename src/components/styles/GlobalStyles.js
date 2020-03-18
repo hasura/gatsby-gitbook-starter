@@ -2,7 +2,7 @@ import { injectGlobal } from 'emotion';
 
 export const baseStyles = injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
-
+  @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -29,11 +29,12 @@ export const baseStyles = injectGlobal`
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
     font-size: 16px;
+    scroll-behavior: smooth;
   }
 
   a {
     transition: color 0.15s;
-    color: #663399;
+    /* color: #663399; */
   }
 
   body {
@@ -42,7 +43,9 @@ export const baseStyles = injectGlobal`
   .visibleMobile {
     display: none;
   }
-
+  .visibleMobileView {
+    display: none !important;
+  }
   .video-responsive {
     position: relative;
     padding-bottom: 56.2%;
@@ -57,7 +60,7 @@ export const baseStyles = injectGlobal`
     display: inline-block;
   }
   .navBarToggle {
-    border: 1px solid #fff;
+    border: 0px solid #fff;
     border-radius: 4px;
     width: 36px;
     height: 33px;
@@ -73,7 +76,7 @@ export const baseStyles = injectGlobal`
     border-radius: 1px;
     margin: 0 auto;
     margin-top: 4px;
-    background-color: #fff;
+    background-color: #001934;
   }
   .navBarToggle .iconBar:first-child {
     margin-top: 0px;
@@ -131,7 +134,7 @@ export const baseStyles = injectGlobal`
 
   .navbar-default .navbar-toggle:focus,
   .navbar-default .navbar-toggle:hover {
-    background-color: #542683;
+    background-color: #001933;
   }
 
   .headerWrapper {
@@ -143,21 +146,27 @@ export const baseStyles = injectGlobal`
   .formElement {
     background-color: transparent;
     padding: 4px;
-    /* border-radius: 4px; */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    position: relative;
   }
   .formElement:focus {
     outline: none;
     border: none;
   }
   .formElement svg path {
-    fill: #fff;
+    fill: #2fd2c5;
   }
   .searchInput {
-    width: calc(100% - 26px);
-    background-color: transparent !important;
+    width: 100%;
+    background-color: rgba(28,211,198,.12) !important;
     border-width: 0 !important;
-    color: #c2c2c2;
+    color: #C2C2C2;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    opacity: .6;
+    padding-left: 38px;
+    max-width: 600px;
   }
   .searchInput:focus,
   .searchInput:visited,
@@ -170,7 +179,6 @@ export const baseStyles = injectGlobal`
     padding-left: 0px;
     padding-right: 20px;
     flex: 1;
-    max-width: 600px;
     position: relative;
   }
   .searchWrapper a {
@@ -215,10 +223,12 @@ export const baseStyles = injectGlobal`
   }
   .headerTitle {
     height: auto;
-    font-size: 28px;
+    font-size: 16px;
     line-height: 1.5;
-    font-weight: 500;
+    font-weight: 300;
     color: #fff !important;
+    margin-top: 16px;
+    text-transform: uppercase;
   }
   .headerTitle a {
     color: #fff;
@@ -243,8 +253,11 @@ export const baseStyles = injectGlobal`
   }
 
   /* Header section starts here */
+  .removePadd {
+    padding: 0 !important;
+  }
   .navBarDefault {
-    background-color: #372476;
+    background-color: #001934;
     border-radius: 0;
     border-top: 0;
     margin-bottom: 0;
@@ -258,11 +271,11 @@ export const baseStyles = injectGlobal`
     z-index: 1;
     padding: 15px;
     position: relative;
+    height: 80px;
   }
   .navBarHeader {
     min-width: 335px;
     padding-right: 20px;
-    flex: 1;
     display: flex;
     align-items: center;
   }
@@ -273,8 +286,8 @@ export const baseStyles = injectGlobal`
   }
 
   .navBarBrand img {
-    width: 40px;
-    margin-right: 16px;
+    width: 120px;
+    margin-right: 6px;
     display: inline-block;
   }
   .navBarUL li {
@@ -300,11 +313,14 @@ export const baseStyles = injectGlobal`
   .navBarUL li a .shareIcon {
     width: 20px;
   }
-
   .navBarUL li a:hover {
     opacity: 0.7;
   }
-
+  pre {
+    border: 0 !important;
+    background-color: rgb(245, 247, 249); /* !important; */
+  }
+  
   blockquote {
     color: rgb(116, 129, 141);
     margin: 0px 0px 24px;
@@ -312,19 +328,84 @@ export const baseStyles = injectGlobal`
     border-left: 4px solid rgb(230, 236, 241);
     border-color: rgb(230, 236, 241);
   }
-
+  .socialWrapper {
+    display: flex;
+    align-items: center;
+  }
+  .socialWrapper li {
+    display: inline-block;
+  }
+  .socialWrapper li a {
+    display: contents;
+  }
+  .discordBtn, .twitterBtn {
+    border-radius: 4px;
+    border: solid 1px #d1d2d3;
+    background-color: #f1f5f8;
+    width: 20px;
+    height: 20px;
+    padding-top: 2px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .8;
+    cursor: pointer;
+  }
+  .twitterBtn img {
+    width: 12px !important;
+  }
+  .discordBtn img {
+    width: 10px !important;
+  }
+  .discordBtn:hover, .twitterBtn:hover {
+    opacity: 1;
+  }
+  .discordBtn {
+    img {
+      width: 10px;
+    }
+  }
   /* Header section ends here */
+  .sidebarTitle {
+    /* box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16); */
+    background-color: #f8f8f8;
+    padding: 18px 16px;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 600;
+    color: #001934;
+    display: flex;
+    align-items: center;
+  }
+
+  .sideBarShow {
+    display: none;
+  }
+
+  .sidebarTitle a {
+    color: #001934;
+  }
+
+  .greenCircle {
+    width: 8px;
+    height: 8px;
+    background-color: #1cd3c6;
+    border-radius: 50%;
+    margin: 0 12px;
+  }
+
   .headerNav {
     font-family: 'Roboto';
     padding: 0px 24px;
-    color: rgb(116, 76, 188);
+    color: #001933;
     font-size: 16px;
     font-weight: 500;
     line-height: 1em;
   }
 
   .headerNav a {
-    color: rgb(116, 76, 188);
+    color: #001933;
     text-decoration: none;
   }
 
@@ -346,7 +427,7 @@ export const baseStyles = injectGlobal`
   }
 
   .sideBarUL li a {
-    color: #fff;
+    /* color: #fff; */
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5;
@@ -369,14 +450,14 @@ export const baseStyles = injectGlobal`
   }
 
   .hideFrontLine .active > a {
-    background-color: #542683;
+    background-color: #1ed3c6;
     color: #fff !important;
   }
   .firstLevel ul li .collapser svg path {
     fill: #fff !important;
   }
   .active .collapser > svg > path {
-    fill: #663399 !important;
+    fill: #001933 !important;
   }
 
   .firstLevel ul .item ul .item {
@@ -387,8 +468,9 @@ export const baseStyles = injectGlobal`
     list-style: none;
     padding: 0;
   }
+
   .sideBarUL .item > a {
-    color: #fff;
+    color: #1ED3C6;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -397,16 +479,14 @@ export const baseStyles = injectGlobal`
     padding-right: 35px;
     padding-left: 15px;
   }
-  .sideBarUL .item > a:hover {
-    background-color: #542683;
-    color: #fff !important;
-  }
+
   .showFrontLine .item > a:hover {
-    background-color: #542683;
+    background-color: #001933;
   }
+
   .showFrontLine .active > a {
-    color: #fff;
-    background-color: #473485;
+    /* color: #fff; */
+    background-color: #001933;
   }
 
   .sideBarUL .item .item {
@@ -428,7 +508,7 @@ export const baseStyles = injectGlobal`
     border-color: rgb(230, 236, 241) !important;
     border-style: solid none solid solid;
     border-width: 1px 0px 1px 1px;
-    background-color: #542683;
+    background-color: #1ed3c6 !important;
     color: #fff;
   }
 
@@ -641,7 +721,7 @@ export const baseStyles = injectGlobal`
     margin: 0px;
     padding: 16px;
     overflow: auto;
-  } 
+  }
 
   .poweredBy {
     font-size: 0.6em;
@@ -653,6 +733,20 @@ export const baseStyles = injectGlobal`
   }
 
   @media (max-width: 767px) {
+    .formElement svg path {
+      fill: #001934;
+    }
+    .visibleMobileView {
+      display: block !important;
+    }
+    .searchInput {
+      color: #001934;
+    }
+    .socialWrapper {
+      position: absolute;
+      right: 10px;
+      top: 29px;
+    }
     .responsive {
       margin-top: 15px;
       position: relative;
@@ -661,7 +755,7 @@ export const baseStyles = injectGlobal`
     }
     .headerTitle {
       padding-right: 50px;
-      font-size: 20px;
+      font-size: 16px;
     }
     .navBarBrand {
       min-height: 40px;
@@ -711,18 +805,25 @@ export const baseStyles = injectGlobal`
 
     .navBarDefault {
       display: block;
+      height: auto;
     }
 
     .navBarToggle {
       margin-right: 0;
       display: block;
+      position: absolute;
+      left: 11px;
+      top: 15px;
+      background: #fff;
     }
+
     .navBarHeader {
       display: flex;
       min-width: auto;
       padding-right: 0;
       align-items: center;
     }
+
     .navBarBrand {
       font-size: 20px;
       padding: 0 0;
@@ -747,10 +848,13 @@ export const baseStyles = injectGlobal`
 
     .searchWrapper {
       padding: 0px 0;
-      padding-top: 20px;
+      padding-top: 0px;
       position: absolute;
       bottom: 0px;
-      width: calc(100% - 30px);
+      width: calc(100% - 70px);
+      position: absolute;
+      left: 40px;
+      top: 8px;
     }
     .hitWrapper {
       width: 100%;

@@ -5,6 +5,7 @@ const YoutubeEmbed = ({ link }) => {
     <div className="video-responsive">
       <iframe
         width="750"
+        title="Youtube"
         height="422"
         src={link}
         frameBorder="0"

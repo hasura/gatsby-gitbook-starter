@@ -18,6 +18,7 @@ We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https:
 - Progressive Web App, Works Offline
 - Google Analytics Integration
 - Automatically generated sidebar navigation, table of contents, previous/next
+- Dark Mode toggle
 - Edit on Github
 - Fully customisable
 - Rich embeds and live code editor using MDX

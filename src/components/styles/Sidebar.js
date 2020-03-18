@@ -55,7 +55,9 @@ export const Sidebar = styled('aside')`
 export const ListItem = styled(({ className, active, level, ...props }) => {
   return (
     <li className={className}>
-      <a href={props.to} {...props} />
+      <a href={props.to} {...props}>
+        {props.children}
+      </a>
     </li>
   );
 })`
@@ -70,13 +72,13 @@ export const ListItem = styled(({ className, active, level, ...props }) => {
     position: relative;
 
     &:hover {
-      color: rgb(116, 76, 188) !important;
+      color: #1ed3c6 !important;
     }
 
     ${props =>
       props.active &&
       `
-      color: #663399;
+      color: #1ED3C6;
       border-color: rgb(230,236,241) !important;
       border-style: solid none solid solid;
       border-width: 1px 0px 1px 1px;

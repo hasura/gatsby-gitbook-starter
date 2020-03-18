@@ -1,15 +1,28 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
-import mdxComponents from './mdxComponents';
+
 import ThemeProvider from './theme/themeProvider';
+import mdxComponents from './mdxComponents';
 import Sidebar from './sidebar';
 import RightSidebar from './rightSidebar';
+import config from '../../config.js';
 
 const Wrapper = styled('div')`
   display: flex;
   justify-content: space-between;
   background: ${({ theme }) => theme.colors.background};
+
+  .sideBarUL li a {
+    color: ${({ theme }) => theme.colors.text};
+  }
+
+  .sideBarUL .item > a:hover {
+    background-color: #1ed3c6;
+    color: #fff !important;
+
+    /* background: #F8F8F8 */
+  }
 
   @media only screen and (max-width: 767px) {
     display: block;
@@ -56,6 +69,12 @@ const Layout = ({ children, location }) => (
         <LeftSideBarWidth className={'hiddenMobile'}>
           <Sidebar location={location} />
         </LeftSideBarWidth>
+        {config.sidebar.title ? (
+          <div
+            className={'sidebarTitle sideBarShow'}
+            dangerouslySetInnerHTML={{ __html: config.sidebar.title }}
+          />
+        ) : null}
         <Content>
           <MaxWidth>{children}</MaxWidth>
         </Content>
