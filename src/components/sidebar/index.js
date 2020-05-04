@@ -81,8 +81,8 @@ const Sidebar = styled('aside')`
   }
   @media only screen and (max-width: 767px) {
     padding-left: 0px;
-    background-color: #372476;
-    background: #372476;
+    background-color: #001934;
+    background: #001934;
     height: auto;
   }
 `;
