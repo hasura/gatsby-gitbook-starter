@@ -253,7 +253,7 @@ a:hover {
 
 /* Header section starts here */
 .navBarDefault {
-  background-color: #372476;
+  background-color: #001934;
   border-radius: 0;
   border-top: 0;
   margin-bottom: 0;
@@ -377,7 +377,7 @@ blockquote {
 }
 
 .sideBarUL li a {
-  color: #fff;
+  color: rgba(255, 255, 255, .8);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
@@ -428,9 +428,9 @@ blockquote {
   cursor: pointer;
 }
 
-.hideFrontLine  .active >a{
-  background-color: #542683;
-  color: #fff !important;
+.hideFrontLine .active >a{
+  background-color: #003268;
+  color: rgba(255, 255, 255, .8) !important;
 }
 .firstLevel ul li .collapser svg path {
   fill: #fff !important;
@@ -448,7 +448,7 @@ blockquote {
   padding: 0;
 }
 .sideBarUL .item >a {
-  color: #fff;
+  color: rgba(255, 255, 255, .8);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -458,7 +458,7 @@ blockquote {
   padding-left: 15px;
 }
 .sideBarUL .item>a:hover {
-  background-color: #542683;
+  background-color: rgba(255, 255, 255, .06);
   color: #fff !important;
 }
 .showFrontLine .item >a:hover {

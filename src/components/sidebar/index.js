@@ -25,7 +25,7 @@ const ListItem = styled(({ className, active, level, ...props }) => {
     position: relative;
 
     &:hover {
-      color: rgb(116, 76, 188) !important;
+      color: rgb(255, 255, 255) !important;
     }
 
     ${props =>
@@ -57,19 +57,19 @@ const Sidebar = styled('aside')`
   position: sticky;
   top: 0;
   padding-right: 0;
-  background-color: #372476;
-  /* Safari 4-5, Chrome 1-9 */
+  background-color: #001934;
+  /* Safari 4-5, Chrome 1-9
   background: linear-gradient(#372476, #3b173b);
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#372476), to(#3b173b));
-  /* Safari 5.1, Chrome 10+ */
+  /* Safari 5.1, Chrome 10+
   background: -webkit-linear-gradient(top, #372476, #3b173b);
-  /* Firefox 3.6+ */
+  /* Firefox 3.6+
   background: -moz-linear-gradient(top, #372476, #3b173b);
-  /* IE 10 */
+  /* IE 10
   background: -ms-linear-gradient(top, #372476, #3b173b);
-  /* Opera 11.10+ */
+  /* Opera 11.10+
   background: -o-linear-gradient(top, #372476, #3b173b);
-
+  */
   @media only screen and (max-width: 1023px) {
     width: 100%;
     /* position: relative; */
