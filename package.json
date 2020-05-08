@@ -23,6 +23,7 @@
     "gatsby-link": "^2.2.27",
     "gatsby-plugin-algolia": "^0.5.0",
     "gatsby-plugin-emotion": "^4.1.18",
+    "gatsby-plugin-google-tagmanager": "^2.3.1",
     "gatsby-plugin-layout": "^1.1.18",
     "gatsby-plugin-manifest": "^2.2.33",
     "gatsby-plugin-mdx": "^1.0.61",
