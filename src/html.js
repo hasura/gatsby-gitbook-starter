@@ -4,8 +4,9 @@ import config from "../config";
 
 export default class HTML extends React.Component {
   render() {
+    const lang = config.language && config.language.code ? config.language.code : "en";
     return (
-      <html {...this.props.htmlAttributes} lang="en">
+      <html {...this.props.htmlAttributes} lang={lang}>
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
