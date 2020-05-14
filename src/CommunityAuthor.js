@@ -7,7 +7,7 @@ const CommunityAuthor = ({name, imageUrl, twitterUrl, githubUrl, description}) =
         	<h2 className="communitySection">About the community author</h2>
         	<div className="authorSection">
         		<div className="authorImg">
-        			<img src={imageUrl} alt={name} />
+        			<img loading="lazy" src={imageUrl} alt={name} />
         		</div>
         		<div className="authorDetails">
 	        		<div className="authorName">

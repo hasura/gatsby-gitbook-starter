@@ -28,6 +28,7 @@
     "gatsby-plugin-manifest": "^2.4.2",
     "gatsby-plugin-mdx": "^1.2.6",
     "gatsby-plugin-offline": "^3.2.1",
+    "gatsby-plugin-preconnect": "^1.1.36",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sharp": "^2.6.2",

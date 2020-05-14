@@ -20,6 +20,12 @@ const plugins = [
     }
   },
   {
+    resolve: 'gatsby-plugin-preconnect',
+    options: {
+      domains: ['https://wcbb1vvlrc-dsn.algolia.net', 'https://api.github.com'],
+    },
+  },
+  {
     resolve: 'gatsby-plugin-mdx',
     options: {
       gatsbyRemarkPlugins: [
