@@ -37,8 +37,8 @@ const BannerStripe = () => {
   return (
     <div className="bannerStripWrapper">
       <div className='container noPadd displayFlex'>
-        <Link
-          to="/events/hasura-con-2020/"
+        <a
+          href="https://hasura.io/events/hasura-con-2020/"
           onClick={()=>trackGAEvents("Learn Course", "Link Click", "Hasura Con Banner Strip")}
         >
           <div className="bannerStrip">
@@ -57,7 +57,7 @@ const BannerStripe = () => {
               </div>
             </div>
           </div>
-        </Link>
+        </a>
         <div
           className="closeBanner"
           onKeyDown={()=>handleBannerClose()}
