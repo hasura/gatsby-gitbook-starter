@@ -34,6 +34,7 @@ Get started by running the following commands:
 
 ```
 $ git clone git@github.com:hasura/gatsby-gitbook-starter.git
+$ cd gatsby-gitbook-starter
 $ npm install
 $ npm start
 ```
