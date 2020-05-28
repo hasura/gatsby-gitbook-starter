@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -85,6 +85,7 @@ a:hover {
 }
 .bannerStripWrapper .bannerStripImg img {
   max-height: 56px;
+  opacity: .4;
 }
 .bannerStripWrapper .bannerStrip
 {
@@ -127,9 +128,9 @@ a:hover {
   text-align: left;
   padding-top: 0;
   letter-spacing: normal;
-  font-weight: 500;
+  font-weight: 400;
   display: inline-block;
-  line-height: 17px;
+  line-height: 120%;
   color: #fff;
   padding-bottom: 0;
   padding-right: 10px;
