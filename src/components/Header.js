@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import GitHubButton from 'react-github-btn';
+import BannerStripe from './BannerStripe'
 import Link from './link';
 import './styles.css';
 import config from '../../config.js';
@@ -99,16 +99,45 @@ const Header = ({ location }) => (
               <div className={'searchWrapper hiddenMobile navBarUL'}>
                 <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
-            ) : null}
-            <div id="navbar" className={'topnav'}>
-              <div className={'visibleMobile'}>
-                <Sidebar location={location} />
-                <hr />
-                {isSearchEnabled ? (
-                  <div className={'searchWrapper'}>
-                    <LoadableComponent collapse={true} indices={searchIndices} />
-                  </div>
-                ) : null}
+              {isSearchEnabled ? (
+                <div className={'searchWrapper hiddenMobile navBarUL'}>
+                  <LoadableComponent collapse={true} indices={searchIndices} />
+                </div>
+                ): null}
+              <div id="navbar" className={'topnav'}>
+                <div className={'visibleMobile'}>
+                  <Sidebar location={location} />
+                  <hr/>
+                  {isSearchEnabled ? (
+                    <div className={'searchWrapper'}>
+                      <LoadableComponent collapse={true} indices={searchIndices} />
+                    </div>
+                    ): null}
+                </div>
+                <ul className={'navBarUL navBarNav navBarULRight'}>
+                  {headerLinks.map((link, key) => {
+                    if(link.link !== '' && link.text !== '') {
+                      return(
+                        <li key={key}>
+                          <a className="sidebarLink" href={link.link} target="_blank" rel="noopener" dangerouslySetInnerHTML={{__html: link.text}} />
+                        </li>
+                      );
+                    }
+                  })}
+                  {helpUrl !== '' ?
+                    (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
+                  }
+                  {(tweetText !== '' || githubUrl !== '') ?
+                    (<li className="divider hiddenMobile"></li>): null
+                  }
+                  {tweetText !== '' ?
+                    (<li>
+                      <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank" rel="noopener">
+                        <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
+                      </a>
+                     </li>) : null
+                  }
+                </ul>
               </div>
               <ul className={'navBarUL navBarNav navBarULRight'}>
                 {headerLinks.map((link, key) => {
