@@ -97,6 +97,9 @@ export default class MDXRuntimeTest extends Component {
     canonicalUrl = config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
     canonicalUrl = canonicalUrl + mdx.fields.slug;
 
+    // frontmatter canonical takes precedence
+    canonicalUrl = mdx.frontmatter.canonicalUrl ? mdx.frontmatter.canonicalUrl : canonicalUrl;
+
     return (
       <Layout {...this.props}>
         <Helmet>
@@ -156,6 +159,7 @@ export const pageQuery = graphql`
       frontmatter {
         metaTitle
         metaDescription
+        canonicalUrl
       }
     }
     allMdx {
