@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import BannerStripe from './BannerStripe'
+// import BannerStripe from './BannerStripe'
 import Link from './link';
 import './styles.css';
 import config from '../../config.js';
@@ -75,7 +75,6 @@ const Header = ({location}) => (
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
       return (
         <div>
-          <BannerStripe />
           <div className={'navBarWrapper'}>
             <nav className={'navBarDefault'}>
               <div className={'navBarHeader'}>
