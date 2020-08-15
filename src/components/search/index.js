@@ -114,17 +114,17 @@ const useClickOutside = (ref, handler, events) => {
   });
 };
 
+const searchClient = algoliasearch(
+  config.header.search.algoliaAppId,
+  config.header.search.algoliaSearchKey
+);
+
 export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
   const ref = createRef();
 
   const [query, setQuery] = useState(``);
 
   const [focus, setFocus] = useState(false);
-
-  const searchClient = algoliasearch(
-    config.header.search.algoliaAppId,
-    config.header.search.algoliaSearchKey
-  );
 
   useClickOutside(ref, () => setFocus(false));
   const displayResult = query.length > 0 && focus ? 'showResults' : 'hideResults';
