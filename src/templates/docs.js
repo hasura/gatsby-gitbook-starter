@@ -100,7 +100,6 @@ export default class MDXRuntimeTest extends Component {
 
     // frontmatter canonical takes precedence
     canonicalUrl = mdx.frontmatter.canonicalUrl ? mdx.frontmatter.canonicalUrl : canonicalUrl;
-    console.log(this.props);
     return (
       <Layout {...this.props}>
         <Helmet>

@@ -1,9 +1,9 @@
 .floating-subscribe-wrapper {
-  width: 275px;
+  width: 225px;
   z-index: 1;
   position: fixed;
   right: 0px;
-  bottom: 20px;
+  bottom: 10px;
   .floating-subscribe-close {
     position: absolute;
     right: 24px;
@@ -23,7 +23,7 @@
   background: #FFFFFF;
   box-shadow: 0px 2.75335px 44.0535px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
-  padding: 28px;
+  padding: 24px;
   text-align: center;
   .icon {
     padding-bottom: 24px;
@@ -70,12 +70,12 @@
   }
 }
 .floatingShareWrapper {
-  width: 275px;
+  width: 225px;
   right: 30px;
 }
 .subscribeIcon {
   width: auto;
-  right: 325px;
+  right: 270px;
 }
 .floatingShareWrapper, .subscribeIcon {
   position: fixed;
