@@ -10,6 +10,7 @@ const plugins = [
         component: require.resolve(`./src/templates/docs.js`)
     }
   },
+  `gatsby-plugin-sass`,
   'gatsby-plugin-emotion',
   'gatsby-plugin-react-helmet',
   {

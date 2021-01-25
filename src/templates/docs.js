@@ -5,6 +5,7 @@ import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import styled from "@emotion/styled";
 import { Layout, Link } from "$components";
 import NextPrevious from '../components/NextPrevious';
+import SubscribeNewsletter from '../components/SubscribeNewsletter';
 import '../components/styles.css';
 import config from '../../config';
 
@@ -99,7 +100,7 @@ export default class MDXRuntimeTest extends Component {
 
     // frontmatter canonical takes precedence
     canonicalUrl = mdx.frontmatter.canonicalUrl ? mdx.frontmatter.canonicalUrl : canonicalUrl;
-
+    console.log(this.props);
     return (
       <Layout {...this.props}>
         <Helmet>
@@ -126,6 +127,10 @@ export default class MDXRuntimeTest extends Component {
         </div>
         <div className={'mainWrapper'}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
+          <SubscribeNewsletter
+            title = {mdx.fields.title}
+            canonicalUrl = {canonicalUrl}
+          />
         </div>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />
