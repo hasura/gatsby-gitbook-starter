@@ -39,9 +39,12 @@
     padding-bottom: 8px;
     line-height: 125%;
   }
+  .pr-40 {
+    padding-right: 40px;
+  }
   .post-subscription-description {
     font-family: 'Roboto';
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     color: #001934;
     text-align: left;
@@ -160,6 +163,9 @@
   .floating-subscribe-wrapper {
     position: static;
     width: 100%;
+    .pr-40 {
+      padding-right: 0px;
+    }
   }
   .floatingShareWrapper {
     width: 100%;

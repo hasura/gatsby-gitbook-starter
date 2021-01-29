@@ -68,7 +68,7 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
                  src={closeSubscribe} alt='Close'
               />
               </div>
-              <h2>Stay in the know</h2>
+              <h2 className='pr-40'>Sign up for Hasura Cloud</h2>
               <div className='buttonWrapper'>
                 <a href='https://cloud.hasura.io/'>
                 <button className='subscribeBtn'>Use Hasura Cloud for Free</button>
