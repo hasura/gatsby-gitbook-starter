@@ -54,6 +54,19 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
         <FloatingSubscribe handleNewsletterClose={handleNewsletterClose} hideNewsletter={hideNewsletter} location = {location} />
       </div>
       <div className='floatingShareWrapper'>
+        {
+          hideNewsletter ? (
+            <div className='shareIcon'
+              onClick={()=>setHideNewsletter(false)}
+            >
+              <IconHover
+                baseImgSrc = {mailHoverImg}
+                hoverImgSrc = {mailHoverImg}
+                altText = 'Mail'
+              />
+            </div>
+          ) : null
+        }
         <a className='shareIcon'
           href={
             `https://getpocket.com/save?url=${canonicalUrl}`
@@ -123,15 +136,7 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
       {
         hideNewsletter ? (
           <div className='subscribeIcon'>
-            <div className='shareIcon'
-              onClick={()=>setHideNewsletter(false)}
-            >
-              <IconHover
-                baseImgSrc = {mailHoverImg}
-                hoverImgSrc = {mailHoverImg}
-                altText = 'Mail'
-              />
-            </div>
+
           </div>
         ) : null
       }
