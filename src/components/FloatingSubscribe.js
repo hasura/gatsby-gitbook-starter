@@ -33,9 +33,6 @@ const FloatingSubscribe = ({handleNewsletterClose, hideNewsletter, location}) =>
                src={closeSubscribe} alt='Close'
             />
             </div>
-            <div className='icon'>
-              <img src={mail} alt='Mail'/>
-            </div>
             <h2>Stay in the know</h2>
             <div className='post-subscription-description'>
               Sign up for full access to our community highlights & new features.

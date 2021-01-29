@@ -3,6 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import './floatingStyles.scss'
 import FloatingSubscribe from './FloatingSubscribe'
 import IconHover from './IconHover'
+const closeSubscribe = require('./images/close-subscribe.svg');
 const pocketsImg = require('./images/pockets-share.svg');
 const copyImg = require('./images/copy-share.svg');
 const whatsappImg = require('./images/whatsapp-share.svg');
@@ -14,9 +15,13 @@ const whatsappHoverImg = require('./images/whatsapp-share-hover.svg');
 const twitterHoverImg = require('./images/twitter-sahre-hover.svg');
 const linkedinHoverImg = require('./images/linkedin-share-hover.svg');
 const mailHoverImg = require('./images/mail-share-hover.svg');
+
+const hasuraGray = require('./images/hasura-gray.svg');
+const hasuraBlue = require('./images/hasura-blue.svg');
 const SubscribeNewsletter = ({title, canonicalUrl}) => {
   const [isCopied, setIsCopiedToggle] = useState(false);
   const [hideNewsletter, setHideNewsletter] = useState(false);
+  const [isHasuraCloud, setIsHasuraCloud] = useState(false);
   const handleNewsletterClose = () => {
     setHideNewsletter(true);
   }
@@ -52,6 +57,26 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
     <Fragment>
       <div id='floating-subscribe' className='floatingSubscribeVisible'>
         <FloatingSubscribe handleNewsletterClose={handleNewsletterClose} hideNewsletter={hideNewsletter} location = {location} />
+        {
+          !isHasuraCloud ? (
+            <div className='floating-subscribe-wrapper mt-16'>
+              <div className='floating-subscribe-close'
+                onClick={() => {setIsHasuraCloud(true);}}
+              >
+              <img
+
+                 src={closeSubscribe} alt='Close'
+              />
+              </div>
+              <h2>Stay in the know</h2>
+              <div className='buttonWrapper'>
+                <a href='https://cloud.hasura.io/'>
+                <button className='subscribeBtn'>Use Hasura Cloud for Free</button>
+                </a>
+              </div>
+            </div>
+          ) : null
+        }
       </div>
       <div className='floatingShareWrapper'>
         {
@@ -134,9 +159,17 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
         </a>
       </div>
       {
-        hideNewsletter ? (
+        isHasuraCloud ? (
           <div className='subscribeIcon'>
-
+            <div className='shareIcon'
+              onClick={()=>setIsHasuraCloud(false)}
+            >
+              <IconHover
+                baseImgSrc = {hasuraGray}
+                hoverImgSrc = {hasuraBlue}
+                altText = 'Mail'
+              />
+            </div>
           </div>
         ) : null
       }
