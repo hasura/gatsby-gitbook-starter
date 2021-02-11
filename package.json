@@ -31,6 +31,7 @@
     "gatsby-plugin-preconnect": "^1.1.36",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
+    "gatsby-plugin-sass": "^3.1.0",
     "gatsby-plugin-sharp": "^2.6.2",
     "gatsby-plugin-sitemap": "^2.4.2",
     "gatsby-remark-copy-linked-files": "^2.3.2",
@@ -42,6 +43,7 @@
     "lodash.flatten": "^4.4.0",
     "lodash.startcase": "^4.4.0",
     "react": "^16.13.1",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "react-github-btn": "^1.2.0",
@@ -50,6 +52,7 @@
     "react-instantsearch-dom": "^6.4.0",
     "react-live": "^2.2.2",
     "react-loadable": "^5.5.0",
+    "sass": "^1.32.5",
     "styled-components": "^4.4.1",
     "styled-icons": "^9.0.1",
     "typeface-roboto": "0.0.75"
