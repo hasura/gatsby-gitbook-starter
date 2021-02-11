@@ -70,7 +70,7 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
               </div>
               <h2 className='pr-40'>Get Started Now</h2>
               <div className='buttonWrapper'>
-                <a href='https://cloud.hasura.io/'>
+                <a href='https://cloud.hasura.io/?pg=learn-course&plcmt=floating&cta=use-hasura-cloud-free&tech=default'>
                 <button className='subscribeBtn'>Use Hasura Cloud for Free</button>
                 </a>
               </div>
