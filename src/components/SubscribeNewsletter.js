@@ -1,7 +1,7 @@
 import React, { Fragment ,useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import './floatingStyles.scss'
-import FloatingSubscribe from './FloatingSubscribe'
+// import FloatingSubscribe from './FloatingSubscribe'
 import IconHover from './IconHover'
 const closeSubscribe = require('./images/close-subscribe.svg');
 const pocketsImg = require('./images/pockets-share.svg');
@@ -56,7 +56,7 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
   return (
     <Fragment>
       <div id='floating-subscribe' className='floatingSubscribeVisible'>
-        <FloatingSubscribe handleNewsletterClose={handleNewsletterClose} hideNewsletter={hideNewsletter} location = {location} />
+        {/* <FloatingSubscribe handleNewsletterClose={handleNewsletterClose} hideNewsletter={hideNewsletter} location = {location} /> */}
         {
           !isHasuraCloud ? (
             <div className='floating-subscribe-wrapper mt-16'>
@@ -68,7 +68,7 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
                  src={closeSubscribe} alt='Close'
               />
               </div>
-              <h2 className='pr-40'>Sign up for Hasura Cloud</h2>
+              <h2 className='pr-40'>Get Started Now</h2>
               <div className='buttonWrapper'>
                 <a href='https://cloud.hasura.io/'>
                 <button className='subscribeBtn'>Use Hasura Cloud for Free</button>
