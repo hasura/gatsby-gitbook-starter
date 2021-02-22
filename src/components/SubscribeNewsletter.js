@@ -69,9 +69,10 @@ const SubscribeNewsletter = ({title, canonicalUrl}) => {
               />
               </div>
               <h2 className='pr-40'>Get Started with GraphQL Now</h2>
+              <div className="post-subscription-description">Hasura Cloud gives you a fully managed, production ready GraphQL API as a service to help you build modern apps faster.</div>
               <div className='buttonWrapper'>
-                <a href='https://cloud.hasura.io/?pg=learn-course&plcmt=floating&cta=use-hasura-cloud-free&tech=default'>
-                <button className='subscribeBtn'>Use Hasura Cloud for Free</button>
+                <a href='https://cloud.hasura.io/signup?pg=learn-course&plcmt=floating&cta=use-hasura-cloud-free&tech=default'>
+                <button className='subscribeBtn'>Try Hasura Cloud for Free</button>
                 </a>
               </div>
             </div>
