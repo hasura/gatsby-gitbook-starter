@@ -4,7 +4,7 @@ import ClosedSvg from '../images/closed';
 import config from '../../../config';
 import Link from '../link';
 
-const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, ...rest }) => {
+const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items }) => {
   const isCollapsed = collapsed[url];
 
   const collapse = () => {

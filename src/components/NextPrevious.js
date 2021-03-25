@@ -7,7 +7,7 @@ class NextPrevious extends React.Component {
 
     let currentIndex;
 
-    const currentPaginationInfo = nav.map((el, index) => {
+    nav.map((el, index) => {
       if (el && el.url === mdx.fields.slug) {
         currentIndex = index;
       }

@@ -3,11 +3,12 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from '@emotion/styled';
-import { Layout, Link } from '$components';
+import { Layout, Link } from '../components';
 import NextPrevious from '../components/NextPrevious';
 import SubscribeNewsletter from '../components/SubscribeNewsletter';
 import '../components/styles.css';
 import config from '../../config';
+import gitHub from '../components/images/github.svg';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
@@ -52,15 +53,13 @@ export default class MDXRuntimeTest extends Component {
       },
     } = data;
 
-    const gitHub = require('../components/images/github.svg');
-
     const navItems = allMdx.edges
       .map(({ node }) => node.fields.slug)
-      .filter(slug => slug !== '/')
+      .filter((slug) => slug !== '/')
       .sort()
       .reduce(
         (acc, cur) => {
-          if (forcedNavOrder.find(url => url === cur)) {
+          if (forcedNavOrder.find((url) => url === cur)) {
             return { ...acc, [cur]: [cur] };
           }
 
@@ -70,7 +69,7 @@ export default class MDXRuntimeTest extends Component {
             prefix = prefix + '/';
           }
 
-          if (prefix && forcedNavOrder.find(url => url === `/${prefix}`)) {
+          if (prefix && forcedNavOrder.find((url) => url === `/${prefix}`)) {
             return { ...acc, [`/${prefix}`]: [...acc[`/${prefix}`], cur] };
           } else {
             return { ...acc, items: [...acc.items, cur] };
@@ -84,7 +83,7 @@ export default class MDXRuntimeTest extends Component {
         return acc.concat(navItems[cur]);
       }, [])
       .concat(navItems.items)
-      .map(slug => {
+      .map((slug) => {
         if (slug) {
           const { node } = allMdx.edges.find(({ node }) => node.fields.slug === slug);
 
@@ -131,10 +130,7 @@ export default class MDXRuntimeTest extends Component {
         </div>
         <div className={'mainWrapper'}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
-          <SubscribeNewsletter
-            title = {mdx.fields.title}
-            canonicalUrl = {canonicalUrl}
-          />
+          <SubscribeNewsletter title={mdx.fields.title} canonicalUrl={canonicalUrl} />
         </div>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />

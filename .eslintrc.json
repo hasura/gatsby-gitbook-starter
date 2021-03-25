@@ -4,10 +4,10 @@
     "plugin:import/errors",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier",
-    "prettier/react"
+    "prettier"
   ],
-  "plugins": ["react", "import", "jsx-a11y"],
+  "root": true,
+  "plugins": ["react", "import", "jsx-a11y", "@emotion"],
   "settings": {
     "react": {
       "version": "detect"
@@ -27,7 +27,8 @@
       },
       { "blankLine": "always", "prev": "directive", "next": "*" },
       { "blankLine": "any", "prev": "directive", "next": "directive" }
-    ]
+    ],
+    "@emotion/pkg-renaming": "error"
   },
   "parser": "babel-eslint",
   "parserOptions": {

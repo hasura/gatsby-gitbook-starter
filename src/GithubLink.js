@@ -1,5 +1,5 @@
 import React from 'react';
-const githubIcon = require('./components/images/github.svg');
+import githubIcon from './components/images/github.svg';
 
 import './components/styles.css';
 

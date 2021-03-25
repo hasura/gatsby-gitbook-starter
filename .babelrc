@@ -1,0 +1,13 @@
+{
+  "plugins": ["@babel/plugin-syntax-export-default-from", "@babel/plugin-syntax-class-properties"],
+  "presets": [
+    [
+      "babel-preset-gatsby",
+      {
+        "targets": {
+          "browsers": [">0.25%", "not dead"]
+        }
+      }
+    ]
+  ]
+}

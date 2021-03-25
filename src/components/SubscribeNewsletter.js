@@ -1,180 +1,170 @@
-import React, { Fragment ,useState, useEffect } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import './floatingStyles.scss'
+import React, { Fragment, useState, useEffect } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import './floatingStyles.scss';
 // import FloatingSubscribe from './FloatingSubscribe'
-import IconHover from './IconHover'
-const closeSubscribe = require('./images/close-subscribe.svg');
-const pocketsImg = require('./images/pockets-share.svg');
-const copyImg = require('./images/copy-share.svg');
-const whatsappImg = require('./images/whatsapp-share.svg');
-const twitterImg = require('./images/twitter-sahre.svg');
-const linkedinImg = require('./images/linkedin-share.svg');
-const pocketsHoverImg = require('./images/pockets-share-hover.svg');
-const copyHoverImg = require('./images/copy-share-hover.svg');
-const whatsappHoverImg = require('./images/whatsapp-share-hover.svg');
-const twitterHoverImg = require('./images/twitter-sahre-hover.svg');
-const linkedinHoverImg = require('./images/linkedin-share-hover.svg');
-const mailHoverImg = require('./images/mail-share-hover.svg');
+import IconHover from './IconHover';
+import closeSubscribe from './images/close-subscribe.svg';
 
-const hasuraGray = require('./images/hasura-gray.svg');
-const hasuraBlue = require('./images/hasura-blue.svg');
-const SubscribeNewsletter = ({title, canonicalUrl}) => {
+import pocketsImg from './images/pockets-share.svg';
+
+import copyImg from './images/copy-share.svg';
+
+import whatsappImg from './images/whatsapp-share.svg';
+
+import twitterImg from './images/twitter-sahre.svg';
+
+import linkedinImg from './images/linkedin-share.svg';
+
+import pocketsHoverImg from './images/pockets-share-hover.svg';
+
+import copyHoverImg from './images/copy-share-hover.svg';
+
+import whatsappHoverImg from './images/whatsapp-share-hover.svg';
+
+import twitterHoverImg from './images/twitter-sahre-hover.svg';
+
+import linkedinHoverImg from './images/linkedin-share-hover.svg';
+
+import mailHoverImg from './images/mail-share-hover.svg';
+
+import hasuraGray from './images/hasura-gray.svg';
+
+import hasuraBlue from './images/hasura-blue.svg';
+
+const SubscribeNewsletter = ({ title, canonicalUrl }) => {
   const [isCopied, setIsCopiedToggle] = useState(false);
+
   const [hideNewsletter, setHideNewsletter] = useState(false);
+
   const [isHasuraCloud, setIsHasuraCloud] = useState(false);
+
+  /*
   const handleNewsletterClose = () => {
     setHideNewsletter(true);
-  }
+  };
+  */
+
   const onCopy = () => {
     setIsCopiedToggle(true);
     setTimeout(() => setIsCopiedToggle(false), 3000);
   };
+
   const renderCopyIcon = () => {
     if (isCopied) {
-      return (
-        <div className="copiedWrapper">Copied</div>
-      );
+      return <div className="copiedWrapper">Copied</div>;
     }
     return null;
   };
+
   useEffect(() => {
-      if (typeof window !== undefined) {
-        window.onscroll = function () {
-          var currentScrollPos = window.pageYOffset;
-          var floatingClass = document.getElementById("floating-subscribe");
-          if (currentScrollPos > 90) {
-              floatingClass.className = "floatingSubscribeVisible floatingTransition";
-          } else {
-            floatingClass.className = "floatingSubscribeVisible";
-          }
-        };
-      }
-      return () => {
-        window.onscroll = null;
+    if (typeof window !== undefined) {
+      window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+
+        var floatingClass = document.getElementById('floating-subscribe');
+
+        if (currentScrollPos > 90) {
+          floatingClass.className = 'floatingSubscribeVisible floatingTransition';
+        } else {
+          floatingClass.className = 'floatingSubscribeVisible';
+        }
       };
-  })
+    }
+    return () => {
+      window.onscroll = null;
+    };
+  });
   return (
     <Fragment>
-      <div id='floating-subscribe' className='floatingSubscribeVisible'>
+      <div id="floating-subscribe" className="floatingSubscribeVisible">
         {/* <FloatingSubscribe handleNewsletterClose={handleNewsletterClose} hideNewsletter={hideNewsletter} location = {location} /> */}
-        {
-          !isHasuraCloud ? (
-            <div className='floating-subscribe-wrapper mt-16'>
-              <div className='floating-subscribe-close'
-                onClick={() => {setIsHasuraCloud(true);}}
-              >
-              <img
-
-                 src={closeSubscribe} alt='Close'
-              />
-              </div>
-              <h2 className='pr-40'>Get Started with GraphQL Now</h2>
-              <div className="post-subscription-description">Hasura Cloud gives you a fully managed, production ready GraphQL API as a service to help you build modern apps faster.</div>
-              <div className='buttonWrapper'>
-                <a href='https://cloud.hasura.io/signup?pg=learn-course&plcmt=floating&cta=use-hasura-cloud-free&tech=default'>
-                <button className='subscribeBtn'>Try Hasura Cloud for Free</button>
-                </a>
-              </div>
-            </div>
-          ) : null
-        }
-      </div>
-      <div className='floatingShareWrapper'>
-        {
-          hideNewsletter ? (
-            <div className='shareIcon'
-              onClick={()=>setHideNewsletter(false)}
+        {!isHasuraCloud ? (
+          <div className="floating-subscribe-wrapper mt-16">
+            <div
+              role="button"
+              tabIndex="0"
+              className="floating-subscribe-close"
+              onClick={() => {
+                setIsHasuraCloud(true);
+              }}
+              onKeyDown={() => {
+                setIsHasuraCloud(true);
+              }}
             >
-              <IconHover
-                baseImgSrc = {mailHoverImg}
-                hoverImgSrc = {mailHoverImg}
-                altText = 'Mail'
-              />
+              <img src={closeSubscribe} alt="Close" />
             </div>
-          ) : null
-        }
-        <a className='shareIcon'
-          href={
-            `https://getpocket.com/save?url=${canonicalUrl}`
-          }
+            <h2 className="pr-40">Get Started with GraphQL Now</h2>
+            <div className="post-subscription-description">
+              Hasura Cloud gives you a fully managed, production ready GraphQL API as a service to
+              help you build modern apps faster.
+            </div>
+            <div className="buttonWrapper">
+              <a href="https://cloud.hasura.io/signup?pg=learn-course&plcmt=floating&cta=use-hasura-cloud-free&tech=default">
+                <button className="subscribeBtn">Try Hasura Cloud for Free</button>
+              </a>
+            </div>
+          </div>
+        ) : null}
+      </div>
+      <div className="floatingShareWrapper">
+        {hideNewsletter ? (
+          <div className="shareIcon" role="button" tabIndex="0" onClick={() => setHideNewsletter(false)} onKeyDown={() => setHideNewsletter(false)}>
+            <IconHover baseImgSrc={mailHoverImg} hoverImgSrc={mailHoverImg} altText="Mail" />
+          </div>
+        ) : null}
+        <a
+          className="shareIcon"
+          href={`https://getpocket.com/save?url=${canonicalUrl}`}
           data-save-url={`${canonicalUrl}`}
           data-pocket-count="vertical"
           data-pocket-align="left"
         >
-          <IconHover
-            baseImgSrc = {pocketsImg}
-            hoverImgSrc = {pocketsHoverImg}
-            altText = 'Pocket'
-          />
+          <IconHover baseImgSrc={pocketsImg} hoverImgSrc={pocketsHoverImg} altText="Pocket" />
           {/*<img src={isMouseOver ? pocketsImg : pocketsHoverImg} alt='Pocket' />*/}
         </a>
         <CopyToClipboard text={`${canonicalUrl}`} onCopy={onCopy}>
-          <div  className='shareIcon'>
-            <IconHover
-              baseImgSrc = {copyImg}
-              hoverImgSrc = {copyHoverImg}
-              altText = 'Copy'
-            />
+          <div className="shareIcon">
+            <IconHover baseImgSrc={copyImg} hoverImgSrc={copyHoverImg} altText="Copy" />
             {renderCopyIcon()}
           </div>
         </CopyToClipboard>
-        <a className='shareIcon'
-          href={
-            `https://wa.me/?text=${canonicalUrl}`
-          }
-           data-action="share/whatsapp/share"
-           onFocus={() => setIsMouseOver(!isMouseOver)}
-           onBlur={() => setIsMouseOver(!isMouseOver)}
+        <a
+          className="shareIcon"
+          href={`https://wa.me/?text=${canonicalUrl}`}
+          data-action="share/whatsapp/share"
+          /*
+          onFocus={() => setIsMouseOver(!isMouseOver)}
+          onBlur={() => setIsMouseOver(!isMouseOver)}
+          */
         >
-          <IconHover
-            baseImgSrc = {whatsappImg}
-            hoverImgSrc = {whatsappHoverImg}
-            altText = 'Whatsapp'
-          />
+          <IconHover baseImgSrc={whatsappImg} hoverImgSrc={whatsappHoverImg} altText="Whatsapp" />
         </a>
-        <a className='shareIcon'
-          href={
-            `https://twitter.com/intent/tweet?&text=${title}&url=${canonicalUrl}`
-          }
+        <a
+          className="shareIcon"
+          href={`https://twitter.com/intent/tweet?&text=${title}&url=${canonicalUrl}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IconHover
-            baseImgSrc = {twitterImg}
-            hoverImgSrc = {twitterHoverImg}
-            altText = 'Twitter'
-          />
+          <IconHover baseImgSrc={twitterImg} hoverImgSrc={twitterHoverImg} altText="Twitter" />
         </a>
-        <a className='shareIcon'
-           href={
-              `http://www.linkedin.com/shareArticle?mini=true&url=${canonicalUrl}&title=${title}&summary=${title}&source=${canonicalUrl}`
-            }
-            target="_blank"
-            rel="noopener noreferrer"
+        <a
+          className="shareIcon"
+          href={`http://www.linkedin.com/shareArticle?mini=true&url=${canonicalUrl}&title=${title}&summary=${title}&source=${canonicalUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <IconHover
-            baseImgSrc = {linkedinImg}
-            hoverImgSrc = {linkedinHoverImg}
-            altText = 'Linkedin'
-          />
+          <IconHover baseImgSrc={linkedinImg} hoverImgSrc={linkedinHoverImg} altText="Linkedin" />
         </a>
       </div>
-      {
-        isHasuraCloud ? (
-          <div className='subscribeIcon'>
-            <div className='shareIcon'
-              onClick={()=>setIsHasuraCloud(false)}
-            >
-              <IconHover
-                baseImgSrc = {hasuraGray}
-                hoverImgSrc = {hasuraBlue}
-                altText = 'Mail'
-              />
-            </div>
+      {isHasuraCloud ? (
+        <div className="subscribeIcon">
+          <div className="shareIcon" role="button" tabIndex="0" onClick={() => setIsHasuraCloud(false)} onKeyDown={() => setIsHasuraCloud(false)}>
+            <IconHover baseImgSrc={hasuraGray} hoverImgSrc={hasuraBlue} altText="Mail" />
           </div>
-        ) : null
-      }
+        </div>
+      ) : null}
     </Fragment>
-  )
-}
-export default SubscribeNewsletter
+  );
+};
+
+export default SubscribeNewsletter;
