@@ -1,8 +1,10 @@
 import * as React from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import prismTheme from 'prism-react-renderer/themes/vsDark';
+import Highlight, { defaultProps, Prism } from 'prism-react-renderer';
+import { applyLanguages, getTheme } from '../../custom/config/codeBlockLanguages';
 import Loadable from 'react-loadable';
 import LoadingProvider from './loading';
+
+const theme = getTheme();
 
 /** Removes the last token from a code example if it's empty. */
 function cleanTokens(tokens) {
@@ -26,11 +28,23 @@ const LoadableComponent = Loadable({
 
 /* eslint-disable react/jsx-key */
 const CodeBlock = ({ children: exampleCode, ...props }) => {
+  const [_, updateView] = React.useState(0);
+
+  React.useEffect(() => {
+    var windowPrism = window.Prism;
+    window.Prism = Prism;
+    applyLanguages(Prism);
+    window.Prism = windowPrism;
+    updateView({
+      data: Date.now()
+    });
+  }, []);
+
   if (props['react-live']) {
     return <LoadableComponent code={exampleCode} />;
   } else {
     return (
-      <Highlight {...defaultProps} code={exampleCode} language={props.className.split("-")[1] ?? "javascript"} theme={prismTheme}>
+      <Highlight {...defaultProps} Prism={Prism} code={exampleCode} language={props.className.split("-")[1] ?? "javascript"} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {
