@@ -14,6 +14,8 @@
     "@mdx-js/react": "^1.6.22",
     "@philpl/buble": "^0.19.7",
     "@playlyfe/gql": "^2.6.2",
+    "@styled-icons/fa-brands": "^10.26.0",
+    "@styled-icons/fa-solid": "^10.32.0",
     "algoliasearch": "^4.9.1",
     "dotenv": "^8.5.1",
     "emotion": "^11.0.0",
@@ -39,6 +41,7 @@
     "is-absolute-url": "^3.0.3",
     "lodash.flatten": "^4.4.0",
     "lodash.startcase": "^4.4.0",
+    "prismjs": "^1.23.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
@@ -48,9 +51,7 @@
     "react-instantsearch-dom": "^6.11.0",
     "react-live": "^2.2.3",
     "react-loadable": "^5.5.0",
-    "styled-components": "^5.3.0",
-    "@styled-icons/fa-brands": "^10.26.0",
-    "@styled-icons/fa-solid": "^10.32.0"
+    "styled-components": "^5.3.0"
   },
   "license": "MIT",
   "main": "n/a",
