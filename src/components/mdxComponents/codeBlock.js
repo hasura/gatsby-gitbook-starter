@@ -44,7 +44,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
     return <LoadableComponent code={exampleCode} />;
   } else {
     return (
-      <Highlight {...defaultProps} Prism={Prism} code={exampleCode} language={props.className.split("-")[1] ?? "javascript"} theme={theme}>
+      <Highlight {...defaultProps} Prism={Prism} code={exampleCode} language={(props.className)?props.className.split("-")[1] :"javascript"} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {
