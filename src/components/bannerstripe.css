@@ -1,0 +1,55 @@
+.hasuraConBannerBg {
+	 background-image: url('./images/hasura-con-banner-stripe.png');
+	 background-repeat: no-repeat;
+	 background-size: cover;
+	 background-position: center center;
+}
+.containerWidth {
+    max-width: 1328px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.commonBannerStripWrapper {
+	 z-index: 100;
+	 position: relative;
+	 height: 80px;
+	 max-height: 80px;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 overflow: hidden;
+	 transition: max-height 150ms ease-in-out;
+}
+.commonBannerStripWrapper .articleDesc {
+	 flex: 1;
+	 text-align: center;
+	 color: #1b2738;
+	 font-size: 17px !important;
+	 line-height: 140% !important;
+	 padding-bottom: 0px;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+   font-weight: 500;
+}
+.commonBannerStripWrapper .closeBanner {
+	 cursor: pointer;
+}
+.commonBannerStripWrapper .closeBanner img {
+	 width: 25px;
+}
+.commonBannerStripWrapper .closeBanner:focus {
+	 outline: none;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+}
+@media (max-width: 767px) {
+  .commonBannerStripWrapper {
+    max-height: none;
+    height: auto;
+  }
+  .commonBannerStripWrapper .articleDesc{
+    text-align: left;
+    padding: 15px 0;
+  }
+}
