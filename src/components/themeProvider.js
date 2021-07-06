@@ -8,7 +8,7 @@ import './styles.css';
 export default function ThemeProvider({ children, theme = {}, location }) {
   return (
     <div>
-      <BannerStripe />
+      {/* <BannerStripe /> */}
       <Header location={location} />
       <EmotionThemeProvider theme={{ ...defaultTheme, ...theme }}>{children}</EmotionThemeProvider>
     </div>
