@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -45,7 +46,13 @@ a {
 body {
   font-family: 'Roboto';
 }
-.visibleMobile {
+.commonSectionWrapper {
+  padding: 100px 0;
+}
+.hasura-light-blue-bg-color {
+  background-color: #EBF1F6;
+}
+.subNavVisibleMobile {
   display: none;
 }
 
@@ -62,7 +69,13 @@ a:hover {
 .displayInline {
   display: inline-block;
 }
-.navBarToggle {
+.containerWrapper {
+  max-width: 1176px;
+  margin: 0 auto;
+  clear: both;
+  padding: 0 32px;
+}
+.subNavBarToggle {
   border: 1px solid #fff;
   border-radius: 4px;
   width: 36px;
@@ -72,7 +85,7 @@ a:hover {
   padding: 8px 5px;
   display: none;
 }
-.navBarToggle .iconBar {
+.subNavBarToggle .iconBar {
   display: block;
   width: 22px;
   height: 2px;
@@ -81,7 +94,7 @@ a:hover {
   margin-top: 4px;
   background-color: #fff;
 }
-.navBarToggle .iconBar:first-child {
+.subNavBarToggle .iconBar:first-child {
   margin-top: 0px;
 }
 .video-responsive iframe{
@@ -141,12 +154,14 @@ a:hover {
   background-color: #542683;
 }
 
+/*
 .headerWrapper {
   border-bottom: 1px solid rgb(212, 218, 223);
   box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
   display: flex;
   align-items: center;
 }
+*/
 .formElement
 {
   background-color: transparent;
@@ -263,7 +278,7 @@ a:hover {
   -webkit-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
   -moz-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.8);
   -o-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
-  z-index: 1;
+  z-index: -1;
   padding: 15px;
   position: relative;
 }
@@ -816,14 +831,13 @@ img {
   text-align: end;
   padding: 0;
 }
-.topnav {
+.topsubnav {
   -webkit-transition: top 0.5s, bottom 0.5s;
 }
 
 @media (max-width: 767px) {
-  .responsive {
+  .subResponsive {
     margin-top: 15px;
-    position: relative;
     padding-bottom: 20px;
     border-top: 1px solid #fff;
   }
@@ -837,13 +851,13 @@ img {
   .navBarBrand img {
     margin-right: 8px;
   }
-  .topnav.responsive .visibleMobile {
+  .topsubnav.subResponsive .subNavVisibleMobile {
     display: block;
   }
-  .topnav .navBarUL {
+  .topsubnav .navBarUL {
     display: none;
   }
-  .topnav.responsive .navBarUL{
+  .topsubnav.subResponsive .navBarUL{
     display: block;
     text-align: left;
   }
@@ -879,9 +893,10 @@ img {
 
   .navBarDefault {
     display: block;
+    z-index: 0;
   }
 
-  .navBarToggle {
+  .subNavBarToggle {
     margin-right: 0;
     display: block;
   }
@@ -967,5 +982,12 @@ img {
   }
   .searchWrapper {
     padding-left: 0px;
+  }
+}
+@media (max-width: 1049px) {
+  .viewport {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }

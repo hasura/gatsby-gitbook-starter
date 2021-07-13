@@ -9,7 +9,6 @@ import RightSidebar from './rightSidebar';
 const Wrapper = styled('div')`
   display: flex;
   justify-content: space-between;
-
   @media only screen and (max-width: 767px) {
     display: block;
   }
@@ -37,10 +36,18 @@ const MaxWidth = styled('div')`
 
 const LeftSideBarWidth = styled('div')`
   width: 298px;
+  z-index: -1;
+  position: relative;
+  box-shadow: 0px 0px 4px 1px rgb(175 158 232 / 40%);
+  -webkit-box-shadow: 0px 0px 4px 1px rgb(175 158 232 / 40%);
+  -moz-box-shadow: 0px 0px 4px 1px rgba(175,158,232,.8);
+  -o-box-shadow: 0px 0px 4px 1px rgba(175,158,232,.4);
 `;
 
 const RightSideBarWidth = styled('div')`
   width: 298px;
+  z-index: -1;
+  position: relative;
 `;
 
 const Layout = ({ children, location }) => (

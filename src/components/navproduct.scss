@@ -1,0 +1,145 @@
+@import "./fonts.scss";
+.mobileNavShow {
+  display: none;
+}
+.navDrapdownWrapper {
+  left: 50%;
+  margin-left: -50vw;
+  position: relative;
+  width: 100vw;
+  background-color: #EBF1F6;
+  box-shadow: 0px 14px 44px rgba(0, 0, 0, 0.14);
+  border-radius: 8px;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  padding: 64px 0;
+  display: flex;
+  min-height: 350px;
+  right: 0;
+  .navDrapdownListWrapper {
+    display: grid;
+    grid-template-columns: 1fr 353px;
+    grid-gap: 170px;
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+      &:focus {
+        outline: none;
+        text-decoration: none;
+      }
+    }
+    .navListWrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 32px 80px;
+      align-self: flex-start;
+      .navList {
+        padding: 8px;
+        border-radius: 4px;
+        display: flex;
+        transition: all .3s ease-in-out;
+        &:hover {
+          background-color: #F8FCFF;
+        }
+        .navListImg {
+          padding-right: 8px;
+          img {
+            min-width: 24px;
+            width: 24px;
+            margin-right: 0;
+          }
+        }
+        .hasura-ibm-plex-nav {
+          text-transform: uppercase;
+          color: #404955;
+        }
+        .hasura-ibm-plex-mono-small {
+          color: #74818A;
+          text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+        }
+      }
+    }
+    .navLearnBg {
+      background-color: #0B9DBC;
+    }
+    .navDataBaseBg {
+      background-color: #2771B6;
+    }
+    .mb-32 {
+      margin-bottom: 32px;
+    }
+    .navListAnnouncement {
+      padding: 24px;
+      box-shadow: 0 14px 24px rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      transition: all .3s ease-in-out;
+      &:hover {
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+        .hasura-ibm-plex-article-desc {
+          .arrow {
+            transform: translateX(5px);
+          }
+        }
+      }
+      .hasura-ibm-plex-article-desc {
+        color: #F5FDFF;
+        padding-bottom: 16px;
+        .arrow {
+          transition: all .3s ease-in-out;
+          margin-left: 6px;
+          width: 8px;
+          display: inline-block;
+          img {
+            min-width: 8px;
+          }
+        }
+      }
+      .hasura-ibm-plex-mono {
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+@media (max-width: 1049px) {
+  .mobileNavShow {
+    display: block;
+  }
+  .mobileNavHide {
+    display: none;
+  }
+  .navDrapdownWrapper {
+    width: 338px;
+    position: static;
+    margin: 0 0;
+    box-shadow: none;
+    padding: 32px 0;
+    .navDrapdownListWrapper {
+      grid-template-columns: 1fr;
+      grid-gap: 40px;
+      .navListWrapper {
+        grid-gap: 32px 20px;
+        .navList {
+          .navListImg {
+            padding-right: 8px;
+            display: contents;
+            img {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+    }
+    .mobileTitleResources {
+      color: #00315F;
+      padding-bottom: 30px;
+      text-transform: uppercase;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .navDrapdownWrapper {
+    width: 100%;
+  }
+}

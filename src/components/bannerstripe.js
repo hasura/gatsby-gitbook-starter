@@ -13,8 +13,7 @@ const BannerStripe = () => {
                 href="https://hasura.io/events/hasura-con-2021/?pg=learn-course&plcmt=banner&cta=register-now&tech="
                 className="articleDesc"
               >
-                HasuraCon, our user conference is back! Registrations and talk submissions are
-                now open!
+                HasuraCon'21, our annual user conference, is happening on June 23rd & 24th. Register Now
               </a>
               {/*eslint-disable-next-line*/}
               <div
