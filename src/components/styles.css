@@ -58,6 +58,11 @@ body {
 .showMobileView {
   display: none !important;
 }
+.posStickey {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 .video-responsive {
   position: relative;
   padding-bottom: 56.2%;
@@ -295,7 +300,7 @@ a:hover {
   display: flex;
   align-items: center;
   position: relative;
-  height: 72px;
+  height: 80px;
 }
 .navBarHeader {
   min-width: 335px;
@@ -358,6 +363,33 @@ a:hover {
   padding: 0px 0px;
   display: flex;
 }
+.toolTipPos a {
+  position: relative;
+}
+.toolTipPos a .toolTip {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1B2738;
+  color: #FFFFFF;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  min-width: max-content;
+  padding: 2px 6px;
+  border-radius: 3px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+.toolTipPos a:hover .toolTip {
+  opacity: 1;
+  visibility: visible;
+}
 .navBarNav
 {
   display: flex;
@@ -365,6 +397,7 @@ a:hover {
 }
 .navBarUL li a img, .navBarUL li a .shareIcon
 {
+  height: 24px;
   /* width: 20px; */
 }
 .mainWrapper {
@@ -372,7 +405,7 @@ a:hover {
   max-width: 750px;
 }
 .navBarUL li a:hover {
-  opacity: .8;
+  /* opacity: .8; */
 }
 pre {
   border: 0 !important;
@@ -879,6 +912,9 @@ img {
 @media (max-width: 767px) {
   .showMobileView {
     display: block;
+  }
+  .mobileBreadCrumb {
+    display: flex !important;
   }
   .tableContent {
     display: flex !important;

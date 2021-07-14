@@ -72,8 +72,9 @@ const Header = ({ location }) => (
 
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
       const [isArrowDown, setIsArrowDown] = useState(false);
+
       return (
-        <div>
+        <div className='posStickey'>
           <div className={'navBarWrapper'}>
             <div className='containerWrapper'>
               <nav className={'navBarDefault'}>
@@ -113,20 +114,26 @@ const Header = ({ location }) => (
                     }
                   })}
                   {helpUrl !== '' ? (
-                    <li>
+                    <li className='toolTipPos'>
                       <a href={helpUrl}>
                         <img src={discord} alt='discord' />
+                        <div className='toolTip'>
+                          Join Hasura Discord
+                        </div>
                       </a>
                     </li>
                   ) : null}
                   {tweetText !== '' ? (
-                    <li>
+                    <li className='toolTipPos'>
                       <a
                         href={'https://twitter.com/intent/tweet?&text=' + tweetText}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <img className={'shareIcon'} src={twitter} alt='Twitter' />
+                        <div className='toolTip'>
+                          Tweet about this course
+                        </div>
                       </a>
                     </li>
                   ) : null}
@@ -149,7 +156,7 @@ const Header = ({ location }) => (
               </nav>
             </div>
           </div>
-          <div className={'navBarHeader showMobileView'}>
+          <div className={'navBarHeader mobileBreadCrumb showMobileView'}>
             <Link to={finalLogoLink} className={'navBarBrand'}>
               <img
                 className={'img-responsive displayInline'}

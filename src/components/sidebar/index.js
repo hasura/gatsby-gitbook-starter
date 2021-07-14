@@ -54,7 +54,7 @@ const Sidebar = styled('aside')`
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
-  top: 0;
+  top: 72px;
   padding-right: 0;
   background-color: #F9FCFF;
   @media only screen and (max-width: 1023px) {
