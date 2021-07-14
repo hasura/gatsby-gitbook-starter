@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Link from './link';
 import './styles.css';
@@ -7,10 +7,10 @@ import config from '../../config.js';
 import Loadable from 'react-loadable';
 import LoadingProvider from './mdxComponents/loading';
 
-import help from './images/help.svg';
+import discord from './images/discord.svg';
 import logoImg from './images/logo.svg';
 import twitter from './images/twitter.svg';
-
+import arrow from "./images/arrow-block.svg";
 const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
 
 let searchIndices = [];
@@ -71,43 +71,30 @@ const Header = ({ location }) => (
       } = data;
 
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
-
+      const [isArrowDown, setIsArrowDown] = useState(false);
       return (
         <div>
           <div className={'navBarWrapper'}>
-            <nav className={'navBarDefault'}>
-              <div className={'navBarHeader'}>
-                <Link to={finalLogoLink} className={'navBarBrand'}>
-                  <img
-                    className={'img-responsive displayInline'}
-                    src={logo.image !== '' ? logo.image : logoImg}
-                    alt={'logo'}
+            <div className='containerWrapper'>
+              <nav className={'navBarDefault'}>
+                <div className={'navBarHeader hiddenMobile'}>
+                  <Link to={finalLogoLink} className={'navBarBrand'}>
+                    <img
+                      className={'img-responsive displayInline'}
+                      src={logo.image !== '' ? logo.image : logoImg}
+                      alt='logo'
+                    />
+                  </Link>
+                  <div
+                    className={'headerTitle displayInline'}
+                    dangerouslySetInnerHTML={{ __html: headerTitle }}
                   />
-                </Link>
-                <div
-                  className={'headerTitle displayInline'}
-                  dangerouslySetInnerHTML={{ __html: headerTitle }}
-                />
-                <span role="button" tabIndex="0" onClick={myFunction} onKeyDown={myFunction} className={'subNavBarToggle'}>
-                  <span className={'iconBar'}></span>
-                  <span className={'iconBar'}></span>
-                  <span className={'iconBar'}></span>
-                </span>
-              </div>
-              {isSearchEnabled ? (
-                <div className={'searchWrapper hiddenMobile navBarUL'}>
-                  <LoadableComponent collapse={true} indices={searchIndices} />
                 </div>
-              ) : null}
-              <div id="subnavbar" className={'topsubnav'}>
-                <div className={'subNavVisibleMobile'}>
-                  <Sidebar location={location} />
-                  <hr />
-                  {isSearchEnabled ? (
-                    <div className={'searchWrapper'}>
-                      <LoadableComponent collapse={true} indices={searchIndices} />
-                    </div>
-                  ) : null}
+                <div role="button" tabIndex="0" onClick={()=>{myFunction();setIsArrowDown(!isArrowDown)}} className={'subNavBarToggle'} className='tableContent showMobileView'>
+                  <span>
+                    table of contents
+                  </span>
+                  <img className={((isArrowDown) ? 'rotateImg' : '')} src={arrow} alt='Arrow' />
                 </div>
                 <ul className={'navBarUL navBarNav navBarULRight'}>
                   {headerLinks.map((link, key) => {
@@ -128,12 +115,9 @@ const Header = ({ location }) => (
                   {helpUrl !== '' ? (
                     <li>
                       <a href={helpUrl}>
-                        <img src={help} alt={'Help icon'} />
+                        <img src={discord} alt='discord' />
                       </a>
                     </li>
-                  ) : null}
-                  {tweetText !== '' || githubUrl !== '' ? (
-                    <li className="divider hiddenMobile"></li>
                   ) : null}
                   {tweetText !== '' ? (
                     <li>
@@ -142,13 +126,41 @@ const Header = ({ location }) => (
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
+                        <img className={'shareIcon'} src={twitter} alt='Twitter' />
                       </a>
                     </li>
                   ) : null}
                 </ul>
-              </div>
-            </nav>
+                {isSearchEnabled ? (
+                  <div className={'searchWrapper hiddenMobile navBarUL'}>
+                    <LoadableComponent collapse={true} indices={searchIndices} />
+                  </div>
+                ) : null}
+                <div id="subnavbar" className={'topsubnav'}>
+                  <div className={'subNavVisibleMobile'}>
+                    {isSearchEnabled ? (
+                      <div className={'searchWrapper'}>
+                        <LoadableComponent collapse={true} indices={searchIndices} />
+                      </div>
+                    ) : null}
+                    <Sidebar location={location} />
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div className={'navBarHeader showMobileView'}>
+            <Link to={finalLogoLink} className={'navBarBrand'}>
+              <img
+                className={'img-responsive displayInline'}
+                src={logo.image !== '' ? logo.image : logoImg}
+                alt='logo'
+              />
+            </Link>
+            <div
+              className={'headerTitle displayInline'}
+              dangerouslySetInnerHTML={{ __html: headerTitle }}
+            />
           </div>
         </div>
       );
