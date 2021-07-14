@@ -17,15 +17,14 @@ const ListItem = styled(({ className, active, level, ...props }) => {
   list-style: none;
 
   a {
-    color: #5c6975;
+    color: #1B2738;
     text-decoration: none;
     font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
     padding: 0.45rem 0 0.45rem ${(props) => 2 + (props.level || 0) * 1}rem;
     display: block;
     position: relative;
-
     &:hover {
-      color: rgb(255, 255, 255) !important;
+      background-color: #EBF1F6;
     }
 
     ${(props) =>
@@ -55,21 +54,9 @@ const Sidebar = styled('aside')`
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
-  top: 0;
+  top: 72px;
   padding-right: 0;
-  background-color: #001934;
-  /* Safari 4-5, Chrome 1-9
-  background: linear-gradient(#372476, #3b173b);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#372476), to(#3b173b));
-  /* Safari 5.1, Chrome 10+
-  background: -webkit-linear-gradient(top, #372476, #3b173b);
-  /* Firefox 3.6+
-  background: -moz-linear-gradient(top, #372476, #3b173b);
-  /* IE 10
-  background: -ms-linear-gradient(top, #372476, #3b173b);
-  /* Opera 11.10+
-  background: -o-linear-gradient(top, #372476, #3b173b);
-  */
+  background-color: #F9FCFF;
   @media only screen and (max-width: 1023px) {
     width: 100%;
     /* position: relative; */
@@ -80,9 +67,13 @@ const Sidebar = styled('aside')`
   }
   @media only screen and (max-width: 767px) {
     padding-left: 0px;
-    background-color: #001934;
-    background: #001934;
+    background-color: #F9FCFF;
+    background: #F9FCFF;
     height: auto;
+    left: 50%;
+    margin-left: -50vw;
+    position: relative;
+    width: 100vw;
   }
 `;
 

@@ -1,3 +1,4 @@
+@import "./fonts.scss";
 .marketoFormWrapper {
   width: 100% !important;
   max-width: 550px;
@@ -182,7 +183,7 @@
     .mktoButtonWrap {
       margin-left: 0 !important;
       .mktoButton {
-        padding: 2px 50px !important;
+        padding: 2px 40px !important;
         font-size: 14px !important;
         border-radius: 5px;
         font-weight: 600;
@@ -225,12 +226,12 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: calc(100% - 216px);
+    width: calc(100% - 175px);
     .mktoFieldDescriptor {
       .mktoFieldWrap {
         .mktoField {
           background-color: #fff;
-          height: 62px;
+          height: 48px;
         }
         .mktoField:hover {
           border: solid 1px #eee;
@@ -242,16 +243,16 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 200px;
     .mktoButtonWrap {
       .mktoButton {
-        background-color: rgba(27,39,56,.8) !important;
-        color: #fff !important;
-        height: 62px;
-        border: 0;
+        background-color: #0079BD !important;
+        color: #F4FBFF !important;
+        @extend .hasura-ibm-plex-btn;
+        @extend .hasura-font-600;
+        text-transform: uppercase;
+        height: 48px;
         &:hover {
-          background-color: rgba(27,39,56,1) !important;
-          border: 0;
+          background-color: #005C8F !important;
         }
       }
     }

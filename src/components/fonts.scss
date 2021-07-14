@@ -1,0 +1,252 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-regular-latin.woff2') format('woff2'); /* Super Modern Browsers */
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-600-latin.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-bold-latin.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: bold;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-300.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-regular.woff2') format('woff2'); /* Super Modern Browsers */
+    font-display: swap;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-500.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-600.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-600.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-bold.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: bold;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-extra-bold.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 800;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('/fonts/darker-grotesque-black.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 900;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url('/fonts/IBM-Plex-Sans-500.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url('/fonts/IBM-Plex-Sans-600.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('/fonts/IBM-Plex-Mono-600.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 600;
+    font-display: swap;
+}
+
+.hasura-title, .hasura-article-title, .hasura-article-sub-title, .hasura-article-btn, .hasura-article-desc, .hasura-article-desc-small {
+  font-family: 'Darker Grotesque';
+}
+.hasura-title {
+  font-size: 72px !important;
+  line-height: 90% !important;
+}
+.hasura-article-title {
+  font-size: 48px !important;
+  line-height: 100% !important;
+}
+.hasura-article-sub-title {
+  font-size: 32px !important;
+  line-height: 120% !important;
+}
+.hasura-article-btn {
+  font-size: 16px !important;
+  line-height: 100% !important;
+  letter-spacing: 0.04em;
+}
+.hasura-nav-title {
+  font-size: 16px !important;
+  line-height: 140% !important;
+}
+.hasura-nav-btn {
+  font-size: 14px !important;
+  line-height: 100% !important;
+}
+.hasura-article-desc {
+  font-size: 20px !important;
+  line-height: 140% !important;
+}
+.hasura-article-sub-title-desc {
+  font-size: 24px !important;
+  line-height: 130% !important;
+}
+.hasura-article-quote {
+  font-size: 28px !important;
+  line-height: 120% !important;
+}
+.hasura-article-desc-small {
+  font-size: 18px !important;
+  line-height: 124% !important;
+}
+.hasura-code-snippet {
+  font-size: 16px !important;
+}
+.hasura-sub-title, .hasura-ibm-plex-article-desc, .hasura-ibm-plex-btn, .hasura-ibm-plex-nav, .hasura-ibm-plex-nav-btn, .hasura-ibm-plex-article-desc-Small {
+  font-family: 'IBM Plex Sans';
+}
+.hasura-sub-title {
+  font-size: 24px;
+  line-height: 160%;
+}
+.hasura-ibm-plex-article-desc {
+  font-size: 20px;
+  line-height: 150%;
+}
+.hasura-ibm-plex-article-desc-Small {
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 700;
+}
+.hasura-ibm-plex-btn {
+  font-size: 14px;
+  line-height: 150%;
+}
+.hasura-ibm-plex-nav-btn {
+  font-size: 12px;
+  line-height: 150%;
+}
+.hasura-ibm-plex-nav {
+  font-size: 13px;
+  line-height: 150%;
+}
+.hasura-ibm-plex-mono {
+  font-family: 'IBM Plex Mono' !important;
+  font-size: 13px;
+}
+.hasura-ibm-plex-mono-small {
+  font-family: 'IBM Plex Mono' !important;
+  font-size: 12px;
+}
+
+.hasura-font-thin {
+  font-weight: 300 !important;
+}
+.hasura-font-normal {
+  font-weight: normal !important;
+}
+.hasura-font-500 {
+  font-weight: 500 !important;
+}
+.hasura-font-600 {
+  font-weight: 600 !important;
+}
+.hasura-font-bold {
+  font-weight: bold !important;
+}
+.hasura-font-extra-700 {
+  font-weight: 700 !important;
+}
+.hasura-font-extra-bold {
+  font-weight: 800 !important;
+}
+.hasura-font-black {
+  font-weight: 900 !important;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hasura-title {
+    font-size: 62px !important;
+  }
+  .hasura-article-title {
+    font-size: 40px !important;
+  }
+  .hasura-article-sub-title {
+    font-size: 28px !important;
+  }
+  .hasura-article-sub-title-desc {
+    font-size: 22px !important;
+  }
+  .hasura-sub-title {
+    font-size: 20px;
+    line-height: 160%;
+  }
+  .hasura-ibm-plex-article-desc {
+    font-size: 18px;
+    line-height: 140%;
+  }
+}
+@media (max-width: 767px) {
+  .hasura-title {
+    font-size: 42px !important;
+  }
+  .hasura-article-title {
+    font-size: 28px !important;
+  }
+  .hasura-article-sub-title {
+    font-size: 24px !important;
+  }
+  .hasura-article-sub-title-desc {
+    font-size: 20px !important;
+  }
+  .hasura-article-quote {
+    font-size: 22px !important;
+  }
+  .hasura-article-desc {
+    font-size: 18px !important;
+    line-height: 140% !important;
+  }
+  .hasura-article-desc-small {
+    font-size: 16px !important;
+    line-height: 124% !important;
+  }
+  .hasura-code-snippet {
+    font-size: 14px !important;
+  }
+  .hasura-sub-title {
+    font-size: 18px;
+    line-height: 160%;
+  }
+  .hasura-ibm-plex-article-desc {
+    font-size: 16px;
+    line-height: 140%;
+  }
+}

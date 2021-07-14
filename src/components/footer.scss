@@ -1,0 +1,188 @@
+@import "./fonts.scss";
+.hasura-ibm-plex-sub-title {
+  @extend .hasura-sub-title;
+  @extend .hasura-font-500;
+}
+.footerWrappper {
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 0;
+  border-top: 1px solid #B1BCC7;
+  .hasura-ibm-plex-nav {
+    text-transform: uppercase;
+    color: #909DA6;
+    font-weight: 600;
+  }
+  .footerLinks {
+    .footerLinksHeader {
+      padding-bottom: 8px;
+      color: #404955;
+    }
+    .links {
+      display: block;
+      padding: 10px 0;
+      color: #616D75;
+      // opacity: .8;
+      &:hover {
+        color: #404955;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.copyWriteWrapperBg {
+  background-color: #DDEAF4;
+}
+.copyWriteWrapper {
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  .brand {
+    a {
+      display: flex;
+    }
+  }
+  .hasura-ibm-plex-mono {
+    flex: 1;
+    text-align: center;
+    color: #74818A;
+  }
+  .footerSocialIconsWrapper {
+    display: flex;
+    align-items: center;
+    .socialBrands {
+      margin: 0 12px;
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.newsletterWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 200px;
+  padding-top: 20px;
+  .hasura-ibm-plex-sub-title {
+    padding-bottom: 10px;
+    color: #2771B6;
+  }
+  .articleDesc {
+    padding-bottom: 32px;
+    color: #00315f;
+    font-size: 20px;
+    line-height: 140%;
+    font-weight: 600;
+    min-height: 116px;
+    @extend .hasura-article-desc;
+    @extend .hasura-font-600;
+  }
+  .buttonWrapper {
+    display: flex;
+    width: 100%;
+    .hasura-blue-btn {
+      margin-right: 16px;
+    }
+  }
+}
+.subscribeNewsletterWrapper {
+  .articleTitle {
+    padding-bottom: 20px;
+  }
+  .hasura-ibm-plex-sub-title {
+    padding-bottom: 10px;
+    color: #2771B6;
+  }
+  .articleSubTitle {
+    padding-bottom: 20px;
+    color: #1b2738;
+  }
+  .articleDesc, .articleDescTitle {
+    padding-bottom: 32px;
+    color: #717780;
+  }
+  .articleDesc {
+    color: #00315F;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .newsletterWrapper {
+    grid-gap: 40px;
+    .buttonWrapper {
+      .hasura-btn-md {
+        padding: 8px 8px;
+      }
+      .hasura-blue-btn {
+        margin-right: 10px;
+      }
+    }
+  }
+  .footerWrappper {
+    justify-content: center;
+    flex-wrap: wrap;
+    .footerLinks {
+      padding: 0 38px 72px;
+    }
+  }
+  .copyWriteWrapper {
+    padding: 24px 0;
+    align-items: center;
+    .footerSocialIconsWrapper {
+      .socialBrands {
+        margin: 0 8px;
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .newsletterWrapper {
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+    .buttonWrapper {
+      display: block;
+      .hasura-btn-md {
+        padding: 8px 8px;
+        display: inline-block;
+      }
+      .hasura-blue-btn {
+        width: 50%;
+        margin-right: 2%;
+      }
+      .hasura-white-btn {
+        width: 48%;
+      }
+    }
+  }
+  .footerWrappper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 48px 20px;
+    padding: 80px 0;
+  }
+  .copyWriteWrapper {
+    display: block;
+    padding: 30px 0;
+    .brand {
+      text-align: center;
+      padding-bottom: 16px;
+    }
+    .hasura-ibm-plex-mono {
+      padding-bottom: 42px;
+    }
+    .copyWrite {
+      padding: 20px 0;
+    }
+  }
+}
+@media ( min-width: 2670px) {
+  .footerHand {
+    display: none;
+  }
+}

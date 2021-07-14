@@ -1,159 +1,217 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import Link from './link';
-import './styles.css';
-import config from '../../config.js';
+import { Link, StaticQuery, graphql } from "gatsby";
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
-import Loadable from 'react-loadable';
-import LoadingProvider from './mdxComponents/loading';
-
-import help from './images/help.svg';
-import logoImg from './images/logo.svg';
-import twitter from './images/twitter.svg';
-
-const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
-
-let searchIndices = [];
-
-if (isSearchEnabled && config.header.search.indexName) {
-  searchIndices.push({
-    name: `${config.header.search.indexName}`,
-    title: `Results`,
-    hitComp: `PageHit`,
-  });
-}
-
-import Sidebar from './sidebar';
-
-const LoadableComponent = Loadable({
-  loader: () => import('./search/index'),
-  loading: LoadingProvider,
-});
-
-function myFunction() {
-  var x = document.getElementById('navbar');
-
-  if (x.className === 'topnav') {
-    x.className += ' responsive';
+import { trackGAEvents } from "./trackGA";
+import ResourcesNav from "./resourcesnav";
+import "./header.scss";
+import hasuraLogoColor from "./images/hasura-logo-color.svg";
+import hasuraLogoWhite from "./images/hasura-logo-white.svg";
+function openMenuBar() {
+  var x = document.getElementById("navbar");
+  var hamberger = document.getElementById("menuClick");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+    document.body.style.overflow = "hidden";
+    document.getElementById("viewport").style.overflow = "hidden";
+    hamberger.className += " open";
   } else {
-    x.className = 'topnav';
+    x.className = "topnav";
+    hamberger.className = "navBarToggle";
+    document.body.style.overflow = null;
+    document.getElementById("viewport").style.overflow = null;
   }
 }
-
-const Header = ({ location }) => (
-  <StaticQuery
-    query={graphql`
-      query headerTitleQuery {
-        site {
-          siteMetadata {
-            headerTitle
-            githubUrl
-            helpUrl
-            tweetText
-            logo {
-              link
-              image
-            }
-            headerLinks {
-              link
-              text
-            }
-          }
-        }
+const Header = props => {
+  const wrapperRef = useRef(null);
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, false);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, false);
+    };
+  }, []);
+  const handleClickOutside = event => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      var x = document.getElementById("navbar");
+      var hamberger = document.getElementById("menuClick");
+      if (x.className === "topnav responsive") {
+        x.className = "topnav";
+        hamberger.className = "navBarToggle";
+        document.body.style.overflow = null;
+        document.getElementById("viewport").style.overflow = null;
       }
-    `}
-    render={(data) => {
-
-      const {
-        site: {
-          siteMetadata: { headerTitle, githubUrl, helpUrl, tweetText, logo, headerLinks },
-        },
-      } = data;
-
-      const finalLogoLink = logo.link !== '' ? logo.link : '/';
-
-      return (
-        <div>
-          <div className={'navBarWrapper'}>
-            <nav className={'navBarDefault'}>
-              <div className={'navBarHeader'}>
-                <Link to={finalLogoLink} className={'navBarBrand'}>
-                  <img
-                    className={'img-responsive displayInline'}
-                    src={logo.image !== '' ? logo.image : logoImg}
-                    alt={'logo'}
-                  />
-                </Link>
-                <div
-                  className={'headerTitle displayInline'}
-                  dangerouslySetInnerHTML={{ __html: headerTitle }}
-                />
-                <span role="button" tabIndex="0" onClick={myFunction} onKeyDown={myFunction} className={'navBarToggle'}>
-                  <span className={'iconBar'}></span>
-                  <span className={'iconBar'}></span>
-                  <span className={'iconBar'}></span>
-                </span>
-              </div>
-              {isSearchEnabled ? (
-                <div className={'searchWrapper hiddenMobile navBarUL'}>
-                  <LoadableComponent collapse={true} indices={searchIndices} />
+    }
+  };
+  return (
+    <header id="header" className="lightModeHeader">
+      <div className="containerWrapper">
+        <div className="headerWrapper">
+          <div id="navBrand" className="navLeft">
+            <div className="brand">
+              <a href="https://hasura.io/">
+                <img src={hasuraLogoColor} alt="Hasura Logo" title="Hasura Logo" />
+              </a>
+            </div>
+          </div>
+          <div className="navCenter hideMobile">
+            <ul className="navBarUL m-nav-t">
+              <li>
+                <a
+                  href="https://hasura.io/products/"
+                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Products")}
+                >
+                  PRODUCTS
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={() => {
+                    trackGAEvents("Blog", "HeaderClickMobile", "Docs");
+                  }}
+                  href="https://hasura.io/docs/latest/graphql/core/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  DOCS
+                </a>
+              </li>
+              <li className="dropDownList">
+                {/* eslint-disable-next-line */}
+                <a role="button" tabIndex="0">
+                  RESOURCES
+                  {/* <div className="dropDownArrow"></div> */}
+                </a>
+                <div id="resource-nav" className="zIndex dropDownContent">
+                  <ResourcesNav />
                 </div>
-              ) : null}
-              <div id="navbar" className={'topnav'}>
-                <div className={'visibleMobile'}>
-                  <Sidebar location={location} />
-                  <hr />
-                  {isSearchEnabled ? (
-                    <div className={'searchWrapper'}>
-                      <LoadableComponent collapse={true} indices={searchIndices} />
-                    </div>
-                  ) : null}
-                </div>
-                <ul className={'navBarUL navBarNav navBarULRight'}>
-                  {headerLinks.map((link, key) => {
-                    if (link.link !== '' && link.text !== '') {
-                      return (
-                        <li key={key}>
-                          <a
-                            className="sidebarLink"
-                            href={link.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            dangerouslySetInnerHTML={{ __html: link.text }}
-                          />
-                        </li>
-                      );
-                    }
-                  })}
-                  {helpUrl !== '' ? (
-                    <li>
-                      <a href={helpUrl}>
-                        <img src={help} alt={'Help icon'} />
-                      </a>
-                    </li>
-                  ) : null}
-                  {tweetText !== '' || githubUrl !== '' ? (
-                    <li className="divider hiddenMobile"></li>
-                  ) : null}
-                  {tweetText !== '' ? (
-                    <li>
-                      <a
-                        href={'https://twitter.com/intent/tweet?&text=' + tweetText}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
-                      </a>
-                    </li>
-                  ) : null}
-                </ul>
+              </li>
+              <li>
+                <a
+                  href="https://hasura.io/pricing/"
+                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Pricing")}
+                >
+                  PRICING
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="navRight hideMobile">
+            <ul className="navBarUL">
+              <li className='m-nav-t navLogIn'>
+                <a
+                  href="https://cloud.hasura.io/?pg=home&plcmt=header&cta=log-in&tech=default"
+                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Log In")}
+                >
+                  LOG IN
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://hasura.io/contact-us/?type=hasuraenterprise"
+                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Contact Us")}
+                >
+                  <button className="hasura-btn hasura-btn-sm hasura-gray-btn">CONTACT SALES</button>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://cloud.hasura.io/signup?pg=home&plcmt=header&cta=try-hasura&tech=default"
+                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Try Hasura")}
+                >
+                  <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="navbar" className="topnav" ref={wrapperRef}>
+            <div className="navBarToggleBg">
+              {/*eslint-disable-next-line*/}
+              <span
+                className="navBarToggle"
+                aria-label="button"
+                role="button"
+                tabIndex="0"
+                onClick={() => openMenuBar()}
+                id="menuClick"
+              >
+                <span className={"iconBar"}></span>
+                <span className={"iconBar"}></span>
+                <span className={"iconBar"}></span>
+              </span>
+            </div>
+            <div className="visibleMobile">
+              <div className="brand">
+                <a href="https://hasura.io/">
+                  <img src={hasuraLogoColor} alt="Hasura Logo" title="Hasura Logo" />
+                </a>
               </div>
-            </nav>
+              <div className='mobileNavListWrapper'>
+                <a href="https://hasura.io/products/"
+                  onClick={() => trackGAEvents("Blog", "MobileClick", "Products")}
+                >
+                  <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>Products</button>
+                </a>
+                <a href="https://hasura.io/pricing/"
+                  onClick={() => trackGAEvents("Blog", "MobileClick", "Pricing")}
+                >
+                  <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>Pricing</button>
+                </a>
+                <a
+                  onClick={() => {
+                    trackGAEvents("Blog", "MobileClick", "Docs");
+                  }}
+                  href="https://hasura.io/docs/latest/graphql/core/index.html"
+                >
+                  <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>Docs</button>
+                </a>
+                <a
+                  href="https://cloud.hasura.io/?pg=home&plcmt=header&cta=log-in&tech=default"
+                  onClick={() => trackGAEvents("Blog", "MobileClick", "Log In")}
+                >
+                  <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>LOG IN</button>
+                </a>
+              </div>
+              <ResourcesNav />
+              <div className="mobileNavButtonWrapper">
+                <a
+                  href="https://cloud.hasura.io/signup?pg=home&plcmt=header&cta=try-hasura&tech=default"
+                  onClick={() => trackGAEvents("Blog", "MobileClick", "Try Hasura")}
+                >
+                  <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
+                </a>
+                <a
+                  href="https://hasura.io/contact-us/?type=hasuraenterprise"
+                  onClick={() => trackGAEvents("Blog", "MobileClick", "Contact Us")}
+                >
+                  <button className="hasura-btn hasura-btn-sm hasura-gray-btn">CONTACT SALES</button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      );
-    }}
-  />
-);
+      </div>
+    </header>
+  );
+};
 
+Header.propTypes = {
+  location: PropTypes.object,
+};
 export default Header;
+// export default function HeaderWithStars(props) {
+//   return (
+//     <StaticQuery
+//       query={graphql`
+//         query {
+//           githubStars {
+//             stars
+//           }
+//         }
+//       `}
+//       render={data => <Header data={data} {...props} />}
+//     />
+//   );
+// }
+
+// export default Header;
