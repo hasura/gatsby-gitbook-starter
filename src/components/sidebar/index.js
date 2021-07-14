@@ -17,15 +17,14 @@ const ListItem = styled(({ className, active, level, ...props }) => {
   list-style: none;
 
   a {
-    color: #5c6975;
+    color: #1B2738;
     text-decoration: none;
     font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
     padding: 0.45rem 0 0.45rem ${(props) => 2 + (props.level || 0) * 1}rem;
     display: block;
     position: relative;
-
     &:hover {
-      color: rgb(255, 255, 255) !important;
+      background-color: #EBF1F6;
     }
 
     ${(props) =>
