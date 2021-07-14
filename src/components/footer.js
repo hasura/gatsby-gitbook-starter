@@ -1,6 +1,6 @@
 import React, {Fragment} from "react"
 import PropTypes from "prop-types"
-import SubscribeNewsletter from './subscribenewsletter'
+import SubscribeNewsletter from './SubscribeNewsletter'
 import "./footer.scss"
 // const url = "//hasura.us13.list-manage.com/subscribe/post?u=9b63e92a98ecdc99732456b0e&amp;id=f5c4f66bcf"
 // const hasuraLogoWhite = require("../../images/logo.svg")

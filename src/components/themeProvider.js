@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { default as defaultTheme } from './theme';
 import SubHeader from './SubHeader';
-import Header from './header';
+import Header from './Header';
 import Footer from './footer'
 // import BannerStripe from "./bannerstripe";
 import './styles.css';
