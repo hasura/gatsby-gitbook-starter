@@ -7,6 +7,7 @@ import ResourcesNav from "./resourcesnav";
 import "./header.scss";
 import hasuraLogoColor from "./images/hasura-logo-color.svg";
 import hasuraLogoWhite from "./images/hasura-logo-white.svg";
+import githubWhite from "./images/github-white-btn.svg";
 function openMenuBar() {
   var x = document.getElementById("navbar");
   var hamberger = document.getElementById("menuClick");
@@ -58,7 +59,7 @@ const Header = props => {
               <li>
                 <a
                   href="https://hasura.io/products/"
-                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Products")}
+                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Products")}
                 >
                   PRODUCTS
                 </a>
@@ -66,7 +67,7 @@ const Header = props => {
               <li>
                 <a
                   onClick={() => {
-                    trackGAEvents("Blog", "HeaderClickMobile", "Docs");
+                    trackGAEvents("Learn course", "HeaderClickMobile", "Docs");
                   }}
                   href="https://hasura.io/docs/latest/graphql/core/index.html"
                   target="_blank"
@@ -89,7 +90,7 @@ const Header = props => {
               <li>
                 <a
                   href="https://hasura.io/pricing/"
-                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Pricing")}
+                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Pricing")}
                 >
                   PRICING
                 </a>
@@ -101,15 +102,23 @@ const Header = props => {
               <li className='m-nav-t navLogIn'>
                 <a
                   href="https://cloud.hasura.io/?pg=home&plcmt=header&cta=log-in&tech=default"
-                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Log In")}
+                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Log In")}
                 >
                   LOG IN
                 </a>
               </li>
               <li>
                 <a
+                  href="https://github.com/hasura/graphql-engine"
+                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Github")}
+                >
+                  <button className="hasura-btn hasura-btn-sm hasura-gray-github-btn"><img src={githubWhite} alt="Github" /></button>
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://hasura.io/contact-us/?type=hasuraenterprise"
-                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Contact Us")}
+                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Contact Us")}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-gray-btn">CONTACT SALES</button>
                 </a>
@@ -117,7 +126,7 @@ const Header = props => {
               <li>
                 <a
                   href="https://cloud.hasura.io/signup?pg=home&plcmt=header&cta=try-hasura&tech=default"
-                  onClick={() => trackGAEvents("Blog", "HeaderClick", "Try Hasura")}
+                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Try Hasura")}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
                 </a>
@@ -125,6 +134,14 @@ const Header = props => {
             </ul>
           </div>
           <div id="navbar" className="topnav" ref={wrapperRef}>
+            <div className='githubMobile'>
+              <a
+                href="https://github.com/hasura/graphql-engine"
+                onClick={() => trackGAEvents("Website", "MobileClick", "Github")}
+              >
+                <button className="hasura-btn hasura-btn-sm hasura-gray-github-btn"><img src={githubWhite} alt="Github" /></button>
+              </a>
+            </div>
             <div className="navBarToggleBg">
               {/*eslint-disable-next-line*/}
               <span
@@ -148,18 +165,18 @@ const Header = props => {
               </div>
               <div className='mobileNavListWrapper'>
                 <a href="https://hasura.io/products/"
-                  onClick={() => trackGAEvents("Blog", "MobileClick", "Products")}
+                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Products")}
                 >
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>Products</button>
                 </a>
                 <a href="https://hasura.io/pricing/"
-                  onClick={() => trackGAEvents("Blog", "MobileClick", "Pricing")}
+                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Pricing")}
                 >
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>Pricing</button>
                 </a>
                 <a
                   onClick={() => {
-                    trackGAEvents("Blog", "MobileClick", "Docs");
+                    trackGAEvents("Learn course", "MobileClick", "Docs");
                   }}
                   href="https://hasura.io/docs/latest/graphql/core/index.html"
                 >
@@ -167,7 +184,7 @@ const Header = props => {
                 </a>
                 <a
                   href="https://cloud.hasura.io/?pg=home&plcmt=header&cta=log-in&tech=default"
-                  onClick={() => trackGAEvents("Blog", "MobileClick", "Log In")}
+                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Log In")}
                 >
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>LOG IN</button>
                 </a>
@@ -176,13 +193,13 @@ const Header = props => {
               <div className="mobileNavButtonWrapper">
                 <a
                   href="https://cloud.hasura.io/signup?pg=home&plcmt=header&cta=try-hasura&tech=default"
-                  onClick={() => trackGAEvents("Blog", "MobileClick", "Try Hasura")}
+                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Try Hasura")}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
                 </a>
                 <a
                   href="https://hasura.io/contact-us/?type=hasuraenterprise"
-                  onClick={() => trackGAEvents("Blog", "MobileClick", "Contact Us")}
+                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Contact Us")}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-gray-btn">CONTACT SALES</button>
                 </a>

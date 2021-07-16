@@ -77,6 +77,16 @@
     background-color: #f2f2f2;
   }
 }
+.hasura-gray-github-btn {
+  padding: 8px;
+  background-color: #24292E;
+  img {
+    margin-right: 0;
+  }
+  &:hover {
+    background-color: #000;
+  }
+}
 .lightModeHeader, .DarkModeHeader {
   transition: top 0.3s;
   z-index: 100000 !important;
@@ -303,9 +313,18 @@
   border-bottom: 0 !important;
   z-index: 1;
   .topnav {
-    .visibleMobile {
-      .navBarULMobile {
-
+    .githubMobile {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      display: none;
+      .hasura-btn {
+        padding: 3px;
+        height: 20px;
+        display: flex;
+        img {
+          width: 14px;
+        }
       }
     }
   }
@@ -371,6 +390,14 @@
     display: flex;
     align-items: center;
     height: 67px;
+    .navBarUL {
+      li {
+        padding: 0 8px;
+        &:first-child {
+          padding-right: 20px;
+        }
+      }
+    }
   }
 }
 .containerWidth {
@@ -424,6 +451,9 @@
       height: 48px;
     }
     .topnav {
+      .githubMobile {
+        display: block;
+      }
       .visibleMobile {
         background-color: #EBF1F6;
         border-radius: 8px;
