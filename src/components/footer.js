@@ -14,8 +14,10 @@ import youtubeBrands from "./images/youtube-brands-gray.svg"
 import linkedinBrands from "./images/linkedin-brands-gray.svg"
 // import hand from "../../images/hand.png";
 import hasuraLogoColor from "./images/hasura-logo-color.svg";
+import { getUTMPagePathName } from "../utils/getUTMPagePathName"
 // const copyrightRegular = require("../../images/copyright-regular.svg")
 const Footer = ({location}) => {
+  const utmPagePathName = getUTMPagePathName(location?.pathname);
   return (
     <Fragment>
       <div className='commonSectionWrapper hasura-light-blue-bg-color'>
@@ -30,7 +32,7 @@ const Footer = ({location}) => {
                 Start for free on Hasura Cloud or you could contact our sales team for a detailed walk-through on how Hasura may benefit your business.
               </div>
               <div className='buttonWrapper'>
-                <a href="https://cloud.hasura.io/?pg=home&plcmt=footer&cta=try-hasura&tech=default">
+                <a href={`https://cloud.hasura.io/?pg=${utmPagePathName}&plcmt=footer&cta=try-hasura&tech=default`}>
                   <button className='hasura-btn hasura-btn-md hasura-blue-btn'>TRY HASURA CLOUD</button>
                 </a>
                 <a href='https://hasura.io/contact-us/?type=hasuraenterprise'>

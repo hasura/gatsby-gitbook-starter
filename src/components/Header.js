@@ -8,6 +8,7 @@ import "./header.scss";
 import hasuraLogoColor from "./images/hasura-logo-color.svg";
 import hasuraLogoWhite from "./images/hasura-logo-white.svg";
 import githubWhite from "./images/github-white-btn.svg";
+import { getUTMPagePathName } from "../utils/getUTMPagePathName";
 function openMenuBar() {
   var x = document.getElementById("navbar");
   var hamberger = document.getElementById("menuClick");
@@ -43,6 +44,8 @@ const Header = props => {
       }
     }
   };
+
+  const utmPagePathName = getUTMPagePathName(props.location?.pathname);
   return (
     <header id="header" className="lightModeHeader">
       <div className="containerWrapper">
@@ -101,7 +104,7 @@ const Header = props => {
             <ul className="navBarUL">
               <li className='m-nav-t navLogIn'>
                 <a
-                  href="https://cloud.hasura.io/?pg=home&plcmt=header&cta=log-in&tech=default"
+                  href={`https://cloud.hasura.io/?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
                   onClick={() => trackGAEvents("Learn course", "HeaderClick", "Log In")}
                 >
                   LOG IN
@@ -125,7 +128,7 @@ const Header = props => {
               </li>
               <li>
                 <a
-                  href="https://cloud.hasura.io/signup?pg=home&plcmt=header&cta=try-hasura&tech=default"
+                  href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
                   onClick={() => trackGAEvents("Learn course", "HeaderClick", "Try Hasura")}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
@@ -183,7 +186,7 @@ const Header = props => {
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>Docs</button>
                 </a>
                 <a
-                  href="https://cloud.hasura.io/?pg=home&plcmt=header&cta=log-in&tech=default"
+                  href={`https://cloud.hasura.io/?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
                   onClick={() => trackGAEvents("Learn course", "MobileClick", "Log In")}
                 >
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>LOG IN</button>
@@ -192,7 +195,7 @@ const Header = props => {
               <ResourcesNav />
               <div className="mobileNavButtonWrapper">
                 <a
-                  href="https://cloud.hasura.io/signup?pg=home&plcmt=header&cta=try-hasura&tech=default"
+                  href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
                   onClick={() => trackGAEvents("Learn course", "MobileClick", "Try Hasura")}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
