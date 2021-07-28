@@ -4,6 +4,9 @@
 	 background-size: cover;
 	 background-position: center center;
 }
+.commonBannerStripWrapperBg {
+  background-color: #5c94c8;
+}
 .containerWidth {
     max-width: 1328px;
     margin: 0 auto;
@@ -31,6 +34,14 @@
 	 align-items: center;
 	 justify-content: center;
    font-weight: 500;
+}
+.commonBannerStripWrapper .articleDesc .arrow {
+	display: flex;
+	align-items: center;
+	transition: all .3s ease-in-out;
+}
+.commonBannerStripWrapper .articleDesc:hover .arrow {
+	transform: translateX(5px);
 }
 .commonBannerStripWrapper .closeBanner {
 	 cursor: pointer;
