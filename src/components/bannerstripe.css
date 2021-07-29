@@ -5,7 +5,10 @@
 	 background-position: center center;
 }
 .commonBannerStripWrapperBg {
-  background-color: #5c94c8;
+	background-color: #1B2738;
+  background-image: url('./images/banner-stripe-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .containerWidth {
     max-width: 1328px;
@@ -15,8 +18,8 @@
 .commonBannerStripWrapper {
 	 z-index: 100;
 	 position: relative;
-	 height: 80px;
-	 max-height: 80px;
+	 height: 60px;
+	 max-height: 60px;
 	 display: flex;
 	 align-items: center;
 	 justify-content: center;
@@ -26,19 +29,25 @@
 .commonBannerStripWrapper .articleDesc {
 	 flex: 1;
 	 text-align: center;
-	 color: #1b2738;
-	 font-size: 17px !important;
+	 color: #F8FCFF;
+	 font-size: 20px !important;
 	 line-height: 140% !important;
 	 padding-bottom: 0px;
 	 display: flex;
 	 align-items: center;
 	 justify-content: center;
-   font-weight: 500;
+   font-weight: 700 !important;
+	 font-family: 'Darker Grotesque';
+}
+.commonBannerStripWrapper .articleDesc .emoji {
+	margin-right: 12px;
 }
 .commonBannerStripWrapper .articleDesc .arrow {
-	display: flex;
-	align-items: center;
+	/* display: flex;
+	align-items: center; */
 	transition: all .3s ease-in-out;
+	margin-left: 6px;
+	display: inline-block;
 }
 .commonBannerStripWrapper .articleDesc:hover .arrow {
 	transform: translateX(5px);
@@ -55,6 +64,9 @@
 @media (min-width: 768px) and (max-width: 991px) {
 }
 @media (max-width: 767px) {
+	.commonBannerStripWrapperBg {
+		background-image: none;
+	}
   .commonBannerStripWrapper {
     max-height: none;
     height: auto;
@@ -62,5 +74,6 @@
   .commonBannerStripWrapper .articleDesc{
     text-align: left;
     padding: 15px 0;
+		display: block;
   }
 }

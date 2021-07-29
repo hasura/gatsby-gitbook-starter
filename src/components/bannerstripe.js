@@ -11,12 +11,15 @@ const BannerStripe = () => {
           <div className="containerWidth">
             <div className="commonBannerStripWrapper">
               <a
-                href="https://hasura.io/community/community-call/?pg=learn-course&plcmt=header&cta=register&tech="
-                className="articleDesc"
+                href="https://hasura.io/blog/july-roundup-of-hasuras-product-launches-bigquery-citus-support-database-monitoring/?pg=learn-cours&plcmt=banner&cta=read-blog-post&tech="
+                className="articleDesc hasura-font-bold"
               >
-                New features being launched at our Community Call. Register to attend
+                <span className='emoji' role="img" aria-label="emoji">
+                  👋
+                </span>
+                New product launches in July! Read our roundup
                 <div className='arrow'>
-                  <img src={arrowBlock} alt='Arrow' />
+                  {" >"}
                 </div>
               </a>
               {/*eslint-disable-next-line*/}
