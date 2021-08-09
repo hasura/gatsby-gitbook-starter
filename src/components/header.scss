@@ -343,10 +343,10 @@
       min-height: 40px;
       margin: 0 0;
       &:last-child {
-        padding-right: 0;
+        padding-right: 0 !important;
       }
       &:first-child {
-        padding-left: 0;
+        padding-left: 0 !important;
       }
       a {
         position: relative;
