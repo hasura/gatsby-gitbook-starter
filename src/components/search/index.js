@@ -107,10 +107,30 @@ const useClickOutside = (ref, handler, events) => {
   });
 };
 
-const searchClient = algoliasearch(
+const algoliaClient = algoliasearch(
   config.header.search.algoliaAppId,
   config.header.search.algoliaSearchKey
 );
+
+  // Skip empty query on page load
+  // Ref: https://www.algolia.com/doc/guides/building-search-ui/going-further/conditional-requests/react/
+  const searchClient = {
+    ...algoliaClient,
+    search(requests) {
+      if (requests.every(({ params }) => !params.query)) {
+        return Promise.resolve({
+          results: requests.map(() => ({
+            hits: [],
+            nbHits: 0,
+            nbPages: 0,
+            processingTimeMS: 0,
+          })),
+        });
+      }
+
+      return algoliaClient.search(requests);
+    },
+  };
 
 export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
   const ref = createRef();
