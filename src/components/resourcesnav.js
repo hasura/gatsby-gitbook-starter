@@ -58,7 +58,7 @@ const navListState = [
   {
     imgSrc: helpIcon,
     title: 'help',
-    desc: 'Chat with the experts',
+    desc: 'Get expert support',
     linkUrl: 'https://hasura.io/help/',
     externalLink: true,
   },
