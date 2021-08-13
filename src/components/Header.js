@@ -149,6 +149,20 @@ const Header = props => {
                   <img src={hasuraLogoColor} alt="Hasura Logo" title="Hasura Logo" />
                 </a>
               </div>
+              <div className="mobileNavButtonWrapper">
+                <a
+                  href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
+                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Try Hasura")}
+                >
+                  <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
+                </a>
+                <a
+                  href="https://hasura.io/contact-us/?type=hasuraenterprise"
+                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Contact Us")}
+                >
+                  <button className="hasura-btn hasura-btn-sm hasura-gray-btn">CONTACT SALES</button>
+                </a>
+              </div>
               <div className='mobileNavListWrapper'>
                 <a href="https://hasura.io/products/"
                   onClick={() => trackGAEvents("Learn course", "MobileClick", "Products")}
@@ -176,20 +190,6 @@ const Header = props => {
                 </a>
               </div>
               <ResourcesNav />
-              <div className="mobileNavButtonWrapper">
-                <a
-                  href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
-                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Try Hasura")}
-                >
-                  <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
-                </a>
-                <a
-                  href="https://hasura.io/contact-us/?type=hasuraenterprise"
-                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Contact Us")}
-                >
-                  <button className="hasura-btn hasura-btn-sm hasura-gray-btn">CONTACT SALES</button>
-                </a>
-              </div>
             </div>
           </div>
         </div>
