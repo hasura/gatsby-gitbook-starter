@@ -7,7 +7,6 @@ import ResourcesNav from "./resourcesnav";
 import "./header.scss";
 import hasuraLogoColor from "./images/hasura-logo-color.svg";
 import hasuraLogoWhite from "./images/hasura-logo-white.svg";
-import githubWhite from "./images/github-white-btn.svg";
 import { getUTMPagePathName } from "../utils/getUTMPagePathName";
 function openMenuBar() {
   var x = document.getElementById("navbar");
@@ -112,14 +111,6 @@ const Header = props => {
               </li>
               <li>
                 <a
-                  href="https://github.com/hasura/graphql-engine"
-                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Github")}
-                >
-                  <button className="hasura-btn hasura-btn-sm hasura-gray-github-btn"><img src={githubWhite} alt="Github" /></button>
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://hasura.io/contact-us/?type=hasuraenterprise"
                   onClick={() => trackGAEvents("Learn course", "HeaderClick", "Contact Us")}
                 >
@@ -137,14 +128,6 @@ const Header = props => {
             </ul>
           </div>
           <div id="navbar" className="topnav" ref={wrapperRef}>
-            <div className='githubMobile'>
-              <a
-                href="https://github.com/hasura/graphql-engine"
-                onClick={() => trackGAEvents("Website", "MobileClick", "Github")}
-              >
-                <button className="hasura-btn hasura-btn-sm hasura-gray-github-btn"><img src={githubWhite} alt="Github" /></button>
-              </a>
-            </div>
             <div className="navBarToggleBg">
               {/*eslint-disable-next-line*/}
               <span

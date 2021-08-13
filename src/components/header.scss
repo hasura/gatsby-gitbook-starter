@@ -312,22 +312,6 @@
   position: relative;
   border-bottom: 0 !important;
   z-index: 1;
-  .topnav {
-    .githubMobile {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      display: none;
-      .hasura-btn {
-        padding: 3px;
-        height: 20px;
-        display: flex;
-        img {
-          width: 14px;
-        }
-      }
-    }
-  }
   .navBarUL {
     height: 46px;
     display: flex;
@@ -451,9 +435,6 @@
       height: 48px;
     }
     .topnav {
-      .githubMobile {
-        display: block;
-      }
       .visibleMobile {
         background-color: #EBF1F6;
         border-radius: 8px;
