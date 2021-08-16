@@ -75,19 +75,34 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value = "";
     }
 
-    if(config.gatsby && config.gatsby.trailingSlash) {
-      createNodeField({
-        name: `slug`,
-        node,
-        value: value === "" ? `/` : `/${value}/`
-      });
-    } else {
-      createNodeField({
-        name: `slug`,
-        node,
-        value: `/${value}`
-      });
+    let slug = `/${value}`;
+    let url = "";
+
+    if(config?.gatsby?.trailingSlash) {
+      slug = value === "" ? `/` : `/${value}/`
     }
+
+    if (config?.gatsby?.siteUrl && config?.gatsby?.pathPrefix) {
+      url = `${config.gatsby.siteUrl}${config.gatsby.pathPrefix}${slug}`
+    }
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value: `${slug}`,
+    });
+
+    createNodeField({
+      name: `url`,
+      node,
+      value: `${url}`,
+    });
+
+    createNodeField({
+      name: `sourceCategory`,
+      node,
+      value: `learn`,
+    });
 
     createNodeField({
       name: "id",
