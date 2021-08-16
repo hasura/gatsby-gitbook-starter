@@ -7,6 +7,8 @@ const pageQuery = `{
         objectID: id
         fields {
           slug
+          url
+          sourceCategory
         }
         headings {
           value
