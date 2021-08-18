@@ -40,7 +40,7 @@ const Edit = styled('div')`
 
 export default class MDXRuntimeTest extends Component {
   render() {
-    const { data } = this.props;
+    const { data, location } = this.props;
 
     if (!data) {
       return this.props.children;
@@ -130,7 +130,7 @@ export default class MDXRuntimeTest extends Component {
         </div>
         <div className={'mainWrapper'}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
-          <FloatingSubscribeNewsletter title={mdx.fields.title} canonicalUrl={canonicalUrl} />
+          <FloatingSubscribeNewsletter title={mdx.fields.title} canonicalUrl={canonicalUrl} location={location} />
         </div>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />

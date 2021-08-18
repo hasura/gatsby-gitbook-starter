@@ -103,7 +103,7 @@ const Header = props => {
             <ul className="navBarUL">
               <li className='m-nav-t navLogIn'>
                 <a
-                  href={`https://cloud.hasura.io/?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
+                  href={`https://cloud.hasura.io/login?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
                   onClick={() => trackGAEvents("Learn course", "HeaderClick", "Log In")}
                 >
                   LOG IN
@@ -183,7 +183,7 @@ const Header = props => {
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>Docs</button>
                 </a>
                 <a
-                  href={`https://cloud.hasura.io/?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
+                  href={`https://cloud.hasura.io/login?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
                   onClick={() => trackGAEvents("Learn course", "MobileClick", "Log In")}
                 >
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>LOG IN</button>

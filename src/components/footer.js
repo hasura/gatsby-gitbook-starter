@@ -32,7 +32,7 @@ const Footer = ({location}) => {
                 Start for free on Hasura Cloud or you could contact our sales team for a detailed walk-through on how Hasura may benefit your business.
               </div>
               <div className='buttonWrapper'>
-                <a href={`https://cloud.hasura.io/?pg=${utmPagePathName}&plcmt=footer&cta=try-hasura&tech=default`}>
+                <a href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=footer&cta=try-hasura&tech=default`}>
                   <button className='hasura-btn hasura-btn-md hasura-blue-btn'>TRY HASURA CLOUD</button>
                 </a>
                 <a href='https://hasura.io/contact-us/?type=hasuraenterprise'>

@@ -30,8 +30,9 @@ import mailHoverImg from './images/mail-share-hover.svg';
 import hasuraGray from './images/hasura-gray.svg';
 
 import hasuraBlue from './images/hasura-blue.svg';
+import { getUTMPagePathName } from '../utils/getUTMPagePathName';
 
-const SubscribeNewsletter = ({ title, canonicalUrl }) => {
+const FloatingSubscribeNewsletter = ({ title, canonicalUrl, location }) => {
   const [isCopied, setIsCopiedToggle] = useState(false);
 
   const [hideNewsletter, setHideNewsletter] = useState(false);
@@ -99,7 +100,7 @@ const SubscribeNewsletter = ({ title, canonicalUrl }) => {
               help you build modern apps faster.
             </div>
             <div className="buttonWrapper">
-              <a href="https://cloud.hasura.io/signup?pg=learn-course&plcmt=floating&cta=use-hasura-cloud-free&tech=default">
+              <a href={`https://cloud.hasura.io/signup?pg=${getUTMPagePathName(location?.pathname)}&plcmt=floating&cta=use-hasura-cloud-free&tech=default`}>
                 <button className="subscribeBtn">Try Hasura Cloud for Free</button>
               </a>
             </div>
@@ -167,4 +168,4 @@ const SubscribeNewsletter = ({ title, canonicalUrl }) => {
   );
 };
 
-export default SubscribeNewsletter;
+export default FloatingSubscribeNewsletter;
