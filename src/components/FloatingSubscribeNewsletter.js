@@ -32,7 +32,7 @@ import hasuraGray from './images/hasura-gray.svg';
 import hasuraBlue from './images/hasura-blue.svg';
 import { getUTMPagePathName } from '../utils/getUTMPagePathName';
 
-const SubscribeNewsletter = ({ title, canonicalUrl, location }) => {
+const FloatingSubscribeNewsletter = ({ title, canonicalUrl, location }) => {
   const [isCopied, setIsCopiedToggle] = useState(false);
 
   const [hideNewsletter, setHideNewsletter] = useState(false);
@@ -168,4 +168,4 @@ const SubscribeNewsletter = ({ title, canonicalUrl, location }) => {
   );
 };
 
-export default SubscribeNewsletter;
+export default FloatingSubscribeNewsletter;
