@@ -2,7 +2,8 @@ import React, { Fragment, useState } from "react";
 import "./bannerstripe.css";
 import closeIcon from "./images/close-banner.svg";
 import arrowBlock from "./images/arrow-block.svg";
-const BannerStripe = () => {
+import { getUTMPagePathName } from '../utils/getUTMPagePathName';
+const BannerStripe = ({ location }) => {
   const [showBanner, setShowBanner] = useState(false);
   return (
     <Fragment>
@@ -11,13 +12,13 @@ const BannerStripe = () => {
           <div className="containerWidth">
             <div className="commonBannerStripWrapper">
               <a
-                href="https://hasura.io/blog/july-roundup-of-hasuras-product-launches-bigquery-citus-support-database-monitoring/?pg=learn-cours&plcmt=banner&cta=read-blog-post&tech="
+                href={`https://hasura.io/events/webinar/diagnosing-improving-query-performance/?pg=${getUTMPagePathName(location?.pathname)}&plcmt=banner&cta=sign-up&tech=`}
                 className="articleDesc hasura-font-bold"
               >
                 <span className='emoji' role="img" aria-label="emoji">
                   👋
                 </span>
-                New product launches in July! Read our roundup
+                GraphQL Observability to Diagnose & Improve Query Performance - Sign up for our webinar
                 <div className='arrow'>
                   {" >"}
                 </div>
