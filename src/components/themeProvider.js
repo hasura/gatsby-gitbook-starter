@@ -10,7 +10,7 @@ import './styles.css';
 export default function ThemeProvider({ children, theme = {}, location }) {
   return (
     <div id="viewport" className="viewport">
-      <BannerStripe />
+      <BannerStripe location={location} />
       <Header location={location} />
       <SubHeader location={location} />
       <EmotionThemeProvider theme={{ ...defaultTheme, ...theme }}>{children}</EmotionThemeProvider>
