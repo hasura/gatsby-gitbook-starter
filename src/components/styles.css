@@ -945,6 +945,8 @@ img {
   }
   .topsubnav.subResponsive .subNavVisibleMobile {
     display: block;
+    height: calc(100vh - 50px);
+    overflow: auto;
   }
   .topsubnav .navBarUL {
     display: none;
@@ -1000,8 +1002,8 @@ img {
     min-width: auto;
     padding-right: 0;
     align-items: center;
-    padding: 32px;
-    padding-bottom: 8px;
+    padding: 16px 32px 8px;
+    background-color: #fff;
   }
   .navBarBrand {
     font-size: 20px;
