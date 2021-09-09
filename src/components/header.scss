@@ -34,8 +34,8 @@
   height: 48px;
 }
 .hasura-btn-sm {
-  padding: 8px 24px;
-  height: 40px;
+  padding: 4px 16px;
+  height: 32px;
   @extend .hasura-ibm-plex-nav-btn;
   .left-icon {
     margin-right: 8px;
@@ -94,8 +94,8 @@
   // top: 0;
   -webkit-backdrop-filter: saturate(100%) blur(10px);
   backdrop-filter: saturate(100%) blur(10px);
-  height: 102px;
-  padding-top: 30px;
+  height: 64px;
+  padding-top: 0px;
   position: relative;
 }
 .lightModeHeader {
@@ -106,7 +106,7 @@
 }
 .visibleMobile {
   display: block;
-  width: 338px;
+  width: 342px;
   height: calc(100vh - 70px);
   position: absolute;
   overflow: auto;
@@ -313,7 +313,7 @@
   border-bottom: 0 !important;
   z-index: 1;
   .navBarUL {
-    height: 46px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -324,7 +324,7 @@
       @extend .hasura-ibm-plex-nav;
       @extend .hasura-font-600;
       padding: 0 15px;
-      min-height: 40px;
+      min-height: 32px;
       margin: 0 0;
       &:last-child {
         padding-right: 0 !important;
@@ -349,7 +349,7 @@
     }
   }
   .m-nav-t {
-    margin-top: 21px !important;
+    margin-top: 13px !important;
   }
   .navCenter {
     flex: 1;
@@ -357,7 +357,7 @@
   .navLeft {
     display: flex;
     align-items: center;
-    height: 67px;
+    height: 64px;
     .brand {
       a {
         display: flex;
@@ -373,7 +373,7 @@
   .navRight {
     display: flex;
     align-items: center;
-    height: 67px;
+    height: 64px;
     .navBarUL {
       li {
         padding: 0 8px;
@@ -467,14 +467,14 @@
           background: #DFE7EE;
           border-radius: 8px;
           border-top: 1px solid #D5DEE5;
-          padding: 24px 32px;
+          padding: 24px 24px;
           .hasura-btn-sm {
-            width: 48%;
+            width: 49%;
             display: inline-block;
-            padding: 8px 8px;
+            padding: 4px 16px;
           }
           .hasura-green-btn {
-            margin-right: 4%;
+            margin-right: 2%;
           }
         }
         .menuBarView {
@@ -494,9 +494,22 @@
     display: none;
   }
 }
-@media (max-width: 355px) {
+@media (max-width: 379px) {
   .gitHubBtnMobile {
     display: none !important;
+  }
+  .headerWrapper {
+    .topnav {
+      .visibleMobile {
+        .mobileNavButtonWrapper {
+          display: block;
+          .hasura-btn-sm {
+            width: 100%;
+            margin: 4px 0px;
+          }
+        }
+      }
+    }
   }
 }
 @media (max-width: 767px) {
