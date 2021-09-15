@@ -40,6 +40,12 @@
    font-weight: 700 !important;
 	 font-family: 'Darker Grotesque';
 }
+.commonBannerStripWrapper .mobileBannerHide {
+
+}
+.commonBannerStripWrapper .mobileBannerShow {
+	display: none;
+}
 .commonBannerStripWrapper .articleDesc .emoji {
 	margin-right: 12px;
 }
@@ -74,4 +80,10 @@
     padding: 15px 0;
 		display: block;
   }
+	.commonBannerStripWrapper .mobileBannerHide {
+		display: none;
+	}
+	.commonBannerStripWrapper .mobileBannerShow {
+		display: block;
+	}
 }

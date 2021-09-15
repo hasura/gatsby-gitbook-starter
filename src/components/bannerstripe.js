@@ -23,12 +23,24 @@ const BannerStripe = ({ location }) => {
             <div className="commonBannerStripWrapper">
               <a
                 href={`https://hasura.io/enterprisegraphql/?pg=${getUTMPagePathName(location?.pathname)}&plcmt=banner&cta=sign-up&tech=`}
-                className="articleDesc hasura-font-bold"
+                className="articleDesc hasura-font-bold mobileBannerHide"
               >
                 <span className='emoji' role="img" aria-label="emoji">
                   👋
                 </span>
                 The Enterprise GraphQL Conf is back! Explore the concept of a GraphQL powered Data Mesh
+                <div className='arrow'>
+                  {" >"}
+                </div>
+              </a>
+              <a
+                href={`https://hasura.io/enterprisegraphql/?pg=${getUTMPagePathName(location?.pathname)}&plcmt=banner&cta=sign-up&tech=`}
+                className="articleDesc hasura-font-bold mobileBannerShow"
+              >
+                <span className='emoji' role="img" aria-label="emoji">
+                  👋
+                </span>
+                GraphQL & the Data Mesh at Enterprise GraphQL Conf’21
                 <div className='arrow'>
                   {" >"}
                 </div>
