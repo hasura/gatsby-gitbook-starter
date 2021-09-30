@@ -30,6 +30,7 @@
     "gatsby-plugin-react-helmet": "^4.1.0",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sass": "^4.1.0",
+    "gatsby-plugin-segment-js": "^3.7.0",
     "gatsby-plugin-sharp": "^3.1.2",
     "gatsby-plugin-sitemap": "^3.1.0",
     "gatsby-remark-copy-linked-files": "^3.1.0",
