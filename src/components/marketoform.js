@@ -22,7 +22,14 @@ export default function MarketoForm({
   }, []);
 
   useEffect(() => {
-    isLoaded && window.MktoForms2.loadForm(marketoHost, id, formId);
+    isLoaded && window.MktoForms2.loadForm(marketoHost, id, formId, form => {
+      form.onSubmit(function () {
+        // Get the form field values
+        const vals = form.vals();
+        //call analytics.track method on submit
+        window.analytics.track(`Marketo Form ${formId} Submitted`, vals);
+      });
+    });
   }, [isLoaded, formId, marketoHost, id]);
 
   const loadScript = () => {

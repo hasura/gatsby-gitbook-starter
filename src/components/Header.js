@@ -8,6 +8,7 @@ import "./header.scss";
 import hasuraLogoColor from "./images/hasura-logo-color.svg";
 import hasuraLogoWhite from "./images/hasura-logo-white.svg";
 import { getUTMPagePathName } from "../utils/getUTMPagePathName";
+import { saTrack } from "../utils/segmentAnalytics";
 function openMenuBar() {
   var x = document.getElementById("navbar");
   var hamberger = document.getElementById("menuClick");
@@ -104,7 +105,15 @@ const Header = props => {
               <li className='m-nav-t navLogIn'>
                 <a
                   href={`https://cloud.hasura.io/login?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
-                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Log In")}
+                  onClick={() => {
+                    trackGAEvents("Learn course", "HeaderClick", "Log In")
+                    saTrack("Clicked LOG IN", {
+                      placement: "header",
+                      cta: "LOG IN",
+                      page: utmPagePathName,
+                      screen_size: "desktop",
+                    })
+                  }}
                 >
                   LOG IN
                 </a>
@@ -120,7 +129,15 @@ const Header = props => {
               <li>
                 <a
                   href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
-                  onClick={() => trackGAEvents("Learn course", "HeaderClick", "Try Hasura")}
+                  onClick={() => {
+                    trackGAEvents("Learn course", "HeaderClick", "Try Hasura")
+                    saTrack("Clicked GET STARTED NOW", {
+                      placement: "header",
+                      cta: "GET STARTED NOW",
+                      page: utmPagePathName,
+                      screen_size: "desktop",
+                    })
+                  }}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
                 </a>
@@ -152,7 +169,15 @@ const Header = props => {
               <div className="mobileNavButtonWrapper">
                 <a
                   href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
-                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Try Hasura")}
+                  onClick={() => {
+                    trackGAEvents("Learn course", "MobileClick", "Try Hasura")
+                    saTrack("Clicked GET STARTED NOW", {
+                      placement: "header",
+                      cta: "GET STARTED NOW",
+                      page: utmPagePathName,
+                      screen_size: "tab/mobile",
+                    })
+                  }}
                 >
                   <button className="hasura-btn hasura-btn-sm hasura-green-btn">GET STARTED NOW</button>
                 </a>
@@ -184,7 +209,15 @@ const Header = props => {
                 </a>
                 <a
                   href={`https://cloud.hasura.io/login?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`}
-                  onClick={() => trackGAEvents("Learn course", "MobileClick", "Log In")}
+                  onClick={() => {
+                    trackGAEvents("Learn course", "MobileClick", "Log In")
+                    saTrack("Clicked LOG IN", {
+                      placement: "header",
+                      cta: "LOG IN",
+                      page: utmPagePathName,
+                      screen_size: "tab/mobile",
+                    })
+                  }}
                 >
                   <button className='hasura-btn hasura-btn-md hasura-light-gray-btn'>LOG IN</button>
                 </a>
