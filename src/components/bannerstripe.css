@@ -56,6 +56,9 @@
 .commonBannerStripWrapper .articleDesc:hover .arrow {
 	transform: translateX(5px);
 }
+.commonBannerStripWrapper .articleDesc:hover .arrow {
+	transform: translateX(5px);
+}
 .commonBannerStripWrapper .closeBanner {
 	 cursor: pointer;
 }
