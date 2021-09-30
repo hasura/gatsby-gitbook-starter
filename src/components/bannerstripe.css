@@ -40,6 +40,9 @@
    font-weight: 700 !important;
 	 font-family: 'Darker Grotesque';
 }
+.commonBannerStripWrapper .mobileBannerShow {
+	display: none;
+}
 .commonBannerStripWrapper .articleDesc .emoji {
 	margin-right: 12px;
 }
@@ -49,6 +52,9 @@
 	transition: all .3s ease-in-out;
 	margin-left: 6px;
 	display: inline-block;
+}
+.commonBannerStripWrapper .articleDesc:hover .arrow {
+	transform: translateX(5px);
 }
 .commonBannerStripWrapper .articleDesc:hover .arrow {
 	transform: translateX(5px);
@@ -74,4 +80,10 @@
     padding: 15px 0;
 		display: block;
   }
+	.commonBannerStripWrapper .mobileBannerShow {
+		display: block;
+	}
+	.commonBannerStripWrapper .mobileBannerHide {
+		display: none;
+	}
 }
