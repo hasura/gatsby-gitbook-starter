@@ -1,7 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
 import '../styles.css';
 import SearchOverlay from './SearchOverlay.js';
 import Search from '../../globals/icons/Search/index.js';
+
+const SearchOverlayPortal = ({ children }) => createPortal(
+  children,
+  document.getElementById("react-portal-wrapper")
+);
 
 export default function SearchComponent({ indices }) {
   const [showSearch, setShowSearch] = useState(false);
@@ -13,7 +19,9 @@ export default function SearchComponent({ indices }) {
       >
         <Search variant="grey100" size="md" />
       </div>
-      <SearchOverlay showSearch={showSearch} onCloseSearch={() => setShowSearch(false)} defaultIndex={indices[0]} />
+      <SearchOverlayPortal>
+        <SearchOverlay showSearch={showSearch} onCloseSearch={() => setShowSearch(false)} defaultIndex={indices[0]} />
+      </SearchOverlayPortal>
     </Fragment>
   );
 }
