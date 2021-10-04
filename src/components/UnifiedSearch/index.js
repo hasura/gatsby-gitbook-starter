@@ -16,6 +16,7 @@ export default function SearchComponent({ indices }) {
     <Fragment>
       <div
         onClick={() => setShowSearch(preShowSearch => !preShowSearch)}
+        className="cursorPointer"
       >
         <Search variant="grey100" size="md" />
       </div>

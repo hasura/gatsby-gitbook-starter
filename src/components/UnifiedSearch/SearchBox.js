@@ -199,7 +199,7 @@ const DebouncedSearchBox = ({
         {searchSuggestions.map(suggestion => (
           <button
             key={suggestion}
-            className={`hasura-suggestion-btn ${currentRefinement === suggestion ? "active" : ""}`}
+            className={`hasura-suggestion-btn cursorPointer ${currentRefinement === suggestion ? "active" : ""}`}
             onClick={() => trySuggestion(suggestion)}
           >
             {suggestion}

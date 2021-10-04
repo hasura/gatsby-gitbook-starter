@@ -161,13 +161,13 @@ const HitsByIndexType = ({ indexType }) => {
   );
 };
 
-const HitsInIndex = ({ index, show }) => (
+const HitsInIndex = ({ index, show, idx }) => (
   <Index indexName={index.name}>
     {show && (
       <Fragment>
         <CustomHitsHeader
           indexTitle={index.title}
-          showSeparator={index.type !== INDEX_TYPES.blog}
+          showSeparator={idx !== 0}
         />
         <HitsByIndexType indexType={index.type} />
       </Fragment>
@@ -177,8 +177,8 @@ const HitsInIndex = ({ index, show }) => (
 
 const SearchResult = ({ indices, className, id, wrapperRef, activeIndexTypes }) => (
   <StyledSearchResults id={id} className={className} ref={wrapperRef}>
-    {indices.map(index => (
-      <HitsInIndex index={index} key={index.name} show={activeIndexTypes[index.type]} />
+    {indices.map((index, idx) => (
+      <HitsInIndex index={index} key={index.name} show={activeIndexTypes[index.type]} idx={idx} />
     ))}
     <SearchFooter />
   </StyledSearchResults>

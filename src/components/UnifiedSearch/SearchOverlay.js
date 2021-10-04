@@ -38,6 +38,13 @@ const StyledSearchOverlayWrapper = styled.div`
     overflow: auto;
     padding: 4rem 0;
   }
+  hr {
+    margin: 2.4rem 0;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #e3e9ed;
+  }
   ${mq.below.lg} {
     .globalSearchWrapper {
       padding: 2.5rem 0;
