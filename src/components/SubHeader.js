@@ -26,7 +26,7 @@ if (isSearchEnabled && config.header.search.indexName) {
 import Sidebar from './sidebar';
 
 const LoadableComponent = Loadable({
-  loader: () => import('./search/index'),
+  loader: () => import('./UnifiedSearch/index'),
   loading: LoadingProvider,
 });
 

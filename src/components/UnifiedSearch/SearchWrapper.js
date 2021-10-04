@@ -1,7 +1,7 @@
 import algoliasearch from "algoliasearch/lite";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { InstantSearch, connectStateResults, Index, PoweredBy } from "react-instantsearch-dom";
+import { InstantSearch, connectStateResults, Index, Configure } from "react-instantsearch-dom";
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 import { INDEX_TYPES } from "./constants";
@@ -211,7 +211,7 @@ const IndexTypeFilter = ({ activeIndexTypes, setActiveIndexTypes }) => {
   );
 };
 
-export default function SearchWrapper({ indices }) {
+export default function SearchWrapper({ indices, defaultIndex }) {
   const defaultIndexTypesState = Object.values(INDEX_TYPES).reduce((a, c) => {
     a[c] = true;
     return a;
@@ -221,7 +221,7 @@ export default function SearchWrapper({ indices }) {
   return (
     <InstantSearch
       searchClient={searchClient}
-      indexName={indices[0].name}
+      indexName={defaultIndex?.name || indices[0].name}
       onSearchStateChange={() => setActiveIndexTypes(defaultIndexTypesState)}
     >
       <SearchBox />
@@ -240,6 +240,7 @@ export default function SearchWrapper({ indices }) {
           />
         </StyledFilterWrapper>
       </CustomAllResults>
+      <Configure hitsPerPage={5} />
     </InstantSearch>
   );
 }

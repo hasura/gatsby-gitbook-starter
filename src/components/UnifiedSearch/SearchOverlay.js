@@ -45,7 +45,7 @@ const StyledSearchOverlayWrapper = styled.div`
   }
 `;
 
-const SearchOverlay = ({ showSearch, onCloseSearch }) => {
+const SearchOverlay = ({ showSearch, onCloseSearch, defaultIndex }) => {
   const closeSearchOnEsc = e => (e.key === "Escape" ? onCloseSearch() : null);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const SearchOverlay = ({ showSearch, onCloseSearch }) => {
       </div>
       <div className="globalSearchWrapper">
         <div className="containerWrapper">
-          <SearchWrapper indices={SEARCH_INDICES} onCloseSearch={onCloseSearch} />
+          <SearchWrapper indices={SEARCH_INDICES} onCloseSearch={onCloseSearch} defaultIndex={defaultIndex} />
         </div>
       </div>
     </StyledSearchOverlayWrapper>

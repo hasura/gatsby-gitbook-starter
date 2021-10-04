@@ -1,12 +1,10 @@
 export const INDEX_TYPES = Object.freeze({
+  learn: "learn",
   blog: "blog",
   docs: "docs",
-  learn: "learn",
 });
 
 export const SEARCH_INDICES = [
-  { name: `blog-production`, title: `Hasura Blog`, type: INDEX_TYPES.blog },
-  { name: `graphql-docs-prod`, title: `Hasura GraphQL Engine Docs`, type: INDEX_TYPES.docs },
   { name: `learn-intro-graphql`, title: `Learn Intro GraphQL`, type: INDEX_TYPES.learn },
   { name: `learn-elm-graphql`, title: `Learn ELM GraphQl`, type: INDEX_TYPES.learn },
   { name: `learn-flutter-graphql`, title: `Learn Flutter GraphQL`, type: INDEX_TYPES.learn },
@@ -40,4 +38,6 @@ export const SEARCH_INDICES = [
     title: `Learn Reason React Apollo`,
     type: INDEX_TYPES.learn,
   },
+  { name: `blog-production`, title: `Hasura Blog`, type: INDEX_TYPES.blog },
+  { name: `graphql-docs-prod`, title: `Hasura GraphQL Engine Docs`, type: INDEX_TYPES.docs },
 ];
