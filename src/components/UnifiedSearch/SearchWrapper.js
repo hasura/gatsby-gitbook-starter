@@ -240,7 +240,7 @@ export default function SearchWrapper({ indices, defaultIndex }) {
           />
         </StyledFilterWrapper>
       </CustomAllResults>
-      {/* <Configure hitsPerPage={5} /> */}
+      <Configure hitsPerPage={10} />
     </InstantSearch>
   );
 }
