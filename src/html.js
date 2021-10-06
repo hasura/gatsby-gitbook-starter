@@ -44,6 +44,7 @@ export default class HTML extends React.Component {
             `,
             }}
           />
+          <div id="react-portal-wrapper" />
         </body>
       </html>
     );

@@ -26,7 +26,7 @@ if (isSearchEnabled && config.header.search.indexName) {
 import Sidebar from './sidebar';
 
 const LoadableComponent = Loadable({
-  loader: () => import('./search/index'),
+  loader: () => import('./UnifiedSearch/index'),
   loading: LoadingProvider,
 });
 
@@ -91,11 +91,14 @@ const Header = ({ location }) => (
                     dangerouslySetInnerHTML={{ __html: headerTitle }}
                   />
                 </div>
-                <div role="button" tabIndex="0" onClick={()=>{myFunction();setIsArrowDown(!isArrowDown)}} className={'subNavBarToggle'} className='tableContent showMobileView'>
-                  <span>
-                    table of contents
-                  </span>
-                  <img className={((isArrowDown) ? 'rotateImg' : '')} src={arrow} alt='Arrow' />
+                <div className="subnavWithSearch">
+                  <div role="button" tabIndex="0" onClick={()=>{myFunction();setIsArrowDown(!isArrowDown)}} className={'subNavBarToggle'} className='tableContent showMobileView'>
+                    <span>
+                      table of contents
+                    </span>
+                    <img className={((isArrowDown) ? 'rotateImg' : '')} src={arrow} alt='Arrow' />
+                  </div>
+                  {isSearchEnabled ? <LoadableComponent collapse={true} indices={searchIndices} /> : null}
                 </div>
                 <ul className={'navBarUL navBarNav navBarULRight'}>
                   {headerLinks.map((link, key) => {
@@ -138,18 +141,8 @@ const Header = ({ location }) => (
                     </li>
                   ) : null}
                 </ul>
-                {isSearchEnabled ? (
-                  <div className={'searchWrapper hiddenMobile navBarUL'}>
-                    <LoadableComponent collapse={true} indices={searchIndices} />
-                  </div>
-                ) : null}
                 <div id="subnavbar" className={'topsubnav'}>
                   <div className={'subNavVisibleMobile'}>
-                    {isSearchEnabled ? (
-                      <div className={'searchWrapper'}>
-                        <LoadableComponent collapse={true} indices={searchIndices} />
-                      </div>
-                    ) : null}
                     <Sidebar location={location} />
                   </div>
                 </div>
