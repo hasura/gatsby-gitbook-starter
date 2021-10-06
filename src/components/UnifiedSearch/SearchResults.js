@@ -133,7 +133,7 @@ const PageHit = ({ hit, indexType }) => (
       {indexType === INDEX_TYPES.docs ? (
         <Fragment>
           {!!hit.hierarchy && (
-            <HitTitle>{`${Object.values(hit.hierarchy).filter(h => !!h)[0]}`}</HitTitle>
+            <HitTitle>{`${Object.values(hit.hierarchy).filter(h => !!h).reverse()[0]}`}</HitTitle>
           )}
           <Snippet attribute="content" hit={hit} tagName="mark" />
         </Fragment>
