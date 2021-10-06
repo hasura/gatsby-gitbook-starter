@@ -193,6 +193,14 @@ a:hover {
 .cursorPointer {
   cursor: pointer;
 }
+.searchIconWrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+.subnavWithSearch {
+  display: flex;
+}
 
 .headerTitle {
   height: auto;
@@ -286,9 +294,9 @@ a:hover {
   align-items: center;
   width: 100%;
 }
-.tableContent span {
+/* .tableContent span {
   flex: 1;
-}
+} */
 .tableContent img {
   transition: all .3s ease-in-out;
 }
@@ -981,10 +989,6 @@ img {
     text-align: left !important;
     padding-left: 0 !important;
   }
-  .searchWrapper {
-    padding: 0px 0;
-    padding-top: 20px;
-  }
   .hitWrapper {
     width: 100%;
     right: 0;
@@ -1003,7 +1007,7 @@ img {
   }
   .navBarHeader {
     min-width: 240px;
-    flex: initial;
+    /* flex: initial; */
   }
   .githubBtn {
     padding: 10px 10px;
@@ -1017,9 +1021,6 @@ img {
   }
   .navBarUL li a {
     padding: 10px 5px;
-  }
-  .searchWrapper {
-    padding-left: 0px;
   }
 }
 @media (max-width: 1049px) {
