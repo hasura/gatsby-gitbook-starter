@@ -20,7 +20,7 @@ const StyledSeachBoxWrapper = styled.div`
   position: sticky;
   top: -4rem;
   z-index: 10;
-  padding-top: 40px;
+  padding-top: 45px;
   padding-bottom: 30px;
   background-color: ${COLORS.grey_0};
   form {
@@ -119,7 +119,7 @@ const StyledSeachBoxWrapper = styled.div`
   ${mq.below.lg} {
     margin: 0 auto;
     padding-bottom: 20px;
-    top: -3rem;
+    top: -2.5rem;
   }
   ${mq.below.md} {
     max-width: none;
