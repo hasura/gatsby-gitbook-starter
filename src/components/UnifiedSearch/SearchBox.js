@@ -60,7 +60,7 @@ const StyledSeachBoxWrapper = styled.div`
     display: flex;
     align-items: center;
     input {
-      padding: 1rem 3rem;
+      padding: 1rem 2.25rem;
       font-family: "IBM Plex Sans";
       font-size: 18px;
       line-height: 160%;
@@ -78,8 +78,11 @@ const StyledSeachBoxWrapper = styled.div`
     .searchBoxLeftIcon {
       position: absolute;
       left: 1rem;
+      display: flex;
+      akign-items: center;
     }
     .inputCloseIcon {
+      display: flex;
       position: absolute;
       right: 1rem;
       border-radius: 4px;

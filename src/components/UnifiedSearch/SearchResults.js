@@ -67,7 +67,11 @@ const StyledSearchResults = styled.div`
     }
   }
   .ais-PoweredBy {
+    display: flex;
     text-align: left;
+    .ais-PoweredBy-text {
+      padding-right: 6px;
+    }
   }
   ${mq.below.lg} {
     .ais-Hits,
