@@ -78,6 +78,13 @@ const SidebarLayout = ({ location }) => (
     `}
     render={({ allMdx }) => {
       let finalNavItems;
+      const parseId = (content) => {
+        const [text, id] = content.split("{#");
+        if (!!text && !!id) {
+          return [text, id.replace('}', '').replace(/\s+/g, '').toLowerCase()]
+        }
+        return [content, content.replace(/\s+/g, '').toLowerCase()]
+      }
 
       if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
         allMdx.edges.map((item) => {
@@ -91,12 +98,12 @@ const SidebarLayout = ({ location }) => (
               if (item.node.tableOfContents.items) {
                 innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
                   const itemId = innerItem.title
-                    ? innerItem.title.replace(/\s+/g, '').toLowerCase()
+                    ? parseId(innerItem.title)[1]
                     : '#';
 
                   return (
                     <ListItem key={index} to={`#${itemId}`} level={1}>
-                      {innerItem.title}
+                      {parseId(innerItem.title)[0]}
                     </ListItem>
                   );
                 });
