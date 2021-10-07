@@ -26,6 +26,18 @@ export default function MarketoForm({
       form.onSubmit(function () {
         // Get the form field values
         const vals = form.vals();
+        // if a form has email, call analytics.identify to identify the submitter
+        if (!!vals.Email) {
+          let nameTraits = {};
+          if (!!vals.FirstName) nameTraits.firstName = vals.FirstName;
+          if (!!vals.LastName) nameTraits.lastName = vals.LastName;
+
+          window.analytics.identify(vals.Email, {
+            email: vals.Email,
+            identifiedBy: `Market Form #${formId} Submission`,
+            ...nameTraits,
+          });
+        }
         //call analytics.track method on submit
         window.analytics.track(`Marketo Form ${formId} Submitted`, vals);
       });
