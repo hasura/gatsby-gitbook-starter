@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import './styles.css';
 import config from '../../config';
+import { customIdParser } from '../utils/customIdParser';
 
 const Sidebar = styled('aside')`
   width: 100%;
@@ -97,13 +98,15 @@ const SidebarLayout = ({ location }) => (
             ) {
               if (item.node.tableOfContents.items) {
                 innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
+                  const idParsedContent = customIdParser(innerItem.title);
+
                   const itemId = innerItem.title
-                    ? parseId(innerItem.title)[1]
+                    ? idParsedContent.id
                     : '#';
 
                   return (
                     <ListItem key={index} to={`#${itemId}`} level={1}>
-                      {parseId(innerItem.title)[0]}
+                      {idParsedContent.content}
                     </ListItem>
                   );
                 });
