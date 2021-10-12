@@ -79,13 +79,6 @@ const SidebarLayout = ({ location }) => (
     `}
     render={({ allMdx }) => {
       let finalNavItems;
-      const parseId = (content) => {
-        const [text, id] = content.split("{#");
-        if (!!text && !!id) {
-          return [text, id.replace('}', '').replace(/\s+/g, '').toLowerCase()]
-        }
-        return [content, content.replace(/\s+/g, '').toLowerCase()]
-      }
 
       if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
         allMdx.edges.map((item) => {
