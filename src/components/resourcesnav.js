@@ -29,9 +29,9 @@ const navListState = [
   },
   {
     imgSrc: userstudiesIcon,
-    title: 'User stories',
+    title: 'Case Studies',
     desc: 'Read user case-studies',
-    linkUrl: 'https://hasura.io/user-stories/',
+    linkUrl: 'https://hasura.io/case-studies/',
     externalLink: true,
   },
   {
@@ -133,16 +133,21 @@ const ResourcesNav = () => {
                 </div>
               </div>
             </a>
-            <a href='https://hasura.io/graphql/database/'>
-              <div className='navListAnnouncement navDataBaseBg'>
-                <div className='hasura-ibm-plex-article-desc'>
-                  Supported Databases
-                  <div className='arrow'>
-                    <img src={arrowWhite} alt='Arrow' />
+            <a
+              href="https://us02web.zoom.us/meeting/register/tZUvduuspzksGdXb_Kp2u8cNJQQ5JGxXVOrg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="navListAnnouncement navDataBaseBg">
+                <div className="hasura-ibm-plex-article-desc">
+                  Hasura Cloud Office Hours
+                  <div className="arrow">
+                    <img src={arrowWhite} alt="Arrow" />
                   </div>
                 </div>
-                <div className='hasura-ibm-plex-mono'>
-                  Auto-generate GraphQL & REST APIs for your data from any of our supported dbs
+                <div className="hasura-ibm-plex-mono">
+                  Join us for Hasura Cloud office hours in October. Every Wednesday at 9:30am PT/
+                  12:30 pm ET.
                 </div>
               </div>
             </a>
