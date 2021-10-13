@@ -85,7 +85,7 @@ const Footer = ({location}) => {
             <div className="footerLinks hasura-ibm-plex-nav">
               <div className="footerLinksHeader">Resources</div>
               <a href={`https://hasura.io/blog/`} className="links" target="_blank" rel="noopener noreferrer">Blog</a>
-              <a href="https://hasura.io/user-stories/" className="links">User Stories</a>
+              <a href="https://hasura.io/case-studies/" className="links">case Studies</a>
               <a href="https://3factor.app/" className="links" target="_blank" rel="noopener noreferrer">3Factor Apps</a>
               <a href="https://hasura.io/event-driven-programming/" className="links">Event Driven Programming</a>
               <a href="https://hasura.io/react-graphql/" className="links">React GraphQL</a>
