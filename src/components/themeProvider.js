@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { default as defaultTheme } from './theme';
-import SubHeader from './SubHeader';
+// import SubHeader from './SubHeader';
 import Header from './Header';
 import Footer from './footer'
 import BannerStripe from "./bannerstripe";
@@ -12,7 +12,7 @@ export default function ThemeProvider({ children, theme = {}, location }) {
     <div id="viewport" className="viewport">
       <BannerStripe location={location} />
       <Header location={location} />
-      <SubHeader location={location} />
+      {/* <SubHeader location={location} />*/}
       <EmotionThemeProvider theme={{ ...defaultTheme, ...theme }}>{children}</EmotionThemeProvider>
       <Footer location = {location} />
     </div>

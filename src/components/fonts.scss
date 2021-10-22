@@ -64,7 +64,18 @@
     font-display: swap;
 }
 
-
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url('/fonts/IBM-Plex-Sans-200.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 200;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url('/fonts/IBM-Plex-Sans-300.woff2') format('woff2'); /* Super Modern Browsers */
+    font-weight: 300;
+    font-display: swap;
+}
 @font-face {
     font-family: 'IBM Plex Sans';
     src: url('/fonts/IBM-Plex-Sans-500.woff2') format('woff2'); /* Super Modern Browsers */

@@ -5,6 +5,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from '@emotion/styled';
 import { Layout, Link } from '../components';
 import NextPrevious from '../components/NextPrevious';
+import SubHeader from '../components/SubHeader';
 import FloatingSubscribeNewsletter from '../components/FloatingSubscribeNewsletter';
 import '../components/styles.css';
 import config from '../../config';
@@ -13,27 +14,39 @@ import gitHub from '../components/images/github.svg';
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
 const Edit = styled('div')`
-  padding: 1rem 1.5rem;
+  /* padding: 1rem 1.5rem; */
+  display: flex;
   text-align: right;
 
   a {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1em;
+    font-family: "IBM Plex Sans";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
     text-decoration: none;
-    color: #555;
-    border: 1px solid rgb(211, 220, 228);
+    color: #1B2738;
+
+    /* border: 1px solid rgb(211, 220, 228); */
     cursor: pointer;
     border-radius: 3px;
     transition: all 0.2s ease-out 0s;
     text-decoration: none;
     color: rgb(36, 42, 49);
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255);
     box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
     height: 30px;
-    padding: 5px 16px;
+    padding: 5px 16px; */
+    .arrow {
+      margin-left: 6px;
+      display: inline-block;
+      transition: all .3s ease-in-out;
+    }
     &:hover {
-      background-color: rgb(245, 247, 249);
+      /* background-color: rgb(245, 247, 249); */
+      .arrow {
+        transform: translateX(5px);
+      }
     }
   }
 `;
@@ -118,21 +131,24 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        <div className={'titleWrapper'}>
-          <h1 className={'title'}>{mdx.fields.title}</h1>
-          <Edit className={'mobileView'}>
-            {docsLocation && (
-              <Link className={'gitBtn'} to={`${docsLocation}/${mdx.parent.relativePath}`}>
-                <img src={gitHub} alt='Github logo' /> Edit on GitHub
-              </Link>
-            )}
-          </Edit>
+        <SubHeader location={location} />
+        <div className="titleWrapper">
+          <h1 className="title">{mdx.fields.title}</h1>
         </div>
-        <div className={'mainWrapper'}>
+        <div className="mainWrapper">
           <MDXRenderer>{mdx.body}</MDXRenderer>
+          {/*
           <FloatingSubscribeNewsletter title={mdx.fields.title} canonicalUrl={canonicalUrl} location={location} />
+          */}
         </div>
-        <div className={'addPaddTopBottom'}>
+        <Edit className="mobileView">
+          {docsLocation && (
+            <Link className="gitBtn" to={`${docsLocation}/${mdx.parent.relativePath}`}>
+              <img src={gitHub} alt='Github logo' /> Edit on GitHub<div className="arrow">{"→"}</div>
+            </Link>
+          )}
+        </Edit>
+        <div className="addPaddTopBottom">
           <NextPrevious mdx={mdx} nav={nav} />
         </div>
       </Layout>

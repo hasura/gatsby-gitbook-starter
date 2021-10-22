@@ -29,21 +29,6 @@ export default class HTML extends React.Component {
           {this.props.preBodyComponents}
           <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
-          <script
-            defer
-            dangerouslySetInnerHTML={{
-              __html: `
-            function navBarClose() {
-              document.getElementById("subnavbar").classList.toggle("subResponsive");
-            }
-            document.addEventListener('click',function(e){
-              if(e.target && e.target.tagName.toLowerCase() === 'a'){
-                navBarClose();
-              }
-           });
-            `,
-            }}
-          />
           <div id="react-portal-wrapper" />
         </body>
       </html>

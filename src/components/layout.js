@@ -16,8 +16,10 @@ const Wrapper = styled('div')`
 
 const Content = styled('main')`
   display: flex;
-  flex-grow: 1;
-  margin: 0px 88px;
+  /* flex-grow: 1; */
+  margin: 0px auto;
+  max-width: 928px;
+  padding: 0 32px;
   margin-top: 3rem;
 
   @media only screen and (max-width: 1023px) {
@@ -43,7 +45,8 @@ const LeftSideBarWidth = styled('div')`
 `;
 
 const RightSideBarWidth = styled('div')`
-  width: 298px;
+  width: 256px;
+  border-left: 1px solid #D5DEE6;
 `;
 
 const Layout = ({ children, location }) => (
