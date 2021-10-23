@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styled from '@emotion/styled';
 
-const StyledUseHasuraFreeWrapper = styled.div`
+const StyledUseHasuraFreeWrapper = styled('div')`
   padding: 30px;
   background-color: #F8FCFF;
   border: 1px solid #D5DEE6;
