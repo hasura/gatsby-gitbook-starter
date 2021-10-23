@@ -86,9 +86,7 @@ body {
   background-color: rgb(21, 153, 229);
   cursor: pointer;
 }
-.footerImg {
-  padding: 50px 0;
-}
+
 .blueBtn:hover {
   color: rgb(250, 253, 255);
   background-color: rgb(0, 120, 189);

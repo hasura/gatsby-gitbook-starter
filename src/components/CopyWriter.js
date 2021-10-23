@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from '@emotion/styled';
 
 import githubBrands from "./images/github-brands-gray.svg";
 import twitterBrands from "./images/twitter-brands-gray.svg";
@@ -10,7 +10,7 @@ import youtubeBrands from "./images/youtube-brands-gray.svg";
 import linkedinBrands from "./images/linkedin-brands-gray.svg";
 import hasuraLogoColor from "./images/hasura-logo-color.svg";
 
-const CopyWriteWrapper = styled.div`
+const CopyWriteWrapper = styled('div')`
   padding: 22px 0;
   display: flex;
   align-items: center;

@@ -58,7 +58,7 @@ const Edit = styled('div')`
   }
 `;
 
-const HelpfulGithubWrapper = styled.div`
+const HelpfulGithubWrapper = styled('div')`
   display: flex;
   justify-content: space-between;
   padding-top: 14px;
@@ -102,6 +102,11 @@ const HelpfulGithubWrapper = styled.div`
     }
   }
 `;
+
+const FooterImag = styled('div')`
+  padding: 50px 0;
+`;
+
 export default class MDXRuntimeTest extends Component {
   render() {
     const { data, location } = this.props;
@@ -226,9 +231,9 @@ export default class MDXRuntimeTest extends Component {
           <NextPrevious mdx={mdx} nav={nav} />
         </div>
         <UseHasuraFree />
-        <div className="footerImg">
+        <FooterImag>
           <img loading="lazy" src={footerImg} alt="footer illustration" />
-        </div>
+        </FooterImag>
         <CopyWriter />
       </Layout>
     );
