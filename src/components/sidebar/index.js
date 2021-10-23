@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Tree from './tree';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { ExternalLink } from 'react-feather';
 import '../styles.css';
 import config from '../../../config';
+import MarketoForm from '../marketoform';
+const marketoHost = 'https://page.hasura.io';
 
 // eslint-disable-next-line no-unused-vars
 const ListItem = styled(({ className, active, level, ...props }) => {
@@ -47,20 +49,10 @@ const Sidebar = styled('aside')`
   width: 100%;
   /* background-color: rgb(245, 247, 249); */
   /* border-right: 1px solid #ede7f3; */
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
   padding-left: 0px;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: sticky;
-  top: 72px;
   padding-right: 0;
-  background-color: #F9FCFF;
+  display: grid;
   @media only screen and (max-width: 1023px) {
-    width: 100%;
-    /* position: relative; */
-    height: 100vh;
   }
   @media (min-width: 767px) and (max-width: 1023px) {
     padding-left: 0;
@@ -94,7 +86,7 @@ const Divider = styled((props) => (
   }
 `;
 
-const SidebarLayout = () => (
+const SidebarLayout = ({location}) => (
   <StaticQuery
     query={graphql`
       query {
@@ -111,6 +103,30 @@ const SidebarLayout = () => (
       }
     `}
     render={({ allMdx }) => {
+      const [isAliId, setIsAliId] = useState(false);
+      const [isLocalSideBarSubscribe, setIsLocalSideBarSubscribe] = useState(false);
+
+      const onSubmitCB = () => {
+        if (typeof window !== undefined) {
+          window.localStorage.setItem("sideBarSubscribeConsent", "true");
+        }
+      };
+
+      useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const searchAliId = searchParams.get("aliId");
+        if (searchAliId || searchAliId === "") {
+          setIsAliId(true);
+        }
+        if (typeof window !== undefined) {
+          if ("localStorage" in window && window.localStorage && "getItem" in window.localStorage) {
+            const sideBarSubscribeConsent = window.localStorage.getItem("sideBarSubscribeConsent");
+            if (sideBarSubscribeConsent) {
+              setIsLocalSideBarSubscribe(true);
+            }
+          }
+        }
+      }, [location.search]);
       return (
         <Sidebar>
           <ul className={'sideBarUL'}>
@@ -127,6 +143,24 @@ const SidebarLayout = () => (
               }
             })}
           </ul>
+          <div className="sideBarNewsletterWrapper">
+          {
+            isAliId && isLocalSideBarSubscribe ? (
+              <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
+            ) : (
+              <>
+              <div className="desc font_600">Sign up for Hasura Newsletter</div>
+              <MarketoForm
+                onSubmitCB={onSubmitCB}
+                formId="1079"
+                marketoHost={marketoHost}
+                id="631-HMN-492"
+                styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+              />
+              </>
+            )
+          }
+          </div>
         </Sidebar>
       );
     }}

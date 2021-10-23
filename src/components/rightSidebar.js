@@ -4,13 +4,29 @@ import styled from '@emotion/styled';
 import './styles.css';
 import config from '../../config';
 
+import openNew from "./images/open-new.svg";
+
+const hasuraBlogState = [
+  {
+    linkContent: "GraphQL & the Data Mesh - developer productivity in an age of exploding data",
+    linkUrl: "https://hasura.io/blog/graphql-and-the-data-mesh-developer-productivity-in-an-age-of-exploding-data/",
+  },
+  {
+    linkContent: "Implementing a Google Drive Style Hierarchical Authorization System in Hasura",
+    linkUrl: "https://hasura.io/blog/implementing-a-google-drive-style-hierarchical-role-based-acl-system/",
+  },
+  {
+    linkContent: "Hasura Product Updates: August Round-up",
+    linkUrl: "https://hasura.io/blog/hasura-product-updates-august-round-up/",
+  },
+]
+
 const Sidebar = styled('aside')`
   width: 100%;
   background-color: #fff;
-  border-right: 1px solid #ede7f3;
-  height: 100vh;
   overflow: auto;
   position: fixed;
+  display: grid;
   padding-left: 0px;
   position: -webkit-sticky;
   position: -moz-sticky;
@@ -112,9 +128,18 @@ const SidebarLayout = ({ location }) => (
       if (finalNavItems && finalNavItems.length) {
         return (
           <Sidebar>
-            <ul className={'rightSideBarUL'}>
-              <li className={'rightSideTitle'}>CONTENTS</li>
+            <ul className="rightSideBarUL">
+              <li className="rightSideTitle">CONTENTS</li>
               {finalNavItems}
+            </ul>
+            <ul className="blogLinkWrapper">
+              <li className="rightSideTitle">from the hasura blog</li>
+              {
+                hasuraBlogState.map((item, index) => (
+                  <li key={index}><img src={openNew} alt="Open new window" /><a href={item.linkUrl}>{item.linkContent}</a></li>
+                ))
+              }
+
             </ul>
           </Sidebar>
         );
