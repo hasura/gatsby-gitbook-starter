@@ -12,7 +12,7 @@ import CopyWriter from "../components/CopyWriter";
 import '../components/styles.css';
 import config from '../../config';
 import gitHub from '../components/images/github.svg';
-import footerImg from "../components/images/footer-img.png";
+import footerImg from '../components/images/footer-img.png';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
@@ -232,7 +232,7 @@ export default class MDXRuntimeTest extends Component {
         </div>
         <UseHasuraFree />
         <FooterImag>
-          <img loading="lazy" src={footerImg} alt="footer illustration" />
+          <img src={footerImg} alt='footer illustration' />
         </FooterImag>
         <CopyWriter />
       </Layout>
