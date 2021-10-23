@@ -232,7 +232,7 @@ export default class MDXRuntimeTest extends Component {
         </div>
         <UseHasuraFree />
         <FooterImag>
-          <img src={footerIllustration} alt='footer illustration' />
+          <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/footer-img.png" alt='footer illustration' />
         </FooterImag>
         <CopyWriter />
       </Layout>
