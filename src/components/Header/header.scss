@@ -504,6 +504,18 @@
       padding-bottom: 80px;
     }
 
+    .hasura-light-gray-btn {
+      font-family: 'IBM Plex Sans' !important;
+      background: #fff !important;
+      height: 64px !important;
+      padding: 8px 32px;
+      width: 100%;
+      font-size: 14px;
+      line-height: 150%;
+      border: none;
+      border-bottom: 1px solid #d5dee5;
+    }
+
     .m-get-started {
       width: 100%;
       padding: 0 32px;
@@ -515,8 +527,22 @@
         height: auto;
         width: 100%;
         text-align: center !important;
-        font-weight: 500 !important;
         justify-content: center;
+        font-family: 'IBM Plex Sans' !important;
+        background: #1699e2;
+        border: none;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        height: 43px !important;
+        white-space: nowrap;
+        color: #f4fbff;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        border-radius: 4px;
+
+        &:hover {
+          background: #0079bd;
+        }
       }
     }
 
