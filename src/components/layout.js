@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
 import ThemeProvider from './themeProvider';
 import mdxComponents from './mdxComponents';
 import Sidebar from './sidebar';
 import RightSidebar from './rightSidebar';
+import MarketoForm from './marketoform';
+
+import englandFlag from "./images/england-flag.svg";
+import chinaFlag from "./images/china-flag.svg";
+import japanFlag from "./images/japan-flag.svg";
+import spanishFlag from "./images/spanish-flag.svg";
+
+const marketoHost = 'https://page.hasura.io';
 
 const Wrapper = styled('div')`
   /* display: flex;
@@ -95,6 +103,12 @@ const LeftSideBarWidth = styled('div')`
       top: 8px;
     }
   }
+  .alignSelfEnd {
+    align-self: flex-end;
+  }
+  .showMobile {
+    display: none;
+  }
   .mainSideBarTogglePos {
     left: 16px;
   }
@@ -107,6 +121,9 @@ const LeftSideBarWidth = styled('div')`
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
     .mainSideBarToggle {
       display: none;
+    }
+    .showMobile {
+      display: block;
     }
   }
 `;
@@ -125,6 +142,71 @@ const RightSideBarWidth = styled('div')`
     display: none;
   }
 `;
+const LanguageWrapper = styled('div')`
+  .languageWrapper {
+    position: relative;
+    padding: 24px;
+    z-index: 1;
+    .languageBgn {
+      padding: 4px 8px;
+      border: 1px solid #D5DEE6;
+      border-radius: 4px;
+      font-family: "IBM Plex Sans";
+      font-weight: 300;
+      font-size: 12px;
+      color: #616D75;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      cursor: pointer;
+      img {
+        margin-right: 8px;
+      }
+      &:hover {
+        background-color: #EBF1F7;
+      }
+    }
+    .languageDropDownWrapper {
+      display: none;
+      position: absolute;
+      top: 56px;
+      background-color: #FFFFFF;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      padding: 12px 16px;
+      ul {
+        li {
+          list-style-type: none;
+          padding: 8px 8px;
+          font-family: "IBM Plex Sans";
+          font-weight: 300;
+          font-size: 12px;
+          color: #616D75;
+          display: flex;
+          align-items: center;
+          border-radius: 4px;
+          cursor: pointer;
+          &:hover {
+            background-color: #EBF1F7;
+          }
+          img {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+    .showList {
+      display: block;
+    }
+  }
+  @media(max-width: 1024px) {
+    .languageWrapper {
+      border-top: 1px solid rgb(214, 222, 230);
+      padding: 16px 8px;
+    }
+  }
+`;
+
 const MenuNavToggle = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M3 2.25C2.58579 2.25 2.25 2.58579 2.25 3V21C2.25 21.4142 2.58579 21.75 3 21.75H9H21C21.4142 21.75 21.75 21.4142 21.75 21V3C21.75 2.58579 21.4142 2.25 21 2.25H9H3ZM9.75 3.75V20.25H20.25V3.75H9.75ZM8.25 3.75H3.75V20.25H8.25V3.75Z"/>
@@ -138,7 +220,7 @@ const Close = () => (
   </svg>
 )
 
-const StyledToggleSideNavWrapper = styled.div`
+const StyledToggleSideNavWrapper = styled('div')`
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -164,9 +246,66 @@ const StyledToggleSideNavWrapper = styled.div`
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.16);
   }
 `;
+
 const Layout = ({ children, location }) => {
   const [toggleSideBar, setToggleSideBar] = useState(false);
   const [isSubNavShow, setIsSubNavShow] = useState(false);
+  const [isLanguageShow, setIsLanguageShow] = useState(false);
+  const [isLanguageShowMobile, setIsLanguageShowMobile] = useState(false);
+  const [isAliId, setIsAliId] = useState(false);
+  const [isLocalSideBarSubscribe, setIsLocalSideBarSubscribe] = useState(false);
+
+  const wrapperRef = useRef(null);
+  const mobileWrapperRef = useRef(null);
+
+  const onSubmitCB = () => {
+    if (typeof window !== undefined) {
+      window.localStorage.setItem("sideBarSubscribeConsent", "true");
+    }
+  };
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const searchAliId = searchParams.get("aliId");
+    if (searchAliId || searchAliId === "") {
+      setIsAliId(true);
+    }
+    if (typeof window !== undefined) {
+      if ("localStorage" in window && window.localStorage && "getItem" in window.localStorage) {
+        const sideBarSubscribeConsent = window.localStorage.getItem("sideBarSubscribeConsent");
+        if (sideBarSubscribeConsent) {
+          setIsLocalSideBarSubscribe(true);
+        }
+      }
+    }
+  }, [location.search]);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, false);
+    document.addEventListener("click", handleMobileClickOutside, false);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, false);
+      document.removeEventListener("click", handleMobileClickOutside, false);
+    };
+  }, []);
+  const handleClickOutside = event => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      var x = document.getElementById("language-dropdown");
+      if (x.className === "languageDropDownWrapper showList") {
+        x.className = "languageDropDownWrapper";
+        setIsLanguageShow(false);
+      }
+    }
+  };
+  const handleMobileClickOutside = event => {
+    if (mobileWrapperRef.current && !mobileWrapperRef.current.contains(event.target)) {
+      var x = document.getElementById("language-dropdown-mobile");
+      if (x.className === "languageDropDownWrapper showList") {
+        x.className = "languageDropDownWrapper";
+        setIsLanguageShowMobile(false);
+      }
+    }
+  };
   return (
     <ThemeProvider location={location}>
       <MDXProvider components={mdxComponents}>
@@ -202,6 +341,40 @@ const Layout = ({ children, location }) => {
                 <Sidebar location={location}/>
               ) : null
             }
+            <div className="alignSelfEnd">
+              <LanguageWrapper ref={mobileWrapperRef} className="showMobile">
+                <div className="languageWrapper">
+                  <button className="languageBgn" onClick={()=>setIsLanguageShowMobile(true)}>
+                    <img src={englandFlag} alt="England Flag" />English
+                  </button>
+                  <div id="language-dropdown-mobile" className={"languageDropDownWrapper" + ((isLanguageShowMobile) ? " showList" : "")}>
+                    <ul>
+                      <li><img src={chinaFlag} alt="China Flag" />Chinese</li>
+                      <li><img src={japanFlag} alt="Japan Flag" />Japanese</li>
+                      <li><img src={spanishFlag} alt="Spanish Flag" />Spanish</li>
+                    </ul>
+                  </div>
+                </div>
+              </LanguageWrapper>
+              <div className="sideBarNewsletterWrapper">
+              {
+                isAliId && isLocalSideBarSubscribe ? (
+                  <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
+                ) : (
+                  <>
+                  <div className="desc font_600">Sign up for Hasura Newsletter</div>
+                  <MarketoForm
+                    onSubmitCB={onSubmitCB}
+                    formId="1079"
+                    marketoHost={marketoHost}
+                    id="631-HMN-492"
+                    styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+                  />
+                  </>
+                )
+              }
+              </div>
+            </div>
           </LeftSideBarWidth>
           <Content className={((toggleSideBar) ? "learnAsideWrapperPos" : "")}>
             <MaxWidth>{children}</MaxWidth>
@@ -209,6 +382,20 @@ const Layout = ({ children, location }) => {
           {
             !toggleSideBar ? (
               <RightSideBarWidth>
+                <LanguageWrapper ref={wrapperRef}>
+                  <div className="languageWrapper">
+                    <button className="languageBgn" onClick={()=>setIsLanguageShow(true)}>
+                      <img src={englandFlag} alt="England Flag" />English
+                    </button>
+                    <div id="language-dropdown" className={"languageDropDownWrapper" + ((isLanguageShow) ? " showList" : "")}>
+                      <ul>
+                        <li><img src={chinaFlag} alt="China Flag" />Chinese</li>
+                        <li><img src={japanFlag} alt="Japan Flag" />Japanese</li>
+                        <li><img src={spanishFlag} alt="Spanish Flag" />Spanish</li>
+                      </ul>
+                    </div>
+                  </div>
+                </LanguageWrapper>
                 <RightSidebar location={location} />
               </RightSideBarWidth>
             ) : null

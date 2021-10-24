@@ -456,7 +456,22 @@ blockquote {
   align-self: flex-start;
   overflow: auto;
 }
-
+.sideBarUL .titleNav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.sideBarUL .titleNav a {
+  padding-left: 8px;
+  width: 100%;
+  background-color: #EBF1F7;
+}
+.sideBarUL .titleNav:hover {
+  background-color: #EBF1F7;
+}
+.sideBarUL .titleNav svg {
+  margin-right: 8px;
+}
 .sideBarUL li {
   list-style-type: none;
   width: auto;
@@ -590,6 +605,7 @@ blockquote {
 .sideBarNewsletterWrapper {
   align-self: flex-end;
   border-top: 1px solid rgb(214, 222, 230);
+  padding: 0 8px;
   padding-top: 16px;
   min-height: 161px;
 }
@@ -804,6 +820,7 @@ blockquote {
 table {
   padding: 0;
   width: 100%;
+  margin-bottom: 36px;
 }
 
 table tr {
