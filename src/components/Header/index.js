@@ -145,7 +145,7 @@ const Header = (props) => {
                     onClick={() => {
                       trackGAEvents('Website', 'HeaderClickMobile', 'Docs');
                     }}
-                    href="https://hasura.io/docs/latest/graphql/core/index.html"
+                    href="https://hasura.io/learn/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ textDecoration: 'none' }}
@@ -153,13 +153,10 @@ const Header = (props) => {
                     Learn
                   </a>
                 </li>
-                <li className={path === '/pricing/' ? 'navListActive' : ''}>
-                  <Link
-                    to="/pricing/"
-                    onClick={() => trackGAEvents('Website', 'HeaderClick', 'Pricing')}
-                  >
+                <li onClick={() => trackGAEvents('Website', 'HeaderClick', 'Pricing')}>
+                  <a href="https://hasura.io/pricing/" target="_blank" rel="noopener noreferrer">
                     Pricing
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -263,23 +260,23 @@ const Header = (props) => {
                   onClick={() => {
                     trackGAEvents('Website', 'MobileClick', 'Docs');
                   }}
-                  href="https://hasura.io/docs/latest/graphql/core/index.html"
+                  href="https://hasura.io/learn/"
                 >
                   <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
                     Learn
                   </button>
                 </a>
-                <Link
-                  to="/pricing/"
-                  onClick={() => {
-                    trackGAEvents('Website', 'MobileClick', 'Pricing');
-                    scrollToTop();
-                  }}
-                >
-                  <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
+                <a href="https://hasura.io/pricing/" target="_blank" rel="noopener noreferrer">
+                  <button
+                    className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border"
+                    onClick={() => {
+                      trackGAEvents('Website', 'MobileClick', 'Pricing');
+                      scrollToTop();
+                    }}
+                  >
                     Pricing
                   </button>
-                </Link>
+                </a>
                 <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
                   <GithubWidget />
                 </button>

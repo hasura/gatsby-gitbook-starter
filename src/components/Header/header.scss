@@ -1,5 +1,5 @@
-@import "../hvariable.scss";
-@import "../fonts.scss";
+@import '../hvariable.scss';
+@import '../fonts.scss';
 
 .box-shadow-header {
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
@@ -201,6 +201,8 @@
   .headerWrapper {
     .navBarUL {
       li {
+        font-family: 'IBM Plex Sans' !important;
+
         a {
           color: #1b2738;
 
@@ -222,7 +224,7 @@
         }
 
         a:hover {
-          color: hsla(202, 100%, 28%, 1) !important;
+          color: #0b5599 !important;
         }
       }
     }
@@ -301,7 +303,7 @@
       font-size: 14px;
       line-height: 25px;
       font-weight: 500;
-      font-family: "IBM Plex Sans";
+      font-family: 'IBM Plex Sans';
       padding: 0 40px 0 0;
 
       &:last-child {
@@ -350,12 +352,22 @@
     height: 72px;
 
     .hasura-blue-btn {
-      text-transform: capitalize !important;
-      height: 43px !important;
-      width: 106px !important;
+      font-family: 'IBM Plex Sans' !important;
+      background: #1699e2;
+      border: none;
       font-size: 14px !important;
       font-weight: 500 !important;
+      height: 43px !important;
       white-space: nowrap;
+      width: 106px !important;
+      color: #f4fbff;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      border-radius: 4px;
+
+      &:hover {
+        background: #0079bd;
+      }
     }
 
     .navBarUL {

@@ -34,7 +34,11 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{
               __html: `
             function navBarClose() {
-              document.getElementById("subnavbar").classList.toggle("subResponsive");
+              const navElement = document.getElementById("subnavbar");
+
+              if(navElement) {
+                element.classList.toggle("subResponsive");
+              }
             }
             document.addEventListener('click',function(e){
               if(e.target && e.target.tagName.toLowerCase() === 'a'){
