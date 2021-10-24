@@ -219,7 +219,7 @@ export default class MDXRuntimeTest extends Component {
               </div>
             </div>
           </div>
-          <Edit className="mobileView">
+          <Edit>
             {docsLocation && (
               <Link className="gitBtn" to={`${docsLocation}/${mdx.parent.relativePath}`}>
                 <img src={gitHub} alt='Github logo' /> Edit on GitHub<div className="arrow">{"→"}</div>
@@ -232,7 +232,7 @@ export default class MDXRuntimeTest extends Component {
         </div>
         <UseHasuraFree />
         <FooterImag>
-          <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/footer-img.png" alt='footer illustration' />
+          <img loading="lazy" src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/footer-img.png" alt='footer illustration' />
         </FooterImag>
         <CopyWriter />
       </Layout>
