@@ -3,19 +3,20 @@ import React, { useEffect, useRef, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { trackGAEvents } from '../trackGA';
-import { cloudDomain } from '../../../endpoints';
-import { ProductDropdown } from './ProductDropdown';
-import { ResourcesDropdown } from './ResourcesDropdown';
-import hasuraLogoColor from '../../../images/hasura-logo-color.svg';
-import hasuraLogoWhite from '../../../images/hasura-logo-white.svg';
-import { getUTMPagePathName } from '../../../utils/getUTMPagePathName';
-import { saTrack } from '../../../utils/segmentAnalytics';
-import SearchIcon from '../../../globals/icons/Search';
+import hasuraLogoColor from '../images/hasura-logo-color.svg';
+import hasuraLogoWhite from '../images/hasura-logo-white.svg';
+import { getUTMPagePathName } from '../../utils/getUTMPagePathName';
+import { saTrack } from '../../utils/segmentAnalytics';
+import SearchIcon from '../../globals/icons/Search';
 import { openMenuBar, scrollToTop } from './helper';
-import SearchOverlay from '../../shared/UnifiedSearch/SearchOverlay';
+import SearchOverlay from '../UnifiedSearch/SearchOverlay';
 import { GithubWidget } from './GithubButton';
-import rightArrowImg from '../images/arrow-right.svg';
 import './header.scss';
+
+const cloudDomain =
+  process.env.GATSBY_DEPLOY_ENV === 'production'
+    ? 'https://cloud.hasura.io'
+    : 'https://cloud.staging-2.hasura-app.io';
 
 const SearchAltIcon = ({ isDark }) => (
   <svg
@@ -40,10 +41,6 @@ const Header = (props) => {
   const wrapperRef = useRef(null);
   const [showSearch, setShowSearch] = useState(false);
   const [windowScrollPosition, updateWindowScrollPosition] = useState(null);
-
-  // Mobile
-  const [isProductDropDownActive, toggleProductDropdown] = useState(false);
-  const [isResourcesDropDownActive, toggleResourcesDropdown] = useState(false);
 
   const handleSearchWithKeyboard = (e) => {
     if (e.key === '/') return setShowSearch(true);
@@ -97,34 +94,7 @@ const Header = (props) => {
     }
   };
 
-  const isDark =
-    path === '/community/contributor-program/' || path === '/community/community-call/'
-      ? true
-      : false;
-
-  const isRemoveSticky =
-    path === '/graphql/database/sql-server/' ||
-    path === '/pricing/' ||
-    path === '/graphql/caching/' ||
-    path === '/graphql/security/' ||
-    path === '/graphql/monitoring/' ||
-    path === '/products/' ||
-    path === '/case-studies/pipe' ||
-    path === '/case-studies/pipe/' ||
-    path === '/case-studies/cherre' ||
-    path === '/case-studies/cherre/' ||
-    path === '/case-studies/optum' ||
-    path === '/case-studies/optum/' ||
-    path === '/case-studies/philips' ||
-    path === '/case-studies/philips/' ||
-    path === '/case-studies/pulley' ||
-    path === '/case-studies/pulley/' ||
-    path === '/case-studies/athlane' ||
-    path === '/case-studies/athlane/' ||
-    path === '/graphql/production-ready-existing-apis/' ||
-    path === '/why-hasura/'
-      ? true
-      : false;
+  const isDark = false;
 
   const utmPagePathName = getUTMPagePathName(path);
 
@@ -136,8 +106,7 @@ const Header = (props) => {
         id="header"
         className={
           (isDark ? 'DarkModeHeader' : 'lightModeHeader') +
-          (!isRemoveSticky ? ' positionStickyHeader' : ' stickyOnMobile') +
-          (isBoxShadowActive ? ' box-shadow-header' : '')
+          (isBoxShadowActive ? ' box-shadow-header positionStickyHeader' : ' positionStickyHeader')
         }
       >
         <div className="containerWrapper">
@@ -158,26 +127,6 @@ const Header = (props) => {
                 <li className="github-btn-header">
                   <GithubWidget />
                 </li>
-                <li
-                  className={path === '/products/' ? 'navListActive dropDownList' : 'dropDownList'}
-                  // className=""
-                  id="product-nav-dropdown"
-                >
-                  <a role="button" tabIndex="0" className="dropdown-link-btn">
-                    Product
-                  </a>
-                  <div id="product-nav" className="zIndex dropDownContent">
-                    <ProductDropdown />
-                  </div>
-                </li>
-                <li className="dropDownList">
-                  <a role="button" tabIndex="0" className="dropdown-link-btn">
-                    Resources
-                  </a>
-                  <div id="resource-nav" className="zIndex dropDownContent">
-                    <ResourcesDropdown />
-                  </div>
-                </li>
                 <li>
                   <a
                     onClick={() => {
@@ -189,6 +138,19 @@ const Header = (props) => {
                     style={{ textDecoration: 'none' }}
                   >
                     Docs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={() => {
+                      trackGAEvents('Website', 'HeaderClickMobile', 'Docs');
+                    }}
+                    href="https://hasura.io/docs/latest/graphql/core/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Learn
                   </a>
                 </li>
                 <li className={path === '/pricing/' ? 'navListActive' : ''}>
@@ -213,15 +175,7 @@ const Header = (props) => {
                   }}
                 >
                   <SearchAltIcon isDark={isDark} />
-                  <SearchIcon variant={isDark ? 'white' : 'grey_100'} size="sm" />
-                </li>
-                <li className="navBarUL">
-                  <Link
-                    to="/contact-us/?type=hasuraenterprise"
-                    onClick={() => trackGAEvents('Website', 'HeaderClick', 'Contact Us')}
-                  >
-                    Contact Sales
-                  </Link>
+                  <SearchIcon variant={isDark ? 'white' : 'grey100'} size="sm" />
                 </li>
                 <li className="navBarUL navLogIn">
                   <a
@@ -276,7 +230,7 @@ const Header = (props) => {
                 setShowSearch((preShowSearch) => !preShowSearch);
               }}
             >
-              <SearchIcon variant={isDark ? 'white' : 'grey_100'} size="sm" />
+              <SearchIcon variant={isDark ? 'white' : 'grey100'} size="sm" />
             </div>
             <span
               className="navBarToggle"
@@ -295,44 +249,6 @@ const Header = (props) => {
           <div className="visibleMobile">
             <div className="mobileNavListWrapper">
               <div>
-                <button
-                  onClick={() => {
-                    toggleProductDropdown(!isProductDropDownActive);
-                    trackGAEvents('Website', 'MobileClick', 'Products');
-                  }}
-                  className={
-                    isProductDropDownActive
-                      ? 'hasura-btn hasura-btn-md   hasura-light-gray-btn'
-                      : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
-                  }
-                >
-                  Product{' '}
-                  <img
-                    src={rightArrowImg}
-                    alt="right-arrow"
-                    className={isProductDropDownActive ? 'rotate-down' : ''}
-                  />
-                </button>
-                {isProductDropDownActive && <ProductDropdown />}
-                <button
-                  onClick={() => {
-                    toggleResourcesDropdown(!isResourcesDropDownActive);
-                    trackGAEvents('Website', 'MobileClick', 'Resources');
-                  }}
-                  className={
-                    isResourcesDropDownActive
-                      ? 'hasura-btn hasura-btn-md hasura-light-gray-btn'
-                      : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
-                  }
-                >
-                  Resources{' '}
-                  <img
-                    src={rightArrowImg}
-                    className={isResourcesDropDownActive ? 'rotate-down' : ''}
-                    alt="right-arrow"
-                  />
-                </button>
-                {isResourcesDropDownActive && <ResourcesDropdown />}
                 <a
                   onClick={() => {
                     trackGAEvents('Website', 'MobileClick', 'Docs');
@@ -341,6 +257,16 @@ const Header = (props) => {
                 >
                   <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
                     Docs
+                  </button>
+                </a>
+                <a
+                  onClick={() => {
+                    trackGAEvents('Website', 'MobileClick', 'Docs');
+                  }}
+                  href="https://hasura.io/docs/latest/graphql/core/index.html"
+                >
+                  <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
+                    Learn
                   </button>
                 </a>
                 <Link
@@ -354,20 +280,9 @@ const Header = (props) => {
                     Pricing
                   </button>
                 </Link>
-                <Link
-                  to="/contact-us/?type=hasuraenterprise"
-                  onClick={() => {
-                    trackGAEvents('Website', 'MobileClick', 'Contact Us');
-                    scrollToTop();
-                  }}
-                >
-                  <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
-                    Contact Sales
-                    <span className="mobile-github-btn-div">
-                      <GithubWidget />
-                    </span>
-                  </button>
-                </Link>
+                <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
+                  <GithubWidget />
+                </button>
               </div>
               <div className="m-get-started" id="mobile-header-cta">
                 <a
