@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React, { useEffect, useRef, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
@@ -113,13 +112,13 @@ const Header = (props) => {
           <div className="headerWrapper">
             <div id="navBrand" className="navLeft">
               <div className="brand">
-                <Link to="/" onClick={scrollToTop}>
+                <a href="https://hasura.io/">
                   <img
                     src={isDark ? hasuraLogoWhite : hasuraLogoColor}
                     alt="Hasura Logo"
                     title="Hasura Logo"
                   />
-                </Link>
+                </a>
               </div>
             </div>
             <div className="navCenter hideMobile">
@@ -133,8 +132,6 @@ const Header = (props) => {
                       trackGAEvents('Website', 'HeaderClickMobile', 'Docs');
                     }}
                     href="https://hasura.io/docs/latest/graphql/core/index.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     style={{ textDecoration: 'none' }}
                   >
                     Docs
@@ -146,7 +143,6 @@ const Header = (props) => {
                       trackGAEvents('Website', 'HeaderClickMobile', 'Docs');
                     }}
                     href="https://hasura.io/learn/"
-                    target="_blank"
                     rel="noopener noreferrer"
                     style={{ textDecoration: 'none' }}
                   >
@@ -154,9 +150,7 @@ const Header = (props) => {
                   </a>
                 </li>
                 <li onClick={() => trackGAEvents('Website', 'HeaderClick', 'Pricing')}>
-                  <a href="https://hasura.io/pricing/" target="_blank" rel="noopener noreferrer">
-                    Pricing
-                  </a>
+                  <a href="https://hasura.io/pricing/">Pricing</a>
                 </li>
               </ul>
             </div>
@@ -266,7 +260,7 @@ const Header = (props) => {
                     Learn
                   </button>
                 </a>
-                <a href="https://hasura.io/pricing/" target="_blank" rel="noopener noreferrer">
+                <a href="https://hasura.io/pricing/">
                   <button
                     className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border"
                     onClick={() => {
