@@ -11,7 +11,7 @@ import discord from './images/discord.svg';
 import logoImg from './images/logo.svg';
 import twitter from './images/twitter.svg';
 import arrow from "./images/arrow-block.svg";
-const Header = ({ location }) => (
+const Header = ({ location, title }) => (
   <StaticQuery
     query={graphql`
       query headerTitleQuery {
@@ -43,7 +43,7 @@ const Header = ({ location }) => (
 
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
       const [isArrowDown, setIsArrowDown] = useState(false);
-
+      const breadCrumb = headerTitle + "<img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' />" + title;
       return (
         <div className="navBarWrapper">
           <nav className="navBarDefault">
@@ -57,7 +57,7 @@ const Header = ({ location }) => (
               </Link>
               <div
                 className="headerTitle displayInline"
-                dangerouslySetInnerHTML={{ __html: headerTitle }}
+                dangerouslySetInnerHTML={{ __html: breadCrumb }}
               />
             </div>
           </nav>

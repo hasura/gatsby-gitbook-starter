@@ -159,7 +159,6 @@ export default class MDXRuntimeTest extends Component {
           return { title: node.fields.title, url: node.fields.slug };
         }
       });
-
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
 
@@ -187,7 +186,7 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        <SubHeader location={location} />
+        <SubHeader location={location} title={mdx.fields.title}/>
         <div className="titleWrapper">
           <h1 className="title">{mdx.fields.title}</h1>
         </div>
