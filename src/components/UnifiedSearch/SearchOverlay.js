@@ -63,8 +63,10 @@ const SearchOverlay = ({ showSearch, onCloseSearch, defaultIndex }) => {
     };
   }, [showSearch]);
 
+  if (!showSearch) return null;
+
   return (
-    <StyledSearchOverlayWrapper className={showSearch ? "open zIndexSearch" : ""}>
+    <StyledSearchOverlayWrapper className="open zIndexSearch">
       <div onClick={onCloseSearch} className="closeIcon cursorPointer">
         <CloseIcon variant="grey100" size="md" />
       </div>
