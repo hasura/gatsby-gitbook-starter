@@ -452,7 +452,7 @@ blockquote {
 }
 
 .sideBarUL {
-  max-height: calc(100vh - 270px);
+  max-height: calc(100vh - 260px);
   align-self: flex-start;
   overflow: auto;
 }

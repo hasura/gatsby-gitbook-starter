@@ -90,11 +90,8 @@ const LeftSideBarWidth = styled('div')`
     cursor: pointer;
     transition: all .3s ease-in-out;
     svg {
-      width: 16px;
-      height: 16px;
-      viewBox: 0 0 16px 16px;
       path {
-        fill: #0079BD;
+        fill: #1B2738;
       }
     }
     .navigation {
@@ -209,14 +206,20 @@ const LanguageWrapper = styled('div')`
 
 const MenuNavToggle = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 2.25C2.58579 2.25 2.25 2.58579 2.25 3V21C2.25 21.4142 2.58579 21.75 3 21.75H9H21C21.4142 21.75 21.75 21.4142 21.75 21V3C21.75 2.58579 21.4142 2.25 21 2.25H9H3ZM9.75 3.75V20.25H20.25V3.75H9.75ZM8.25 3.75H3.75V20.25H8.25V3.75Z"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M3 2.25C2.58579 2.25 2.25 2.58579 2.25 3V21C2.25 21.4142 2.58579 21.75 3 21.75H9H21C21.4142 21.75 21.75 21.4142 21.75 21V3C21.75 2.58579 21.4142 2.25 21 2.25H9H3ZM9.75 3.75V20.25H20.25V3.75H9.75ZM8.25 3.75H3.75V20.25H8.25V3.75Z" fill="#0079BD"/>
   </svg>
 
+
+)
+const MenuNavToggleSmall = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" clipRule="evenodd" d="M1.99988 1.25C1.58566 1.25 1.24988 1.58579 1.24988 2V14C1.24988 14.4142 1.58566 14.75 1.99988 14.75H5.99988C5.99992 14.75 5.99996 14.75 6 14.75H14C14.4142 14.75 14.75 14.4142 14.75 14V2C14.75 1.58579 14.4142 1.25 14 1.25H6C5.99996 1.25 5.99992 1.25 5.99988 1.25H1.99988ZM2.74988 13.25V2.75H5.24988V13.25H2.74988ZM6.75 13.25V2.75H13.25V13.25H6.75Z" fill="#1B2738"/>
+  </svg>
 )
 
 const Close = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5303 4.53025C20.8232 4.23736 20.8232 3.76249 20.5303 3.46959C20.2374 3.1767 19.7625 3.1767 19.4696 3.46959L12 10.9392L4.53033 3.46959C4.23743 3.1767 3.76256 3.1767 3.46967 3.46959C3.17677 3.76249 3.17677 4.23736 3.46967 4.53025L10.9393 11.9999L3.46961 19.4696C3.17672 19.7625 3.17672 20.2374 3.46961 20.5303C3.7625 20.8231 4.23738 20.8231 4.53027 20.5303L12 13.0606L19.4697 20.5303C19.7626 20.8231 20.2374 20.8231 20.5303 20.5303C20.8232 20.2374 20.8232 19.7625 20.5303 19.4696L13.0606 11.9999L20.5303 4.53025Z" />
+    <path d="M20.5303 4.53025C20.8232 4.23736 20.8232 3.76249 20.5303 3.46959C20.2374 3.1767 19.7625 3.1767 19.4696 3.46959L12 10.9392L4.53033 3.46959C4.23743 3.1767 3.76256 3.1767 3.46967 3.46959C3.17677 3.76249 3.17677 4.23736 3.46967 4.53025L10.9393 11.9999L3.46961 19.4696C3.17672 19.7625 3.17672 20.2374 3.46961 20.5303C3.7625 20.8231 4.23738 20.8231 4.53027 20.5303L12 13.0606L19.4697 20.5303C19.7626 20.8231 20.2374 20.8231 20.5303 20.5303C20.8232 20.2374 20.8232 19.7625 20.5303 19.4696L13.0606 11.9999L20.5303 4.53025Z" />
   </svg>
 )
 
@@ -327,7 +330,7 @@ const Layout = ({ children, location }) => {
                 setIsSubNavShow(false);
               }}
             >
-              <MenuNavToggle />
+              <MenuNavToggleSmall />
               {
                 toggleSideBar ? (
                   <div className="navigation">
@@ -356,24 +359,28 @@ const Layout = ({ children, location }) => {
                   </div>
                 </div>
               </LanguageWrapper>
-              <div className="sideBarNewsletterWrapper">
               {
-                isAliId && isLocalSideBarSubscribe ? (
-                  <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
-                ) : (
-                  <>
-                  <div className="desc font_600">Sign up for Hasura Newsletter</div>
-                  <MarketoForm
-                    onSubmitCB={onSubmitCB}
-                    formId="1079"
-                    marketoHost={marketoHost}
-                    id="631-HMN-492"
-                    styleClass="marketoFormWrapper sideBarSubscribeWrapper"
-                  />
-                  </>
-                )
+                !toggleSideBar ? (
+                  <div className="sideBarNewsletterWrapper">
+                  {
+                    isAliId && isLocalSideBarSubscribe ? (
+                      <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
+                    ) : (
+                      <>
+                      <div className="desc font_600">Sign up for Hasura Newsletter</div>
+                      <MarketoForm
+                        onSubmitCB={onSubmitCB}
+                        formId="1079"
+                        marketoHost={marketoHost}
+                        id="631-HMN-492"
+                        styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+                      />
+                      </>
+                    )
+                  }
+                  </div>
+                ) : null
               }
-              </div>
             </div>
           </LeftSideBarWidth>
           <Content className={((toggleSideBar) ? "learnAsideWrapperPos" : "")}>
