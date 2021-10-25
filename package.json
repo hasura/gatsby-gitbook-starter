@@ -54,7 +54,8 @@
     "sass": "^1.32.8",
     "styled-components": "^5.2.1",
     "styled-icons": "^10.31.0",
-    "typeface-roboto": "1.1.13"
+    "typeface-roboto": "1.1.13",
+    "prism-react-renderer": "^1.2.0"
   },
   "license": "MIT",
   "main": "n/a",
@@ -77,7 +78,6 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.1",
     "gatsby-plugin-remove-trailing-slashes": "^3.1.0",
-    "prettier": "^2.2.1",
-    "prism-react-renderer": "^1.2.0"
+    "prettier": "^2.2.1"
   }
 }
