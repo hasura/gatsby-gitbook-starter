@@ -136,18 +136,28 @@ const ArrowRight = () => (
 export default class MDXRuntimeTest extends Component {
   constructor(props) {
     super(props);
-    this.state = {isSatisfied: null};
+    this.state = {
+      isSatisfied: null,
+      showTooltip: false,
+    };
   }
 
   handlePageHelpfulResponse = (response) => {
     this.setState({
-      isSatisfied: response
-    }, () => saTrack("Responded to Did You Find This Page Helpful", { response: response ? 'YES' : 'NO', page: this.props.location.href })
+      isSatisfied: response,
+      showTooltip: true,
+    }, () => {
+      saTrack("Responded to Did You Find This Page Helpful", {
+        response: response ? 'YES' : 'NO',
+        pageUrl: this.props.location.href,
+      });
+      setTimeout(() => this.setState({showTooltip: false}), 5000)
+    }
   )}
 
   render() {
     const { data, location } = this.props;
-    const { isSatisfied } = this.state;
+    const { isSatisfied, showTooltip } = this.state;
 
     if (!data) {
       return this.props.children;
@@ -251,7 +261,7 @@ export default class MDXRuntimeTest extends Component {
                   <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12 17.5C14.33 17.5 16.32 16.05 17.12 14H15.45C14.76 15.19 13.48 16 12 16C10.52 16 9.25 15.19 8.55 14H6.88C7.68 16.05 9.67 17.5 12 17.5Z"/>
                 </svg>
                 {
-                  isSatisfied ? (
+                  showTooltip && isSatisfied ? (
                     <div className="toolTip">Thanks for your feedback</div>
                   ) : null
                 }
@@ -263,7 +273,7 @@ export default class MDXRuntimeTest extends Component {
                   <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12 14C9.67 14 7.68 15.45 6.88 17.5H8.55C9.24 16.31 10.52 15.5 12 15.5C13.48 15.5 14.75 16.31 15.45 17.5H17.12C16.32 15.45 14.33 14 12 14Z"/>
                 </svg>
                 {
-                  isSatisfied !== null && !isSatisfied ? (
+                  showTooltip && isSatisfied !== null && !isSatisfied ? (
                     <div className="toolTip">Thanks for your feedback</div>
                   ) : null
                 }
