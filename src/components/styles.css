@@ -394,6 +394,7 @@ a:hover {
 pre {
   border: 0 !important;
   background-color: rgb(245, 247, 249); /* !important; */
+  white-space: pre-wrap;
 }
 
 blockquote {
