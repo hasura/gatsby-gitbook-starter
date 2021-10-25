@@ -41,9 +41,12 @@ const Header = (props) => {
   const [showSearch, setShowSearch] = useState(false);
   const [windowScrollPosition, updateWindowScrollPosition] = useState(null);
 
-  const handleSearchWithKeyboard = (e) => {
-    if (e.key === '/') return setShowSearch(true);
-    if (e.key === 'Escape') return onCloseSearch();
+  const handleSearchWithKeyboard = e => {
+    if (e.key === '/' || e.key === 'Escape') {
+      e.preventDefault();
+      if (e.key === '/') return setShowSearch(true);
+      if (e.key === 'Escape') return onCloseSearch();
+    }
 
     return null;
   };

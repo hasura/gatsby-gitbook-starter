@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { connectSearchBox } from 'react-instantsearch-dom';
 import SearchIcon from '../../globals/icons/Search';
@@ -153,6 +153,10 @@ const DebouncedSearchBox = ({
 }) => {
   const [value, setValue] = useState(currentRefinement);
   const timerId = useRef();
+  const searchInputRef = useRef();
+  useEffect(() => {
+    searchInputRef.current?.focus();
+  }, []);
 
   const trySuggestion = (inputValue) => {
     refine(inputValue);
@@ -185,6 +189,7 @@ const DebouncedSearchBox = ({
         <form className={className} onSubmit={(e) => e.preventDefault()}>
           <input
             id="search-input"
+            ref={searchInputRef}
             className="SearchInput"
             type="text"
             placeholder="Search for tutorials, articles or docs"
