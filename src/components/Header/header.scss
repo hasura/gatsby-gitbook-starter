@@ -1,0 +1,650 @@
+@import '../hvariable.scss';
+@import '../fonts.scss';
+
+.box-shadow-header {
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.gitHubBtnMobile {
+  display: none;
+}
+
+.m-top-10 {
+  margin-top: 10px;
+}
+
+.p-top-10 {
+  padding-top: 10px;
+}
+
+.m-top-15 {
+  margin-top: 15px;
+}
+.m-b-5 {
+  margin-bottom: 5px;
+}
+.m-b-10 {
+  margin-bottom: 14px;
+}
+.lightModeHeader,
+.DarkModeHeader {
+  transition: top 0.3s;
+  z-index: 100000 !important;
+  height: 72px;
+  padding-top: 0px;
+}
+.positionStickyHeader {
+  position: sticky;
+  top: 0;
+  // -webkit-backdrop-filter: saturate(100%) blur(10px);
+  // backdrop-filter: saturate(100%) blur(10px);
+}
+.hideNavHeader {
+  top: -72px;
+}
+.mainHeader {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+.hideMainHeader {
+  transform: translateY(-102px);
+}
+
+.lightModeHeader {
+  background: #ffff;
+}
+
+.DarkModeHeader {
+  background-color: #1b2738;
+}
+
+.visibleMobile {
+  width: 100%;
+  display: block;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #fff !important;
+  overflow: auto;
+  position: relative;
+  transition: transform 0.3s ease-out;
+}
+
+.hideMobile {
+  display: block;
+}
+
+#menuClick {
+  width: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  margin-right: 32px;
+}
+
+#menuClick span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#menuClick span:nth-child(2) {
+  top: 18px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#menuClick span:nth-child(3) {
+  top: 36px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#menuClick.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+}
+
+#menuClick.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#menuClick.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
+}
+.navBarToggle {
+  border-radius: 4px;
+  padding: 0px 0px;
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  .iconBar {
+    display: block;
+    width: 20px;
+    height: 3px;
+    border-radius: 1px;
+    margin: 0 auto;
+    margin-top: 4px;
+    transition: all 0.3s ease-in-out;
+  }
+  .iconBar:first-child {
+    margin-top: 0px;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.dropDownList {
+  &:hover {
+    .dropDownContent {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropdown-link-btn {
+      color: #0079bd !important;
+    }
+  }
+
+  .dropDownContent {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+
+    // Testing *** //
+    // opacity: 1;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+// Light Mode Header ****************** //
+
+.lightModeHeader {
+  .navBarToggleBg {
+    .navBarToggle {
+      .iconBar {
+        background-color: $hBlueColor;
+      }
+    }
+  }
+
+  .headerWrapper {
+    .navBarUL {
+      li {
+        font-family: 'IBM Plex Sans' !important;
+
+        a {
+          color: #1b2738;
+
+          &:hover {
+            color: #0079bd;
+          }
+        }
+      }
+
+      .navListActive {
+        a {
+          color: #0079bd;
+        }
+      }
+
+      .navLogIn {
+        a {
+          color: #0079bd !important;
+        }
+
+        a:hover {
+          color: #0b5599 !important;
+        }
+      }
+    }
+  }
+}
+
+// Dark Mode ****************** //
+
+.DarkModeHeader {
+  .navBarToggleBg {
+    .navBarToggle {
+      .iconBar {
+        background-color: #f2f2f2;
+      }
+    }
+    .navBarToggle.open {
+      .iconBar {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+  .headerWrapper {
+    .navBarUL {
+      li {
+        a {
+          color: #f2f2f2;
+          &:hover {
+            color: #0079bd;
+          }
+        }
+      }
+      .navListActive {
+        a {
+          color: #0079bd;
+        }
+      }
+      .navLogIn {
+        a {
+          color: #f2f2f2;
+        }
+      }
+    }
+  }
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 0 !important;
+  z-index: 10;
+  height: 72px;
+
+  .m-nav-t {
+    margin-top: 13px;
+  }
+
+  .navBarUL {
+    height: 100%;
+    display: flex !important;
+    align-items: center;
+    padding-left: 23px;
+
+    #search-alt-icon {
+      margin-right: 1.4px;
+      margin-top: -2.3px;
+    }
+
+    .search-icon {
+      padding-right: 32px;
+      cursor: pointer;
+    }
+
+    li {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 25px;
+      font-weight: 500;
+      font-family: 'IBM Plex Sans';
+      padding: 0 40px 0 0;
+
+      &:last-child {
+        padding-right: 0 !important;
+      }
+
+      &:first-child {
+        padding-right: 30px !important;
+      }
+
+      a {
+        position: relative;
+
+        &:hover {
+          text-decoration: none;
+        }
+        &:focus {
+          outline: none;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .github-btn-header {
+      margin-top: 5px;
+      // To remove loading flicker
+      min-width: 125px;
+    }
+  }
+  .navCenter {
+    flex: 1;
+  }
+  .navLeft {
+    .brand {
+      img {
+        width: 116px;
+      }
+    }
+  }
+  .navLeftBgColor {
+    background-color: #ebf1f6;
+  }
+  .navRight {
+    display: flex;
+    align-items: center;
+    height: 72px;
+
+    .hasura-blue-btn {
+      font-family: 'IBM Plex Sans' !important;
+      background: #1699e2;
+      border: none;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      height: 43px !important;
+      white-space: nowrap;
+      width: 106px !important;
+      color: #f4fbff;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      border-radius: 4px;
+
+      &:hover {
+        background: #0079bd;
+      }
+    }
+
+    .navBarUL {
+      li {
+        padding-left: 32px;
+        padding-right: 0px !important;
+      }
+    }
+  }
+}
+
+.containerWidth {
+  padding: 0 15px;
+  width: 100%;
+}
+@media (min-width: 1050px) {
+  .visibleMobile {
+    display: none;
+  }
+  .containerWidth {
+    width: 1045px !important;
+    margin: 0 auto;
+    padding: 0 0px;
+  }
+}
+@media (min-width: 1388px) {
+  .containerWidth {
+    width: 1328px !important;
+    margin: 0 auto;
+    padding: 0 0px;
+  }
+}
+
+@media (max-width: 1049px) {
+  .visibleMobile {
+    transform: translateX(1050px);
+  }
+
+  .stickyOnMobile {
+    position: sticky;
+  }
+
+  .navBarToggle {
+    display: block;
+    z-index: 100;
+  }
+
+  .search-icon {
+    right: 86px;
+    margin-top: -3px !important;
+  }
+
+  .lightModeHeader,
+  .DarkModeHeader {
+    padding-top: 0px;
+    box-shadow: none;
+    border-bottom: 1px solid #d5dee5;
+  }
+
+  .gitHubBtnMobile {
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 28px;
+    .hasura-gray-btn {
+      padding: 4px 10px;
+    }
+  }
+  .hideMobile {
+    display: none !important;
+  }
+
+  .headerWrapper {
+    display: flex;
+    align-items: center;
+    height: 80px !important;
+    width: 100%;
+
+    .navLeft {
+      z-index: 100;
+      .brand {
+        margin-right: 12px !important;
+      }
+    }
+
+    .topnav {
+      .visibleMobile {
+        background-color: #ffff;
+        border-radius: 8px;
+
+        .brand {
+          padding-left: 24px;
+          padding-top: 23px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #d5dee5;
+          background-color: #fff;
+          z-index: 100;
+          position: sticky;
+          top: 0;
+          img {
+            width: 116px;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileNavListWrapper {
+    display: flex;
+    min-height: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .hasura-light-gray-btn {
+      background: #fff !important;
+      width: 100%;
+      padding: 8px 32px;
+      height: 64px !important;
+    }
+
+    .mobile-github-btn-div {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      border-left: 1px solid #d5dee5;
+      padding-left: 26px;
+      text-align: center;
+      height: 64px;
+      align-items: center;
+    }
+
+    #mobile-header-cta {
+      padding-bottom: 80px;
+    }
+
+    .hasura-light-gray-btn {
+      font-family: 'IBM Plex Sans' !important;
+      background: #fff !important;
+      height: 64px !important;
+      padding: 8px 32px;
+      width: 100%;
+      font-size: 14px;
+      line-height: 150%;
+      border: none;
+      border-bottom: 1px solid #d5dee5;
+    }
+
+    .m-get-started {
+      width: 100%;
+      padding: 0 32px;
+      margin-top: 32px;
+      margin-bottom: 40px;
+
+      button {
+        min-height: 43px;
+        height: auto;
+        width: 100%;
+        text-align: center !important;
+        justify-content: center;
+        font-family: 'IBM Plex Sans' !important;
+        background: #1699e2;
+        border: none;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        height: 43px !important;
+        white-space: nowrap;
+        color: #f4fbff;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        border-radius: 4px;
+
+        &:hover {
+          background: #0079bd;
+        }
+      }
+    }
+
+    .hasura-btn {
+      box-shadow: none !important;
+      text-align: left !important;
+      text-transform: capitalize !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .grey-border {
+      border-bottom: 1px solid #d5dee5;
+    }
+
+    .rotate-down {
+      transform: rotate(90deg);
+    }
+  }
+
+  .mobileNavButtonWrapper {
+    background: #dfe7ee;
+    border-radius: 8px;
+    border-top: 1px solid #d5dee5;
+    padding: 24px 24px;
+    .hasura-btn-sm {
+      width: 49%;
+      display: inline-block;
+      padding: 4px 16px;
+    }
+    .hasura-green-btn {
+      margin-right: 2%;
+    }
+  }
+  .menuBarView {
+    height: calc(100vh - 123px);
+    overflow: auto;
+  }
+
+  .navBarToggle {
+    display: block !important;
+  }
+  .topnav.responsive .visibleMobile {
+    transform: translateX(16px);
+  }
+  .navBarUL {
+    display: none;
+  }
+}
+
+@media (max-width: 379px) {
+  .gitHubBtnMobile {
+    display: none !important;
+  }
+  .headerWrapper {
+    .topnav {
+      .visibleMobile {
+        .mobileNavButtonWrapper {
+          display: block;
+          .hasura-btn-sm {
+            width: 100%;
+            margin: 4px 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    min-height: 80px;
+    height: 80px !important;
+    border-bottom: 1px solid #d5dee5;
+  }
+  .topnav.responsive .visibleMobile {
+    transform: translateX(0);
+  }
+
+  .search-icon {
+    margin-top: -2px !important;
+
+    svg {
+      min-width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .headerWrapper {
+    .topnav {
+      .visibleMobile {
+        width: 100% !important;
+      }
+    }
+  }
+  .visibleMobile {
+    transform: translateX(500px);
+  }
+  .topnav.responsive .visibleMobile {
+    transform: translateX(0);
+  }
+}
