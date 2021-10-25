@@ -142,7 +142,7 @@ const RightSideBarWidth = styled('div')`
 const LanguageWrapper = styled('div')`
   .languageWrapper {
     position: relative;
-    padding: 24px;
+    padding: 16px 24px;
     z-index: 1;
     .languageBgn {
       padding: 4px 8px;

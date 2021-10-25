@@ -42,7 +42,7 @@ const Edit = styled('div')`
     padding: 5px 16px; */
     .arrow {
       margin-left: 6px;
-      display: inline-block;
+      display: flex;
       transition: all .3s ease-in-out;
     }
     &:hover {
@@ -76,6 +76,7 @@ const HelpfulGithubWrapper = styled('div')`
         margin: 0 8px;
         display: flex;
         cursor: pointer;
+        position: relative;
         &:hover {
           svg {
             fill: #0079BD;
@@ -83,6 +84,24 @@ const HelpfulGithubWrapper = styled('div')`
         }
         svg {
           fill: #74818A;
+        }
+        .toolTip {
+          background-color: #000;
+          border-radius: 4px;
+          padding: 4px 10px;
+          color: #fff;
+          position: absolute;
+          min-width: max-content;
+          top: -34px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-weight: 300;
+          font-size: 14px;
+        }
+      }
+      .active {
+        svg {
+          fill: #0079BD;
         }
       }
     }
@@ -107,7 +126,17 @@ const FooterImag = styled('div')`
   padding: 50px 0;
 `;
 
+const ArrowRight = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" clipRule="evenodd" d="M7.63611 11.9698C7.34322 12.2627 7.34322 12.7375 7.63611 13.0304C7.92901 13.3233 8.40388 13.3233 8.69677 13.0304L13.1968 8.53038C13.4897 8.23748 13.4897 7.76261 13.1968 7.46971L8.69677 2.96967C8.40388 2.67678 7.92901 2.67678 7.63611 2.96967C7.34322 3.26256 7.34322 3.73744 7.63611 4.03033L10.8558 7.25L2.99982 7.25C2.5856 7.25 2.24982 7.58579 2.24982 8C2.24982 8.41422 2.5856 8.75 2.99982 8.75L10.8559 8.75L7.63611 11.9698Z" fill="#1B2738"/>
+  </svg>
+)
+
 export default class MDXRuntimeTest extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isSatisfied: null};
+  }
   render() {
     const { data, location } = this.props;
 
@@ -172,6 +201,9 @@ export default class MDXRuntimeTest extends Component {
 
     // frontmatter canonical takes precedence
     canonicalUrl = mdx.frontmatter.canonicalUrl ? mdx.frontmatter.canonicalUrl : canonicalUrl;
+    const showFeedback =()=> {
+
+    }
     return (
       <Layout {...this.props}>
         <Helmet>
@@ -200,7 +232,10 @@ export default class MDXRuntimeTest extends Component {
           <div className="helpfulWrapper">
             <div className="desc">Did you find this page helpful?</div>
             <div className="iconWrapper">
-              <div className="satisfied">
+              <div className={"satisfied" + ((this.state.isSatisfied) ? " active" : "")}
+                onClick={()=> {
+                  this.setState({isSatisfied: true});
+                }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.5 11C16.3284 11 17 10.3284 17 9.5C17 8.67157 16.3284 8 15.5 8C14.6716 8 14 8.67157 14 9.5C14 10.3284 14.6716 11 15.5 11Z"/>
                   <path d="M8.5 11C9.32843 11 10 10.3284 10 9.5C10 8.67157 9.32843 8 8.5 8C7.67157 8 7 8.67157 7 9.5C7 10.3284 7.67157 11 8.5 11Z"/>
@@ -208,8 +243,13 @@ export default class MDXRuntimeTest extends Component {
                   <path d="M8.5 11C9.32843 11 10 10.3284 10 9.5C10 8.67157 9.32843 8 8.5 8C7.67157 8 7 8.67157 7 9.5C7 10.3284 7.67157 11 8.5 11Z"/>
                   <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM12 17.5C14.33 17.5 16.32 16.05 17.12 14H15.45C14.76 15.19 13.48 16 12 16C10.52 16 9.25 15.19 8.55 14H6.88C7.68 16.05 9.67 17.5 12 17.5Z"/>
                 </svg>
+                {
+                  this.state.isSatisfied ? (
+                    <div className="toolTip">Thanks for your feedback</div>
+                  ) : null
+                }
               </div>
-              <div className="dissatisfied">
+              <div className={"dissatisfied" + ((this.state.isSatisfied === false) ? " active" : "")} onClick={()=>this.setState({isSatisfied: false})}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.5 11C16.3284 11 17 10.3284 17 9.5C17 8.67157 16.3284 8 15.5 8C14.6716 8 14 8.67157 14 9.5C14 10.3284 14.6716 11 15.5 11Z"/>
                   <path d="M8.5 11C9.32843 11 10 10.3284 10 9.5C10 8.67157 9.32843 8 8.5 8C7.67157 8 7 8.67157 7 9.5C7 10.3284 7.67157 11 8.5 11Z"/>
@@ -221,7 +261,10 @@ export default class MDXRuntimeTest extends Component {
           <Edit>
             {docsLocation && (
               <Link className="gitBtn" to={`${docsLocation}/${mdx.parent.relativePath}`}>
-                <img src={gitHub} alt='Github logo' /> Edit on GitHub<div className="arrow">{"→"}</div>
+                <img src={gitHub} alt='Github logo' /> Edit on GitHub
+                <div className="arrow">
+                  <ArrowRight />
+                </div>
               </Link>
             )}
           </Edit>
