@@ -53,15 +53,6 @@ const StyledSearchOverlayWrapper = styled.div`
 `;
 
 const SearchOverlay = ({ showSearch, onCloseSearch, defaultIndex }) => {
-  const closeSearchOnEsc = e => (e.key === "Escape" ? onCloseSearch() : null);
-
-  useEffect(() => {
-    document.addEventListener("keydown", closeSearchOnEsc);
-    return () => {
-      document.removeEventListener("keydown", closeSearchOnEsc);
-    };
-  }, []);
-
   useEffect(() => {
     if (showSearch) {
       document.body.style.overflow = "hidden";
@@ -72,14 +63,16 @@ const SearchOverlay = ({ showSearch, onCloseSearch, defaultIndex }) => {
     };
   }, [showSearch]);
 
+  if (!showSearch) return null;
+
   return (
-    <StyledSearchOverlayWrapper className={showSearch ? "open zIndexSearch" : ""}>
+    <StyledSearchOverlayWrapper className="open zIndexSearch">
       <div onClick={onCloseSearch} className="closeIcon cursorPointer">
         <CloseIcon variant="grey100" size="md" />
       </div>
       <div className="globalSearchWrapper">
         <div className="containerWrapper">
-          <SearchWrapper indices={SEARCH_INDICES} onCloseSearch={onCloseSearch} defaultIndex={defaultIndex} />
+          <SearchWrapper indices={SEARCH_INDICES} defaultIndex={defaultIndex} />
         </div>
       </div>
     </StyledSearchOverlayWrapper>
