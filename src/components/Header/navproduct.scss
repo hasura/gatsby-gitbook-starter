@@ -1,4 +1,4 @@
-@import '../../common/fonts.scss';
+@import '../fonts.scss';
 
 .mobileNavShow {
   display: none;
@@ -67,6 +67,7 @@
         min-width: 22px;
         width: 22px;
         margin-right: 0;
+        margin-bottom: -8px;
       }
     }
 
@@ -153,6 +154,7 @@
         display: inline-block;
         min-width: 18px;
         width: 18px;
+        margin-bottom: -7px;
       }
     }
   }
@@ -298,8 +300,8 @@
           display: inline-block;
           min-width: 18px;
           width: 18px;
-          margin-top: -1px;
           margin-left: -2px;
+          margin-bottom: -7px;
         }
       }
 
