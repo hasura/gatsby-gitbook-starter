@@ -256,30 +256,6 @@ const Header = (props) => {
         </div>
         {/* Mobile Section  *******************/}
         <div id="navbar" className="topnav" ref={wrapperRef} style={{ height: `50px` }}>
-          <div className="navBarToggleBg">
-            <div
-              role="button"
-              className="navBarToggle search-icon"
-              onClick={() => {
-                setShowSearch((preShowSearch) => !preShowSearch);
-              }}
-            >
-              <SearchIcon variant={isDark ? 'white' : 'grey100'} size="sm" />
-            </div>
-            <span
-              className="navBarToggle"
-              aria-label="button"
-              role="button"
-              tabIndex="0"
-              onClick={() => openMenuBar()}
-              id="menuClick"
-            >
-              <span className={'iconBar'}></span>
-              <span className={'iconBar'}></span>
-              <span className={'iconBar'}></span>
-            </span>
-          </div>
-          {/* Mobile Content  ********** */}
           <div id="navbar" className="topnav" ref={wrapperRef} style={{ height: '50px' }}>
             <div className="navBarToggleBg">
               <div
