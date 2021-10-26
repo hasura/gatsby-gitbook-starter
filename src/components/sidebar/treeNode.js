@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import OpenedSvg from '../images/opened';
 import ClosedSvg from '../images/closed';
 import config from '../../../config';
