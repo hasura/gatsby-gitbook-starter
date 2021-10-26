@@ -10,7 +10,7 @@ import MarketoForm from './marketoform';
 import englandFlag from "./images/england-flag.svg";
 import chinaFlag from "./images/china-flag.svg";
 import japanFlag from "./images/japan-flag.svg";
-import spanishFlag from "./images/spanish-flag.svg";
+import config from '../../config';
 
 const marketoHost = 'https://page.hasura.io';
 
@@ -250,6 +250,12 @@ const StyledToggleSideNavWrapper = styled('div')`
   }
 `;
 
+const translationOptionsFlags = {
+  "en": englandFlag,
+  "zh": chinaFlag,
+  "ja": japanFlag,
+}
+
 const Layout = ({ children, location }) => {
   const [toggleSideBar, setToggleSideBar] = useState(false);
   const [isSubNavShow, setIsSubNavShow] = useState(false);
@@ -345,20 +351,27 @@ const Layout = ({ children, location }) => {
               ) : null
             }
             <div className="alignSelfEnd">
-              <LanguageWrapper ref={mobileWrapperRef} className="showMobile">
-                <div className="languageWrapper">
-                  <button className="languageBgn" onClick={()=>setIsLanguageShowMobile(true)}>
-                    <img src={englandFlag} alt="England Flag" />English
-                  </button>
-                  <div id="language-dropdown-mobile" className={"languageDropDownWrapper" + ((isLanguageShowMobile) ? " showList" : "")}>
-                    <ul>
-                      <li><img src={chinaFlag} alt="China Flag" />Chinese</li>
-                      <li><img src={japanFlag} alt="Japan Flag" />Japanese</li>
-                      <li><img src={spanishFlag} alt="Spanish Flag" />Spanish</li>
-                    </ul>
+              {!!config.language?.code && (
+                <LanguageWrapper ref={mobileWrapperRef} className="showMobile">
+                  <div className="languageWrapper">
+                    <button className="languageBgn" onClick={()=>setIsLanguageShowMobile(prevShow => !prevShow)}>
+                      <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
+                    </button>
+                    <div id="language-dropdown-mobile" className={"languageDropDownWrapper" + ((isLanguageShowMobile) ? " showList" : "")}>
+                      <ul>
+                        {config.language?.translations.map(translation => (
+                          <li>
+                            <a href={translation.link}>
+                              <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
+                              {translation.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </LanguageWrapper>
+                </LanguageWrapper>
+              )}
               {
                 !toggleSideBar ? (
                   <div className="sideBarNewsletterWrapper">
@@ -389,20 +402,27 @@ const Layout = ({ children, location }) => {
           {
             !toggleSideBar ? (
               <RightSideBarWidth>
-                <LanguageWrapper ref={wrapperRef}>
-                  <div className="languageWrapper">
-                    <button className="languageBgn" onClick={()=>setIsLanguageShow(true)}>
-                      <img src={englandFlag} alt="England Flag" />English
-                    </button>
-                    <div id="language-dropdown" className={"languageDropDownWrapper" + ((isLanguageShow) ? " showList" : "")}>
-                      <ul>
-                        <li><img src={chinaFlag} alt="China Flag" />Chinese</li>
-                        <li><img src={japanFlag} alt="Japan Flag" />Japanese</li>
-                        <li><img src={spanishFlag} alt="Spanish Flag" />Spanish</li>
-                      </ul>
+                {!!config.language?.code && (
+                  <LanguageWrapper ref={wrapperRef}>
+                    <div className="languageWrapper">
+                      <button className="languageBgn" onClick={()=>setIsLanguageShow(prevShow => !prevShow)}>
+                        <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
+                      </button>
+                      <div id="language-dropdown" className={"languageDropDownWrapper" + ((isLanguageShow) ? " showList" : "")}>
+                        <ul>
+                          {config.language?.translations.map(translation => (
+                            <li>
+                              <a href={translation.link}>
+                                <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
+                                {translation.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                </LanguageWrapper>
+                  </LanguageWrapper>
+                )}
                 <RightSidebar location={location} />
               </RightSideBarWidth>
             ) : null
