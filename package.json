@@ -45,7 +45,7 @@
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
-    "react-github-btn": "^1.2.0",
+    "react-github-btn": "^1.2.1",
     "react-helmet": "^6.1.0",
     "react-id-generator": "^3.0.1",
     "react-instantsearch-dom": "^6.10.3",

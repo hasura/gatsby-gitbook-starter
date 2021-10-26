@@ -16,6 +16,9 @@ const variants = {
   dark: {
     fill: COLORS.grey_10,
   },
+  grey: {
+    fill: COLORS.grey,
+  },
   grey100: {
     fill: COLORS.grey_100,
   },

@@ -1,19 +1,19 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
-import { connectSearchBox } from "react-instantsearch-dom";
-import SearchIcon from "../../globals/icons/Search";
-import CloseIcon from "../../globals/icons/Close";
-import { mq } from "../../globals/utils";
-import { COLORS, TYPOGRAPHY } from "../../globals/designSystem";
-import Loader from "../../globals/elements/Loader";
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+import { connectSearchBox } from 'react-instantsearch-dom';
+import SearchIcon from '../../globals/icons/Search';
+import CloseIcon from '../../globals/icons/Close';
+import { mq } from '../../globals/utils';
+import { COLORS, TYPOGRAPHY } from '../../globals/designSystem';
+import Loader from '../../globals/elements/Loader';
 
 const searchSuggestions = [
-  "GraphQL",
-  "Actions",
-  "Authentication",
-  "React",
-  "Remote Joins",
-  "Postgres",
+  'GraphQL',
+  'Actions',
+  'Authentication',
+  'React',
+  'Remote Joins',
+  'Postgres',
 ];
 
 const StyledSeachBoxWrapper = styled.div`
@@ -61,7 +61,7 @@ const StyledSeachBoxWrapper = styled.div`
     align-items: center;
     input {
       padding: 1rem 2.25rem;
-      font-family: "IBM Plex Sans";
+      font-family: 'IBM Plex Sans';
       font-size: 18px;
       line-height: 160%;
       width: 100%;
@@ -153,18 +153,22 @@ const DebouncedSearchBox = ({
 }) => {
   const [value, setValue] = useState(currentRefinement);
   const timerId = useRef();
+  const searchInputRef = useRef();
+  useEffect(() => {
+    searchInputRef.current?.focus();
+  }, []);
 
-  const trySuggestion = inputValue => {
+  const trySuggestion = (inputValue) => {
     refine(inputValue);
     setValue(inputValue);
   };
 
   const resetInput = () => {
-    refine("");
-    setValue("");
+    refine('');
+    setValue('');
   };
 
-  const onChangeDebounced = event => {
+  const onChangeDebounced = (event) => {
     const value = event.target.value;
 
     clearTimeout(timerId.current);
@@ -182,9 +186,10 @@ const DebouncedSearchBox = ({
             <SearchIcon className="searchIcon" variant="grey100" size="sm" />
           )}
         </div>
-        <form className={className} onSubmit={e => e.preventDefault()}>
+        <form className={className} onSubmit={(e) => e.preventDefault()}>
           <input
             id="search-input"
+            ref={searchInputRef}
             className="SearchInput"
             type="text"
             placeholder="Search for tutorials, articles or docs"
@@ -199,10 +204,12 @@ const DebouncedSearchBox = ({
       </div>
       <div className="searchSuggestionsWrapper">
         <span className="suggestions-label">POPULAR</span>
-        {searchSuggestions.map(suggestion => (
+        {searchSuggestions.map((suggestion) => (
           <button
             key={suggestion}
-            className={`hasura-suggestion-btn cursorPointer ${currentRefinement === suggestion ? "active" : ""}`}
+            className={`hasura-suggestion-btn cursorPointer ${
+              currentRefinement === suggestion ? 'active' : ''
+            }`}
             onClick={() => trySuggestion(suggestion)}
           >
             {suggestion}
