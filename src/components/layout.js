@@ -174,20 +174,21 @@ const LanguageWrapper = styled('div')`
       ul {
         li {
           list-style-type: none;
-          padding: 8px 8px;
-          font-family: "IBM Plex Sans";
-          font-weight: 300;
-          font-size: 12px;
-          color: #616D75;
-          display: flex;
-          align-items: center;
-          border-radius: 4px;
-          cursor: pointer;
-          &:hover {
-            background-color: #EBF1F7;
-          }
-          img {
-            margin-right: 8px;
+          a {
+            display: flex;
+            align-items: center;
+            padding: 8px 8px;
+            font-family: "IBM Plex Sans";
+            font-weight: 300;
+            font-size: 12px;
+            color: #616D75;
+            border-radius: 4px;
+            &:hover {
+              background-color: #EBF1F7;
+            }
+            img {
+              margin-right: 8px;
+            }
           }
         }
       }
@@ -363,7 +364,7 @@ const Layout = ({ children, location }) => {
                           <li>
                             <a href={translation.link}>
                               <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
-                              {translation.name}
+                              <span>{translation.name}</span>
                             </a>
                           </li>
                         ))}
@@ -414,7 +415,7 @@ const Layout = ({ children, location }) => {
                             <li>
                               <a href={translation.link}>
                                 <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
-                                {translation.name}
+                                <span>{translation.name}</span>
                               </a>
                             </li>
                           ))}
