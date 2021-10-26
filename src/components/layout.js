@@ -361,7 +361,7 @@ const Layout = ({ children, location }) => {
                     <div id="language-dropdown-mobile" className={"languageDropDownWrapper" + ((isLanguageShowMobile) ? " showList" : "")}>
                       <ul>
                         {config.language?.translations.map(translation => (
-                          <li>
+                          <li key={translation.code}>
                             <a href={translation.link}>
                               <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
                               <span>{translation.name}</span>
@@ -412,7 +412,7 @@ const Layout = ({ children, location }) => {
                       <div id="language-dropdown" className={"languageDropDownWrapper" + ((isLanguageShow) ? " showList" : "")}>
                         <ul>
                           {config.language?.translations.map(translation => (
-                            <li>
+                            <li key={translation.code}>
                               <a href={translation.link}>
                                 <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
                                 <span>{translation.name}</span>
