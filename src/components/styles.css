@@ -577,6 +577,9 @@ blockquote {
 .firstLevel ul .item ul .item a .greyCircle {
   display: none;
 }
+.firstLevel ul .item ul .active {
+  border-left: 1px solid #1B2738;
+}
 .sideBarUL .item{
   list-style: none;
   padding: 0;
