@@ -384,7 +384,7 @@ const Layout = ({ children, location }) => {
                       <div className="desc font_600">Sign up for Hasura Newsletter</div>
                       <MarketoForm
                         onSubmitCB={onSubmitCB}
-                        formId="1079"
+                        formId={config.newsletter?.pdfCopyFormId || "1079"}
                         marketoHost={marketoHost}
                         id="631-HMN-492"
                         styleClass="marketoFormWrapper sideBarSubscribeWrapper"

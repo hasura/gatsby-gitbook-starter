@@ -80,6 +80,9 @@ const config = {
         link: "https://hasura.io/learn/zh/graphql/hasura/introduction"
       },
     ]
+  },
+  newsletter: {
+    pdfCopyFormId: "1244"
   }
 };
 
