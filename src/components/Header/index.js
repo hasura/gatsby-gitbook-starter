@@ -225,7 +225,7 @@ const Header = (props) => {
           </div>
         </div>
         {/* Mobile Section  *******************/}
-        <div id="navbar" className="topnav" ref={wrapperRef}>
+        <div id="navbar" className="topnav" ref={wrapperRef} style={{ height: `50px` }}>
           <div className="navBarToggleBg">
             <div
               className="navBarToggle search-icon"
