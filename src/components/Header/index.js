@@ -17,24 +17,6 @@ const cloudDomain =
     ? 'https://cloud.hasura.io'
     : 'https://cloud.staging-2.hasura-app.io';
 
-const SearchAltIcon = ({ isDark }) => (
-  <svg
-    id="search-alt-icon"
-    width="7"
-    height="17"
-    viewBox="0 0 7 17"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M1.5 16.5L5.96718 1.06173"
-      stroke={isDark ? 'white' : 'black'}
-      stroke-width="1.5"
-      stroke-linejoin="round"
-    />
-  </svg>
-);
-
 const SearchAltIconLearn = ({ isDark }) => (
   <svg
     id="search-alt-icon"
@@ -46,7 +28,7 @@ const SearchAltIconLearn = ({ isDark }) => (
   >
     <path
       d="M1.5 16.5L5.96718 1.06173"
-      stroke={isDark ? "white" : "#909DA6"}
+      stroke={isDark ? 'white' : '#909DA6'}
       strokeWidth="1.5"
       strokeLinejoin="round"
     />
@@ -55,11 +37,14 @@ const SearchAltIconLearn = ({ isDark }) => (
 
 const Header = (props) => {
   const path = props.location.pathname;
-  const wrapperRef = useRef(null);
-  const [showSearch, setShowSearch] = useState(false);
-  const [windowScrollPosition, updateWindowScrollPosition] = useState(null);
 
-  const handleSearchWithKeyboard = e => {
+  const wrapperRef = useRef(null);
+
+  const [showSearch, setShowSearch] = useState(false);
+
+  // const [windowScrollPosition, updateWindowScrollPosition] = useState(null);
+
+  const handleSearchWithKeyboard = (e) => {
     if (e.key === '/' || e.key === 'Escape') {
       e.preventDefault();
       if (e.key === '/') return setShowSearch(true);
@@ -78,21 +63,21 @@ const Header = (props) => {
     };
   }, [path]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPosition = window.pageYOffset;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollPosition = window.pageYOffset;
 
-      updateWindowScrollPosition(currentScrollPosition);
-    };
+  //     updateWindowScrollPosition(currentScrollPosition);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    handleScroll();
+  //   handleScroll();
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   const onCloseSearch = () => setShowSearch(false);
 
@@ -118,15 +103,16 @@ const Header = (props) => {
 
   const utmPagePathName = getUTMPagePathName(path);
 
-  const isBoxShadowActive = windowScrollPosition && windowScrollPosition > 60;
+  // const isBoxShadowActive = windowScrollPosition && windowScrollPosition > 60;
 
   return (
     <Fragment>
       <header
         id="header"
         className={
-          (isDark ? 'DarkModeHeader' : 'lightModeHeader') +
-          (isBoxShadowActive ? ' box-shadow-header positionStickyHeader' : ' box-shadow-header positionStickyHeader')
+          isDark
+            ? 'DarkModeHeader box-shadow-header positionStickyHeader'
+            : 'lightModeHeader box-shadow-header positionStickyHeader'
         }
       >
         <div className="learnHeader">
@@ -187,7 +173,7 @@ const Header = (props) => {
                   }}
                 >
                   <span>
-                    <SearchIcon variant={isDark ? "white" : "grey"} size="sm" />
+                    <SearchIcon variant={isDark ? 'white' : 'grey'} size="sm" />
                     Search...
                   </span>
                   <div className="squareBox">
@@ -334,18 +320,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-// export default function HeaderWithStars(props) {
-//   return (
-//     <StaticQuery
-//       query={graphql`
-//         query {
-//           githubStars {
-//             stars
-//           }
-//         }
-//       `}
-//       render={data => <Header data={data} {...props} />}
-//     />
-//   );
-// }
