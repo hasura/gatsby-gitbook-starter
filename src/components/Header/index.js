@@ -288,7 +288,7 @@ const Header = (props) => {
                   setShowSearch((preShowSearch) => !preShowSearch);
                 }}
               >
-                <SearchIcon variant={isDark ? 'white' : 'grey_100'} size="sm" />
+                <SearchIcon variant={isDark ? 'white' : 'grey100'} size="sm" />
               </div>
               <span
                 className="navBarToggle"
