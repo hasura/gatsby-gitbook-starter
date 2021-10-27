@@ -139,7 +139,6 @@ const SidebarLayout = ({ location }) => (
                   <li key={index}><img src={openNew} alt="Open new window" /><a href={item.linkUrl}>{item.linkContent}</a></li>
                 ))
               }
-
             </ul>
           </Sidebar>
         );

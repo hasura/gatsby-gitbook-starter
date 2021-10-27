@@ -7,8 +7,9 @@ import Sidebar from './sidebar';
 import RightSidebar from './rightSidebar';
 import MarketoForm from './marketoform';
 import CloseIcon from '../globals/icons/Close';
+import OpenedSvg from './images/opened';
 
-import englandFlag from "./images/england-flag.svg";
+import usFlag from "./images/us-flag.svg";
 import chinaFlag from "./images/china-flag.svg";
 import japanFlag from "./images/japan-flag.svg";
 import config from '../../config';
@@ -159,6 +160,7 @@ const LanguageWrapper = styled('div')`
       cursor: pointer;
       img {
         margin-right: 8px;
+        border-radius: 2px;
       }
       &:hover {
         background-color: #EBF1F7;
@@ -253,7 +255,7 @@ const StyledToggleSideNavWrapper = styled('div')`
 `;
 
 const translationOptionsFlags = {
-  "en": englandFlag,
+  "en": usFlag,
   "zh": chinaFlag,
   "ja": japanFlag,
 }
@@ -377,37 +379,35 @@ const Layout = ({ children, location }) => {
               )}
               {
                 !toggleSideBar ? (
-                  <>
-                    {
-                      isShowSubscribe ? (
-                        <div className="sideBarNewsletterWrapper">
-                          <div className="closeBtn"
-                            role="button"
-                            tabIndex="0"
-                            onClick={()=>setIsShowSubscribe(false)}
-                          >
-                            <CloseIcon className="cursorPointer" variant="grey100" size="sm" />
-                          </div>
-                        {
-                          isAliId && isLocalSideBarSubscribe ? (
-                            <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
-                          ) : (
-                            <>
-                            <div className="desc font_600">Sign up for Hasura Newsletter</div>
-                            <MarketoForm
-                              onSubmitCB={onSubmitCB}
-                              formId="1079"
-                              marketoHost={marketoHost}
-                              id="631-HMN-492"
-                              styleClass="marketoFormWrapper sideBarSubscribeWrapper"
-                            />
-                            </>
-                          )
-                        }
-                        </div>
-                      ) : null
-                    }
-                  </>
+                  <div className="sideBarNewsletterWrapper">
+                    <div className="closeBtn"
+                      role="button"
+                      tabIndex="0"
+                      onClick={()=>setIsShowSubscribe(prevIsSubscribe=>!prevIsSubscribe)}
+                    >
+                      <OpenedSvg className={((isShowSubscribe) ? "" : "rotateImg")}/>
+                    </div>
+                  {
+                    isAliId && isLocalSideBarSubscribe ? (
+                      <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
+                    ) : (
+                      <>
+                      <div className="desc font_600">Sign up for Hasura Newsletter</div>
+                      {
+                        isShowSubscribe ? (
+                          <MarketoForm
+                            onSubmitCB={onSubmitCB}
+                            formId="1079"
+                            marketoHost={marketoHost}
+                            id="631-HMN-492"
+                            styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+                          />
+                        ) : null
+                      }
+                      </>
+                    )
+                  }
+                  </div>
                 ) : null
               }
             </div>

@@ -448,7 +448,7 @@ blockquote {
   overflow: auto;
 }
 .sideBarULHeight {
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 142px);
 }
 .sideBarUL .titleNav {
   display: flex;
@@ -618,6 +618,12 @@ blockquote {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.sideBarNewsletterWrapper .closeBtn svg {
+  transition: all .3s ease-in-out;
+}
+.rotateImg {
+  transform: rotate(180deg);
 }
 .sideBarNewsletterWrapper .desc {
   padding-right: 16px;
