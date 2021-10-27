@@ -175,7 +175,7 @@ const Header = (props) => {
                 <li>
                   <a
                     onClick={() => {
-                      trackGAEvents('Website', 'HeaderClickMobile', 'Docs');
+                      trackGAEvents('Learn course', 'HeaderClickMobile', 'Docs');
                     }}
                     href="https://hasura.io/docs/latest/graphql/core/index.html"
                     style={{ textDecoration: 'none' }}
@@ -184,7 +184,7 @@ const Header = (props) => {
                   </a>
                 </li>
                 <li
-                  onClick={() => trackGAEvents('Website', 'HeaderClick', 'Pricing')}
+                  onClick={() => trackGAEvents('Learn course', 'HeaderClick', 'Pricing')}
                   role="button"
                 >
                   <a href="https://hasura.io/pricing/">Pricing</a>
@@ -194,7 +194,7 @@ const Header = (props) => {
             <div className="navRight hideMobile">
               <ul className="navBarUL">
                 <li
-                  className="navBarUL search-icon-learn"
+                  className="search-icon-learn"
                   onClick={() => {
                     setShowSearch((preShowSearch) => !preShowSearch);
                     // setHideSearchSlow(true);
@@ -210,14 +210,22 @@ const Header = (props) => {
                     <SearchAltIconLearn isDark={isDark} />
                   </div>
                 </li>
-                <li className="navBarUL navLogIn">
+                <li>
+                  <a
+                    href="/contact-us/?type=hasuraenterprise"
+                    onClick={() => trackGAEvents("Learn course", "HeaderClick", "Contact Us")}
+                  >
+                    Contact Sales
+                  </a>
+                </li>
+                <li className="navLogIn">
                   <a
                     href={
                       cloudDomain +
                       `/login?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`
                     }
                     onClick={() => {
-                      trackGAEvents('Website', 'HeaderClick', 'Log In');
+                      trackGAEvents('Learn course', 'HeaderClick', 'Log In');
                       saTrack('Clicked LOG IN', {
                         placement: 'header',
                         cta: 'LOG IN',
@@ -236,7 +244,7 @@ const Header = (props) => {
                       `/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`
                     }
                     onClick={() => {
-                      trackGAEvents('Website', 'HeaderClick', 'Try Hasura');
+                      trackGAEvents('Learn course', 'HeaderClick', 'Try Hasura');
                       saTrack('Clicked Get Started', {
                         placement: 'header',
                         cta: 'Get Started',
@@ -285,7 +293,7 @@ const Header = (props) => {
                 <button
                   onClick={() => {
                     toggleProductDropdown(!isProductDropDownActive);
-                    trackGAEvents('Website', 'MobileClick', 'Products');
+                    trackGAEvents('Learn course', 'MobileClick', 'Products');
                   }}
                   className={
                     isProductDropDownActive
@@ -304,7 +312,7 @@ const Header = (props) => {
                 <button
                   onClick={() => {
                     toggleResourcesDropdown(!isResourcesDropDownActive);
-                    trackGAEvents('Website', 'MobileClick', 'Resources');
+                    trackGAEvents('Learn course', 'MobileClick', 'Resources');
                   }}
                   className={
                     isResourcesDropDownActive
@@ -322,7 +330,7 @@ const Header = (props) => {
                 {isResourcesDropDownActive && <ResourcesDropdown />}
                 <a
                   onClick={() => {
-                    trackGAEvents('Website', 'MobileClick', 'Docs');
+                    trackGAEvents('Learn course', 'MobileClick', 'Docs');
                   }}
                   href="https://hasura.io/docs/latest/graphql/core/index.html"
                 >
@@ -333,7 +341,7 @@ const Header = (props) => {
                 <a
                   href="https://hasura.io/pricing/"
                   onClick={() => {
-                    trackGAEvents('Website', 'MobileClick', 'Pricing');
+                    trackGAEvents('Learn course', 'MobileClick', 'Pricing');
                     scrollToTop();
                   }}
                 >
@@ -344,7 +352,7 @@ const Header = (props) => {
                 <a
                   href="https://hasura.io/contact-us/?type=hasuraenterprise"
                   onClick={() => {
-                    trackGAEvents('Website', 'MobileClick', 'Contact Us');
+                    trackGAEvents('Learn course', 'MobileClick', 'Contact Us');
                   }}
                 >
                   <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
@@ -362,7 +370,7 @@ const Header = (props) => {
                     `/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`
                   }
                   onClick={() => {
-                    trackGAEvents('Website', 'MobileClick', 'Try Hasura');
+                    trackGAEvents('Learn course', 'MobileClick', 'Try Hasura');
                     saTrack('Clicked Get Started', {
                       placement: 'header',
                       cta: 'Get Started',

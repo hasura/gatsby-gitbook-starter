@@ -307,12 +307,12 @@
       cursor: pointer;
       border-radius: 4px;
       border: 1px solid #BFCAD3;
-      max-width: 500px;
       height: 40px;
       padding: 0 8px !important;
-      min-width: 300px;
       display: flex !important;
       justify-content: space-between;
+      align-items: center;
+      flex: 1;
       .squareBox {
         border-radius: 2px;
         border: 1px solid #BFCAD3;
@@ -368,9 +368,6 @@
       min-width: 125px;
     }
   }
-  .navCenter {
-    flex: 1;
-  }
   .navLeft {
     .brand {
       img {
@@ -385,6 +382,7 @@
     display: flex;
     align-items: center;
     height: 72px;
+    flex: 1;
 
     .hasura-blue-btn {
       font-family: 'IBM Plex Sans' !important;
@@ -406,6 +404,8 @@
     }
 
     .navBarUL {
+      flex: 1;
+      padding-left: 40px;
       li {
         padding-left: 32px;
         padding-right: 0px !important;
