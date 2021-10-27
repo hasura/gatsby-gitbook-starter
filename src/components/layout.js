@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
+import GitHubButton from "react-github-btn";
 import { MDXProvider } from '@mdx-js/react';
 import ThemeProvider from './themeProvider';
 import mdxComponents from './mdxComponents';
@@ -150,6 +151,9 @@ const LanguageWrapper = styled('div')`
     position: relative;
     padding: 16px 24px;
     z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .languageBgn {
       padding: 4px 8px;
       border: 1px solid #D5DEE6;
@@ -162,12 +166,20 @@ const LanguageWrapper = styled('div')`
       align-items: center;
       background-color: #fff;
       cursor: pointer;
+      min-height: 28px;
       img {
         margin-right: 8px;
         border-radius: 2px;
       }
       &:hover {
         background-color: #EBF1F7;
+      }
+    }
+    .githubStars {
+      display: flex;
+      align-items: center;
+      span {
+        display: flex;
       }
     }
     .languageDropDownWrapper {
@@ -207,7 +219,7 @@ const LanguageWrapper = styled('div')`
   @media(max-width: 1024px) {
     .languageWrapper {
       border-top: 1px solid rgb(214, 222, 230);
-      padding: 16px 8px;
+      padding: 16px 24px;
     }
   }
 `;
@@ -368,6 +380,16 @@ const Layout = ({ children, location }) => {
                     <button className="languageBgn" onClick={()=>setIsLanguageShowMobile(prevShow => !prevShow)}>
                       <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
                     </button>
+                    <div className="githubStars">
+                      <GitHubButton
+                        href="https://github.com/hasura/learn-graphql"
+                        data-size="large"
+                        data-show-count="true"
+                        aria-label="Star @hasura on GitHub"
+                      >
+                        Star
+                      </GitHubButton>
+                    </div>
                     <div id="language-dropdown-mobile" className={"languageDropDownWrapper" + ((isLanguageShowMobile) ? " showList" : "")}>
                       <ul>
                         {config.language?.translations.map(translation => (
@@ -430,6 +452,16 @@ const Layout = ({ children, location }) => {
                       <button className="languageBgn" onClick={()=>setIsLanguageShow(prevShow => !prevShow)}>
                         <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
                       </button>
+                      <div className="githubStars">
+                        <GitHubButton
+                          href="https://github.com/hasura/learn-graphql"
+                          data-size="large"
+                          data-show-count="true"
+                          aria-label="Star @hasura on GitHub"
+                        >
+                          Star
+                        </GitHubButton>
+                      </div>
                       <div id="language-dropdown" className={"languageDropDownWrapper" + ((isLanguageShow) ? " showList" : "")}>
                         <ul>
                           {config.language?.translations.map(translation => (

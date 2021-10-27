@@ -1,6 +1,5 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import GitHubButton from "react-github-btn";
 import styled from '@emotion/styled';
 import './styles.css';
 import config from '../../config';
@@ -133,16 +132,6 @@ const SidebarLayout = ({ location }) => (
               <li className="rightSideTitle">CONTENTS</li>
               {finalNavItems}
             </ul>
-            <div className="githubStars">
-              <GitHubButton
-                href="https://github.com/hasura/learn-graphql"
-                data-size="large"
-                data-show-count="true"
-                aria-label="Star @hasura on GitHub"
-              >
-                Star
-              </GitHubButton>
-            </div>
             <ul className="blogLinkWrapper">
               <li className="rightSideTitle">from the hasura blog</li>
               {

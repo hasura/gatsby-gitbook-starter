@@ -498,8 +498,8 @@ blockquote {
 
 .rightSideBarUL {
   overflow: auto;
-  max-height: calc(100vh - 440px);
-  height: calc(100vh - 440px);
+  max-height: calc(100vh - 365px);
+  height: calc(100vh - 365px);
   overflow: auto;
   align-self: flex-start;
   padding-bottom: 16px;
@@ -548,11 +548,6 @@ blockquote {
   color: #005C8F;
 }
 
-.githubStars {
-  border-top: 1px solid #D5DEE6;
-  padding: 16px 24px;
-  padding-bottom: 11px;
-}
 .hideFrontLine .collapser {
   background: transparent;
   border: none;
