@@ -255,128 +255,124 @@ const Header = (props) => {
           </div>
         </div>
         {/* Mobile Section  *******************/}
-        <div id="navbar" className="topnav" ref={wrapperRef} style={{ height: `50px` }}>
-          <div id="navbar" className="topnav" ref={wrapperRef} style={{ height: '50px' }}>
-            <div className="navBarToggleBg">
-              <div
-                className="navBarToggle search-icon"
-                onClick={() => {
-                  setShowSearch((preShowSearch) => !preShowSearch);
-                }}
-              >
-                <SearchIcon variant={isDark ? 'white' : 'grey100'} size="sm" />
-              </div>
-              <span
-                className="navBarToggle"
-                aria-label="button"
-                role="button"
-                tabIndex="0"
-                onClick={() => openMenuBar()}
-                id="menuClick"
-              >
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-              </span>
+        <div id="navbar" className="topnav" ref={wrapperRef} style={{ height: '0px' }}>
+          <div className="navBarToggleBg">
+            <div
+              className="navBarToggle search-icon"
+              onClick={() => {
+                setShowSearch((preShowSearch) => !preShowSearch);
+              }}
+            >
+              <SearchIcon variant={isDark ? 'white' : 'grey100'} size="sm" />
             </div>
-            {/* Mobile Content  ********** */}
-            <div className="visibleMobile">
-              <div className="mobileNavListWrapper">
-                <div>
-                  <button
-                    onClick={() => {
-                      toggleProductDropdown(!isProductDropDownActive);
-                      trackGAEvents('Website', 'MobileClick', 'Products');
-                    }}
-                    className={
-                      isProductDropDownActive
-                        ? 'hasura-btn hasura-btn-md   hasura-light-gray-btn'
-                        : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
-                    }
-                  >
-                    Product{' '}
-                    <img
-                      src={rightArrowImg}
-                      alt="right-arrow"
-                      className={isProductDropDownActive ? 'rotate-down' : ''}
-                    />
+            <span
+              className="navBarToggle"
+              aria-label="button"
+              role="button"
+              tabIndex="0"
+              onClick={() => openMenuBar()}
+              id="menuClick"
+            >
+              <span className={'iconBar'}></span>
+              <span className={'iconBar'}></span>
+              <span className={'iconBar'}></span>
+            </span>
+          </div>
+          {/* Mobile Content  ********** */}
+          <div className="visibleMobile">
+            <div className="mobileNavListWrapper">
+              <div>
+                <button
+                  onClick={() => {
+                    toggleProductDropdown(!isProductDropDownActive);
+                    trackGAEvents('Website', 'MobileClick', 'Products');
+                  }}
+                  className={
+                    isProductDropDownActive
+                      ? 'hasura-btn hasura-btn-md   hasura-light-gray-btn'
+                      : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
+                  }
+                >
+                  Product{' '}
+                  <img
+                    src={rightArrowImg}
+                    alt="right-arrow"
+                    className={isProductDropDownActive ? 'rotate-down' : ''}
+                  />
+                </button>
+                {isProductDropDownActive && <ProductDropdown />}
+                <button
+                  onClick={() => {
+                    toggleResourcesDropdown(!isResourcesDropDownActive);
+                    trackGAEvents('Website', 'MobileClick', 'Resources');
+                  }}
+                  className={
+                    isResourcesDropDownActive
+                      ? 'hasura-btn hasura-btn-md hasura-light-gray-btn'
+                      : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
+                  }
+                >
+                  Resources{' '}
+                  <img
+                    src={rightArrowImg}
+                    className={isResourcesDropDownActive ? 'rotate-down' : ''}
+                    alt="right-arrow"
+                  />
+                </button>
+                {isResourcesDropDownActive && <ResourcesDropdown />}
+                <a
+                  onClick={() => {
+                    trackGAEvents('Website', 'MobileClick', 'Docs');
+                  }}
+                  href="https://hasura.io/docs/latest/graphql/core/index.html"
+                >
+                  <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
+                    Docs
                   </button>
-                  {isProductDropDownActive && <ProductDropdown />}
-                  <button
-                    onClick={() => {
-                      toggleResourcesDropdown(!isResourcesDropDownActive);
-                      trackGAEvents('Website', 'MobileClick', 'Resources');
-                    }}
-                    className={
-                      isResourcesDropDownActive
-                        ? 'hasura-btn hasura-btn-md hasura-light-gray-btn'
-                        : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
-                    }
-                  >
-                    Resources{' '}
-                    <img
-                      src={rightArrowImg}
-                      className={isResourcesDropDownActive ? 'rotate-down' : ''}
-                      alt="right-arrow"
-                    />
+                </a>
+                <a
+                  href="https://hasura.io/pricing/"
+                  onClick={() => {
+                    trackGAEvents('Website', 'MobileClick', 'Pricing');
+                    scrollToTop();
+                  }}
+                >
+                  <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
+                    Pricing
                   </button>
-                  {isResourcesDropDownActive && <ResourcesDropdown />}
-                  <a
-                    onClick={() => {
-                      trackGAEvents('Website', 'MobileClick', 'Docs');
-                    }}
-                    href="https://hasura.io/docs/latest/graphql/core/index.html"
-                  >
-                    <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
-                      Docs
-                    </button>
-                  </a>
-                  <a
-                    href="https://hasura.io/pricing/"
-                    onClick={() => {
-                      trackGAEvents('Website', 'MobileClick', 'Pricing');
-                      scrollToTop();
-                    }}
-                  >
-                    <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
-                      Pricing
-                    </button>
-                  </a>
-                  <a
-                    href="https://hasura.io/contact-us/?type=hasuraenterprise"
-                    onClick={() => {
-                      trackGAEvents('Website', 'MobileClick', 'Contact Us');
-                    }}
-                  >
-                    <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
-                      Contact Sales
-                      <span className="mobile-github-btn-div">
-                        <GithubWidget />
-                      </span>
-                    </button>
-                  </a>
-                </div>
-                <div className="m-get-started" id="mobile-header-cta">
-                  <a
-                    href={
-                      cloudDomain +
-                      `/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`
-                    }
-                    onClick={() => {
-                      trackGAEvents('Website', 'MobileClick', 'Try Hasura');
-                      saTrack('Clicked Get Started', {
-                        placement: 'header',
-                        cta: 'Get Started',
-                        page: utmPagePathName,
-                        screen_size: 'tab/mobile',
-                      });
-                    }}
-                  >
-                    <button className="hasura-btn hasura-btn-md hasura-blue-btn">
-                      Get Started
-                    </button>
-                  </a>
-                </div>
+                </a>
+                <a
+                  href="https://hasura.io/contact-us/?type=hasuraenterprise"
+                  onClick={() => {
+                    trackGAEvents('Website', 'MobileClick', 'Contact Us');
+                  }}
+                >
+                  <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
+                    Contact Sales
+                    <span className="mobile-github-btn-div">
+                      <GithubWidget />
+                    </span>
+                  </button>
+                </a>
+              </div>
+              <div className="m-get-started" id="mobile-header-cta">
+                <a
+                  href={
+                    cloudDomain +
+                    `/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`
+                  }
+                  onClick={() => {
+                    trackGAEvents('Website', 'MobileClick', 'Try Hasura');
+                    saTrack('Clicked Get Started', {
+                      placement: 'header',
+                      cta: 'Get Started',
+                      page: utmPagePathName,
+                      screen_size: 'tab/mobile',
+                    });
+                  }}
+                >
+                  <button className="hasura-btn hasura-btn-md hasura-blue-btn">Get Started</button>
+                </a>
               </div>
             </div>
           </div>
