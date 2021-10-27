@@ -1,69 +1,48 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | GraphQL Angular Apollo Tutorial"
-metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your Angular app with Apollo, in the shortest amount of time possible."
+metaTitle: "Course Introduction | Hasura GraphQL Tutorial"
+metaDescription: "A powerful and concise tutorial that will introduce you to set up a GraphQL backend with Hasura GraphQL Engine in the shortest amount of time possible."
 ---
 
-import CommunityAuthor from '../src/CommunityAuthor.js';
+This course is a super-fast introduction to setting up a GraphQL backend with Hasura.
 
-GraphQL is becoming the new way to use APIs in modern web and mobile apps.
+In 30 mins, you will set up a Powerful, Scalable Realtime GraphQL Backend complete with Queries, Mutations, and Subscriptions. You will also learn how Hasura helps you integrate custom business logic (in any programming language), both as custom GraphQL APIs that you write yourself, and as Event Triggers that run asynchronously and are triggered by database events.
 
-However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of new technology.
+## What will I learn?
 
-So, we put together a powerful and concise course that will introduce you to GraphQL and integrating GraphQL into your frontend stack, in the shortest amount of time possible.
+This course will help you understand the different Hasura features, when and how to use them, and
+is an ideal starting point before diving into advanced topics.
 
-We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
-
-## Key topics and takeaways:
-
-- [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
-- GraphQL queries, mutations, subscriptions
-- Setting up a GraphQL client with Apollo
-- Integrating GraphQL queries in your Angular app
-- Integrating GraphQL mutations with query variables to handle form input
-- Updating local state after a GraphQL mutation (form input) using Apollo cache
-- Optimistic updates to local state and UI after GraphQL mutations for a slick UX
-- Using subscriptions with subscription components
-- Building a real-time feed with notifications using mutations and subscriptions
+1. Hasura Basics: Use Hasura to generate the realtime GraphQL API powered by a Postgres database
+2. Postgres power: Use the power of Postgres to make efficient data transformations so that we don't have to do them in code
+3. Authorization: Setup authorization so that app users can only run operations on data that they should be allowed to
+4. Authentication: Integrate a JWT based auth provider (using Auth0) with Hasura
+5. Remote schemas: Add a custom GraphQL resolver to create an API for fetching data that is not in the database
+6. Event triggers: Run business logic on the backend when there are database events
 
 ## What will we be building?
-We will be building a realtime todo app using authenticated GraphQL APIs.
 
-Try this deployed version of the app to see what we'll be building:
+We will be building the backend of a realtime todo app. If you're interested in building the Frontend and are new to GraphQL, head to the [GraphQL tutorials](https://hasura.io/learn/) for different frontend frameworks.
+
+Try this deployed version of the app, to see what features our backend will need to have:
 https://learn-hasura-todo-app.netlify.com/
 
-## Will this course teach Angular concepts as well?
-No, we will be simulating a scenario where we already have a GraphQL API and the basic UI of a Angular app built. Our task in this scenario is to integrate the GraphQL APIs into our angular app to build a complete and working app.
-
-If you're new to Angular, we recommend going through this [official tutorial](https://angular.io/start) and then coming back here!
-
 ## What do I need to take this tutorial?
-You need to have npm & node 8+ running.
+
+Just your browser!
+
+However, be assured that everything you do via the browser
+in this tutorial can be done via code, can be version controlled and
+can work with any programming language you choose on the server-side.
+
+We've kept this course light on developer workflows and
+environment choices so that you can focus on the key concepts and
+go on to set up your favorite tools and workflows.
 
 ## How long will this tutorial take?
-Less than 2 hours
 
-## Other courses
+Less than 30 mins.
 
-**Frontend**: GraphQL for: [Vue](https://hasura.io/learn/graphql/vue/introduction/), [React Native](https://hasura.io/learn/graphql/react-native/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/), [React](https://hasura.io/learn/graphql/react/introduction/)
+## Additonal Resources
 
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)
-
-## About the community authors
-
-<CommunityAuthor 
-    name="Hiren Chauhan"
-    imageUrl="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-angular/hiren_chauhan.png"
-    twitterUrl="https://twitter.com/__hiren"
-    githubUrl="https://github.com/hirenchauhan2"
-    description="A full-stack javascript developer who is passionate about javascript and its ecosystem. Loves contributing to open source projects to help the community grow!"
-/>
-
-<CommunityAuthor 
-    name="Apoorv Vardhan"
-    imageUrl="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-angular/author.jpg"
-    twitterUrl="https://twitter.com/vardhanapoorv16"
-    githubUrl="https://github.com/vardhanapoorv"
-    description="Loves to try out and build new things!"
-/>
-
+[Watch this video guide](https://hasura.io/events/webinar/get-started-with-hasura/?pg=learn&plcmt=body&cta=getting-started&tech=) on how to get started with Hasura.

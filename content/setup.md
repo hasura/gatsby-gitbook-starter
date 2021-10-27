@@ -1,44 +1,56 @@
 ---
-title: "Tutorial & boilerplate setup"
-metaTitle: "Todo app angular boilerplate setup | GraphQL Angular Apollo Tutorial"
-metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in Angular"
+title: "Deploy Hasura"
+metaTitle: "Deploy Hasura to Hasura Cloud | Hasura GraphQL Tutorial"
+metaDescription: "This tutorial covers how to deploy Hasura GraphQL Engine on Hasura Cloud using one-click deployment and access the Hasura Console"
 ---
 
-For this tutorial, the GraphQL backend and the basic app UI is already ready.
-Our task will be to convert the "static" UI into a working realtime app.
+Let's start by deploying Hasura.
 
-### Download and run the boilerplate
+## One-click deployment on Hasura Cloud
 
-1. Download the boilerplate from [https://hasura.io/learn/graphql/angular-apollo/boilerplate.zip](https://hasura.io/learn/graphql/angular-apollo/boilerplate.zip)
-2. Unzip and make sure you're in the `app-boilerplate` directory
-3. Install dependencies and run the "static" app
-    - `npm install`
-    - `npm start`
-4. Signup/login as a user to load the todo app page
+The fastest way to try out Hasura is via Hasura Cloud. [Hasura Cloud](https://hasura.io/cloud/) gives you a scalable, highly available, globally distributed, fully managed, secure GraphQL API as a service!
 
-This is what you should see after the steps above:
+Click on the following button to create a new project on Hasura Cloud:
 
-![Boilerplate after login](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/boilerplate-after-login.png)
+<a href="https://cloud.hasura.io/?pg=learn-hasura-backend&plcmt=body&tech=default" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
 
-### Load GraphiQL to play with your GraphQL APIs
+**Note**: It is free to signup and no credit card is required.
 
-1. Head to https://hasura.io/learn/graphql/graphiql
-2. Log in (so that you can test the GraphQL APIs with a valid user token)
+Once you register and sign in, you should see the following welcome screen and a new Hasura project will be created automatically for you:
 
-This is what you should see after the steps above:
+![Hasura Cloud Welcome Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-welcome.png)
 
-![GraphiQL after login](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphiql-after-login.png)
+Once the project is initialised, you can click on `Launch Console` button on the pop up screen. If you already have a Hasura Cloud account before, you can manually create a new project by clicking on the `+ New Project` action at the top, followed by `Launch Console`.
 
-### GraphQL Endpoint
+## Hasura Console
 
-We are going to make use of `https://hasura.io/learn/graphql` endpoint for making our GraphQL requests in the tutorial.
+This will open up Hasura Console for your project. It should look something like this:
 
-Now, if you want to run your own version of the above GraphQL endpoint, you can do so by following the Hasura Backend tutorial
+![Hasura Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console.png)
 
-- Deploy Hasura Cloud
+The next step is to connect the database to Hasura. We can make use of Heroku's free Postgres database tier to set this up. Head to the `Data` tab on the Console and click on `Connect Database`.
 
-<a href="https://cloud.hasura.io/?pg=learn-react&plcmt=body&tech=default" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
+We have two options to connect a database:
 
-- Set up Hasura Backend
+- Connect an existing database
+- Create Heroku Database (Free)
 
-Head to [Hasura Backend Tutorial](https://hasura.io/learn/graphql/hasura/setup/#hasuraconsole) and get started with creating your own version.
+To quickstart this process, we are going to create a new Postgres DB from scratch using Heroku Postgres. Click on `Create Heroku Database (Free)` tab. In this tab, you now have an option to click on the `Create Database` button. Note that it is free to create an account on Heroku.
+
+![Create Heroku Database](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-heroku-database.png)
+
+After logging in to Heroku and clicking on `Create Database`, Hasura Cloud will perform the following for you:
+
+- Create an app on Heroku
+- Install Postgres Add-on
+- Fetch database URL that you can use to configure Hasura
+
+![Hasura Cloud Heroku Configuration](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-heroku-setup.png)
+
+It will take a few seconds to connect to Heroku Postgres and initialise. Once the connection is established, you will be taken to the Data Manager page on the Console, listing the database that we just connected.
+
+You can also manage the project from the Hasura Cloud Dashboard.
+
+![Hasura Cloud Project Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-project-page.png)
+
+Great! You have now deployed Hasura, connected a database and have the admin console ready to get started!

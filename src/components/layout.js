@@ -374,12 +374,14 @@ const Layout = ({ children, location }) => {
               ) : null
             }
             <div className="alignSelfEnd">
-              {!!config.language?.code && (
+
                 <LanguageWrapper ref={mobileWrapperRef} className="showMobile">
                   <div className="languageWrapper">
-                    <button className="languageBgn" onClick={()=>setIsLanguageShowMobile(prevShow => !prevShow)}>
-                      <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
-                    </button>
+                    {!!config.language?.code && (
+                      <button className="languageBgn" onClick={()=>setIsLanguageShowMobile(prevShow => !prevShow)}>
+                        <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
+                      </button>
+                    )}
                     <div className="githubStars">
                       <GitHubButton
                         href="https://github.com/hasura/learn-graphql"
@@ -390,21 +392,23 @@ const Layout = ({ children, location }) => {
                         Star
                       </GitHubButton>
                     </div>
-                    <div id="language-dropdown-mobile" className={"languageDropDownWrapper" + ((isLanguageShowMobile) ? " showList" : "")}>
-                      <ul>
-                        {config.language?.translations.map(translation => (
-                          <li key={translation.code}>
-                            <a href={translation.link}>
-                              <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
-                              <span>{translation.name}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    {!!config.language?.code && (
+                      <div id="language-dropdown-mobile" className={"languageDropDownWrapper" + ((isLanguageShowMobile) ? " showList" : "")}>
+                        <ul>
+                          {config.language?.translations.map(translation => (
+                            <li key={translation.code}>
+                              <a href={translation.link}>
+                                <img src={translationOptionsFlags[translation.code]} alt={`${translation.name} Flag`} />
+                                <span>{translation.name}</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </LanguageWrapper>
-              )}
+
               {
                 !toggleSideBar ? (
                   <div className="sideBarNewsletterWrapper">
@@ -446,12 +450,13 @@ const Layout = ({ children, location }) => {
           {
             !toggleSideBar ? (
               <RightSideBarWidth>
-                {!!config.language?.code && (
                   <LanguageWrapper ref={wrapperRef}>
                     <div className="languageWrapper">
-                      <button className="languageBgn" onClick={()=>setIsLanguageShow(prevShow => !prevShow)}>
-                        <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
-                      </button>
+                      {!!config.language?.code && (
+                        <button className="languageBgn" onClick={()=>setIsLanguageShow(prevShow => !prevShow)}>
+                          <img src={translationOptionsFlags[config.language?.code]} alt={`${config.language?.name} Flag`} />{config.language?.name}
+                        </button>
+                      )}
                       <div className="githubStars">
                         <GitHubButton
                           href="https://github.com/hasura/learn-graphql"
@@ -462,6 +467,7 @@ const Layout = ({ children, location }) => {
                           Star
                         </GitHubButton>
                       </div>
+                      {!!config.language?.code && (
                       <div id="language-dropdown" className={"languageDropDownWrapper" + ((isLanguageShow) ? " showList" : "")}>
                         <ul>
                           {config.language?.translations.map(translation => (
@@ -474,9 +480,10 @@ const Layout = ({ children, location }) => {
                           ))}
                         </ul>
                       </div>
+                      )}
                     </div>
                   </LanguageWrapper>
-                )}
+
                 <RightSidebar location={location} />
               </RightSideBarWidth>
             ) : null
