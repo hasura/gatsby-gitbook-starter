@@ -371,9 +371,7 @@ const Header = (props) => {
                     });
                   }}
                 >
-                  <button className="hasura-btn hasura-btn-md hasura-blue-btn">
-                    Get Started
-                  </button>
+                  <button className="hasura-btn hasura-btn-md hasura-blue-btn">Get Started</button>
                 </a>
               </div>
             </div>
