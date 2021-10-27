@@ -28,6 +28,10 @@ const variants = {
 };
 
 const sizes = {
+  xs: {
+    width: "16px",
+    height: "16px",
+  },
   sm: {
     width: "18px",
     height: "18px",
