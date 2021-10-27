@@ -370,6 +370,9 @@
   }
   .navLeft {
     .brand {
+      a {
+        display: flex;
+      }
       img {
         width: 116px;
       }
