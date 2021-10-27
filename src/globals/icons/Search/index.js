@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { StyledSVG } from "../styled";
 const Search = ({ variant, size, className }) => (
   <StyledSVG
