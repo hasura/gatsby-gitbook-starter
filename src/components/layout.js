@@ -6,6 +6,7 @@ import mdxComponents from './mdxComponents';
 import Sidebar from './sidebar';
 import RightSidebar from './rightSidebar';
 import MarketoForm from './marketoform';
+import CloseIcon from '../globals/icons/Close';
 
 import englandFlag from "./images/england-flag.svg";
 import chinaFlag from "./images/china-flag.svg";
@@ -257,6 +258,7 @@ const Layout = ({ children, location }) => {
   const [isLanguageShowMobile, setIsLanguageShowMobile] = useState(false);
   const [isAliId, setIsAliId] = useState(false);
   const [isLocalSideBarSubscribe, setIsLocalSideBarSubscribe] = useState(false);
+  const [isShowSubscribe, setIsShowSubscribe] = useState(false);
 
   const wrapperRef = useRef(null);
   const mobileWrapperRef = useRef(null);
@@ -361,24 +363,33 @@ const Layout = ({ children, location }) => {
               </LanguageWrapper>
               {
                 !toggleSideBar ? (
-                  <div className="sideBarNewsletterWrapper">
-                  {
-                    isAliId && isLocalSideBarSubscribe ? (
-                      <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
-                    ) : (
-                      <>
-                      <div className="desc font_600">Sign up for Hasura Newsletter</div>
-                      <MarketoForm
-                        onSubmitCB={onSubmitCB}
-                        formId="1079"
-                        marketoHost={marketoHost}
-                        id="631-HMN-492"
-                        styleClass="marketoFormWrapper sideBarSubscribeWrapper"
-                      />
-                      </>
-                    )
-                  }
-                  </div>
+                  <>
+                    {
+                      isShowSubscribe ? (
+                        <div className="sideBarNewsletterWrapper">
+                          <div className="closeBtn">
+                            <CloseIcon className="cursorPointer" variant="grey100" size="md" />
+                          </div>
+                        {
+                          isAliId && isLocalSideBarSubscribe ? (
+                            <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
+                          ) : (
+                            <>
+                            <div className="desc font_600">Sign up for Hasura Newsletter</div>
+                            <MarketoForm
+                              onSubmitCB={onSubmitCB}
+                              formId="1079"
+                              marketoHost={marketoHost}
+                              id="631-HMN-492"
+                              styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+                            />
+                            </>
+                          )
+                        }
+                        </div>
+                      ) : null
+                    }
+                  </>
                 ) : null
               }
             </div>

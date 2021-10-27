@@ -602,6 +602,12 @@ blockquote {
   padding: 0 8px;
   padding-top: 16px;
   min-height: 161px;
+  position: relative;
+}
+.sideBarNewsletterWrapper .closeBtn {
+  position: absolute;
+  right: 0;
+  top: 10px;
 }
 .desc {
   font-weight: 300;
