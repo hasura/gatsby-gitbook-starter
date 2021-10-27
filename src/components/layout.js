@@ -424,12 +424,12 @@ const Layout = ({ children, location }) => {
                       <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
                     ) : (
                       <>
-                      <div className="desc font_600">Sign up for Hasura Newsletter</div>
+                      <div className="desc font_600">{config.newsletter?.ebookAvailable ? "Download tutorial as e-book ⚡️" : "Sign up for Hasura Newsletter"}</div>
                       {
                         isShowSubscribe ? (
                           <MarketoForm
                             onSubmitCB={onSubmitCB}
-                            formId="1079"
+                            formId={config.newsletter?.ebookAvailable ? "1244" : "1079"}
                             marketoHost={marketoHost}
                             id="631-HMN-492"
                             styleClass="marketoFormWrapper sideBarSubscribeWrapper"
