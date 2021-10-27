@@ -119,8 +119,8 @@ const LeftSideBarWidth = styled('div')`
   @media(max-width: 1024px) {
     z-index: 100000 !important;
     transform: translateX(-340px);
-    min-height: 100vh;
-    height: 100vh;
+    min-height: calc(100vh - 100px);
+    height: calc(100vh - 100px);
     top: 0;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
     .mainSideBarToggle {
@@ -220,6 +220,7 @@ const LanguageWrapper = styled('div')`
     .languageWrapper {
       border-top: 1px solid rgb(214, 222, 230);
       padding: 16px 24px;
+      background-color: rgb(244, 248, 251);
     }
   }
 `;

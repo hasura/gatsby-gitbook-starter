@@ -607,6 +607,7 @@ blockquote {
   padding-top: 16px;
   min-height: 180px;
   position: relative;
+  background-color: rgb(244, 248, 251);
 }
 .sideBarNewsletterWrapper .closeBtn {
   position: absolute;
@@ -1135,7 +1136,7 @@ strong {
     font-size: 28px;
   }
   .mainWrapper {
-    word-break: break-all;
+    word-break: break-word;
   }
 
   .nextPreviousWrapper {
