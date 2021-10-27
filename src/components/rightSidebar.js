@@ -1,5 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import GitHubButton from "react-github-btn";
 import styled from '@emotion/styled';
 import './styles.css';
 import config from '../../config';
@@ -8,16 +9,16 @@ import openNew from "./images/open-new.svg";
 
 const hasuraBlogState = [
   {
-    linkContent: "GraphQL & the Data Mesh - developer productivity in an age of exploding data",
-    linkUrl: "https://hasura.io/blog/graphql-and-the-data-mesh-developer-productivity-in-an-age-of-exploding-data/",
+    linkContent: "Modern GraphQL examples with strings, compilers, and SDKs",
+    linkUrl: "https://hasura.io/blog/graphql-examples/",
   },
   {
-    linkContent: "Implementing a Google Drive Style Hierarchical Authorization System in Hasura",
-    linkUrl: "https://hasura.io/blog/implementing-a-google-drive-style-hierarchical-role-based-acl-system/",
+    linkContent: "Top ways to write a custom GraphQL Server with production ready features",
+    linkUrl: "https://hasura.io/blog/top-ways-to-write-custom-graphql-server-production-ready-features/",
   },
   {
-    linkContent: "Hasura Product Updates: August Round-up",
-    linkUrl: "https://hasura.io/blog/hasura-product-updates-august-round-up/",
+    linkContent: "A REST View of GraphQL",
+    linkUrl: "https://hasura.io/blog/rest-view-of-graphql/",
   },
 ]
 
@@ -132,6 +133,16 @@ const SidebarLayout = ({ location }) => (
               <li className="rightSideTitle">CONTENTS</li>
               {finalNavItems}
             </ul>
+            <div className="githubStars">
+              <GitHubButton
+                href="https://github.com/hasura/learn-graphql"
+                data-size="large"
+                data-show-count="true"
+                aria-label="Star @hasura on GitHub"
+              >
+                Star
+              </GitHubButton>
+            </div>
             <ul className="blogLinkWrapper">
               <li className="rightSideTitle">from the hasura blog</li>
               {

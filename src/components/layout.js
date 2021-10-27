@@ -66,7 +66,7 @@ const MaxWidth = styled('div')`
 const LeftSideBarWidth = styled('div')`
   width: 320px;
   background-color: rgb(244, 248, 251);
-  padding: 16px;
+  /* padding: 16px; */
   min-height: calc(100vh - 72px);
   height: calc(100vh - 72px);
   border-right: 1px solid rgb(214, 222, 230);
@@ -76,6 +76,10 @@ const LeftSideBarWidth = styled('div')`
   top: 72px;
   left: 0px;
   transition: all 0.3s ease-in-out 0s;
+  .p16 {
+    padding: 24px 16px;
+    padding-bottom: 0;
+  }
   .mainSideBarToggle {
     position: absolute;
     top: 18px;
@@ -352,7 +356,9 @@ const Layout = ({ children, location }) => {
             </div>
             {
               !toggleSideBar ? (
-                <Sidebar location={location} isShowSubscribe ={isShowSubscribe}/>
+                <div className="p16">
+                  <Sidebar location={location} isShowSubscribe ={isShowSubscribe}/>
+                </div>
               ) : null
             }
             <div className="alignSelfEnd">

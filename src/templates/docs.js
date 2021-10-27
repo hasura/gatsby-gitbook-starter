@@ -19,46 +19,76 @@ const forcedNavOrder = config.sidebar.forcedNavOrder;
 
 const Edit = styled('div')`
   /* padding: 1rem 1.5rem; */
-  display: flex;
-  text-align: right;
+  .editOnGithub {
+    display: flex;
+    text-align: right;
 
-  a {
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 160%;
-    text-decoration: none;
-    color: #1B2738;
+    a {
+      font-family: "IBM Plex Sans";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 160%;
+      text-decoration: none;
+      color: #1B2738;
 
-    /* border: 1px solid rgb(211, 220, 228); */
-    cursor: pointer;
-    border-radius: 3px;
-    transition: all 0.2s ease-out 0s;
-    text-decoration: none;
-    color: rgb(36, 42, 49);
-    /* background-color: rgb(255, 255, 255);
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
-    height: 30px;
-    padding: 5px 16px; */
-    .arrow {
-      margin-left: 6px;
-      display: flex;
-      transition: all .3s ease-in-out;
-    }
-    &:hover {
-      /* background-color: rgb(245, 247, 249); */
+      /* border: 1px solid rgb(211, 220, 228); */
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s ease-out 0s;
+      text-decoration: none;
+      color: rgb(36, 42, 49);
+      /* background-color: rgb(255, 255, 255);
+      box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
+      height: 30px;
+      padding: 5px 16px; */
       .arrow {
-        transform: translateX(5px);
+        margin-left: 6px;
+        display: flex;
+        transition: all .3s ease-in-out;
+      }
+      &:hover {
+        /* background-color: rgb(245, 247, 249); */
+        .arrow {
+          transform: translateX(5px);
+        }
       }
     }
   }
+
+  @media (max-width: 1200px) {
+    .alignLeft {
+      padding-top: 12px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    padding-top: 0;
+  }
   @media(max-width: 767px) {
-    justify-content: center;
-    padding-top: 24px;
+    .editOnGithub {
+      justify-content: center;
+      padding-top: 24px;
+      .arrow {
+        display: inline-block;
+      }
+    }
+    .alignLeft {
+      justify-content: flex-start;
+    }
   }
 `;
-
+const BreadCrumbHeader = styled('div')`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  @media (max-width: 1200px) {
+    display: block;
+  }
+  @media(max-width: 767px) {
+    display: block;
+  }
+`;
 const HelpfulGithubWrapper = styled('div')`
   display: flex;
   justify-content: space-between;
@@ -107,6 +137,12 @@ const HelpfulGithubWrapper = styled('div')`
       }
     }
   }
+  @media (min-width: 768px) and (max-width: 1110px) {
+    display: block;
+    .helpfulWrapper {
+      padding-bottom: 12px;
+    }
+  }
   @media(max-width: 767px) {
     display: block;
     .helpfulWrapper {
@@ -131,6 +167,21 @@ const ArrowRight = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd" d="M7.63611 11.9698C7.34322 12.2627 7.34322 12.7375 7.63611 13.0304C7.92901 13.3233 8.40388 13.3233 8.69677 13.0304L13.1968 8.53038C13.4897 8.23748 13.4897 7.76261 13.1968 7.46971L8.69677 2.96967C8.40388 2.67678 7.92901 2.67678 7.63611 2.96967C7.34322 3.26256 7.34322 3.73744 7.63611 4.03033L10.8558 7.25L2.99982 7.25C2.5856 7.25 2.24982 7.58579 2.24982 8C2.24982 8.41422 2.5856 8.75 2.99982 8.75L10.8559 8.75L7.63611 11.9698Z" fill="#1B2738"/>
   </svg>
+)
+
+const EditGithubBtn = ({docsLocation, parentRelativePath, cNmae}) => (
+  <Edit>
+    <div className={"editOnGithub" + ((cNmae) ? " alignLeft" : "")}>
+      {docsLocation && (
+        <Link className="gitBtn" to={`${docsLocation}/${parentRelativePath}`}>
+          <img src={gitHub} alt='Github logo' /> Edit on GitHub
+          <div className="arrow">
+            <ArrowRight />
+          </div>
+        </Link>
+      )}
+    </div>
+  </Edit>
 )
 
 export default class MDXRuntimeTest extends Component {
@@ -237,7 +288,10 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        <SubHeader location={location} title={mdx.fields.title}/>
+        <BreadCrumbHeader>
+          <SubHeader location={location} title={mdx.fields.title}/>
+          <EditGithubBtn cNmae="mobileAlign" docsLocation={docsLocation} parentRelativePath={mdx.parent.relativePath} />
+        </BreadCrumbHeader>
         <div className="titleWrapper">
           <h1 className="title">{mdx.fields.title}</h1>
         </div>
@@ -280,16 +334,7 @@ export default class MDXRuntimeTest extends Component {
               </div>
             </div>
           </div>
-          <Edit>
-            {docsLocation && (
-              <Link className="gitBtn" to={`${docsLocation}/${mdx.parent.relativePath}`}>
-                <img src={gitHub} alt='Github logo' /> Edit on GitHub
-                <div className="arrow">
-                  <ArrowRight />
-                </div>
-              </Link>
-            )}
-          </Edit>
+          <EditGithubBtn docsLocation={docsLocation} parentRelativePath={mdx.parent.relativePath} />
         </HelpfulGithubWrapper>
         <div className="addPaddTopBottom">
           <NextPrevious mdx={mdx} nav={nav} />

@@ -163,6 +163,7 @@ a:hover {
   align-items: center;
   color: #000;
   opacity: 0.7;
+  margin-bottom: 16px;
 }
 
 .githubSection:hover {
@@ -260,7 +261,6 @@ a:hover {
 .navBarWrapper {
   z-index: 1;
   position: relative;
-  padding-bottom: 16px;
 }
 .navBarDefault {
   border-radius: 0;
@@ -443,12 +443,12 @@ blockquote {
 }
 
 .sideBarUL {
-  max-height: calc(100vh - 260px);
+  max-height: calc(100vh - 277px);
   align-self: flex-start;
   overflow: auto;
 }
 .sideBarULHeight {
-  max-height: calc(100vh - 142px);
+  max-height: calc(100vh - 164px);
 }
 .sideBarUL .titleNav {
   display: flex;
@@ -498,8 +498,8 @@ blockquote {
 
 .rightSideBarUL {
   overflow: auto;
-  max-height: calc(100vh - 380px);
-  height: calc(100vh - 380px);
+  max-height: calc(100vh - 440px);
+  height: calc(100vh - 440px);
   overflow: auto;
   align-self: flex-start;
   padding-bottom: 16px;
@@ -546,6 +546,12 @@ blockquote {
 }
 .blogLinkWrapper li a:hover {
   color: #005C8F;
+}
+
+.githubStars {
+  border-top: 1px solid #D5DEE6;
+  padding: 16px 24px;
+  padding-bottom: 11px;
 }
 .hideFrontLine .collapser {
   background: transparent;
@@ -602,14 +608,14 @@ blockquote {
 .sideBarNewsletterWrapper {
   align-self: flex-end;
   border-top: 1px solid rgb(214, 222, 230);
-  padding: 0 8px;
+  padding: 0 24px;
   padding-top: 16px;
-  min-height: 161px;
+  min-height: 180px;
   position: relative;
 }
 .sideBarNewsletterWrapper .closeBtn {
   position: absolute;
-  right: 0;
+  right: 10px;
   top: 10px;
   width: 25px;
   height: 25px;
@@ -1133,10 +1139,6 @@ strong {
   .title {
     font-size: 28px;
   }
-  .gitBtn {
-    display: inline-block;
-  }
-
   .mainWrapper {
     word-break: break-all;
   }
