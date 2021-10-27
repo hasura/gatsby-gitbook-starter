@@ -4,36 +4,22 @@ import PropTypes from 'prop-types';
 import { trackGAEvents } from '../trackGA';
 import hasuraLogoColor from '../images/hasura-logo-color.svg';
 import hasuraLogoWhite from '../images/hasura-logo-white.svg';
+import rightArrowImg from '../images/arrow-right.svg';
 import { getUTMPagePathName } from '../../utils/getUTMPagePathName';
 import { saTrack } from '../../utils/segmentAnalytics';
 import SearchIcon from '../../globals/icons/Search';
 import { openMenuBar, scrollToTop } from './helper';
+import { ProductDropdown } from './ProductDropdown';
+import { ResourcesDropdown } from './ResourcesDropdown';
 import SearchOverlay from '../UnifiedSearch/SearchOverlay';
 import { GithubWidget } from './GithubButton';
+
 import './header.scss';
 
 const cloudDomain =
   process.env.GATSBY_DEPLOY_ENV === 'production'
     ? 'https://cloud.hasura.io'
     : 'https://cloud.staging-2.hasura-app.io';
-
-const SearchAltIcon = ({ isDark }) => (
-  <svg
-    id="search-alt-icon"
-    width="7"
-    height="17"
-    viewBox="0 0 7 17"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M1.5 16.5L5.96718 1.06173"
-      stroke={isDark ? 'white' : 'black'}
-      stroke-width="1.5"
-      stroke-linejoin="round"
-    />
-  </svg>
-);
 
 const SearchAltIconLearn = ({ isDark }) => (
   <svg
@@ -46,7 +32,7 @@ const SearchAltIconLearn = ({ isDark }) => (
   >
     <path
       d="M1.5 16.5L5.96718 1.06173"
-      stroke={isDark ? "white" : "#909DA6"}
+      stroke={isDark ? 'white' : '#909DA6'}
       strokeWidth="1.5"
       strokeLinejoin="round"
     />
@@ -55,11 +41,19 @@ const SearchAltIconLearn = ({ isDark }) => (
 
 const Header = (props) => {
   const path = props.location.pathname;
-  const wrapperRef = useRef(null);
-  const [showSearch, setShowSearch] = useState(false);
-  const [windowScrollPosition, updateWindowScrollPosition] = useState(null);
 
-  const handleSearchWithKeyboard = e => {
+  const wrapperRef = useRef(null);
+
+  const [showSearch, setShowSearch] = useState(false);
+
+  // const [windowScrollPosition, updateWindowScrollPosition] = useState(null);
+
+  // Mobile
+  const [isProductDropDownActive, toggleProductDropdown] = useState(false);
+
+  const [isResourcesDropDownActive, toggleResourcesDropdown] = useState(false);
+
+  const handleSearchWithKeyboard = (e) => {
     if (e.key === '/' || e.key === 'Escape') {
       e.preventDefault();
       if (e.key === '/') return setShowSearch(true);
@@ -78,21 +72,21 @@ const Header = (props) => {
     };
   }, [path]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPosition = window.pageYOffset;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollPosition = window.pageYOffset;
 
-      updateWindowScrollPosition(currentScrollPosition);
-    };
+  //     updateWindowScrollPosition(currentScrollPosition);
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    handleScroll();
+  //   handleScroll();
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   const onCloseSearch = () => setShowSearch(false);
 
@@ -118,15 +112,16 @@ const Header = (props) => {
 
   const utmPagePathName = getUTMPagePathName(path);
 
-  const isBoxShadowActive = windowScrollPosition && windowScrollPosition > 60;
+  // const isBoxShadowActive = windowScrollPosition && windowScrollPosition > 60;
 
   return (
     <Fragment>
       <header
         id="header"
         className={
-          (isDark ? 'DarkModeHeader' : 'lightModeHeader') +
-          (isBoxShadowActive ? ' box-shadow-header positionStickyHeader' : ' box-shadow-header positionStickyHeader')
+          isDark
+            ? 'DarkModeHeader box-shadow-header positionStickyHeader'
+            : 'lightModeHeader box-shadow-header positionStickyHeader'
         }
       >
         <div className="learnHeader">
@@ -147,6 +142,36 @@ const Header = (props) => {
                 <li className="github-btn-header">
                   <GithubWidget />
                 </li>
+                <li
+                  className="dropDownList"
+                  // className=""
+                  id="product-nav-dropdown"
+                >
+                  <a
+                    role="button"
+                    tabIndex="0"
+                    className="dropdown-link-btn"
+                    style={{ cursor: 'pointer' }}
+                  >
+                    Product
+                  </a>
+                  <div id="product-nav" className="zIndex dropDownContent">
+                    <ProductDropdown />
+                  </div>
+                </li>
+                <li className="dropDownList">
+                  <a
+                    role="button"
+                    tabIndex="0"
+                    className="dropdown-link-btn"
+                    style={{ cursor: 'pointer' }}
+                  >
+                    Resources
+                  </a>
+                  <div id="resource-nav" className="zIndex dropDownContent">
+                    <ResourcesDropdown />
+                  </div>
+                </li>
                 <li>
                   <a
                     onClick={() => {
@@ -158,19 +183,10 @@ const Header = (props) => {
                     Docs
                   </a>
                 </li>
-                <li>
-                  <a
-                    onClick={() => {
-                      trackGAEvents('Website', 'HeaderClickMobile', 'Docs');
-                    }}
-                    href="https://hasura.io/learn/"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    Learn
-                  </a>
-                </li>
-                <li onClick={() => trackGAEvents('Website', 'HeaderClick', 'Pricing')}>
+                <li
+                  onClick={() => trackGAEvents('Website', 'HeaderClick', 'Pricing')}
+                  role="button"
+                >
                   <a href="https://hasura.io/pricing/">Pricing</a>
                 </li>
               </ul>
@@ -187,7 +203,7 @@ const Header = (props) => {
                   }}
                 >
                   <span>
-                    <SearchIcon variant={isDark ? "white" : "grey"} size="sm" />
+                    <SearchIcon variant={isDark ? 'white' : 'grey'} size="sm" />
                     Search...
                   </span>
                   <div className="squareBox">
@@ -239,7 +255,7 @@ const Header = (props) => {
           </div>
         </div>
         {/* Mobile Section  *******************/}
-        <div id="navbar" className="topnav" ref={wrapperRef}>
+        <div id="navbar" className="topnav" ref={wrapperRef} style={{ height: '0px' }}>
           <div className="navBarToggleBg">
             <div
               className="navBarToggle search-icon"
@@ -266,6 +282,44 @@ const Header = (props) => {
           <div className="visibleMobile">
             <div className="mobileNavListWrapper">
               <div>
+                <button
+                  onClick={() => {
+                    toggleProductDropdown(!isProductDropDownActive);
+                    trackGAEvents('Website', 'MobileClick', 'Products');
+                  }}
+                  className={
+                    isProductDropDownActive
+                      ? 'hasura-btn hasura-btn-md   hasura-light-gray-btn'
+                      : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
+                  }
+                >
+                  Product{' '}
+                  <img
+                    src={rightArrowImg}
+                    alt="right-arrow"
+                    className={isProductDropDownActive ? 'rotate-down' : ''}
+                  />
+                </button>
+                {isProductDropDownActive && <ProductDropdown />}
+                <button
+                  onClick={() => {
+                    toggleResourcesDropdown(!isResourcesDropDownActive);
+                    trackGAEvents('Website', 'MobileClick', 'Resources');
+                  }}
+                  className={
+                    isResourcesDropDownActive
+                      ? 'hasura-btn hasura-btn-md hasura-light-gray-btn'
+                      : 'hasura-btn hasura-btn-md hasura-light-gray-btn grey-border'
+                  }
+                >
+                  Resources{' '}
+                  <img
+                    src={rightArrowImg}
+                    className={isResourcesDropDownActive ? 'rotate-down' : ''}
+                    alt="right-arrow"
+                  />
+                </button>
+                {isResourcesDropDownActive && <ResourcesDropdown />}
                 <a
                   onClick={() => {
                     trackGAEvents('Website', 'MobileClick', 'Docs');
@@ -277,29 +331,29 @@ const Header = (props) => {
                   </button>
                 </a>
                 <a
+                  href="https://hasura.io/pricing/"
                   onClick={() => {
-                    trackGAEvents('Website', 'MobileClick', 'Docs');
+                    trackGAEvents('Website', 'MobileClick', 'Pricing');
+                    scrollToTop();
                   }}
-                  href="https://hasura.io/learn/"
                 >
                   <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
-                    Learn
-                  </button>
-                </a>
-                <a href="https://hasura.io/pricing/">
-                  <button
-                    className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border"
-                    onClick={() => {
-                      trackGAEvents('Website', 'MobileClick', 'Pricing');
-                      scrollToTop();
-                    }}
-                  >
                     Pricing
                   </button>
                 </a>
-                <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
-                  <GithubWidget />
-                </button>
+                <a
+                  href="https://hasura.io/contact-us/?type=hasuraenterprise"
+                  onClick={() => {
+                    trackGAEvents('Website', 'MobileClick', 'Contact Us');
+                  }}
+                >
+                  <button className="hasura-btn hasura-btn-md hasura-light-gray-btn grey-border">
+                    Contact Sales
+                    <span className="mobile-github-btn-div">
+                      <GithubWidget />
+                    </span>
+                  </button>
+                </a>
               </div>
               <div className="m-get-started" id="mobile-header-cta">
                 <a
@@ -317,7 +371,9 @@ const Header = (props) => {
                     });
                   }}
                 >
-                  <button className="hasura-btn hasura-btn-md hasura-blue-btn">Get Started</button>
+                  <button className="hasura-btn hasura-btn-md hasura-blue-btn">
+                    Get Started
+                  </button>
                 </a>
               </div>
             </div>
@@ -334,18 +390,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-// export default function HeaderWithStars(props) {
-//   return (
-//     <StaticQuery
-//       query={graphql`
-//         query {
-//           githubStars {
-//             stars
-//           }
-//         }
-//       `}
-//       render={data => <Header data={data} {...props} />}
-//     />
-//   );
-// }

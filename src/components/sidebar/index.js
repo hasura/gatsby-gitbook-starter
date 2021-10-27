@@ -86,7 +86,7 @@ const Divider = styled((props) => (
   }
 `;
 
-const SidebarLayout = ({location}) => (
+const SidebarLayout = ({location, isShowSubscribe}) => (
   <StaticQuery
     query={graphql`
       query {
@@ -106,7 +106,7 @@ const SidebarLayout = ({location}) => (
       const [isLearn, setIsLearn] = useState(true);
       return (
         <Sidebar>
-          <ul className={'sideBarUL'}>
+          <ul className={'sideBarUL' + ((isShowSubscribe) ? '' : ' sideBarULHeight')}>
             <li className="active titleNav" onClick={()=>setIsLearn(!isLearn)}><a>{isLearn ? <OpenedSvg /> : <ClosedSvg />}Learn</a></li>
             {
               isLearn ? <Tree edges={allMdx.edges} /> : null

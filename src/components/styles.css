@@ -447,6 +447,9 @@ blockquote {
   align-self: flex-start;
   overflow: auto;
 }
+.sideBarULHeight {
+  max-height: calc(100vh - 100px);
+}
 .sideBarUL .titleNav {
   display: flex;
   align-items: center;
@@ -608,6 +611,16 @@ blockquote {
   position: absolute;
   right: 0;
   top: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #EBF1F7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sideBarNewsletterWrapper .desc {
+  padding-right: 16px;
 }
 .desc {
   font-weight: 300;
