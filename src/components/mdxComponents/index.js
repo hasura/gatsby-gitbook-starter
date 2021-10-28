@@ -25,6 +25,7 @@ export default {
   ),
   p: (props) => <p className="paragraph" {...props} />,
   pre: (props) => <pre className="pre" {...props} />,
+  b: (props) => <b className="fontBold" {...props} />,
   code: CodeBlock,
   a: AnchorTag,
   // TODO add `img`

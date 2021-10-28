@@ -14,7 +14,7 @@ const Search = ({ variant, size, className }) => (
   </StyledSVG>
 );
 Search.propTypes = {
-  variant: PropTypes.oneOf(["white", "sky", "sky80", "green", "dark", "grey100"]),
+  variant: PropTypes.oneOf(["white", "sky", "sky80", "green", "dark", "grey", "grey100"]),
   size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
   className: PropTypes.string,
 };

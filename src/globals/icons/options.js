@@ -16,6 +16,9 @@ const variants = {
   dark: {
     fill: COLORS.grey_10,
   },
+  grey: {
+    fill: COLORS.grey,
+  },
   grey100: {
     fill: COLORS.grey_100,
   },
@@ -25,6 +28,10 @@ const variants = {
 };
 
 const sizes = {
+  xs: {
+    width: "16px",
+    height: "16px",
+  },
   sm: {
     width: "18px",
     height: "18px",

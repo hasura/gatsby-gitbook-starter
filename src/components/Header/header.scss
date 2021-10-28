@@ -16,6 +16,11 @@
 .p-top-10 {
   padding-top: 10px;
 }
+.learnHeader {
+  margin: 0 auto;
+  clear: both;
+  padding: 0 32px;
+}
 
 .m-top-15 {
   margin-top: 15px;
@@ -297,7 +302,37 @@
       padding-right: 32px;
       cursor: pointer;
     }
-
+    .search-icon-learn {
+      padding-right: 32px;
+      cursor: pointer;
+      border-radius: 4px;
+      border: 1px solid #BFCAD3;
+      height: 40px;
+      padding: 0 8px !important;
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      .squareBox {
+        border-radius: 2px;
+        border: 1px solid #BFCAD3;
+        margin-right: 8px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+      }
+      span {
+        display: flex;
+        align-items: center;
+        color: #909DA6;
+        svg {
+          margin-right: 6px;
+        }
+      }
+    }
     li {
       display: inline-block;
       font-size: 14px;
@@ -333,11 +368,11 @@
       min-width: 125px;
     }
   }
-  .navCenter {
-    flex: 1;
-  }
   .navLeft {
     .brand {
+      a {
+        display: flex;
+      }
       img {
         width: 116px;
       }
@@ -350,6 +385,7 @@
     display: flex;
     align-items: center;
     height: 72px;
+    flex: 1;
 
     .hasura-blue-btn {
       font-family: 'IBM Plex Sans' !important;
@@ -371,6 +407,8 @@
     }
 
     .navBarUL {
+      flex: 1;
+      padding-left: 40px;
       li {
         padding-left: 32px;
         padding-right: 0px !important;
@@ -393,6 +431,33 @@
     padding: 0 0px;
   }
 }
+@media (min-width: 1050px) and (max-width: 1325px) {
+  .learnHeader {
+    padding: 0 16px;
+  }
+  .headerWrapper {
+    .navBarUL {
+      padding-left: 16px;
+      li {
+        padding: 0 16px 0 0;
+        &:first-child {
+          padding-right: 16px !important;
+        }
+      }
+      .search-icon {
+        min-width: 200px;
+      }
+    }
+    .navRight {
+      .navBarUL {
+        li {
+          padding-left: 16px;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 1388px) {
   .containerWidth {
     width: 1328px !important;
@@ -417,7 +482,6 @@
 
   .search-icon {
     right: 86px;
-    margin-top: -3px !important;
   }
 
   .lightModeHeader,

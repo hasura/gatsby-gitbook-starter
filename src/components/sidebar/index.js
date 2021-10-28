@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tree from './tree';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { ExternalLink } from 'react-feather';
+import OpenedSvg from '../images/opened';
+import ClosedSvg from '../images/closed';
 import '../styles.css';
 import config from '../../../config';
 
@@ -47,20 +49,10 @@ const Sidebar = styled('aside')`
   width: 100%;
   /* background-color: rgb(245, 247, 249); */
   /* border-right: 1px solid #ede7f3; */
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
   padding-left: 0px;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: sticky;
-  top: 72px;
   padding-right: 0;
-  background-color: #F9FCFF;
+  display: grid;
   @media only screen and (max-width: 1023px) {
-    width: 100%;
-    /* position: relative; */
-    height: 100vh;
   }
   @media (min-width: 767px) and (max-width: 1023px) {
     padding-left: 0;
@@ -94,7 +86,7 @@ const Divider = styled((props) => (
   }
 `;
 
-const SidebarLayout = () => (
+const SidebarLayout = ({location, isShowSubscribe}) => (
   <StaticQuery
     query={graphql`
       query {
@@ -111,22 +103,28 @@ const SidebarLayout = () => (
       }
     `}
     render={({ allMdx }) => {
+      const [isLearn, setIsLearn] = useState(true);
       return (
         <Sidebar>
-          <ul className={'sideBarUL'}>
-            <Tree edges={allMdx.edges} />
-            {config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
+          <ul className={'sideBarUL' + ((isShowSubscribe) ? '' : ' sideBarULHeight')}>
+            <li className="active titleNav" onClick={()=>setIsLearn(!isLearn)}><a>{isLearn ? <OpenedSvg /> : <ClosedSvg />}Learn</a></li>
+            {
+              isLearn ? <Tree edges={allMdx.edges} /> : null
+            }
+
+            {/*config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
             {config.sidebar.links.map((link, key) => {
               if (link.link !== '' && link.text !== '') {
                 return (
                   <ListItem key={key} to={link.link}>
                     {link.text}
-                    <ExternalLink size={14} />
+                    {<ExternalLink size={14} />}
                   </ListItem>
                 );
               }
-            })}
+            })*/}
           </ul>
+
         </Sidebar>
       );
     }}

@@ -4,13 +4,29 @@ import styled from '@emotion/styled';
 import './styles.css';
 import config from '../../config';
 
+import openNew from "./images/open-new.svg";
+
+const hasuraBlogState = [
+  {
+    linkContent: "Modern GraphQL examples with strings, compilers, and SDKs",
+    linkUrl: "https://hasura.io/blog/graphql-examples/",
+  },
+  {
+    linkContent: "Top ways to write a custom GraphQL Server with production ready features",
+    linkUrl: "https://hasura.io/blog/top-ways-to-write-custom-graphql-server-production-ready-features/",
+  },
+  {
+    linkContent: "A REST View of GraphQL",
+    linkUrl: "https://hasura.io/blog/rest-view-of-graphql/",
+  },
+]
+
 const Sidebar = styled('aside')`
   width: 100%;
   background-color: #fff;
-  border-right: 1px solid #ede7f3;
-  height: 100vh;
   overflow: auto;
   position: fixed;
+  display: grid;
   padding-left: 0px;
   position: -webkit-sticky;
   position: -moz-sticky;
@@ -41,7 +57,7 @@ const ListItem = styled(({ className, active, level, ...props }) => {
     position: relative;
 
     &:hover {
-      color: rgb(116, 76, 188) !important;
+      color: #005C8F;
     }
 
     ${(props) =>
@@ -112,9 +128,17 @@ const SidebarLayout = ({ location }) => (
       if (finalNavItems && finalNavItems.length) {
         return (
           <Sidebar>
-            <ul className={'rightSideBarUL'}>
-              <li className={'rightSideTitle'}>CONTENTS</li>
+            <ul className="rightSideBarUL">
+              <li className="rightSideTitle">CONTENTS</li>
               {finalNavItems}
+            </ul>
+            <ul className="blogLinkWrapper">
+              <li className="rightSideTitle">from the hasura blog</li>
+              {
+                hasuraBlogState.map((item, index) => (
+                  <li key={index}><img src={openNew} alt="Open new window" /><a href={item.linkUrl}>{item.linkContent}</a></li>
+                ))
+              }
             </ul>
           </Sidebar>
         );
