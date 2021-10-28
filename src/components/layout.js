@@ -295,7 +295,6 @@ const Layout = ({ children, location }) => {
   const onSubmitCB = () => {
     if (typeof window !== undefined) {
       window.localStorage.setItem("sideBarSubscribeConsent", "true");
-      console.log("test on submit");
     }
   };
 
@@ -308,9 +307,7 @@ const Layout = ({ children, location }) => {
     if (typeof window !== undefined) {
       if ("localStorage" in window && window.localStorage && "getItem" in window.localStorage) {
         const sideBarSubscribeConsent = window.localStorage.getItem("sideBarSubscribeConsent");
-        console.log("test");
         if (sideBarSubscribeConsent) {
-          console.log("test on submit inside if");
           setIsLocalSideBarSubscribe(true);
         }
       }

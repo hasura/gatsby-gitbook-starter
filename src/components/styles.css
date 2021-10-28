@@ -623,6 +623,7 @@ blockquote {
   padding-top: 16px;
   position: relative;
   background-color: rgb(244, 248, 251);
+  margin-bottom: 30px;
 }
 .sideBarNewsletterWrapper .closeBtn {
   position: absolute;
