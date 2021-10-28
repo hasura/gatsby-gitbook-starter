@@ -376,7 +376,7 @@ const Layout = ({ children, location }) => {
             {
               !toggleSideBar ? (
                 <div className="p16">
-                  <Sidebar location={location} isShowSubscribe ={isShowSubscribe}/>
+                  <Sidebar location={location} sideBarULdecreaseHt = { isShowSubscribe || isAliId }/>
                 </div>
               ) : null
             }
