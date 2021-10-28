@@ -500,8 +500,8 @@ blockquote {
 
 .rightSideBarUL {
   overflow: auto;
-  max-height: calc(100vh - 365px);
-  height: calc(100vh - 365px);
+  max-height: calc(100vh - 396px);
+  height: calc(100vh - 396px);
   overflow: auto;
   align-self: flex-start;
   padding-bottom: 16px;
@@ -524,8 +524,10 @@ blockquote {
 .blogLinkWrapper {
   padding-top: 16px;
   border-top: 1px solid #D5DEE6;
-  height: 233px;
   align-self: flex-end;
+  min-height: 264px;
+  height: 264px;
+  padding-bottom: 60px;
 }
 .blogLinkWrapper li {
   display: flex;

@@ -52,9 +52,10 @@ const Content = styled('main')`
   max-width: 1176px;
   width: 100%;
   padding: 32px;
-  height: 100vh;
+  height: calc(100vh - 72px);
   overflow: auto;
   @media(max-width: 1024px) {
+    height: auto;
   }
 `;
 
