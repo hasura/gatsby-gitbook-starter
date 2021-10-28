@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import ArrowRight from "../globals/icons/ArrowRight";
 
 import hasuraFree from "./images/hasura-free.png";
-import traingleArrow from "./images/traingle-arrow.svg";
+import star from "./images/star.svg";
 
 const StyledPromoBanner = styled.div`
   background-image: url(${hasuraFree});
@@ -61,7 +61,7 @@ const StyledPromoBanner = styled.div`
       align-items: flex-start;
       img {
         margin-right: 8px;
-        margin-top: 3px;
+        margin-top: 4px;
         width: 12px !important;
         min-width: 12px !important;
       }
@@ -105,15 +105,15 @@ const UseHasuraFree = () => {
         <div className="promoTitle">Start with GraphQL on Hasura for Free</div>
         <ul>
           <li>
-            <img src={traingleArrow} alt="Arrow" />
+            <img src={star} alt="Arrow" />
             Build apps and APIs 10x faster
           </li>
           <li>
-            <img src={traingleArrow} alt="Arrow" />
+            <img src={star} alt="Arrow" />
             Built-in authorization and caching
           </li>
           <li>
-            <img src={traingleArrow} alt="Arrow" />
+            <img src={star} alt="Arrow" />
             8x more performant than hand-rolled APIs
           </li>
         </ul>
