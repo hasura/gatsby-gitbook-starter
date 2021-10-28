@@ -425,7 +425,7 @@ const Layout = ({ children, location }) => {
                     </div>
                   {
                     isAliId ? (
-                      <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
+                      <div className="desc">{config.newsletter?.ebookAvailable ? "Thank you, please check your email for the e-book" : "Thank you for subscribing to the Hasura Newsletter!"}</div>
                     ) : (
                       <>
                       <div className="desc font_600">{config.newsletter?.ebookAvailable ? "Download tutorial as e-book ⚡️" : "Sign up for Hasura Newsletter"}</div>
