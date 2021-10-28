@@ -52,8 +52,10 @@ const Content = styled('main')`
   max-width: 1176px;
   width: 100%;
   padding: 32px;
-
+  height: calc(100vh - 72px);
+  overflow: auto;
   @media(max-width: 1024px) {
+    height: auto;
   }
 `;
 
@@ -167,6 +169,7 @@ const LanguageWrapper = styled('div')`
       background-color: #fff;
       cursor: pointer;
       min-height: 28px;
+      margin-right: 2px;
       img {
         margin-right: 8px;
         border-radius: 2px;

@@ -173,7 +173,7 @@ const EditGithubBtn = ({docsLocation, parentRelativePath, cNmae}) => (
   <Edit>
     <div className={"editOnGithub" + ((cNmae) ? " alignLeft" : "")}>
       {docsLocation && (
-        <Link className="gitBtn" to={`${docsLocation}/${parentRelativePath}`}>
+        <Link className="gitBtn" to={`${docsLocation}/${parentRelativePath}`} target="_blank">
           <img src={gitHub} alt='Github logo' /> Edit on GitHub
           <div className="arrow">
             <ArrowRight />

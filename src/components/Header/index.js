@@ -221,8 +221,7 @@ const Header = (props) => {
                 <li className="navLogIn">
                   <a
                     href={
-                      cloudDomain +
-                      `/login?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`
+                      `https://cloud.hasura.io/login?pg=${utmPagePathName}&plcmt=header&cta=log-in&tech=default`
                     }
                     onClick={() => {
                       trackGAEvents('Learn course', 'HeaderClick', 'Log In');
@@ -239,10 +238,7 @@ const Header = (props) => {
                 </li>
                 <li>
                   <a
-                    href={
-                      cloudDomain +
-                      `/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`
-                    }
+                    href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
                     onClick={() => {
                       trackGAEvents('Learn course', 'HeaderClick', 'Try Hasura');
                       saTrack('Clicked Get Started', {
@@ -364,11 +360,7 @@ const Header = (props) => {
                 </a>
               </div>
               <div className="m-get-started" id="mobile-header-cta">
-                <a
-                  href={
-                    cloudDomain +
-                    `/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`
-                  }
+                <a href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
                   onClick={() => {
                     trackGAEvents('Learn course', 'MobileClick', 'Try Hasura');
                     saTrack('Clicked Get Started', {
