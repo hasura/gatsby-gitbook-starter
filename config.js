@@ -1,86 +1,86 @@
 const config = {
-  gatsby: {
-    pathPrefix: "/",
-    siteUrl: "https://hasura.io",
-    gaTrackingId: "GTM-WBBW2LN",
-    trailingSlash: true,
-  },
-  header: {
-    logo: "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
-    logoLink: "https://hasura.io/learn/",
-    title:
-      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/hasura/introduction/'>hasura</a>",
-    githubUrl: "https://github.com/hasura/learn-graphql",
-    helpUrl: "https://discord.com/invite/hasura",
-    tweetText:
-      "Check out this Introduction to Hasura GraphQL backend course for frontend developers by @HasuraHQ https://hasura.io/learn/graphql/hasura/introduction/",
-    links: [
-      {
-        text: "",
-        link: "",
-      },
-    ],
-    search: {
-      enabled: true,
-      indexName: "learn-hasura-backend",
-      algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
-      algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-      algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
-    },
-  },
-  sidebar: {
-    forcedNavOrder: [
-      "/introduction/",
-      "/setup/",
-      "/data-modeling/",
-      "/relationships/",
-      "/data-transformations/",
-      "/authorization/",
-      "/authentication/",
-      "/custom-business-logic/",
-      "/what-next/",
-    ],
-    links: [
-      {
-        text: "Hasura Docs",
-        link: "https://hasura.io/docs/latest/graphql/core/index.html",
-      },
-      {
-        text: "GraphQL API",
-        link: "https://hasura.io/graphql/",
-      },
-    ],
-  },
-  siteMetadata: {
-    title:
-      "Introduction to Hasura backend course for frontend developers | Hasura",
-    description:
-      "A concise and powerful tutorial that covers fundamental concepts of developing GraphQL backends instantly using Hasura",
-    ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura.png",
-    docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
-  },
-  language: {
-    code: "en",
-    name: "English",
-    translations: [
-      {
-        code: "ja",
-        name: "Japanese",
-        link: "https://hasura.io/learn/ja/graphql/hasura/introduction"
-      },
-      {
-        code: "zh",
-        name: "Chinese",
-        link: "https://hasura.io/learn/zh/graphql/hasura/introduction"
-      },
-    ]
-  },
-  newsletter: {
-    ebookAvailable: true,
+	"gatsby": {
+		"pathPrefix": "/",
+		"siteUrl": "https://learn.hasura.io",
+		"gaTrackingId": null,
+		"trailingSlash": false
+	},
+	"header": {
+		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png",
+		"logoLink": "https://learn.hasura.io",
+		"title": "Gatsby Gitbook Boilerplate",
+		"githubUrl": "https://github.com/hasura/gatsby-gitbook-boilerplate",
+		"helpUrl": "",
+		"tweetText": "",
+		"links": [
+			{ "text": "", "link": ""}
+		],
+		"search": {
+			"enabled": false,
+			"indexName": "",
+			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
+			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
+		}
+	},
+	"sidebar": {
+		"forcedNavOrder": [
+			"/introduction", // add trailing slash if enabled above
+    		"/codeblock"
+		],
+    	"collapsedNav": [
+      		"/codeblock" // add trailing slash if enabled above
+    	],
+		"links": [
+			{ "text": "Hasura", "link": "https://hasura.io"},
+		],
+		"frontline": false,
+		"ignoreIndex": true,
+	},
+	"siteMetadata": {
+		"title": "Gatsby Gitbook Boilerplate | Hasura",
+		"description": "Documentation built with mdx. Powering learn.hasura.io ",
+		"ogImage": null,
+		"docsLocation": "https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content",
+		"favicon": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
+	},
+	"pwa": {
+		"enabled": false, // disabling this will also remove the existing service worker.
+		"manifest": {
+			"name": "Gatsby Gitbook Starter",
+			"short_name": "GitbookStarter",
+			"start_url": "/",
+			"background_color": "#6b37bf",
+			"theme_color": "#6b37bf",
+			"display": "standalone",
+			"crossOrigin": "use-credentials",
+			icons: [
+				{
+					src: "src/pwa-512.png",
+					sizes: `512x512`,
+					type: `image/png`,
+				},
+			],
+		},
+	},
+	"language": {
+		"code": "en",
+		"name": "English",
+		"translations": [
+			{
+				"code": "ja",
+				"name": "Japanese",
+				"link": "https://hasura.io/learn/ja/graphql/hasura/introduction"
+			},
+			{
+				"code": "zh",
+				"name": "Chinese",
+				"link": "https://hasura.io/learn/zh/graphql/hasura/introduction"
+			},
+		]
+	},
+	"newsletter": {
+    "pdfCopyFormId": "1244"
   },
 };
 

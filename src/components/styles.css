@@ -459,6 +459,8 @@ blockquote {
   padding-left: 8px;
   width: 100%;
   background-color: #EBF1F7;
+  display: flex;
+  align-items: center;
 }
 .sideBarUL .titleNav:hover {
   background-color: #EBF1F7;
