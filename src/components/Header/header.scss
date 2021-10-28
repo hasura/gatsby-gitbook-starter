@@ -176,10 +176,9 @@
 
   .dropDownContent {
     position: absolute;
-    left: 50%;
+    left: 0;
     top: 50px;
-    transform: translateX(-50%);
-    width: 100%;
+    // transform: translateX(-50%);
     display: flex;
 
     // Testing *** //
