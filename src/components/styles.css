@@ -375,6 +375,18 @@ a:hover {
 .mainWrapper {
   color: #1B2738;
 }
+.mainWrapper>h1[id]::before,
+.mainWrapper>h2[id]::before,
+.mainWrapper>h3[id]::before,
+.mainWrapper>h4[id]::before,
+.mainWrapper>h5[id]::before,
+.mainWrapper>h6[id]::before {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 72px;
+    margin-top: -72px;
+}
 .navBarUL li a:hover {
   color: #0079bd !important;
   /* opacity: .8; */
