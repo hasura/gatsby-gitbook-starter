@@ -136,7 +136,7 @@ const SidebarLayout = ({ location }) => (
               <li className="rightSideTitle">from the hasura blog</li>
               {
                 hasuraBlogState.map((item, index) => (
-                  <li key={index}><img src={openNew} alt="Open new window" /><a href={item.linkUrl}>{item.linkContent}</a></li>
+                  <li key={index}><img src={openNew} alt="Open new window" /><a href={item.linkUrl} target="_blank">{item.linkContent}</a></li>
                 ))
               }
             </ul>
