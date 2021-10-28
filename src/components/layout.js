@@ -427,7 +427,7 @@ const Layout = ({ children, location }) => {
                       <OpenedSvg className={((isShowSubscribe) ? "" : "rotateImg")}/>
                     </div>
                   {
-                    isAliId && isLocalSideBarSubscribe ? (
+                    isAliId ? (
                       <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
                     ) : (
                       <>
