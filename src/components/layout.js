@@ -373,7 +373,7 @@ const Layout = ({ children, location }) => {
             {
               !toggleSideBar ? (
                 <div className="p16">
-                  <Sidebar location={location} isShowSubscribe ={isShowSubscribe}/>
+                  <Sidebar location={location} sideBarULdecreaseHt = { isShowSubscribe || isAliId }/>
                 </div>
               ) : null
             }
@@ -424,8 +424,8 @@ const Layout = ({ children, location }) => {
                       <OpenedSvg className={((isShowSubscribe) ? "" : "rotateImg")}/>
                     </div>
                   {
-                    isAliId && isLocalSideBarSubscribe ? (
-                      <div className="desc">Thank you for subscribing to the Hasura Newsletter!</div>
+                    isAliId ? (
+                      <div className="desc">{config.newsletter?.ebookAvailable ? "Thank you, please check your email for the e-book" : "Thank you for subscribing to the Hasura Newsletter!"}</div>
                     ) : (
                       <>
                       <div className="desc font_600">{config.newsletter?.ebookAvailable ? "Download tutorial as e-book ⚡️" : "Sign up for Hasura Newsletter"}</div>

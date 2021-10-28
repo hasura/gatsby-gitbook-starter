@@ -621,9 +621,9 @@ blockquote {
   border-top: 1px solid rgb(214, 222, 230);
   padding: 0 24px;
   padding-top: 16px;
-  min-height: 180px;
   position: relative;
   background-color: rgb(244, 248, 251);
+  margin-bottom: 30px;
 }
 .sideBarNewsletterWrapper .closeBtn {
   position: absolute;

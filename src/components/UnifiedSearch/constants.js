@@ -6,6 +6,7 @@ export const INDEX_TYPES = Object.freeze({
 
 export const SEARCH_INDICES = [
   { name: `learn-intro-graphql`, title: `Learn Intro GraphQL`, type: INDEX_TYPES.learn },
+  { name: `learn-intro-graphql-zh`, title: `Learn Intro GraphQL`, type: INDEX_TYPES.learn },
   { name: `learn-elm-graphql`, title: `Learn ELM GraphQl`, type: INDEX_TYPES.learn },
   { name: `learn-flutter-graphql`, title: `Learn Flutter GraphQL`, type: INDEX_TYPES.learn },
   { name: `learn-database-mysql`, title: `Learn Database MySQL`, type: INDEX_TYPES.learn },
@@ -15,6 +16,8 @@ export const SEARCH_INDICES = [
     type: INDEX_TYPES.learn,
   },
   { name: `learn-hasura-backend`, title: `Learn Hasura Backend`, type: INDEX_TYPES.learn },
+  { name: `learn-hasura-backend-ja`, title: `Learn Hasura Backend`, type: INDEX_TYPES.learn },
+  { name: `learn-hasura-backend-zh`, title: `Learn Hasura Backend`, type: INDEX_TYPES.learn },
   { name: `learn-hasura-auth-slack`, title: `Learn Hasura Auth Slack`, type: INDEX_TYPES.learn },
   { name: `learn-react-apollo-hooks`, title: `Learn React Apollo Hooks`, type: INDEX_TYPES.learn },
   { name: `learn-react-apollo`, title: `Learn React Apollo`, type: INDEX_TYPES.learn },
@@ -38,6 +41,7 @@ export const SEARCH_INDICES = [
     title: `Learn Reason React Apollo`,
     type: INDEX_TYPES.learn,
   },
+  { name: `learn-database-mssql`, title: `Learn MicrosoftSQL`, type: INDEX_TYPES.learn },
   { name: `blog-production`, title: `Hasura Blog`, type: INDEX_TYPES.blog },
   { name: `graphql-docs-prod`, title: `Hasura GraphQL Engine Docs`, type: INDEX_TYPES.docs },
 ];
