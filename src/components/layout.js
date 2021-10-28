@@ -85,7 +85,7 @@ const LeftSideBarWidth = styled('div')`
   }
   .mainSideBarToggle {
     position: absolute;
-    top: 18px;
+    top: 26px;
     left: 300px;
     z-index: 100000 !important;
     width: 32px;
@@ -416,13 +416,18 @@ const Layout = ({ children, location }) => {
               {
                 !toggleSideBar ? (
                   <div className="sideBarNewsletterWrapper">
-                    <div className="closeBtn"
-                      role="button"
-                      tabIndex="0"
-                      onClick={()=>setIsShowSubscribe(prevIsSubscribe=>!prevIsSubscribe)}
-                    >
-                      <OpenedSvg className={((isShowSubscribe) ? "" : "rotateImg")}/>
-                    </div>
+                    {
+                      !isAliId ? (
+                        <div className="closeBtn"
+                          role="button"
+                          tabIndex="0"
+                          onClick={()=>setIsShowSubscribe(prevIsSubscribe=>!prevIsSubscribe)}
+                        >
+                          <OpenedSvg className={((isShowSubscribe) ? "" : "rotateImg")}/>
+                        </div>
+                      ) : null
+                    }
+
                   {
                     isAliId ? (
                       <div className="desc">{config.newsletter?.ebookAvailable ? "Thank you, please check your email for the e-book" : "Thank you for subscribing to the Hasura Newsletter!"}</div>
