@@ -71,7 +71,7 @@
   background: #fff !important;
   overflow: auto;
   position: relative;
-  transition: transform 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .hideMobile {
@@ -467,7 +467,8 @@
 
 @media (max-width: 1049px) {
   .visibleMobile {
-    transform: translateX(1050px);
+    // transform: translateX(1050px);
+    right: -1050px;
   }
 
   .stickyOnMobile {
@@ -650,7 +651,8 @@
     display: block !important;
   }
   .topnav.responsive .visibleMobile {
-    transform: translateX(16px);
+    // transform: translateX(16px);
+    right: 16px;
   }
   .navBarUL {
     display: none;
@@ -683,7 +685,8 @@
     border-bottom: 1px solid #d5dee5;
   }
   .topnav.responsive .visibleMobile {
-    transform: translateX(0);
+    // transform: translateX(0);
+    right: 0;
   }
 
   .search-icon {
@@ -705,9 +708,11 @@
     }
   }
   .visibleMobile {
-    transform: translateX(500px);
+    // transform: translateX(500px);
+    right: -500px;
   }
   .topnav.responsive .visibleMobile {
-    transform: translateX(0);
+    // transform: translateX(0);
+    right: 0;
   }
 }
