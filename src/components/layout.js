@@ -52,10 +52,9 @@ const Content = styled('main')`
   max-width: 1176px;
   width: 100%;
   padding: 32px;
-  height: calc(100vh - 72px);
-  overflow: auto;
+  /* height: calc(100vh - 72px);
+  overflow: auto; */
   @media(max-width: 1024px) {
-    height: auto;
   }
 `;
 
@@ -317,6 +316,9 @@ const Layout = ({ children, location }) => {
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, false);
     document.addEventListener("click", handleMobileClickOutside, false);
+    if(document.getElementById('main-content') != null) {
+      document.getElementById('main-content').scrollIntoView()
+    }
     return () => {
       document.removeEventListener("click", handleClickOutside, false);
       document.removeEventListener("click", handleMobileClickOutside, false);
@@ -453,7 +455,7 @@ const Layout = ({ children, location }) => {
               }
             </div>
           </LeftSideBarWidth>
-          <Content className={((toggleSideBar) ? "learnAsideWrapperPos" : "")}>
+          <Content id="main-content" className={((toggleSideBar) ? "learnAsideWrapperPos" : "")}>
             <MaxWidth>{children}</MaxWidth>
           </Content>
           {

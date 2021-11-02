@@ -1210,8 +1210,8 @@ strong {
 }
 @media (max-width: 1049px) {
   .viewport {
-    height: 100vh;
+    /* height: 100vh; */
     overflow-x: hidden;
-    overflow-y: auto;
+    /* overflow-y: auto; */
   }
 }

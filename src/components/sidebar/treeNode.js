@@ -4,6 +4,15 @@ import ClosedSvg from '../images/closed';
 import config from '../../../config';
 import Link from '../link';
 
+const scrollToTop = () => {
+  if (typeof window !== undefined) {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+};
+
 const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items }) => {
   const isCollapsed = collapsed[url];
 
@@ -31,7 +40,7 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items }
   return (
     <li className={calculatedClassName}>
       {title && (
-        <Link to={url}>
+        <Link onClick={scrollToTop} to={url}>
           {!config.sidebar.frontLine && title && hasChildren ? (
             <button onClick={collapse} aria-label="collapse" className="collapser">
               {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
