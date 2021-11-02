@@ -316,9 +316,6 @@ const Layout = ({ children, location }) => {
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, false);
     document.addEventListener("click", handleMobileClickOutside, false);
-    if(document.getElementById('main-content') != null) {
-      document.getElementById('main-content').scrollIntoView()
-    }
     return () => {
       document.removeEventListener("click", handleClickOutside, false);
       document.removeEventListener("click", handleMobileClickOutside, false);
@@ -455,7 +452,7 @@ const Layout = ({ children, location }) => {
               }
             </div>
           </LeftSideBarWidth>
-          <Content id="main-content" className={((toggleSideBar) ? "learnAsideWrapperPos" : "")}>
+          <Content className={((toggleSideBar) ? "learnAsideWrapperPos" : "")}>
             <MaxWidth>{children}</MaxWidth>
           </Content>
           {
