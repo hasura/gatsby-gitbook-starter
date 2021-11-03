@@ -149,7 +149,7 @@ export const ResourcesDropdown = () => {
       </div>
       {/* Column 2 */}
       <div
-        className="developers-section 
+        className="developers-section
       dropdown-column-section"
       >
         <h4 id="m-invisible" style={{ opacity: '0' }}>
@@ -176,7 +176,7 @@ export const ResourcesDropdown = () => {
           </a>
           <hr className="news-section-line-break" />
           <a
-            href="https://us02web.zoom.us/meeting/register/tZUvduuspzksGdXb_Kp2u8cNJQQ5JGxXVOrg"
+            href="https://us02web.zoom.us/meeting/register/tZcscuuorTotG9d9HENmz-XIoRpHUPIihGHK"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -188,7 +188,7 @@ export const ResourcesDropdown = () => {
                 </div>
               </div>
               <h2>
-                Join us for Hasura Cloud office hours in October. Every Wednesday at 9:30am PT/
+                Join us for Hasura Cloud office hours in November. Every Wednesday at 9:30am PT/
                 12:30 pm ET.
               </h2>
             </div>
