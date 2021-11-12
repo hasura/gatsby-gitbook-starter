@@ -93,6 +93,7 @@
     }
 
     .dropdown-hover-effect-div {
+      width: 100%;
       padding: 8px 22px !important;
       margin-bottom: 11px !important;
     }
@@ -105,6 +106,7 @@
     border-radius: 6px;
     cursor: pointer;
     margin-bottom: 4px;
+    width: 100%;
 
     &:hover {
       background: #f4faff;
