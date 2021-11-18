@@ -17,7 +17,7 @@ import './navproduct.scss';
 const devResourcesList = [
   {
     imgSrc: tutorialsIcon,
-    title: 'Courses & Tutorials',
+    title: 'Learn',
     externalLink: true,
     linkUrl: 'https://hasura.io/learn/',
   },
