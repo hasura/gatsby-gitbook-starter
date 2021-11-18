@@ -8,7 +8,6 @@ import casestudiesIcon from '../images/icon-userstudies.svg';
 import workshopIcon from '../images/icon-workshop.svg';
 import communityIcon from '../images/icon-community.svg';
 import contributorIcon from '../images/icon-contributions.svg';
-import linkIcon from '../images/icon_link.svg';
 // import eventIcon from "../images/icon-event.svg";
 import graphqlHubIcon from '../images/icon-graphql-hub.svg';
 import helpIcon from '../images/icon-help.svg';
@@ -82,7 +81,6 @@ export const ResourcesDropdown = () => {
                 <img src={nav.imgSrc} alt="icon" />
               </div>
               <h2>{nav.title}</h2>
-              <img src={linkIcon} alt="hasura-link" className="link_img" />
             </div>
           </a>
         ) : (
@@ -98,7 +96,6 @@ export const ResourcesDropdown = () => {
                 <img src={nav.imgSrc} alt="icon" />
               </div>
               <h2>{nav.title}</h2>
-              <img src={linkIcon} alt="hasura-link" className="link_img" />
             </div>
           </Link>
         )}
@@ -116,7 +113,6 @@ export const ResourcesDropdown = () => {
                 <img src={nav.imgSrc} alt="icon" />
               </div>
               <h2>{nav.title}</h2>
-              <img src={linkIcon} alt="hasura-link" className="link_img" />
             </div>
           </a>
         ) : (
@@ -132,7 +128,6 @@ export const ResourcesDropdown = () => {
                 <img src={nav.imgSrc} alt="icon" />
               </div>
               <h2>{nav.title}</h2>
-              <img src={linkIcon} alt="hasura-link" className="link_img" />
             </div>
           </Link>
         )}

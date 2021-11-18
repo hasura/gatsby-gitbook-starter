@@ -3,7 +3,6 @@ import React from 'react';
 import arrowBlue from '../images/arrow-blue.svg';
 import productIllus from '../images/product_illus.png';
 import dbIcon from '../images/db_icon.svg';
-import linkIcon from '../images/icon_link.svg';
 import './navproduct.scss';
 
 export const ProductDropdown = () => {
@@ -63,14 +62,12 @@ export const ProductDropdown = () => {
             <div className="dropdown-db-link dropdown-hover-effect-div">
               <img src={dbIcon} alt="hasura-database" className="db_icon" />
               <h2>Postgres</h2>
-              <img src={linkIcon} alt="hasura-database-link" className="link_img" />
             </div>
           </a>
           <a href="https://hasura.io/graphql/database/sql-server/">
             <div className="dropdown-db-link dropdown-hover-effect-div">
               <img src={dbIcon} alt="hasura-database" className="db_icon" />
               <h2>SQL Server</h2>
-              <img src={linkIcon} alt="hasura-database-link" className="link_img" />
             </div>
           </a>
           <a
@@ -81,7 +78,6 @@ export const ProductDropdown = () => {
             <div className="dropdown-db-link dropdown-hover-effect-div">
               <img src={dbIcon} alt="hasura-database" className="db_icon" />
               <h2>Big Query</h2>
-              <img src={linkIcon} alt="hasura-database-link" className="link_img" />
             </div>
           </a>
           <div className="coming-soon-div">
