@@ -8,10 +8,10 @@ export const saPage = ({ href, pathname, search = "", title = "" }) => {
   });
 };
 
-export const saTrack = (eventName, properties) => {
+export const saTrack = (eventName, properties={}) => {
   if (typeof eventName !== "string") {
     throw Error("Event Name must be a valid string to track an Event in Segment");
   }
   window.analytics = window.analytics || [];
-  window.analytics.track(eventName, properties);
+  window.analytics.track(eventName, { ...properties, category: 'learn' });
 };
