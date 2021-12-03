@@ -225,11 +225,13 @@ const Header = (props) => {
                     }
                     onClick={() => {
                       trackGAEvents('Learn course', 'HeaderClick', 'Log In');
-                      saTrack('Clicked LOG IN', {
+                      saTrack('click', {
                         placement: 'header',
                         cta: 'LOG IN',
                         page: utmPagePathName,
                         screen_size: 'desktop',
+                        label: 'Clicked LOG IN',
+                        action: 'click',
                       });
                     }}
                   >
@@ -241,11 +243,13 @@ const Header = (props) => {
                     href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
                     onClick={() => {
                       trackGAEvents('Learn course', 'HeaderClick', 'Try Hasura');
-                      saTrack('Clicked Get Started', {
+                      saTrack('click', {
                         placement: 'header',
                         cta: 'Get Started',
                         page: utmPagePathName,
                         screen_size: 'desktop',
+                        label: 'Clicked Get Started',
+                        action: 'click',
                       });
                     }}
                   >
@@ -363,11 +367,13 @@ const Header = (props) => {
                 <a href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=try-hasura&tech=default`}
                   onClick={() => {
                     trackGAEvents('Learn course', 'MobileClick', 'Try Hasura');
-                    saTrack('Clicked Get Started', {
+                    saTrack('click', {
                       placement: 'header',
                       cta: 'Get Started',
                       page: utmPagePathName,
                       screen_size: 'tab/mobile',
+                      label: 'Clicked Get Started',
+                      action: 'click',
                     });
                   }}
                 >

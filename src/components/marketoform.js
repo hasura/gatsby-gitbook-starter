@@ -39,7 +39,12 @@ export default function MarketoForm({
           });
         }
         //call analytics.track method on submit
-        window.analytics.track(`Marketo Form ${formId} Submitted`, vals);
+        window.analytics.track("form submit", {
+          ...vals,
+          category: 'learn',
+          label: `Marketo Form ${formId} Submitted`,
+          action: 'form submit'
+        });
       });
     });
   }, [isLoaded, formId, marketoHost, id]);
