@@ -71,7 +71,7 @@ export const ProductDropdown = () => {
             </div>
           </a>
           <a
-            href="https://hasura.io/graphql/database/google-bigquery/"
+            href="https://hasura.io/docs/latest/graphql/core/databases/bigquery/getting-started.html"
             target="_blank"
             rel="noopener noreferrer"
           >
