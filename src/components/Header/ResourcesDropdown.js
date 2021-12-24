@@ -11,6 +11,7 @@ import contributorIcon from '../images/icon-contributions.svg';
 // import eventIcon from "../images/icon-event.svg";
 import graphqlHubIcon from '../images/icon-graphql-hub.svg';
 import helpIcon from '../images/icon-help.svg';
+import blogIcon from '../images/icon-blog.svg';
 import './navproduct.scss';
 
 const devResourcesList = [
@@ -19,6 +20,12 @@ const devResourcesList = [
     title: 'Learn',
     externalLink: true,
     linkUrl: 'https://hasura.io/learn/',
+  },
+  {
+    imgSrc: blogIcon,
+    title: 'Blog',
+    externalLink: true,
+    linkUrl: 'https://hasura.io/blog/',
   },
   {
     imgSrc: communityIcon,
