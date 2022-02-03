@@ -18,6 +18,7 @@ export const SEARCH_INDICES = [
   { name: `learn-hasura-backend`, title: `Learn Hasura Backend`, type: INDEX_TYPES.learn },
   { name: `learn-hasura-backend-ja`, title: `Learn Hasura Backend`, type: INDEX_TYPES.learn },
   { name: `learn-hasura-backend-zh`, title: `Learn Hasura Backend`, type: INDEX_TYPES.learn },
+  { name: `learn-hasura-backend-advanced`, title: `Learn Hasura Backend Advanced`, type: INDEX_TYPES.learn },
   { name: `learn-hasura-auth-slack`, title: `Learn Hasura Auth Slack`, type: INDEX_TYPES.learn },
   { name: `learn-react-apollo-hooks`, title: `Learn React Apollo Hooks`, type: INDEX_TYPES.learn },
   { name: `learn-react-apollo`, title: `Learn React Apollo`, type: INDEX_TYPES.learn },
