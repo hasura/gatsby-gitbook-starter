@@ -11,6 +11,7 @@ import contributorIcon from '../images/icon-contributions.svg';
 // import eventIcon from "../images/icon-event.svg";
 import graphqlHubIcon from '../images/icon-graphql-hub.svg';
 import helpIcon from '../images/icon-help.svg';
+import dataHub from "../images/data-hub.svg";
 import blogIcon from '../images/icon-blog.svg';
 import './navproduct.scss';
 
@@ -29,7 +30,7 @@ const devResourcesList = [
   },
   {
     imgSrc: communityIcon,
-    title: 'Community Events',
+    title: "Community & Events",
     externalLink: true,
     linkUrl: 'https://hasura.io/events/',
   },
@@ -65,6 +66,12 @@ const miscResourcesList = [
     title: 'Why Hasura',
     externalLink: true,
     linkUrl: 'https://hasura.io/why-hasura/',
+  },
+  {
+    imgSrc: dataHub,
+    title: "Data Hub",
+    externalLink: true,
+    linkUrl: "https://hasura.io/data-hub/",
   },
 ];
 
@@ -162,39 +169,36 @@ export const ResourcesDropdown = () => {
       {/* Column 3 */}
       <div className="navDrapdownListWrapper">
         <div className="news-div dropdown-column-section">
-          <a href="https://hasura.io/blog/graphql-and-the-data-mesh-developer-productivity-in-an-age-of-exploding-data/">
-            <div className="navListAnnouncement">
-              <div className="flex-heading">
-                <h4 className="mb-24">NEWS</h4>
-                <div className="nav-link">
-                  Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
-                </div>
+        <a href="https://hasura.io/blog/announcing-hasura-v2-2-0/" rel="noopener noreferrer">
+          <div className="navListAnnouncement">
+            <div className="flex-heading">
+              <h4 className="mb-24">NEWS</h4>
+              <div className="nav-link">
+                Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
               </div>
-              <h2>
-                GraphQL &amp; the Data Mesh - developer productivity in an age of exploding data
-              </h2>
-              <h4 className="zero-m">Oct 13, 2021</h4>
             </div>
-          </a>
-          <hr className="news-section-line-break" />
-          <a
-            href="https://us02web.zoom.us/meeting/register/tZcscuuorTotG9d9HENmz-XIoRpHUPIihGHK"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="navListAnnouncement">
-              <div className="flex-heading">
-                <h4>Hasura Cloud Office Hours</h4>
-                <div className="nav-link">
-                  Join In <img src={arrowBlue} alt="Arrow" className="arrow-img" />
-                </div>
+            <h2>Announcing Hasura GraphQL Engine v2.2.0</h2>
+            <h4 className="zero-m">Feb 2, 2022</h4>
+          </div>
+        </a>
+        <hr className="news-section-line-break" />
+        <a
+          href="https://hasura.io/blog/graphql-and-the-data-mesh-developer-productivity-in-an-age-of-exploding-data/"
+          rel="noopener noreferrer"
+        >
+          <div className="navListAnnouncement">
+            <div className="flex-heading">
+              <h4 className="mb-24">NEWS</h4>
+              <div className="nav-link">
+                Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
               </div>
-              <h2>
-                Join us for Hasura Cloud office hours in November. Every Wednesday at 9:30am PT/
-                12:30 pm ET.
-              </h2>
             </div>
-          </a>
+            <h2>
+              GraphQL &amp; the Data Mesh - developer productivity in an age of exploding data
+            </h2>
+            <h4 className="zero-m">Oct 13, 2021</h4>
+          </div>
+        </a>
         </div>
       </div>
     </div>
