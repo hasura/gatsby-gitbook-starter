@@ -3,6 +3,8 @@ FROM node:buster
 # Create app directory
 WORKDIR /app
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Install app dependencies
 # RUN npm -g install serve
 RUN npm -g install gatsby-cli
