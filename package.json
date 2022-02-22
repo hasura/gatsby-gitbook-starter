@@ -37,7 +37,6 @@
     "gatsby-remark-images": "^6.8.0",
     "gatsby-source-filesystem": "^4.8.0",
     "gatsby-transformer-remark": "^5.8.0",
-    "graphql": "^16.3.0",
     "is-absolute-url": "^4.0.1",
     "lodash.flatten": "^4.4.0",
     "lodash.startcase": "^4.4.0",
