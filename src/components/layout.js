@@ -324,7 +324,7 @@ const Layout = ({ children, location }) => {
   const handleClickOutside = event => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       var x = document.getElementById("language-dropdown");
-      if (x.className === "languageDropDownWrapper showList") {
+      if (x?.className === "languageDropDownWrapper showList") {
         x.className = "languageDropDownWrapper";
         setIsLanguageShow(false);
       }
@@ -333,7 +333,7 @@ const Layout = ({ children, location }) => {
   const handleMobileClickOutside = event => {
     if (mobileWrapperRef.current && !mobileWrapperRef.current.contains(event.target)) {
       var x = document.getElementById("language-dropdown-mobile");
-      if (x.className === "languageDropDownWrapper showList") {
+      if (x?.className === "languageDropDownWrapper showList") {
         x.className = "languageDropDownWrapper";
         setIsLanguageShowMobile(false);
       }
