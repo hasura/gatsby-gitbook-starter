@@ -4,7 +4,7 @@ FROM node:14.16.0
 WORKDIR /app
 
 # Node 17 support https://github.com/hasura/gatsby-gitbook-starter/pull/159
-ENV NODE_OPTIONS=--openssl-legacy-provider
+# ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Install app dependencies
 # RUN npm -g install serve
