@@ -13,6 +13,7 @@ import graphqlHubIcon from '../images/icon-graphql-hub.svg';
 import helpIcon from '../images/icon-help.svg';
 import dataHub from "../images/data-hub.svg";
 import blogIcon from '../images/icon-blog.svg';
+import eventsIcon from "../images/star3.svg";
 import './navproduct.scss';
 
 const devResourcesList = [
@@ -30,15 +31,15 @@ const devResourcesList = [
   },
   {
     imgSrc: communityIcon,
-    title: "Community & Events",
+    title: "Community",
     externalLink: true,
-    linkUrl: 'https://hasura.io/events/',
+    linkUrl: 'https://hasura.io/community/',
   },
   {
-    imgSrc: contributorIcon,
-    title: 'Contributor Program',
+    imgSrc: eventsIcon,
+    title: 'Events',
     externalLink: true,
-    linkUrl: 'https://hasura.io/community/contributor-program/',
+    linkUrl: 'https://hasura.io/events/',
   },
   {
     imgSrc: helpIcon,
