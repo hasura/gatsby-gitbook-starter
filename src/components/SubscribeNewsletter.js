@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react"
+import React, {Fragment, useState, useEffect} from "react"
 import "./footer.scss"
 import MarketoForm from "./marketoform";
 const marketoHost = "https://page.hasura.io";
 import newsletterSuccess from './images/newsletter-success.svg';
+import Paperform from "./Paperform";
 const SubscribeNewsletter = ({location}) => {
   const [isAliId, setIsAliId] = useState(false);
   const [isLocalFooterSubscribe, setIsLocalFooterSubscribe] = useState(false);
@@ -42,7 +43,10 @@ const SubscribeNewsletter = ({location}) => {
             Thank you for subscribing to our newsletter!
           </div>
         ) : (
-          <MarketoForm onSubmitCB={onSubmitCB} formId='1011' marketoHost={marketoHost} id="631-HMN-492" styleClass="marketoFormWrapper subscribeNewsletterForm"/>
+          <Fragment>
+            {/* <MarketoForm onSubmitCB={onSubmitCB} formId='1011' marketoHost={marketoHost} id="631-HMN-492" styleClass="marketoFormWrapper subscribeNewsletterForm"/> */}
+            <Paperform onSubmitCB={onSubmitCB} formId='hf-1011' styleClass="marketoFormWrapper subscribeNewsletterForm"/>
+          </Fragment>
         )
       }
     </div>

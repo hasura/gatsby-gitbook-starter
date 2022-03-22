@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import GitHubButton from "react-github-btn";
 import { MDXProvider } from '@mdx-js/react';
@@ -14,6 +14,7 @@ import usFlag from "./images/us-flag.svg";
 import chinaFlag from "./images/china-flag.svg";
 import japanFlag from "./images/japan-flag.svg";
 import config from '../../config';
+import Paperform from './Paperform';
 
 const marketoHost = 'https://page.hasura.io';
 
@@ -435,13 +436,20 @@ const Layout = ({ children, location }) => {
                       <div className="desc font_600">{config.newsletter?.ebookAvailable ? "Download tutorial as e-book ⚡️" : "Sign up for Hasura Newsletter"}</div>
                       {
                         isShowSubscribe ? (
-                          <MarketoForm
-                            onSubmitCB={onSubmitCB}
-                            formId={config.newsletter?.ebookAvailable ? "1244" : "1079"}
-                            marketoHost={marketoHost}
-                            id="631-HMN-492"
-                            styleClass="marketoFormWrapper sideBarSubscribeWrapper"
-                          />
+                          <Fragment>
+                            {/* <MarketoForm
+                              onSubmitCB={onSubmitCB}
+                              formId={config.newsletter?.ebookAvailable ? "1244" : "1079"}
+                              marketoHost={marketoHost}
+                              id="631-HMN-492"
+                              styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+                            /> */}
+                            <Paperform
+                              onSubmitCB={onSubmitCB}
+                              formId={config.newsletter?.ebookAvailable ? "hf-1244" : "hf-1079"}
+                              styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+                            />
+                          </Fragment>
                         ) : null
                       }
                       </>
