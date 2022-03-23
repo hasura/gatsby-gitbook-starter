@@ -37,6 +37,13 @@ const Wrapper = styled('div')`
     min-height: auto !important;
     height: auto !important;
   }
+
+  .sideBarSubscribeWrapper {
+    iframe {
+      max-height: 140px !important;
+    }
+  }
+
   @media (max-width: 1024px) {
     padding-left: 0;
     padding-right: 0;
