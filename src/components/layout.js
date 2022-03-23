@@ -459,7 +459,7 @@ const Layout = ({ children, location }) => {
                   {isAliId ? (
                     <div className="desc">
                       {config.newsletter?.ebookAvailable
-                        ? 'Thank you, please check your email for the e-book'
+                        ? 'Thank you, please check your email for the e-book.'
                         : 'Thank you for subscribing to the Hasura Newsletter!'}
                     </div>
                   ) : (
