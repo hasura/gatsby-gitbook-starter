@@ -59,7 +59,7 @@ body {
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -222,12 +222,12 @@ a:hover {
 
 .headerTitle {
   height: auto;
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 180%;
-  color: #616D75 !important;
+  color: #616d75 !important;
   font-weight: 300;
   display: flex;
   align-items: center;
@@ -236,12 +236,12 @@ a:hover {
   margin: 0 4px;
 }
 .headerTitle a {
-  color: #0079BD !important;
+  color: #0079bd !important;
 }
 
 .headerTitle a:hover {
   text-decoration: none;
-  color: #00315F !important;
+  color: #00315f !important;
 }
 .logoWrapper {
   padding: 21px 0;
@@ -373,19 +373,19 @@ a:hover {
   padding-right: 32px !important;
 }
 .mainWrapper {
-  color: #1B2738;
+  color: #1b2738;
 }
-.mainWrapper>h1[id]::before,
-.mainWrapper>h2[id]::before,
-.mainWrapper>h3[id]::before,
-.mainWrapper>h4[id]::before,
-.mainWrapper>h5[id]::before,
-.mainWrapper>h6[id]::before {
-    content: '';
-    display: block;
-    visibility: hidden;
-    height: 72px;
-    margin-top: -72px;
+.mainWrapper > h1[id]::before,
+.mainWrapper > h2[id]::before,
+.mainWrapper > h3[id]::before,
+.mainWrapper > h4[id]::before,
+.mainWrapper > h5[id]::before,
+.mainWrapper > h6[id]::before {
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 72px;
+  margin-top: -72px;
 }
 .navBarUL li a:hover {
   color: #0079bd !important;
@@ -419,16 +419,22 @@ blockquote {
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #1B2738;
+  color: #1b2738;
   font-weight: 300;
   padding: 8px 0;
 }
-.mainWrapper ul li a, .mainWrapper ol li a, .paragraph a, b a {
-  color: #0079BD;
+.mainWrapper ul li a,
+.mainWrapper ol li a,
+.paragraph a,
+b a {
+  color: #0079bd;
 }
 
-.mainWrapper ul li a:hover, .mainWrapper ol li a:hover, .paragraph a:hover, b a:hover {
-  color: #005C8F;
+.mainWrapper ul li a:hover,
+.mainWrapper ol li a:hover,
+.paragraph a:hover,
+b a:hover {
+  color: #005c8f;
 }
 
 /* Header section ends here */
@@ -455,7 +461,7 @@ blockquote {
 }
 
 .sideBarUL {
-  max-height: calc(100vh - 277px);
+  max-height: calc(100vh - 319px);
   align-self: flex-start;
   overflow: auto;
 }
@@ -470,12 +476,12 @@ blockquote {
 .sideBarUL .titleNav a {
   padding-left: 8px;
   width: 100%;
-  background-color: #EBF1F7;
+  background-color: #ebf1f7;
   display: flex;
   align-items: center;
 }
 .sideBarUL .titleNav:hover {
-  background-color: #EBF1F7;
+  background-color: #ebf1f7;
 }
 .sideBarUL .titleNav svg {
   margin-right: 8px;
@@ -499,7 +505,7 @@ blockquote {
 }
 
 .rightSideTitle {
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -507,7 +513,7 @@ blockquote {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   padding: 8px 0;
-  color: #1B2738;
+  color: #1b2738;
 }
 
 .rightSideBarUL {
@@ -519,23 +525,25 @@ blockquote {
   padding-bottom: 16px;
 }
 
-.rightSideBarUL li, .blogLinkWrapper li {
+.rightSideBarUL li,
+.blogLinkWrapper li {
   list-style-type: none;
   padding: 8px 24px;
 }
 
-.rightSideBarUL li a, .blogLinkWrapper li a {
-  font-family: "IBM Plex Sans";
+.rightSideBarUL li a,
+.blogLinkWrapper li a {
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 1.5;
-  color: #74818A;
+  color: #74818a;
   padding: 0 0;
 }
 .blogLinkWrapper {
   padding-top: 16px;
-  border-top: 1px solid #D5DEE6;
+  border-top: 1px solid #d5dee6;
   align-self: flex-end;
   min-height: 264px;
   height: 264px;
@@ -546,7 +554,7 @@ blockquote {
   align-items: flex-start;
 }
 .blogLinkWrapper li a {
-  color: #0079BD;
+  color: #0079bd;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -558,10 +566,10 @@ blockquote {
   margin-top: 4px;
 }
 .rightSideBarUL li a:hover {
-  color: #1B2738;
+  color: #1b2738;
 }
 .blogLinkWrapper li a:hover {
-  color: #005C8F;
+  color: #005c8f;
 }
 
 .hideFrontLine .collapser {
@@ -580,7 +588,7 @@ blockquote {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #D5DEE6;
+  background-color: #d5dee6;
   margin-right: 14px;
 }
 
@@ -592,15 +600,15 @@ blockquote {
 }
 
 .firstLevel ul .item ul .item {
-  border-left: 1px solid #D5DEE6;
+  border-left: 1px solid #d5dee6;
 }
 .firstLevel ul .item ul .item a .greyCircle {
   display: none;
 }
 .firstLevel ul .item ul .active {
-  border-left: 1px solid #1B2738;
+  border-left: 1px solid #1b2738;
 }
-.sideBarUL .item{
+.sideBarUL .item {
   list-style: none;
   padding: 0;
 }
@@ -620,25 +628,26 @@ blockquote {
   align-self: flex-end;
   border-top: 1px solid rgb(214, 222, 230);
   padding: 0 24px;
-  padding-top: 16px;
+  padding-top: 30px;
   position: relative;
   background-color: rgb(244, 248, 251);
   margin-bottom: 30px;
 }
+
 .sideBarNewsletterWrapper .closeBtn {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 26px;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: #EBF1F7;
+  background-color: #ebf1f7;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .sideBarNewsletterWrapper .closeBtn svg {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .rotateImg {
   transform: rotate(180deg);
@@ -653,10 +662,10 @@ blockquote {
 .font_600 {
   font-weight: 600;
 }
-.hideFrontLine .active >a{
+.hideFrontLine .active > a {
   font-weight: 600;
-  color: #1B2738;
-  background-color: #EBF1F7;
+  color: #1b2738;
+  background-color: #ebf1f7;
 }
 .sideBarUL .item > a:hover {
   background-color: #ebf1f6;
@@ -747,7 +756,7 @@ blockquote {
   align-items: center;
   place-self: stretch;
   color: rgb(36, 42, 49);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transition: all 200ms ease 0s;
@@ -758,7 +767,7 @@ blockquote {
   display: flex;
   align-items: center;
   margin: 0px;
-  color: #0079BD;
+  color: #0079bd;
   flex: 0 0 auto;
   font-size: 24px;
   transition: all 200ms ease 0s;
@@ -799,7 +808,7 @@ blockquote {
   line-height: 1.5;
   font-size: 16px;
   font-weight: 300;
-  color: #1B2738;
+  color: #1b2738;
 }
 
 .nextBtn {
@@ -815,7 +824,7 @@ blockquote {
   align-items: center;
   place-self: stretch;
   color: rgb(36, 42, 49);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transition: all 200ms ease 0s;
@@ -831,7 +840,7 @@ blockquote {
   display: flex;
   align-items: center;
   margin: 0px;
-  color: #0079BD;
+  color: #0079bd;
   transition: all 200ms ease 0s;
 }
 
@@ -842,7 +851,8 @@ blockquote {
   flex: 1 1 0%;
 }
 
-.nextBtn:hover, .previousBtn:hover {
+.nextBtn:hover,
+.previousBtn:hover {
   background-color: rgb(248, 252, 255);
   text-decoration: none;
 }
@@ -953,8 +963,13 @@ img {
 .authorName img:hover {
   opacity: 0.7;
 }
-.heading1, .heading2, .heading3, .heading4, .heading5, .heading6 {
-  color: #1B2738;
+.heading1,
+.heading2,
+.heading3,
+.heading4,
+.heading5,
+.heading6 {
+  color: #1b2738;
   font-weight: 500;
 }
 .heading1 {
@@ -996,7 +1011,7 @@ img {
 
 .paragraph {
   line-height: 1.625;
-  color: #1B2738;
+  color: #1b2738;
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 36px;
@@ -1177,6 +1192,10 @@ strong {
   }
   .authorSection {
     width: 100%;
+  }
+
+  .sideBarNewsletterWrapper {
+    margin-bottom: 24px;
   }
 }
 

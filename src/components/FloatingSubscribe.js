@@ -5,6 +5,7 @@ import MarketoForm from './marketoform';
 const marketoHost = 'https://page.hasura.io';
 
 import closeSubscribe from "./images/close-subscribe.svg";
+import Paperform from './Paperform';
 
 const FloatingSubscribe = ({ handleNewsletterClose, hideNewsletter, location }) => {
   // let styleShow;
@@ -51,13 +52,19 @@ const FloatingSubscribe = ({ handleNewsletterClose, hideNewsletter, location }) 
               Thank you for subscribing to our newsletter!
             </div>
           ) : (
-            <MarketoForm
-              formId="1079"
-              marketoHost={marketoHost}
-              id="631-HMN-492"
-              styleClass="marketoFormWrapper"
-              marketoScriptId="mktoForms1"
-            />
+            <Fragment>
+              {/* <MarketoForm
+                formId="1079"
+                marketoHost={marketoHost}
+                id="631-HMN-492"
+                styleClass="marketoFormWrapper"
+                marketoScriptId="mktoForms1"
+              /> */}
+              <Paperform
+                formId="hf-1079"
+                styleClass="marketoFormWrapper"
+              />
+            </Fragment>
           )}
         </div>
       ) : null}
