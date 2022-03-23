@@ -461,7 +461,7 @@ b a:hover {
 }
 
 .sideBarUL {
-  max-height: calc(100vh - 277px);
+  max-height: calc(100vh - 319px);
   align-self: flex-start;
   overflow: auto;
 }
@@ -1191,6 +1191,10 @@ strong {
   }
   .authorSection {
     width: 100%;
+  }
+
+  .sideBarNewsletterWrapper {
+    margin-bottom: 24px;
   }
 }
 
