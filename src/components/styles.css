@@ -628,7 +628,7 @@ b a:hover {
   align-self: flex-end;
   border-top: 1px solid rgb(214, 222, 230);
   padding: 0 24px;
-  padding-top: 16px;
+  padding-top: 30px;
   position: relative;
   background-color: rgb(244, 248, 251);
   margin-bottom: 30px;
@@ -637,7 +637,7 @@ b a:hover {
 .sideBarNewsletterWrapper .closeBtn {
   position: absolute;
   right: 10px;
-  top: 15px;
+  top: 26px;
   width: 25px;
   height: 25px;
   border-radius: 50%;

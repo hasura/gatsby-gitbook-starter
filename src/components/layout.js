@@ -40,7 +40,7 @@ const Wrapper = styled('div')`
 
   .sideBarSubscribeWrapper {
     iframe {
-      max-height: 140px !important;
+      max-height: 170px !important;
     }
   }
 
