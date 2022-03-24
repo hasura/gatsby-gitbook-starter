@@ -67,7 +67,8 @@ export default function Paperform({ formId, onSubmitCB, styleClass }) {
     if (redPath.startsWith("/learn/")) {
       redPath = redPath.replace("/learn/", "/");
     }
-    navigate(`${redPath}?aliId=success_submit`);
+    // navigate(`${redPath}?aliId=success_submit`); - too many redirects and pathname variabality to do normal navigate
+    window.location.href = `${window.location.origin}${window.location.pathname}?aliId=success_submit`;
   }
 
   useEffect(() => {
