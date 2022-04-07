@@ -13,6 +13,7 @@ import OpenedSvg from './images/opened';
 import usFlag from './images/us-flag.svg';
 import chinaFlag from './images/china-flag.svg';
 import japanFlag from './images/japan-flag.svg';
+import spanishFlag from './images/spain.png';
 import config from '../../config';
 import Paperform from './Paperform';
 
@@ -293,6 +294,7 @@ const translationOptionsFlags = {
   en: usFlag,
   zh: chinaFlag,
   ja: japanFlag,
+  es: spanishFlag,
 };
 
 const Layout = ({ children, location }) => {
@@ -404,6 +406,7 @@ const Layout = ({ children, location }) => {
                       <img
                         src={translationOptionsFlags[config.language?.code]}
                         alt={`${config.language?.name} Flag`}
+                        style={{ maxWidth: '24px ' }}
                       />
                       {config.language?.name}
                     </button>
@@ -432,6 +435,7 @@ const Layout = ({ children, location }) => {
                               <img
                                 src={translationOptionsFlags[translation.code]}
                                 alt={`${translation.name} Flag`}
+                                style={{ maxWidth: '24px ' }}
                               />
                               <span>{translation.name}</span>
                             </a>
@@ -506,6 +510,7 @@ const Layout = ({ children, location }) => {
                       <img
                         src={translationOptionsFlags[config.language?.code]}
                         alt={`${config.language?.name} Flag`}
+                        style={{ maxWidth: '24px ' }}
                       />
                       {config.language?.name}
                     </button>
@@ -531,6 +536,7 @@ const Layout = ({ children, location }) => {
                             <a href={translation.link}>
                               <img
                                 src={translationOptionsFlags[translation.code]}
+                                style={{ maxWidth: '24px ' }}
                                 alt={`${translation.name} Flag`}
                               />
                               <span>{translation.name}</span>
