@@ -168,6 +168,23 @@ export const ResourcesDropdown = () => {
       {/* Column 3 */}
       <div className="navDrapdownListWrapper">
         <div className="news-div dropdown-column-section">
+          <a
+            href="https://techcrunch.com/2022/02/22/graphql-developer-platform-hasura-raises-100m-series-c/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="navListAnnouncement">
+              <div className="flex-heading">
+                <h4 className="mb-24">NEWS</h4>
+                <div className="nav-link">
+                  Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
+                </div>
+              </div>
+              <h2>GraphQL developer platform Hasura raises $100M Series C</h2>
+              <h4 className="zero-m">Feb 22, 2022</h4>
+            </div>
+          </a>
+          <hr className="news-section-line-break" />
           <a href="https://hasura.io/blog/announcing-hasura-v2-2-0/" rel="noopener noreferrer">
             <div className="navListAnnouncement">
               <div className="flex-heading">
@@ -178,24 +195,6 @@ export const ResourcesDropdown = () => {
               </div>
               <h2>Announcing Hasura GraphQL Engine v2.2.0</h2>
               <h4 className="zero-m">Feb 2, 2022</h4>
-            </div>
-          </a>
-          <hr className="news-section-line-break" />
-          <a
-            href="https://hasura.io/blog/graphql-and-the-data-mesh-developer-productivity-in-an-age-of-exploding-data/"
-            rel="noopener noreferrer"
-          >
-            <div className="navListAnnouncement">
-              <div className="flex-heading">
-                <h4 className="mb-24">NEWS</h4>
-                <div className="nav-link">
-                  Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
-                </div>
-              </div>
-              <h2>
-                GraphQL &amp; the Data Mesh - developer productivity in an age of exploding data
-              </h2>
-              <h4 className="zero-m">Oct 13, 2021</h4>
             </div>
           </a>
         </div>
