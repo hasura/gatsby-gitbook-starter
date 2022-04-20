@@ -26,7 +26,8 @@ const devResourcesList = [
   {
     imgSrc: blogIcon,
     title: 'Blog',
-    linkUrl: '/',
+    linkUrl: 'https://hasura.io/blog/',
+    externalLink: true,
   },
   {
     imgSrc: graphqlHubIcon,
