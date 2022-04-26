@@ -86,6 +86,7 @@
   .developers-section {
     width: 277px;
     padding: 10px;
+    border-right: 1px solid #dee6ec;
 
     h4 {
       padding-top: 22px;
@@ -96,6 +97,10 @@
       width: 100%;
       padding: 8px 22px !important;
       margin-bottom: 11px !important;
+    }
+
+    @media (max-width: 1024px) {
+      border-right: none;
     }
   }
 
@@ -275,7 +280,7 @@
   .news-div {
     width: 376px;
     padding: 10px;
-    border-left: 1px solid #dee6ec;
+    // border-left: 1px solid #dee6ec;
 
     h4 {
       padding: 0;

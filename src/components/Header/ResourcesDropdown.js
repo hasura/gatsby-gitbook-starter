@@ -7,72 +7,72 @@ import tutorialsIcon from '../images/icon-tutorials.svg';
 import casestudiesIcon from '../images/icon-userstudies.svg';
 import workshopIcon from '../images/icon-workshop.svg';
 import communityIcon from '../images/icon-community.svg';
-import contributorIcon from '../images/icon-contributions.svg';
+// import contributorIcon from '../images/icon-contributions.svg';
 // import eventIcon from "../images/icon-event.svg";
 import graphqlHubIcon from '../images/icon-graphql-hub.svg';
 import helpIcon from '../images/icon-help.svg';
-import dataHub from "../images/data-hub.svg";
+import dataHub from '../images/data-hub.svg';
 import blogIcon from '../images/icon-blog.svg';
-import eventsIcon from "../images/star3.svg";
+import eventsIcon from '../images/star3.svg';
 import './navproduct.scss';
 
 const devResourcesList = [
   {
     imgSrc: tutorialsIcon,
     title: 'Learn',
-    externalLink: true,
     linkUrl: 'https://hasura.io/learn/',
+    externalLink: true,
   },
   {
     imgSrc: blogIcon,
     title: 'Blog',
-    externalLink: true,
     linkUrl: 'https://hasura.io/blog/',
+    externalLink: true,
   },
   {
-    imgSrc: communityIcon,
-    title: "Community",
+    imgSrc: graphqlHubIcon,
+    title: 'GraphQL Hub',
+    linkUrl: 'https://hasura.io/graphql/',
     externalLink: true,
-    linkUrl: 'https://hasura.io/community/',
   },
   {
-    imgSrc: eventsIcon,
-    title: 'Events',
+    imgSrc: workshopIcon,
+    title: 'Why Hasura',
+    linkUrl: 'https://hasura.io/why-hasura/',
     externalLink: true,
-    linkUrl: 'https://hasura.io/events/',
   },
   {
     imgSrc: helpIcon,
     title: 'Help',
-    externalLink: true,
     linkUrl: 'https://hasura.io/help/',
+    externalLink: true,
   },
 ];
 
 const miscResourcesList = [
   {
+    imgSrc: communityIcon,
+    title: 'Community',
+    linkUrl: 'https://hasura.io/community/',
+    externalLink: true,
+  },
+  {
     imgSrc: casestudiesIcon,
     title: 'Case Studies',
-    externalLink: true,
     linkUrl: 'https://hasura.io/case-studies/',
+    externalLink: true,
   },
   {
-    imgSrc: graphqlHubIcon,
-    title: 'GraphQL Hub',
+    imgSrc: eventsIcon,
+    title: 'Events',
+    linkUrl: 'https://hasura.io/events/',
     externalLink: true,
-    linkUrl: 'https://hasura.io/graphql/',
-  },
-  {
-    imgSrc: workshopIcon,
-    title: 'Why Hasura',
-    externalLink: true,
-    linkUrl: 'https://hasura.io/why-hasura/',
   },
   {
     imgSrc: dataHub,
-    title: "Data Hub",
+    title: 'Data Hub',
+    linkUrl: 'https://hasura.io/data-hub/',
     externalLink: true,
-    linkUrl: "https://hasura.io/data-hub/",
   },
 ];
 
@@ -154,7 +154,7 @@ export const ResourcesDropdown = () => {
     <div className="navDrapdownWrapper resources-dropdown">
       {/* Column 1 */}
       <div className="dropdown-column-section developers-section">
-        <h4>LEARNING RESOURCES</h4>
+        <h4>LEARN</h4>
         {getDevResources}
       </div>
       {/* Column 2 */}
@@ -162,9 +162,7 @@ export const ResourcesDropdown = () => {
         className="developers-section
       dropdown-column-section"
       >
-        <h4 id="m-invisible" style={{ opacity: '0' }}>
-          Resources
-        </h4>
+        <h4>CONNECT</h4>
         {getMiscResources}
       </div>
       {/* Column 3 */}
