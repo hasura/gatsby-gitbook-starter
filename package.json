@@ -56,11 +56,11 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
-    "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "develop": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
