@@ -38,7 +38,7 @@ const devResourcesList = [
   {
     imgSrc: workshopIcon,
     title: 'Why Hasura',
-    linkUrl: 'https://hasura.io/why-hasura/',
+    linkUrl: 'https://hasura.io/blog/how-hasura-works/',
     externalLink: true,
   },
   {
