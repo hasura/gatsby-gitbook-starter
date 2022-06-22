@@ -13,6 +13,7 @@ import { ProductDropdown } from './ProductDropdown';
 import { ResourcesDropdown } from './ResourcesDropdown';
 import SearchOverlay from '../UnifiedSearch/SearchOverlay';
 import { GithubWidget } from './GithubButton';
+import { AnnouncementBanner } from '../AnnouncementBanner';
 
 import './header.scss';
 
@@ -116,12 +117,14 @@ const Header = (props) => {
 
   return (
     <Fragment>
+      <div className="positionStickyHeader">
+      <AnnouncementBanner hideThinBanner={props.hideThinBanner}/>
       <header
         id="header"
         className={
           isDark
-            ? 'DarkModeHeader box-shadow-header positionStickyHeader'
-            : 'lightModeHeader box-shadow-header positionStickyHeader'
+            ? 'DarkModeHeader box-shadow-header'
+            : 'lightModeHeader box-shadow-header'
         }
       >
         <div className="learnHeader">
@@ -384,6 +387,7 @@ const Header = (props) => {
           </div>
         </div>
       </header>
+      </div>
       <SearchOverlay showSearch={showSearch} onCloseSearch={onCloseSearch} />
     </Fragment>
   );
