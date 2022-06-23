@@ -211,14 +211,14 @@ const StyledHsauraConBanner = styled(props => <Link {...props} />)`
     color: #23303D;
     font-weight: 600;
     font-size: 12px;
-    padding-bottom: 4px;
+    padding-bottom: 8px;
     display: flex;
     align-items: center;
   }
   .hasuraConTitle {
     font-weight: 500;
     font-size: 20px;
-    line-height: 130%;
+    line-height: 150%;
     color: #23303D;
     padding-bottom: 16px;
   }
@@ -402,10 +402,19 @@ export default class MDXRuntimeTest extends Component {
           />
         )
       }
+      if(config.gatsby.pathPrefix === "/learn/graphql/hasura-authentication") {
+        return (
+          <HasuraConBanner
+            title="Join our live workshop on how to secure GraphQL APIs using Hasura!"
+            desc="Workshop | June 30, 2022 | 10:00AM AM PST"
+            link="https://hasura.io/events/hasura-con-2022/"
+          />
+        )
+      }
       if(config.gatsby.pathPrefix === "/learn/database/postgresql") {
         return (
           <HasuraConBanner
-            title="Take your Postgres skills to the next level! Join our live workshop on ladvanced Postgres skills!"
+            title="Take your Postgres skills to the next level! Join our live workshop on advanced Postgres skills!"
             desc="Workshop | June 30, 2022 | 12:00 PM PST"
             link="https://hasura.io/events/hasura-con-2022/"
           />
