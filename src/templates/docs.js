@@ -13,6 +13,7 @@ import '../components/styles.css';
 import config from '../../config';
 import gitHub from '../components/images/github.svg';
 import footerIllustration from '../components/images/footer-img.png';
+import hasuraConDark from "../components/images/hasura-con-dark.svg";
 import { saTrack } from '../utils/segmentAnalytics';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
@@ -184,6 +185,122 @@ const EditGithubBtn = ({docsLocation, parentRelativePath, cNmae}) => (
   </Edit>
 )
 
+const StyledHsauraConBanner = styled(props => <Link {...props} />)`
+  background-color: #E7EBEF;
+  border-radius: 4px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  grid-gap: 70px;
+  margin-top: 24px;
+  margin-bottom: 48px;
+  &:hover {
+    .hasuraConRegister {
+      svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+  .hasConMobileShow {
+    display: none;
+  }
+  .alignSelfCenter {
+    align-self: center;
+  }
+  .hasuraConDesc {
+    color: #23303D;
+    font-weight: 600;
+    font-size: 10px;
+    padding-bottom: 4px;
+    display: flex;
+    align-items: center;
+  }
+  .hasuraConTitle {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: #23303D;
+    padding-bottom: 16px;
+  }
+  .hasuraConRegister {
+    font-weight: 600;
+    font-size: 14px;
+    color: #23303D;
+    display: flex;
+    align-items: center;
+    svg {
+      transition: all .3s ease-in-out;
+      margin-left: 6px;
+    }
+  }
+  .hasuraConBrand {
+    img {
+
+    }
+  }
+  @keyframes up-right {
+    0% {
+      transform: scale(1);
+      opacity: 0.25;
+    }
+    50% {
+      transform: scale (1, 5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.25;
+    }
+  }
+  .greenCircle {
+    min-width: 8px;
+    width: 8px;
+    height: 8px;
+    min-height: 8px;
+    background-color: #1DB789;
+    border-radius: 50%;
+    margin-right: 8px;
+    -webkit-animation: up-right 1s infinite;
+    -moz-animation: up-right 1s infinite;
+    -o-animation: up-right 1s infinite;
+    animation: up-right 1s infinite;
+  }
+  @media(max-width: 1150px) {
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    padding: 24px;
+    .hasConMobileHide {
+      display: none;
+    }
+    .hasConMobileShow {
+      display: block;
+    }
+  }
+`;
+
+const HasuraConBanner = ({title, desc, link}) => (
+  <StyledHsauraConBanner to={link}>
+    <div className="hasuraConBrand alignSelfCenter hasConMobileShow">
+      <img src={hasuraConDark} alt="Hasura Con" />
+    </div>
+    <div className="alignSelfCenter">
+      <div className="hasuraConDesc">
+        <div className="greenCircle" /> {desc}
+      </div>
+      <div className="hasuraConTitle">
+        {title}
+      </div>
+      <div className="hasuraConRegister">
+        Register Now
+        <ArrowRight />
+      </div>
+    </div>
+    <div className="hasuraConBrand alignSelfCenter hasConMobileHide">
+      <img src={hasuraConDark} alt="Hasura Con" />
+    </div>
+  </StyledHsauraConBanner>
+)
+
 export default class MDXRuntimeTest extends Component {
   constructor(props) {
     super(props);
@@ -274,6 +391,34 @@ export default class MDXRuntimeTest extends Component {
     const showFeedback =()=> {
 
     }
+
+    const getHasuraConBanner = () => {
+      if(config.gatsby.pathPrefix === "/learn/graphql/hasura-auth-slack") {
+        return (
+          <HasuraConBanner
+            title="Securing your GraphQL API with Hasura"
+            desc="Workshop | June 30, 2022 | 10:00AM AM PST"
+            link="https://hasura.io/events/hasura-con-2022/"
+          />
+        )
+      }
+      if(config.gatsby.pathPrefix === "/learn/database/postgresql") {
+        return (
+          <HasuraConBanner
+            title="Developer Superpowers with Postgres"
+            desc="Workshop | June 30, 2022 | 12:00 PM PST"
+            link="https://hasura.io/events/hasura-con-2022/"
+          />
+        )
+      }
+      return (
+        <HasuraConBanner
+          title="Getting Started with Hasura"
+          desc="Workshop | June 30, 2022 | 08:00 AM PST"
+          link="https://hasura.io/events/hasura-con-2022/"
+        />
+      )
+    }
     return (
       <Layout {...this.props}>
         <Helmet>
@@ -292,6 +437,7 @@ export default class MDXRuntimeTest extends Component {
           <SubHeader location={location} title={mdx.fields.title}/>
           <EditGithubBtn cNmae="mobileAlign" docsLocation={docsLocation} parentRelativePath={mdx.parent.relativePath} />
         </BreadCrumbHeader>
+        {getHasuraConBanner()}
         <div className="titleWrapper">
           <h1 className="title">{mdx.fields.title}</h1>
         </div>
