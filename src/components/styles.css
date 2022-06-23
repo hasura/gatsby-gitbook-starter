@@ -518,8 +518,8 @@ b a:hover {
 
 .rightSideBarUL {
   overflow: auto;
-  max-height: calc(100vh - 396px);
-  height: calc(100vh - 396px);
+  max-height: calc(100vh - 436px);
+  height: calc(100vh - 436px);
   overflow: auto;
   align-self: flex-start;
   padding-bottom: 16px;
@@ -545,9 +545,9 @@ b a:hover {
   padding-top: 16px;
   border-top: 1px solid #d5dee6;
   align-self: flex-end;
-  min-height: 264px;
-  height: 264px;
-  padding-bottom: 60px;
+  min-height: 244px;
+  height: 244px;
+  padding-bottom: 40px;
 }
 .blogLinkWrapper li {
   display: flex;

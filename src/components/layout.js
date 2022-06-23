@@ -10,12 +10,16 @@ import MarketoForm from './marketoform';
 import CloseIcon from '../globals/icons/Close';
 import OpenedSvg from './images/opened';
 
+import Header from './Header';
+// import { AnnouncementBanner } from './AnnouncementBanner';
+
 import usFlag from './images/us-flag.svg';
 import chinaFlag from './images/china-flag.svg';
 import japanFlag from './images/japan-flag.svg';
 import spanishFlag from './images/spain.png';
 import config from '../../config';
 import Paperform from './Paperform';
+import './styles.css';
 
 const marketoHost = 'https://page.hasura.io';
 
@@ -27,6 +31,11 @@ const Wrapper = styled('div')`
   transition: all 0.3s ease-in-out 0s;
   padding-left: 320px;
   padding-right: 256px;
+  .topThinBanner {
+    top: 132px;
+    min-height: calc(100vh - 132px);
+    height: calc(100vh - 132px);
+  }
   .learnAsideWrapperPos {
     padding: 32px 32px !important;
   }
@@ -305,7 +314,7 @@ const Layout = ({ children, location }) => {
   const [isAliId, setIsAliId] = useState(false);
   const [isLocalSideBarSubscribe, setIsLocalSideBarSubscribe] = useState(false);
   const [isShowSubscribe, setIsShowSubscribe] = useState(true);
-
+  const [showThinBanner, setShowThinBanner] = useState(true);
   const wrapperRef = useRef(null);
   const mobileWrapperRef = useRef(null);
 
@@ -314,6 +323,10 @@ const Layout = ({ children, location }) => {
       window.localStorage.setItem('sideBarSubscribeConsent', 'true');
     }
   };
+
+  const hideThinBanner = () => {
+    setShowThinBanner(false);
+  }
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -358,7 +371,10 @@ const Layout = ({ children, location }) => {
     }
   };
   return (
+    <>
+    {/* <AnnouncementBanner /> */}
     <ThemeProvider location={location}>
+      <Header location={location} hideThinBanner={hideThinBanner}/>
       <MDXProvider components={mdxComponents}>
         <Wrapper className={toggleSideBar ? ' mainWrapperCollapse' : ''}>
           <StyledToggleSideNavWrapper
@@ -372,7 +388,8 @@ const Layout = ({ children, location }) => {
           <LeftSideBarWidth
             className={
               (toggleSideBar ? ' sidebarWrapperCollapse' : '') +
-              (isSubNavShow ? ' translateXZero' : '')
+              (isSubNavShow ? ' translateXZero' : '') +
+              (showThinBanner ? ' topThinBanner' : '')
             }
           >
             <div
@@ -499,7 +516,7 @@ const Layout = ({ children, location }) => {
             <MaxWidth>{children}</MaxWidth>
           </Content>
           {!toggleSideBar ? (
-            <RightSideBarWidth>
+            <RightSideBarWidth className={(showThinBanner ? ' topThinBanner' : '')}>
               <LanguageWrapper ref={wrapperRef}>
                 <div className="languageWrapper">
                   {!!config.language?.code && (
@@ -548,13 +565,13 @@ const Layout = ({ children, location }) => {
                   )}
                 </div>
               </LanguageWrapper>
-
               <RightSidebar location={location} />
             </RightSideBarWidth>
           ) : null}
         </Wrapper>
       </MDXProvider>
     </ThemeProvider>
+    </>
   );
 };
 export default Layout;

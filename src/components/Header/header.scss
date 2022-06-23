@@ -41,6 +41,7 @@
 .positionStickyHeader {
   position: sticky;
   top: 0;
+  z-index: 10;
   // -webkit-backdrop-filter: saturate(100%) blur(10px);
   // backdrop-filter: saturate(100%) blur(10px);
 }
@@ -489,6 +490,7 @@
     padding-top: 0px;
     box-shadow: none;
     border-bottom: 1px solid #d5dee5;
+    position: relative;
   }
 
   .gitHubBtnMobile {
