@@ -210,7 +210,7 @@ const StyledHsauraConBanner = styled(props => <Link {...props} />)`
   .hasuraConDesc {
     color: #23303D;
     font-weight: 600;
-    font-size: 10px;
+    font-size: 12px;
     padding-bottom: 4px;
     display: flex;
     align-items: center;
@@ -265,7 +265,7 @@ const StyledHsauraConBanner = styled(props => <Link {...props} />)`
     -o-animation: up-right 1s infinite;
     animation: up-right 1s infinite;
   }
-  @media(max-width: 1150px) {
+  @media(max-width: 1215px) {
     grid-template-columns: 1fr;
     grid-gap: 16px;
     padding: 24px;
@@ -396,7 +396,7 @@ export default class MDXRuntimeTest extends Component {
       if(config.gatsby.pathPrefix === "/learn/graphql/hasura-auth-slack") {
         return (
           <HasuraConBanner
-            title="Securing your GraphQL API with Hasura"
+            title="Join our live workshop on how to secure GraphQL APIs using Hasura!"
             desc="Workshop | June 30, 2022 | 10:00AM AM PST"
             link="https://hasura.io/events/hasura-con-2022/"
           />
@@ -405,7 +405,7 @@ export default class MDXRuntimeTest extends Component {
       if(config.gatsby.pathPrefix === "/learn/database/postgresql") {
         return (
           <HasuraConBanner
-            title="Developer Superpowers with Postgres"
+            title="Take your Postgres skills to the next level! Join our live workshop on ladvanced Postgres skills!"
             desc="Workshop | June 30, 2022 | 12:00 PM PST"
             link="https://hasura.io/events/hasura-con-2022/"
           />
@@ -413,7 +413,7 @@ export default class MDXRuntimeTest extends Component {
       }
       return (
         <HasuraConBanner
-          title="Getting Started with Hasura"
+          title="Learn how to use Hasura from the engineers who built it! Join our live workshop"
           desc="Workshop | June 30, 2022 | 08:00 AM PST"
           link="https://hasura.io/events/hasura-con-2022/"
         />
