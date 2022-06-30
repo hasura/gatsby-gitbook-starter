@@ -78,6 +78,7 @@ const Edit = styled('div')`
     }
   }
 `;
+
 const BreadCrumbHeader = styled('div')`
   display: flex;
   justify-content: space-between;
@@ -90,6 +91,7 @@ const BreadCrumbHeader = styled('div')`
     display: block;
   }
 `;
+
 const HelpfulGithubWrapper = styled('div')`
   display: flex;
   justify-content: space-between;
@@ -392,42 +394,42 @@ export default class MDXRuntimeTest extends Component {
 
     }
 
-    const getHasuraConBanner = () => {
-      if(config.gatsby.pathPrefix === "/learn/graphql/hasura-auth-slack") {
-        return (
-          <HasuraConBanner
-            title="Join our live workshop on how to secure GraphQL APIs using Hasura!"
-            desc="Workshop | June 30, 2022 | 10:00AM AM PST"
-            link="https://hasura.io/events/hasura-con-2022/"
-          />
-        )
-      }
-      if(config.gatsby.pathPrefix === "/learn/graphql/hasura-authentication") {
-        return (
-          <HasuraConBanner
-            title="Join our live workshop on how to secure GraphQL APIs using Hasura!"
-            desc="Workshop | June 30, 2022 | 10:00AM AM PST"
-            link="https://hasura.io/events/hasura-con-2022/"
-          />
-        )
-      }
-      if(config.gatsby.pathPrefix === "/learn/database/postgresql") {
-        return (
-          <HasuraConBanner
-            title="Take your Postgres skills to the next level! Join our live workshop on advanced Postgres skills!"
-            desc="Workshop | June 30, 2022 | 12:00 PM PST"
-            link="https://hasura.io/events/hasura-con-2022/"
-          />
-        )
-      }
-      return (
-        <HasuraConBanner
-          title="Learn how to use Hasura from the engineers who built it! Join our live workshop"
-          desc="Workshop | June 30, 2022 | 08:00 AM PST"
-          link="https://hasura.io/events/hasura-con-2022/"
-        />
-      )
-    }
+    // const getHasuraConBanner = () => {
+    //   if(config.gatsby.pathPrefix === "/learn/graphql/hasura-auth-slack") {
+    //     return (
+    //       <HasuraConBanner
+    //         title="Join our live workshop on how to secure GraphQL APIs using Hasura!"
+    //         desc="Workshop | June 30, 2022 | 10:00AM AM PST"
+    //         link="https://hasura.io/events/hasura-con-2022/"
+    //       />
+    //     )
+    //   }
+    //   if(config.gatsby.pathPrefix === "/learn/graphql/hasura-authentication") {
+    //     return (
+    //       <HasuraConBanner
+    //         title="Join our live workshop on how to secure GraphQL APIs using Hasura!"
+    //         desc="Workshop | June 30, 2022 | 10:00AM AM PST"
+    //         link="https://hasura.io/events/hasura-con-2022/"
+    //       />
+    //     )
+    //   }
+    //   if(config.gatsby.pathPrefix === "/learn/database/postgresql") {
+    //     return (
+    //       <HasuraConBanner
+    //         title="Take your Postgres skills to the next level! Join our live workshop on advanced Postgres skills!"
+    //         desc="Workshop | June 30, 2022 | 12:00 PM PST"
+    //         link="https://hasura.io/events/hasura-con-2022/"
+    //       />
+    //     )
+    //   }
+    //   return (
+    //     <HasuraConBanner
+    //       title="Learn how to use Hasura from the engineers who built it! Join our live workshop"
+    //       desc="Workshop | June 30, 2022 | 08:00 AM PST"
+    //       link="https://hasura.io/events/hasura-con-2022/"
+    //     />
+    //   )
+    // }
     return (
       <Layout {...this.props}>
         <Helmet>
@@ -446,7 +448,7 @@ export default class MDXRuntimeTest extends Component {
           <SubHeader location={location} title={mdx.fields.title}/>
           <EditGithubBtn cNmae="mobileAlign" docsLocation={docsLocation} parentRelativePath={mdx.parent.relativePath} />
         </BreadCrumbHeader>
-        {getHasuraConBanner()}
+        {/*getHasuraConBanner()*/}
         <div className="titleWrapper">
           <h1 className="title">{mdx.fields.title}</h1>
         </div>
