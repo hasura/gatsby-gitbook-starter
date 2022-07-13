@@ -1,4 +1,4 @@
-@import "./fonts.scss";
+@import './fonts.scss';
 .mobileNavShow {
   display: none;
 }
@@ -7,7 +7,7 @@
   margin-left: -50vw;
   position: relative;
   width: 100vw;
-  background-color: #EBF1F6;
+  background-color: #ebf1f6;
   box-shadow: 0px 14px 44px rgba(0, 0, 0, 0.14);
   border-radius: 8px;
   position: absolute;
@@ -39,9 +39,9 @@
         padding: 8px;
         border-radius: 4px;
         display: flex;
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
         &:hover {
-          background-color: #F8FCFF;
+          background-color: #f8fcff;
         }
         .navListImg {
           padding-right: 8px;
@@ -56,16 +56,16 @@
           color: #404955;
         }
         .hasura-ibm-plex-mono-small {
-          color: #74818A;
+          color: #74818a;
           text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
         }
       }
     }
     .navLearnBg {
-      background-color: #0B9DBC;
+      background-color: #0b9dbc;
     }
     .navDataBaseBg {
-      background-color: #2771B6;
+      background-color: #2771b6;
     }
     .mb-32 {
       margin-bottom: 32px;
@@ -74,7 +74,7 @@
       padding: 24px;
       box-shadow: 0 14px 24px rgba(0, 0, 0, 0.3);
       border-radius: 4px;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       &:hover {
         box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
         .hasura-ibm-plex-article-desc {
@@ -84,10 +84,10 @@
         }
       }
       .hasura-ibm-plex-article-desc {
-        color: #F5FDFF;
+        color: #f5fdff;
         padding-bottom: 16px;
         .arrow {
-          transition: all .3s ease-in-out;
+          transition: all 0.3s ease-in-out;
           margin-left: 6px;
           width: 8px;
           display: inline-block;
@@ -100,7 +100,7 @@
         }
       }
       .hasura-ibm-plex-mono {
-        color: #FFFFFF;
+        color: #ffffff;
       }
     }
   }
@@ -136,7 +136,7 @@
       }
     }
     .mobileTitleResources {
-      color: #00315F;
+      color: #00315f;
       padding-bottom: 30px;
       text-transform: uppercase;
     }
