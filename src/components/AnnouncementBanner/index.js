@@ -223,7 +223,7 @@ export const AnnouncementBanner = ({hideThinBanner}) => {
           <div className="flex-center ml-75">
             <div className="greenCircle" />
             <p>
-              Check out the product announcements from HasuraCon’22
+              Catch the HasuraCon’22 Recordings
               <div className="arrow">{' >'}</div>
             </p>
           </div>
