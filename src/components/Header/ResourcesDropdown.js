@@ -168,16 +168,16 @@ export const ResourcesDropdown = () => {
       {/* Column 3 */}
       <div className="navDrapdownListWrapper">
         <div className="news-div dropdown-column-section">
-          <a href="https://indiafoss.net/" target="_blank" rel="noopener noreferrer">
+          <a href="https://hasura.io/blog/product-announcements-at-hasuracon22-making-graphql-the-ultimate-data-api/" rel="noopener noreferrer">
             <div className="navListAnnouncement">
               <div className="flex-heading">
-                <h4 className="mb-24">EVENT</h4>
+                <h4 className="mb-24">NEWS</h4>
                 <div className="nav-link">
                   Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
                 </div>
               </div>
-              <h2>IndiaFOSS Conf. 2022</h2>
-              <h4 className="zero-m">July 23-24th, 2022</h4>
+              <h2>Check out our product announcements from HasuraCon’22</h2>
+              <h4 className="zero-m">Jun 28, 2022</h4>
             </div>
           </a>
           <hr className="news-section-line-break" />
