@@ -5,7 +5,7 @@ import { default as defaultTheme } from './theme';
 // import SubHeader from './SubHeader';
 import Header from '../components/Header';
 // import Footer from './footer';
-import { AnnouncementBanner } from '../components/AnnouncementBanner';
+// import { AnnouncementBanner } from '../components/AnnouncementBanner';
 import './styles.css';
 
 export default function ThemeProvider({ children, theme = {}, location }) {

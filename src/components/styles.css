@@ -461,10 +461,11 @@ b a:hover {
 }
 
 .sideBarUL {
-  max-height: calc(100vh - 319px);
+  max-height: calc(100vh - 420px) !important; 
   align-self: flex-start;
   overflow: auto;
 }
+
 .sideBarULHeight {
   max-height: calc(100vh - 164px);
 }
@@ -624,6 +625,7 @@ b a:hover {
   font-weight: 300;
   border-radius: 4px;
 }
+
 .sideBarNewsletterWrapper {
   align-self: flex-end;
   border-top: 1px solid rgb(214, 222, 230);
@@ -1227,6 +1229,7 @@ strong {
     width: 100%;
   }
 }
+
 @media (max-width: 1049px) {
   .viewport {
     /* height: 100vh; */
@@ -1234,3 +1237,10 @@ strong {
     /* overflow-y: auto; */
   }
 }
+
+/* @media(min-width: 1024px) {
+  .sideBarNewsletterWrapper {
+    margin-top: -80px;
+    min-height: 80px;
+  }
+} */
