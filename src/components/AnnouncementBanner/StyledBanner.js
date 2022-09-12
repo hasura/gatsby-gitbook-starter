@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import bannerIllus from "../images/banner-stripe-bg-egc.svg";
-import smallBgIllus from "../images/banner_small_bg.jpg";
+import bannerIllus from '../images/banner-stripe-bg-egc.svg';
+import smallBgIllus from '../images/banner_small_bg.jpg';
 
 export const StyledBanner = styled.div`
   background-color: #00315f;
@@ -20,7 +20,7 @@ export const StyledBanner = styled.div`
 
     transition: max-height 150ms ease-in-out;
     .text-contnet {
-      font-family: "IBM Plex Sans";
+      font-family: 'IBM Plex Sans';
       flex: 1;
       text-align: center;
       font-size: 14px;
@@ -93,6 +93,14 @@ export const StyledBanner = styled.div`
       }
     }
   }
+
+  @media (max-width: 450px) {
+    .commonBannerStripWrapper {
+      .text-contnet {
+        font-size: 12px !important;
+      }
+    }
+  }
 `;
 
 export const StyledStripBanner = styled.div`
@@ -110,7 +118,7 @@ export const StyledStripBanner = styled.div`
   /* padding: 0 9.5%; */
   justify-content: space-between;
 
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   .hasuraConBrand {
     max-height: 40px;
   }

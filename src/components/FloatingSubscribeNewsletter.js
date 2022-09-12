@@ -100,7 +100,7 @@ const FloatingSubscribeNewsletter = ({ title, canonicalUrl, location }) => {
               help you build modern apps faster.
             </div>
             <div className="buttonWrapper">
-              <a href={`https://cloud.hasura.io/signup?pg=${getUTMPagePathName(location?.pathname)}&plcmt=floating&cta=use-hasura-cloud-free&tech=default`}>
+              <a href={`https://cloud.hasura.io/signup?pg=${getUTMPagePathName(location?.pathname)}&plcmt=floating&cta=try-hasura-cloud-for-free&tech=default`}>
                 <button className="subscribeBtn">Try Hasura Cloud for Free</button>
               </a>
             </div>

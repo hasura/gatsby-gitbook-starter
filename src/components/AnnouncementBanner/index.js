@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
-import styled from "styled-components";
 
 import { StyledBanner } from './StyledBanner';
-
-import hasuraCon22Logo from "../images/hasura-con.svg";
-
 
 const CloseIconSvg = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +18,7 @@ const CloseIconSvg = () => (
   </svg>
 );
 
-export const AnnouncementBanner = ({hideThinBanner}) => {
+export const AnnouncementBanner = ({ hideThinBanner }) => {
   const [isBannerActive, toggleBanner] = useState(true);
 
   const handleCloseButton = () => {
@@ -39,7 +34,7 @@ export const AnnouncementBanner = ({hideThinBanner}) => {
   if (isBannerActive) {
     return (
       <>
-      {/*<StyledStripBanner>
+        {/*<StyledStripBanner>
         <a href="https://hasura.io/events/hasura-con-2022/" className="flex-center">
           <img
             className="hasuraConBrand"
@@ -60,23 +55,32 @@ export const AnnouncementBanner = ({hideThinBanner}) => {
         </div>
       </StyledStripBanner>*/}
 
-      <StyledBanner>
-        <div className="commonBannerStripWrapper">
-          <Link
-            to="https://hasura.io/events/webinar/hasura-hosts-postman/?pg=learn-course&plcmt=banner&cta=sign-up&tech="
-            className="text-contnet"
-          >
-            <span className="emoji" role="img" aria-label="emoji">
-              👋
-            </span>
-            Hasura Hosts Postman: Exploring the State of the API
-            <div className="arrow">{' >'}</div>
-          </Link>
-          <div className="closeBanner" role="button" tabIndex="0" onClick={()=>{handleCloseButton();hideThinBanner();}}>
-            <CloseIconSvg />
+        <StyledBanner>
+          <div className="commonBannerStripWrapper">
+            <a
+              href="https://hasura.io/blog/instant-streaming-api-built-in-authorization-new-existing-postgres/"
+              className="text-contnet"
+            >
+              {/* <span className="emoji" role="img" aria-label="emoji">
+                👋
+              </span> */}
+              Announcing instant streaming APIs with built-in authorization for new or existing
+              Postgres
+              <div className="arrow">{' >'}</div>
+            </a>
+            <div
+              className="closeBanner"
+              role="button"
+              tabIndex="0"
+              onClick={() => {
+                handleCloseButton();
+                hideThinBanner();
+              }}
+            >
+              <CloseIconSvg />
+            </div>
           </div>
-        </div>
-      </StyledBanner>
+        </StyledBanner>
       </>
     );
   }
