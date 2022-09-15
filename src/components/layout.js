@@ -18,6 +18,7 @@ import chinaFlag from './images/china-flag.svg';
 import japanFlag from './images/japan-flag.svg';
 import spanishFlag from './images/spain.png';
 import config from '../../config';
+import chevronDown from "./images/chevron-down.svg";
 import Paperform from './Paperform';
 import './styles.css';
 
@@ -30,7 +31,7 @@ const Wrapper = styled('div')`
   grid-template-columns: 1fr;
   transition: all 0.3s ease-in-out 0s;
   padding-left: 320px;
-  padding-right: 256px;
+  padding-right: 280px;
   .topThinBanner {
     top: 132px;
     min-height: calc(100vh - 132px);
@@ -152,7 +153,7 @@ const LeftSideBarWidth = styled('div')`
 `;
 
 const RightSideBarWidth = styled('div')`
-  width: 256px;
+  width: 280px;
   border-left: 1px solid #d5dee6;
   min-height: calc(100vh - 72px);
   height: calc(100vh - 72px);
@@ -426,6 +427,7 @@ const Layout = ({ children, location }) => {
                         style={{ maxWidth: '24px ' }}
                       />
                       {config.language?.name}
+                      <img src={chevronDown} alt="Arrow" style={{marginLeft: '6px'}} />
                     </button>
                   )}
                   <div className="githubStars">
@@ -530,6 +532,7 @@ const Layout = ({ children, location }) => {
                         style={{ maxWidth: '24px ' }}
                       />
                       {config.language?.name}
+                      <img src={chevronDown} alt="Arrow" style={{marginLeft: '6px', marginRight: '0'}} />
                     </button>
                   )}
                   <div className="githubStars">

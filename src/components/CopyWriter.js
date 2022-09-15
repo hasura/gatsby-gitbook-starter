@@ -14,17 +14,25 @@ const CopyWriteWrapper = styled('div')`
   padding: 22px 0;
   display: flex;
   align-items: center;
+  .brand {
+    a {
+      display: grid;
+    }
+  }
   .hasura-ibm-plex-mono {
     flex: 1;
     text-align: center;
-    color: #74818A;
+    color: rgb(79, 109, 135);
   }
   .footerSocialIconsWrapper {
     display: flex;
     align-items: center;
     .socialBrands {
-      margin: 0 12px;
+      margin: 0 10px;
       opacity: .8;
+      a {
+        display: grid;
+      }
       &:hover {
         opacity: 1;
       }
@@ -68,7 +76,9 @@ const CopyWriter = () => {
   return (
     <CopyWriteWrapper>
       <div className="brand">
-        <img src={hasuraLogoColor} alt="Brand logo" />
+        <a href="https://hasura.io/">
+          <img src={hasuraLogoColor} alt="Brand logo" />
+        </a>
       </div>
       <div className="hasura-ibm-plex-mono">
         © {new Date().getFullYear()} Hasura Inc. All rights reserved
