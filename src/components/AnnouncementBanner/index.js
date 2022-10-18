@@ -58,14 +58,21 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
         <StyledBanner>
           <div className="commonBannerStripWrapper">
             <a
-              href="https://hasura.io/blog/instant-streaming-api-built-in-authorization-new-existing-postgres/"
+              href="https://www.producthunt.com/posts/hasura-native-postgres-integration"
               className="text-contnet"
             >
               {/* <span className="emoji" role="img" aria-label="emoji">
                 👋
               </span> */}
-              Announcing instant streaming APIs with built-in authorization for new or existing
-              Postgres
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1666068552/Swag%20Store/ph_cat_hmpt8g.png"
+                alt="ProductHunt"
+                className="ph-img"
+              />
+              Instant GraphQL backend with Hasura & Neon in under 2 mins. Support us on&nbsp;
+              <span style={{ color: '#D95535', textDecoration: 'underline', whiteSpace: 'nowrap' }}>
+                Product Hunt!
+              </span>
               <div className="arrow">{' >'}</div>
             </a>
             <div
