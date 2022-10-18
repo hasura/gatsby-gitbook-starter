@@ -4,17 +4,23 @@ import bannerIllus from '../images/banner-stripe-bg-egc.svg';
 import smallBgIllus from '../images/banner_small_bg.jpg';
 
 export const StyledBanner = styled.div`
-  background-color: #00315f;
-  background-image: url(${bannerIllus});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: #040100;
+  /* background-image: url(${bannerIllus}); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-position: center; */
+
+  .ph-img {
+    width: 50px;
+    margin-right: 11px;
+    /* margin-bottom: -10px */
+  }
 
   .commonBannerStripWrapper {
     z-index: 100;
     position: relative;
-    height: 56px;
-    max-height: 56px;
+    height: 96px;
+    max-height: 96px;
     display: flex;
     align-items: center;
 
@@ -27,6 +33,9 @@ export const StyledBanner = styled.div`
       line-height: 25px;
       color: #f8fcff;
       font-weight: 400 !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       padding-bottom: 0px;
       .emoji {
@@ -69,6 +78,14 @@ export const StyledBanner = styled.div`
     .hasuraConBannerBg {
       display: none;
     }
+
+    .ph-img {
+      /* display: none; */
+      width: 32px;
+      margin-right: 4px;
+      margin-bottom: -8px;
+    }
+
     .commonBannerStripWrapper {
       min-height: 80px;
       height: auto;
@@ -99,6 +116,12 @@ export const StyledBanner = styled.div`
       .text-contnet {
         font-size: 12px !important;
       }
+    }
+  }
+
+  @media (max-width: 410px) {
+    .ph-img {
+      display: none;
     }
   }
 `;

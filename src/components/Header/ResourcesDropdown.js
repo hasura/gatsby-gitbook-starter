@@ -168,7 +168,10 @@ export const ResourcesDropdown = () => {
       {/* Column 3 */}
       <div className="navDrapdownListWrapper">
         <div className="news-div dropdown-column-section">
-          <a href="https://hasura.io/blog/product-announcements-at-hasuracon22-making-graphql-the-ultimate-data-api/" rel="noopener noreferrer">
+          <a
+            href="https://hasura.io/blog/introducing-a-native-postgres-integration-to-hasura-cloud-in-partnership-with-neon/"
+            rel="noopener noreferrer"
+          >
             <div className="navListAnnouncement">
               <div className="flex-heading">
                 <h4 className="mb-24">NEWS</h4>
@@ -176,8 +179,10 @@ export const ResourcesDropdown = () => {
                   Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
                 </div>
               </div>
-              <h2>Check out our product announcements from HasuraCon’22</h2>
-              <h4 className="zero-m">Jun 28, 2022</h4>
+              <h2>
+                Introducing a native Postgres integration to Hasura Cloud in partnership with Neon
+              </h2>
+              <h4 className="zero-m">Oct 18, 2022</h4>
             </div>
           </a>
           <hr className="news-section-line-break" />

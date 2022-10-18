@@ -18,7 +18,7 @@ import chinaFlag from './images/china-flag.svg';
 import japanFlag from './images/japan-flag.svg';
 import spanishFlag from './images/spain.png';
 import config from '../../config';
-import chevronDown from "./images/chevron-down.svg";
+import chevronDown from './images/chevron-down.svg';
 import Paperform from './Paperform';
 import './styles.css';
 
@@ -33,10 +33,12 @@ const Wrapper = styled('div')`
   padding-left: 320px;
   padding-right: 280px;
   .topThinBanner {
-    top: 132px;
-    min-height: calc(100vh - 132px);
-    height: calc(100vh - 132px);
+    top: 172px;
+
+    min-height: calc(100vh - 172px);
+    height: calc(100vh - 172px);
   }
+
   .learnAsideWrapperPos {
     padding: 32px 32px !important;
   }
@@ -327,7 +329,7 @@ const Layout = ({ children, location }) => {
 
   const hideThinBanner = () => {
     setShowThinBanner(false);
-  }
+  };
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -373,207 +375,211 @@ const Layout = ({ children, location }) => {
   };
   return (
     <>
-    {/* <AnnouncementBanner /> */}
-    <ThemeProvider location={location}>
-      <Header location={location} hideThinBanner={hideThinBanner}/>
-      <MDXProvider components={mdxComponents}>
-        <Wrapper className={toggleSideBar ? ' mainWrapperCollapse' : ''}>
-          <StyledToggleSideNavWrapper
-            onClick={() => {
-              setIsSubNavShow(!isSubNavShow);
-              setToggleSideBar(false);
-            }}
-          >
-            {isSubNavShow ? <Close /> : <MenuNavToggle />}
-          </StyledToggleSideNavWrapper>
-          <LeftSideBarWidth
-            className={
-              (toggleSideBar ? ' sidebarWrapperCollapse' : '') +
-              (isSubNavShow ? ' translateXZero' : '') +
-              (showThinBanner ? ' topThinBanner' : '')
-            }
-          >
-            <div
-              className={'mainSideBarToggle' + (toggleSideBar ? ' mainSideBarTogglePos' : '')}
-              role="presentation"
+      {/* <AnnouncementBanner /> */}
+      <ThemeProvider location={location}>
+        <Header location={location} hideThinBanner={hideThinBanner} />
+        <MDXProvider components={mdxComponents}>
+          <Wrapper className={toggleSideBar ? ' mainWrapperCollapse' : ''}>
+            <StyledToggleSideNavWrapper
               onClick={() => {
-                setToggleSideBar(!toggleSideBar);
-                setIsSubNavShow(false);
+                setIsSubNavShow(!isSubNavShow);
+                setToggleSideBar(false);
               }}
             >
-              <MenuNavToggleSmall />
-              {toggleSideBar ? (
-                <div className="navigation">
-                  <div className="desc font_600">Navigation</div>
+              {isSubNavShow ? <Close /> : <MenuNavToggle />}
+            </StyledToggleSideNavWrapper>
+            <LeftSideBarWidth
+              className={
+                (toggleSideBar ? ' sidebarWrapperCollapse' : '') +
+                (isSubNavShow ? ' translateXZero' : '') +
+                (showThinBanner ? ' topThinBanner' : '')
+              }
+            >
+              <div
+                className={'mainSideBarToggle' + (toggleSideBar ? ' mainSideBarTogglePos' : '')}
+                role="presentation"
+                onClick={() => {
+                  setToggleSideBar(!toggleSideBar);
+                  setIsSubNavShow(false);
+                }}
+              >
+                <MenuNavToggleSmall />
+                {toggleSideBar ? (
+                  <div className="navigation">
+                    <div className="desc font_600">Navigation</div>
+                  </div>
+                ) : null}
+              </div>
+              {!toggleSideBar ? (
+                <div className="p16">
+                  <Sidebar location={location} sideBarULdecreaseHt={isShowSubscribe || isAliId} />
                 </div>
               ) : null}
-            </div>
-            {!toggleSideBar ? (
-              <div className="p16">
-                <Sidebar location={location} sideBarULdecreaseHt={isShowSubscribe || isAliId} />
-              </div>
-            ) : null}
-            <div className="alignSelfEnd">
-              <LanguageWrapper ref={mobileWrapperRef} className="showMobile">
-                <div className="languageWrapper">
-                  {!!config.language?.code && (
-                    <button
-                      className="languageBgn"
-                      onClick={() => setIsLanguageShowMobile((prevShow) => !prevShow)}
-                    >
-                      <img
-                        src={translationOptionsFlags[config.language?.code]}
-                        alt={`${config.language?.name} Flag`}
-                        style={{ maxWidth: '24px ' }}
-                      />
-                      {config.language?.name}
-                      <img src={chevronDown} alt="Arrow" style={{marginLeft: '6px'}} />
-                    </button>
-                  )}
-                  <div className="githubStars">
-                    <GitHubButton
-                      href="https://github.com/hasura/learn-graphql"
-                      data-size="large"
-                      data-show-count="true"
-                      aria-label="Star @hasura on GitHub"
-                    >
-                      Star
-                    </GitHubButton>
-                  </div>
-                  {!!config.language?.code && (
-                    <div
-                      id="language-dropdown-mobile"
-                      className={
-                        'languageDropDownWrapper' + (isLanguageShowMobile ? ' showList' : '')
-                      }
-                    >
-                      <ul>
-                        {config.language?.translations.map((translation) => (
-                          <li key={translation.code}>
-                            <a href={translation.link}>
-                              <img
-                                src={translationOptionsFlags[translation.code]}
-                                alt={`${translation.name} Flag`}
-                                style={{ maxWidth: '24px ' }}
-                              />
-                              <span>{translation.name}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
+              <div className="alignSelfEnd">
+                <LanguageWrapper ref={mobileWrapperRef} className="showMobile">
+                  <div className="languageWrapper">
+                    {!!config.language?.code && (
+                      <button
+                        className="languageBgn"
+                        onClick={() => setIsLanguageShowMobile((prevShow) => !prevShow)}
+                      >
+                        <img
+                          src={translationOptionsFlags[config.language?.code]}
+                          alt={`${config.language?.name} Flag`}
+                          style={{ maxWidth: '24px ' }}
+                        />
+                        {config.language?.name}
+                        <img src={chevronDown} alt="Arrow" style={{ marginLeft: '6px' }} />
+                      </button>
+                    )}
+                    <div className="githubStars">
+                      <GitHubButton
+                        href="https://github.com/hasura/learn-graphql"
+                        data-size="large"
+                        data-show-count="true"
+                        aria-label="Star @hasura on GitHub"
+                      >
+                        Star
+                      </GitHubButton>
                     </div>
-                  )}
-                </div>
-              </LanguageWrapper>
-
-              {!toggleSideBar ? (
-                <div className="sideBarNewsletterWrapper">
-                  {!isAliId ? (
-                    <div
-                      className="closeBtn"
-                      role="button"
-                      tabIndex="0"
-                      onClick={() => setIsShowSubscribe((prevIsSubscribe) => !prevIsSubscribe)}
-                    >
-                      <OpenedSvg className={isShowSubscribe ? '' : 'rotateImg'} />
-                    </div>
-                  ) : null}
-
-                  {isAliId ? (
-                    <div className="desc">
-                      {config.newsletter?.ebookAvailable
-                        ? 'Thank you, please check your email for the e-book.'
-                        : 'Thank you for subscribing to the Hasura Newsletter!'}
-                    </div>
-                  ) : (
-                    <>
-                      <div className="desc font_600">
-                        {config.newsletter?.ebookAvailable
-                          ? 'Download tutorial as e-book ⚡️'
-                          : 'Sign up for Hasura Newsletter'}
+                    {!!config.language?.code && (
+                      <div
+                        id="language-dropdown-mobile"
+                        className={
+                          'languageDropDownWrapper' + (isLanguageShowMobile ? ' showList' : '')
+                        }
+                      >
+                        <ul>
+                          {config.language?.translations.map((translation) => (
+                            <li key={translation.code}>
+                              <a href={translation.link}>
+                                <img
+                                  src={translationOptionsFlags[translation.code]}
+                                  alt={`${translation.name} Flag`}
+                                  style={{ maxWidth: '24px ' }}
+                                />
+                                <span>{translation.name}</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      {isShowSubscribe ? (
-                        <Fragment>
-                          {/* <MarketoForm
+                    )}
+                  </div>
+                </LanguageWrapper>
+
+                {!toggleSideBar ? (
+                  <div className="sideBarNewsletterWrapper">
+                    {!isAliId ? (
+                      <div
+                        className="closeBtn"
+                        role="button"
+                        tabIndex="0"
+                        onClick={() => setIsShowSubscribe((prevIsSubscribe) => !prevIsSubscribe)}
+                      >
+                        <OpenedSvg className={isShowSubscribe ? '' : 'rotateImg'} />
+                      </div>
+                    ) : null}
+
+                    {isAliId ? (
+                      <div className="desc">
+                        {config.newsletter?.ebookAvailable
+                          ? 'Thank you, please check your email for the e-book.'
+                          : 'Thank you for subscribing to the Hasura Newsletter!'}
+                      </div>
+                    ) : (
+                      <>
+                        <div className="desc font_600">
+                          {config.newsletter?.ebookAvailable
+                            ? 'Download tutorial as e-book ⚡️'
+                            : 'Sign up for Hasura Newsletter'}
+                        </div>
+                        {isShowSubscribe ? (
+                          <Fragment>
+                            {/* <MarketoForm
                               onSubmitCB={onSubmitCB}
                               formId={config.newsletter?.ebookAvailable ? "1244" : "1079"}
                               marketoHost={marketoHost}
                               id="631-HMN-492"
                               styleClass="marketoFormWrapper sideBarSubscribeWrapper"
                             /> */}
-                          <Paperform
-                            onSubmitCB={onSubmitCB}
-                            formId={config.newsletter?.ebookAvailable ? 'hf-1244' : 'hf-1079'}
-                            styleClass="marketoFormWrapper sideBarSubscribeWrapper"
-                          />
-                        </Fragment>
-                      ) : null}
-                    </>
-                  )}
-                </div>
-              ) : null}
-            </div>
-          </LeftSideBarWidth>
-          <Content className={toggleSideBar ? 'learnAsideWrapperPos' : ''}>
-            <MaxWidth>{children}</MaxWidth>
-          </Content>
-          {!toggleSideBar ? (
-            <RightSideBarWidth className={(showThinBanner ? ' topThinBanner' : '')}>
-              <LanguageWrapper ref={wrapperRef}>
-                <div className="languageWrapper">
-                  {!!config.language?.code && (
-                    <button
-                      className="languageBgn"
-                      onClick={() => setIsLanguageShow((prevShow) => !prevShow)}
-                    >
-                      <img
-                        src={translationOptionsFlags[config.language?.code]}
-                        alt={`${config.language?.name} Flag`}
-                        style={{ maxWidth: '24px ' }}
-                      />
-                      {config.language?.name}
-                      <img src={chevronDown} alt="Arrow" style={{marginLeft: '6px', marginRight: '0'}} />
-                    </button>
-                  )}
-                  <div className="githubStars">
-                    <GitHubButton
-                      href="https://github.com/hasura/learn-graphql"
-                      data-size="large"
-                      data-show-count="true"
-                      aria-label="Star @hasura on GitHub"
-                    >
-                      Star
-                    </GitHubButton>
+                            <Paperform
+                              onSubmitCB={onSubmitCB}
+                              formId={config.newsletter?.ebookAvailable ? 'hf-1244' : 'hf-1079'}
+                              styleClass="marketoFormWrapper sideBarSubscribeWrapper"
+                            />
+                          </Fragment>
+                        ) : null}
+                      </>
+                    )}
                   </div>
-                  {!!config.language?.code && (
-                    <div
-                      id="language-dropdown"
-                      className={'languageDropDownWrapper' + (isLanguageShow ? ' showList' : '')}
-                    >
-                      <ul>
-                        {config.language?.translations.map((translation) => (
-                          <li key={translation.code}>
-                            <a href={translation.link}>
-                              <img
-                                src={translationOptionsFlags[translation.code]}
-                                style={{ maxWidth: '24px ' }}
-                                alt={`${translation.name} Flag`}
-                              />
-                              <span>{translation.name}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
+                ) : null}
+              </div>
+            </LeftSideBarWidth>
+            <Content className={toggleSideBar ? 'learnAsideWrapperPos' : ''}>
+              <MaxWidth>{children}</MaxWidth>
+            </Content>
+            {!toggleSideBar ? (
+              <RightSideBarWidth className={showThinBanner ? ' topThinBanner' : ''}>
+                <LanguageWrapper ref={wrapperRef}>
+                  <div className="languageWrapper">
+                    {!!config.language?.code && (
+                      <button
+                        className="languageBgn"
+                        onClick={() => setIsLanguageShow((prevShow) => !prevShow)}
+                      >
+                        <img
+                          src={translationOptionsFlags[config.language?.code]}
+                          alt={`${config.language?.name} Flag`}
+                          style={{ maxWidth: '24px ' }}
+                        />
+                        {config.language?.name}
+                        <img
+                          src={chevronDown}
+                          alt="Arrow"
+                          style={{ marginLeft: '6px', marginRight: '0' }}
+                        />
+                      </button>
+                    )}
+                    <div className="githubStars">
+                      <GitHubButton
+                        href="https://github.com/hasura/learn-graphql"
+                        data-size="large"
+                        data-show-count="true"
+                        aria-label="Star @hasura on GitHub"
+                      >
+                        Star
+                      </GitHubButton>
                     </div>
-                  )}
-                </div>
-              </LanguageWrapper>
-              <RightSidebar location={location} />
-            </RightSideBarWidth>
-          ) : null}
-        </Wrapper>
-      </MDXProvider>
-    </ThemeProvider>
+                    {!!config.language?.code && (
+                      <div
+                        id="language-dropdown"
+                        className={'languageDropDownWrapper' + (isLanguageShow ? ' showList' : '')}
+                      >
+                        <ul>
+                          {config.language?.translations.map((translation) => (
+                            <li key={translation.code}>
+                              <a href={translation.link}>
+                                <img
+                                  src={translationOptionsFlags[translation.code]}
+                                  style={{ maxWidth: '24px ' }}
+                                  alt={`${translation.name} Flag`}
+                                />
+                                <span>{translation.name}</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </LanguageWrapper>
+                <RightSidebar location={location} />
+              </RightSideBarWidth>
+            ) : null}
+          </Wrapper>
+        </MDXProvider>
+      </ThemeProvider>
     </>
   );
 };
