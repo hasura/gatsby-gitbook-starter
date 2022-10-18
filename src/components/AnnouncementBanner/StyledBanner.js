@@ -78,6 +78,14 @@ export const StyledBanner = styled.div`
     .hasuraConBannerBg {
       display: none;
     }
+
+    .ph-img {
+      /* display: none; */
+      width: 32px;
+      margin-right: 4px;
+      margin-bottom: -8px;
+    }
+
     .commonBannerStripWrapper {
       min-height: 80px;
       height: auto;
@@ -108,6 +116,12 @@ export const StyledBanner = styled.div`
       .text-contnet {
         font-size: 12px !important;
       }
+    }
+  }
+
+  @media (max-width: 410px) {
+    .ph-img {
+      display: none;
     }
   }
 `;
