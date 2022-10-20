@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { StyledBanner } from './StyledBanner';
+// import { StyledBanner } from './StyledBanner';
 
 const CloseIconSvg = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,6 +15,25 @@ const CloseIconSvg = () => (
         <rect width="24" height="24" fill="white" />
       </clipPath>
     </defs>
+  </svg>
+);
+
+const ArrowRight = () => (
+  <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M3.375 9.5L13.5 9.5"
+      stroke="#1EB4D4"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M9.1875 14.5625L14.2501 9.49995L9.1875 4.4374"
+      stroke="#1EB4D4"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
   </svg>
 );
 
@@ -34,36 +53,32 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
   if (isBannerActive) {
     return (
       <>
-        {/*<StyledStripBanner>
-        <a href="https://hasura.io/events/hasura-con-2022/" className="flex-center">
-          <img
-            className="hasuraConBrand"
-            src={hasuraCon22Logo}
-            alt="hasura-con-22"
-            id="logo-img"
-          />
-          <div className="flex-center ml-75">
-            <div className="greenCircle" />
-            <p>
-              Catch the HasuraCon’22 Recordings
-              <div className="arrow">{' >'}</div>
-            </p>
-          </div>
-        </a>
+        <div className="thinBannerWrapper">
+          <a href="https://hasura.io/enterprisegraphql/" className="flex-center">
+            <div className="flex-center">
+              {/* <div className="greenCircle" /> */}
+              <div className="textGradient contentHideMobile" fontWeight="font_bold">
+                Register for the Enterprise GraphQL Conference | Nov 10 2022
+              </div>
+              <div className="textGradient contentShowMobile" fontWeight="font_bold">
+                Register for the Enterprise GraphQL<br/>Conference | Nov 10 2022
+              </div>
+              <div className="arrowIcon">
+                <ArrowRight />
+              </div>
+            </div>
+          </a>
         <div className="close_icon" role="button" tabIndex="0" onClick={()=>{handleCloseButton();hideThinBanner();}}>
           <CloseIconSvg />
         </div>
-      </StyledStripBanner>*/}
-
+      </div>
+      {/*
         <StyledBanner>
           <div className="commonBannerStripWrapper">
             <a
               href="https://www.producthunt.com/posts/hasura-native-postgres-integration"
               className="text-contnet"
             >
-              {/* <span className="emoji" role="img" aria-label="emoji">
-                👋
-              </span> */}
               <img
                 src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1666068552/Swag%20Store/ph_cat_hmpt8g.png"
                 alt="ProductHunt"
@@ -88,6 +103,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
             </div>
           </div>
         </StyledBanner>
+        */}
       </>
     );
   }

@@ -1059,8 +1059,62 @@ strong {
 .topsubnav {
   -webkit-transition: top 0.5s, bottom 0.5s;
 }
-
+.thinBannerWrapper {
+  background: #12171F;
+  background-image: url("https://graphql-engine-cdn.hasura.io/assets/main-site/egc2022/egc-thin-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 60px;
+  padding-left: 7%;
+  padding-right: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "IBM Plex Sans";
+}
+.textGradient {
+  background: linear-gradient(285.77deg, #1eb4d4 18.49%, #e8ffb8 107.05%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.thinBannerWrapper .flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.thinBannerWrapper a .arrowIcon svg {
+  margin-left: 6px;
+  transition: all 0.3s ease-in-out;
+}
+.thinBannerWrapper a .arrowIcon {
+  display: flex;
+}
+.thinBannerWrapper a:hover .arrowIcon svg {
+  transform: translateX(5px);
+}
+.thinBannerWrapper .textGradient {
+  font-size: 16px;
+  font-weight: bold;
+}
+.thinBannerWrapper .close_icon {
+  cursor: pointer;
+}
+.contentShowMobile {
+  display: none;
+}
 @media (max-width: 767px) {
+  .thinBannerWrapper a .arrowIcon {
+    display: none;
+  }
+  .thinBannerWrapper .textGradient {
+    font-size: 14px;
+    line-height: 160%;
+  }
   .showMobileView {
     display: block;
   }
@@ -1201,6 +1255,18 @@ strong {
 
   .sideBarNewsletterWrapper {
     margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 545px) {
+  .contentShowMobile {
+    display: block;
+  }
+  .contentHideMobile {
+    display: none;
+  }
+  .thinBannerWrapper .flex-center {
+    justify-content: flex-start;
   }
 }
 
