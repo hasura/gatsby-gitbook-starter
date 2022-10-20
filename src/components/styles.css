@@ -520,8 +520,8 @@ b a:hover {
 
 .rightSideBarUL {
   overflow: auto;
-  max-height: calc(100vh - 496px);
-  height: calc(100vh - 496px);
+  max-height: calc(100vh - 436px);
+  height: calc(100vh - 436px);
   overflow: auto;
   align-self: flex-start;
   padding-bottom: 16px;
