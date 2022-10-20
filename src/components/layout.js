@@ -33,10 +33,9 @@ const Wrapper = styled('div')`
   padding-left: 320px;
   padding-right: 280px;
   .topThinBanner {
-    top: 172px;
-
-    min-height: calc(100vh - 172px);
-    height: calc(100vh - 172px);
+    top: 132px;
+    min-height: calc(100vh - 132px);
+    height: calc(100vh - 132px);
   }
 
   .learnAsideWrapperPos {
