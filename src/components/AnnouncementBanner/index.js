@@ -54,7 +54,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
     return (
       <>
         <div className="thinBannerWrapper">
-          <a href="https://hasura.io/enterprisegraphql/" className="flex-center">
+          <a href="https://www.airmeet.com/e/8e055e00-2f7c-11ed-a8d8-87ae1ec30e05?preview=true" className="flex-center" target="_blank" rel="noopener noreferrer">
             <div className="flex-center">
               {/* <div className="greenCircle" /> */}
               <div className="textGradient" fontWeight="font_bold">
