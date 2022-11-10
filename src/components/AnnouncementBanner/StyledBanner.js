@@ -189,10 +189,10 @@ export const StyledStripBanner = styled.div`
   }
 
   .greenCircle {
-    min-width: 12px;
-    width: 12px;
-    min-height: 12px;
-    height: 12px;
+    min-width: 10px;
+    width: 10px;
+    min-height: 10px;
+    height: 10px;
     background-color: #54c596;
     border-radius: 50%;
     margin-right: 12px;
