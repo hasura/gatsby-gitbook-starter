@@ -60,7 +60,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
               <div className="textGradient" fontWeight="font_bold">
                 <div className="greenCircle pinkCircle" />
                 <span className="displayInline">
-                  Enterprise GraphQL Conference is live. Join us now!
+                  Enterprise GraphQL conference is over. View recordings
                 </span>
               </div>
               <div className="arrowIcon">
