@@ -54,14 +54,14 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
     return (
       <>
         <div className="thinBannerWrapper">
-          <a href="https://hasura.io/enterprisegraphql/" className="flex-center">
+          <a href="https://www.airmeet.com/e/8e055e00-2f7c-11ed-a8d8-87ae1ec30e05?preview=true" className="flex-center" target="_blank" rel="noopener noreferrer">
             <div className="flex-center">
               {/* <div className="greenCircle" /> */}
-              <div className="textGradient contentHideMobile" fontWeight="font_bold">
-                Register for the Enterprise GraphQL Conference | Nov 10 2022
-              </div>
-              <div className="textGradient contentShowMobile" fontWeight="font_bold">
-                Register for the Enterprise GraphQL<br/>Conference | Nov 10 2022
+              <div className="textGradient" fontWeight="font_bold">
+                <div className="greenCircle pinkCircle" />
+                <span className="displayInline">
+                  Enterprise GraphQL conference is over. View recordings
+                </span>
               </div>
               <div className="arrowIcon">
                 <ArrowRight />
