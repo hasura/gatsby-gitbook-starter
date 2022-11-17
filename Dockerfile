@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Install app dependencies
 # RUN npm -g install serve
-RUN npm -g install gatsby-cli
+RUN npm -g install gatsby-cli@4.24.0
 
 COPY package*.json ./
 
