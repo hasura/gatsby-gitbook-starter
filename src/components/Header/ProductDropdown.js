@@ -87,7 +87,7 @@ export const ProductDropdown = () => {
                 <h2>Oracle</h2>
               </a>
               <a href="https://hasura.io/graphql/database/mongodb/">
-                <h2>MongoDb</h2>
+                <h2>MongoDB</h2>
               </a>
               <a href="https://hasura.io/graphql/database/mysql/">
                 <h2>MySQL</h2>
