@@ -387,11 +387,11 @@ const Layout = ({ children, location }) => {
             >
               {isSubNavShow ? <Close /> : <MenuNavToggle />}
             </StyledToggleSideNavWrapper>
+            {/* + (showThinBanner ? ' topThinBanner' : '') */}
             <LeftSideBarWidth
               className={
                 (toggleSideBar ? ' sidebarWrapperCollapse' : '') +
-                (isSubNavShow ? ' translateXZero' : '') +
-                (showThinBanner ? ' topThinBanner' : '')
+                (isSubNavShow ? ' translateXZero' : '')
               }
             >
               <div
@@ -518,8 +518,9 @@ const Layout = ({ children, location }) => {
             <Content className={toggleSideBar ? 'learnAsideWrapperPos' : ''}>
               <MaxWidth>{children}</MaxWidth>
             </Content>
+            {/* <RightSideBarWidth className={showThinBanner ? ' topThinBanner' : ''}> */}
             {!toggleSideBar ? (
-              <RightSideBarWidth className={showThinBanner ? ' topThinBanner' : ''}>
+              <RightSideBarWidth>
                 <LanguageWrapper ref={wrapperRef}>
                   <div className="languageWrapper">
                     {!!config.language?.code && (

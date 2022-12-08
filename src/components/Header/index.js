@@ -13,7 +13,7 @@ import { ProductDropdown } from './ProductDropdown';
 import { ResourcesDropdown } from './ResourcesDropdown';
 import SearchOverlay from '../UnifiedSearch/SearchOverlay';
 import { GithubWidget } from './GithubButton';
-import { AnnouncementBanner } from '../AnnouncementBanner';
+// import { AnnouncementBanner } from '../AnnouncementBanner';
 
 import './header.scss';
 
@@ -118,7 +118,7 @@ const Header = (props) => {
   return (
     <Fragment>
       <div className="positionStickyHeader">
-      <AnnouncementBanner hideThinBanner={props.hideThinBanner}/>
+      {/* <AnnouncementBanner hideThinBanner={props.hideThinBanner}/> */}
       <header
         id="header"
         className={
