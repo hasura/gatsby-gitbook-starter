@@ -74,13 +74,13 @@ const miscResourcesList = [
     linkUrl: 'https://hasura.io/data-hub/',
     externalLink: true,
   },
-  {
-    imgSrc:
-      'https://res.cloudinary.com/dh8fp23nd/image/upload/v1666269430/main-web/icon_cal_x37hnu.svg',
-    title: 'Weekly Demo',
-    linkUrl: 'https://hasura.io/events/weekly-demo/up-and-running-with-hasura/',
-    externalLink: true,
-  },
+  // {
+  //   imgSrc:
+  //     'https://res.cloudinary.com/dh8fp23nd/image/upload/v1666269430/main-web/icon_cal_x37hnu.svg',
+  //   title: 'Weekly Demo',
+  //   linkUrl: 'https://hasura.io/events/weekly-demo/up-and-running-with-hasura/',
+  //   externalLink: true,
+  // },
 ];
 
 const scrollToTop = () => {
@@ -135,21 +135,21 @@ export const ResourcesDropdown = () => {
                 <img
                   src={nav.imgSrc}
                   alt="icon"
-                  style={
-                    nav.title === 'Weekly Demo'
-                      ? { minWidth: '16px', width: '16px', marginLeft: '3.5px' }
-                      : {}
-                  }
+                  // style={
+                  //   nav.title === 'Weekly Demo'
+                  //     ? { minWidth: '16px', width: '16px', marginLeft: '3.5px' }
+                  //     : {}
+                  // }
                 />
               </div>
               <h2>{nav.title}</h2>
-              {nav.title === 'Weekly Demo' && (
+              {/* {nav.title === 'Weekly Demo' && (
                 <img
                   src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1666872207/main-web/label_new_qpfduw.svg"
                   alt="New"
                   style={{ marginLeft: '12px', marginTop: '-2px' }}
                 />
-              )}
+              )} */}
             </div>
           </a>
         ) : (
