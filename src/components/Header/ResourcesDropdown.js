@@ -70,8 +70,8 @@ const miscResourcesList = [
   },
   {
     imgSrc: dataHub,
-    title: 'Data Hub',
-    linkUrl: 'https://hasura.io/data-hub/',
+    title: 'Hasura Hub',
+    linkUrl: 'https://hasura.io/hub/',
     externalLink: true,
   },
   // {
