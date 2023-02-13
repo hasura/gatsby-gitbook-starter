@@ -69,7 +69,8 @@ const miscResourcesList = [
     externalLink: true,
   },
   {
-    imgSrc: dataHub,
+    imgSrc:
+      'https://res.cloudinary.com/dh8fp23nd/image/upload/v1675879328/main-web/icons/hasura-hub_1_norco0.svg',
     title: 'Hasura Hub',
     linkUrl: 'https://hasura.io/hub/',
     externalLink: true,
