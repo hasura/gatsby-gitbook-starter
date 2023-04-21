@@ -3,7 +3,7 @@ import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
 import { default as defaultTheme } from './theme';
 // import SubHeader from './SubHeader';
-import Header from '../components/Header';
+// import Header from '../components/Header';
 // import Footer from './footer';
 // import { AnnouncementBanner } from '../components/AnnouncementBanner';
 import './styles.css';

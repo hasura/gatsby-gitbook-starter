@@ -6,8 +6,8 @@ import ThemeProvider from './themeProvider';
 import mdxComponents from './mdxComponents';
 import Sidebar from './sidebar';
 import RightSidebar from './rightSidebar';
-import MarketoForm from './marketoform';
-import CloseIcon from '../globals/icons/Close';
+// import MarketoForm from './marketoform';
+// import CloseIcon from '../globals/icons/Close';
 import OpenedSvg from './images/opened';
 
 import Header from './Header';
@@ -22,7 +22,7 @@ import chevronDown from './images/chevron-down.svg';
 import Paperform from './Paperform';
 import './styles.css';
 
-const marketoHost = 'https://page.hasura.io';
+// const marketoHost = 'https://page.hasura.io';
 
 const Wrapper = styled('div')`
   /* display: flex;
