@@ -2,7 +2,7 @@ import React from 'react';
 
 import arrowBlue from '../images/arrow-blue.svg';
 import productIllus from '../images/product_illus.png';
-import dbIcon from '../images/db_icon.svg';
+// import dbIcon from '../images/db_icon.svg';
 import './navproduct.scss';
 
 export const ProductDropdown = () => {
@@ -28,75 +28,115 @@ export const ProductDropdown = () => {
       </div>
       {/* Column 2 */}
       <div className="center-content-section dropdown-column-section">
-        <h4>GRAPHQL IN PRODUCTION</h4>
-        <a href="https://hasura.io/graphql/caching/">
-          <div className="dropdown-hover-effect-div">
-            <h2>Caching</h2>
-            <p>Get faster response times</p>
+        <h4 className="product-h4">CAPABILITIES</h4>
+        <a href="https://hasura.io/product/performance/">
+          <div className="dropdown-hover-effect-div flex-center">
+            <img
+              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683017758/main-web/icons/speedometer-03_1_oebuvh.png"
+              alt="Performance-icon"
+              mb="-2px"
+              display="inline-block"
+              loading="lazy"
+            />
+            <h2>Performance</h2>
           </div>
         </a>
-        <a href="https://hasura.io/graphql/security/">
-          <div className="dropdown-hover-effect-div">
-            <h2>Security</h2>
-            <p>Declaratively protect your APIs</p>
+        <a href="https://hasura.io/product/instant-api/">
+          <div className="dropdown-hover-effect-div flex-center">
+            <img
+              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683017758/main-web/icons/zap-fast_wwz9av.png"
+              alt="instant-api-icon"
+              width="24px"
+              loading="lazy"
+            />
+            <h2>Instant API</h2>
           </div>
         </a>
-        <a href="https://hasura.io/graphql/monitoring/">
-          <div className="dropdown-hover-effect-div">
-            <h2>Monitoring and Observability</h2>
-            <p>Get insights on your API performance</p>
+        <a href="https://hasura.io/product/observability/">
+          <div className="dropdown-hover-effect-div flex-center">
+            <img
+              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683017758/main-web/icons/line-chart-down-04_uo6zba.png"
+              alt="obsrvability-icon"
+              loading="lazy"
+            />
+            <h2>Observability</h2>
           </div>
         </a>
-        <a href="https://hasura.io/graphql/production-ready-existing-apis/">
-          <div className="dropdown-hover-effect-div">
-            <h2>Existing GraphQL APIs</h2>
-            <p>Add your GraphQL servers to Hasura </p>
+        <a href="https://hasura.io/product/api-security/">
+          <div className="dropdown-hover-effect-div flex-center">
+            <img
+              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683017758/main-web/icons/shield-tick_1_skxzzx.png"
+              alt="security-icon"
+              loading="lazy"
+            />
+            <h2>API Security</h2>
+          </div>
+        </a>
+        <a href="https://hasura.io/product/authorization/">
+          <div className="dropdown-hover-effect-div flex-center">
+            <img
+              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683017758/main-web/icons/eye_2_npzxta.png"
+              alt="auth-icon"
+              loading="lazy"
+            />
+            <h2>Authorization</h2>
           </div>
         </a>
       </div>
       {/* Column 3 */}
       <div className="navDrapdownListWrapper">
         <div className="content-div dropdown-column-section">
-          <h4>SUPPORTED DATABASES</h4>
+          <h4 className="product-h4">SUPPORTED DATABASES</h4>
           <a href="https://hasura.io/graphql/database/postgresql/">
-            <div className="dropdown-db-link dropdown-hover-effect-div">
-              <img src={dbIcon} alt="hasura-database" className="db_icon" />
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683015064/main-web/icons/Frame_10856_zjm7mi.png"
+                alt="postgres-icon"
+                loading="lazy"
+              />
               <h2>Postgres</h2>
             </div>
           </a>
           <a href="https://hasura.io/graphql/database/sql-server/">
-            <div className="dropdown-db-link dropdown-hover-effect-div">
-              <img src={dbIcon} alt="hasura-database" className="db_icon" />
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683015064/main-web/icons/Frame_10855_cpcyco.png"
+                alt="sql-server-icon"
+                loading="lazy"
+              />
               <h2>SQL Server</h2>
             </div>
           </a>
-          <a
-            href="https://hasura.io/docs/latest/graphql/core/databases/bigquery/getting-started.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="dropdown-db-link dropdown-hover-effect-div">
-              <img src={dbIcon} alt="hasura-database" className="db_icon" />
-              <h2>Big Query</h2>
+          <a href="https://hasura.io/graphql/database/oracle/">
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683015064/main-web/icons/Frame_10858_rtxoiq.png"
+                alt="oracle-icon"
+                loading="lazy"
+              />
+              <h2>Oracle</h2>
             </div>
           </a>
-          <div className="coming-soon-div">
-            <h4>COMING SOON</h4>
-            <div className="db-flex">
-              <a href="https://hasura.io/graphql/database/oracle/">
-                <h2>Oracle</h2>
-              </a>
-              <a href="https://hasura.io/graphql/database/mongodb/">
-                <h2>MongoDB</h2>
-              </a>
-              <a href="https://hasura.io/graphql/database/mysql/">
-                <h2>MySQL</h2>
-              </a>
-              <a href="https://hasura.io/graphql/database/elasticsearch/">
-                <h2>Elastic</h2>
-              </a>
+          <a href="https://hasura.io/graphql/database/mysql/">
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683015065/main-web/icons/Frame_10859_smmeif.png"
+                alt="mysql-icon"
+                loading="lazy"
+              />
+              <h2>MySQL</h2>
             </div>
-          </div>
+          </a>
+          <a href="https://hasura.io/graphql/database/mariadb/">
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683015064/main-web/icons/Frame_10857_lxndky.png"
+                alt="maria-db-icon"
+                loading="lazy"
+              />
+              <h2>MariaDB</h2>
+            </div>
+          </a>
         </div>
       </div>
     </div>
