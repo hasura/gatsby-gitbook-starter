@@ -11,7 +11,7 @@ import communityIcon from '../images/icon-community.svg';
 // import eventIcon from "../images/icon-event.svg";
 import graphqlHubIcon from '../images/icon-graphql-hub.svg';
 import helpIcon from '../images/icon-help.svg';
-import dataHub from '../images/data-hub.svg';
+// import dataHub from '../images/data-hub.svg';
 import blogIcon from '../images/icon-blog.svg';
 import eventsIcon from '../images/star3.svg';
 import './navproduct.scss';
@@ -191,7 +191,11 @@ export const ResourcesDropdown = () => {
       {/* Column 3 */}
       <div className="navDrapdownListWrapper">
         <div className="news-div dropdown-column-section">
-          <a href="https://hasura.io/blog/" rel="noopener noreferrer">
+          <a
+            href="https://hasura.io/blog/introducing-instant-apis-for-mysql-mariadb-oracle/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="navListAnnouncement">
               <div className="flex-heading">
                 <h4 className="mb-24">NEWS</h4>
@@ -205,7 +209,7 @@ export const ResourcesDropdown = () => {
           </a>
           <hr className="news-section-line-break" />
           <a
-            href="https://techcrunch.com/2022/02/22/graphql-developer-platform-hasura-raises-100m-series-c/"
+            href="https://hasura.io/blog/introducing-a-native-postgres-integration-to-hasura-cloud-in-partnership-with-neon/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -216,8 +220,10 @@ export const ResourcesDropdown = () => {
                   Read More <img src={arrowBlue} alt="Arrow" className="arrow-img" />
                 </div>
               </div>
-              <h2>GraphQL developer platform Hasura raises $100M Series C</h2>
-              <h4 className="zero-m">Feb 22, 2022</h4>
+              <h2>
+                Introducing a native Postgres integration to Hasura Cloud in partnership with Neon
+              </h2>
+              <h4 className="zero-m">Oct 18, 2022</h4>
             </div>
           </a>
         </div>
