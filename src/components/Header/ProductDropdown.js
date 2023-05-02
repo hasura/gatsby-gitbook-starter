@@ -94,7 +94,7 @@ export const ProductDropdown = () => {
                 alt="postgres-icon"
                 loading="lazy"
               />
-              <h2>Postgres</h2>
+              <h2>PostgreSQL</h2>
             </div>
           </a>
           <a href="https://hasura.io/graphql/database/sql-server/">
