@@ -65,7 +65,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
               <div className="" fontWeight="font_bold">
                 {/* <div className="greenCircle pinkCircle" /> */}
                 <span className="displayInline">
-                  Introducing Instant APIs for MySQL, MariaDB, and Oracle
+                  Introducing Instant APIs for MySQL, MariaDB, and Oracle. Read the blog
                 </span>
               </div>
               <div className="arrowIcon">
