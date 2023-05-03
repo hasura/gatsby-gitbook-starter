@@ -85,7 +85,7 @@ export const ProductDropdown = () => {
       </div>
       {/* Column 3 */}
       <div className="navDrapdownListWrapper">
-        <div className="content-div dropdown-column-section">
+        <div className="content-div dropdown-column-section db-tile">
           <h4 className="product-h4">SUPPORTED DATABASES</h4>
           <a href="https://hasura.io/graphql/database/postgresql/">
             <div className="dropdown-hover-effect-div flex-center">
@@ -127,14 +127,79 @@ export const ProductDropdown = () => {
               <h2>MySQL</h2>
             </div>
           </a>
+          <a href="https://hasura.io/graphql/database/snowflake/">
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683106455/main-web/Frame_10861_whhg1y.png"
+                alt="snowflake-db-icon"
+                loading="lazy"
+              />
+              <h2>Snowflake</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+      {/* Column 4 */}
+      <div className="navDrapdownListWrapper">
+        <div className="content-div dropdown-column-section db-tile db-tile-four">
           <a href="https://hasura.io/graphql/database/mariadb/">
             <div className="dropdown-hover-effect-div flex-center">
               <img
                 src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683015064/main-web/icons/Frame_10857_lxndky.png"
                 alt="maria-db-icon"
-                loading="lazy"
+                minWidth="24px"
+                width="24px"
+                mr="18px"
               />
               <h2>MariaDB</h2>
+            </div>
+          </a>
+          <a href="https://hasura.io/docs/latest/databases/postgres/neon/">
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683106455/main-web/Frame_10855_yicbip.png"
+                alt="neon-db-icon"
+                minWidth="24px"
+                width="24px"
+                mr="18px"
+              />
+              <h2>Neon</h2>
+            </div>
+          </a>
+          <a href="https://hasura.io/docs/latest/databases/bigquery/getting-started/index/">
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683106455/main-web/Frame_10858_h6bpnt.png"
+                alt="google-big-query-icon"
+                minWidth="24px"
+                width="24px"
+                mr="18px"
+              />
+              <h2>Google BigQuery</h2>
+            </div>
+          </a>
+          <a href="https://hasura.io/docs/latest/databases/postgres/alloy/">
+            <div className="dropdown-hover-effect-div flex-center">
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1683106455/main-web/Frame_10859_unj4yf.png"
+                alt="alloy-db-icon"
+                minWidth="24px"
+                width="24px"
+                mr="18px"
+              />
+              <h2>AlloyDB</h2>
+            </div>
+          </a>
+          <a href="https://hasura.io/graphql/database/">
+            <div className="dropdown-hover-effect-div flex-center nav-link">
+              View all Databases
+              <img
+                src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1669634477/main-web/icons/arrow-blue_ybhodi.svg"
+                alt="right-arrow-icon"
+                minWidth="18px"
+                width="18px"
+                ml="6px"
+              />
             </div>
           </a>
         </div>
