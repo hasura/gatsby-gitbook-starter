@@ -30,7 +30,7 @@ body {
 
 a {
   transition: color 0.15s;
-  color: #663399;
+  color: #fff;
 }
 
 body {
@@ -1060,8 +1060,8 @@ strong {
   -webkit-transition: top 0.5s, bottom 0.5s;
 }
 .thinBannerWrapper {
-  background: #12171F;
-  background-image: url("https://graphql-engine-cdn.hasura.io/assets/main-site/egc2022/egc-thin-bg.png");
+  background: #000;
+  /* background-image: url("https://graphql-engine-cdn.hasura.io/assets/main-site/egc2022/egc-thin-bg.png"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1072,7 +1072,7 @@ strong {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
 }
 .textGradient {
   background: linear-gradient(285.77deg, #1eb4d4 18.49%, #e8ffb8 107.05%);
@@ -1118,7 +1118,7 @@ strong {
   display: inline-block;
 }
 .pinkCircle {
-  background-color: #E13A7C;
+  background-color: #e13a7c;
 }
 .thinBannerWrapper .flex-center {
   display: flex;

@@ -20,6 +20,21 @@
   .dropdown-column-section {
     font-family: 'IBM Plex Sans' !important;
 
+    .flex-center {
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: 18px;
+        min-width: 24px;
+        width: 24px;
+      }
+    }
+
+    .product-h4 {
+      margin-bottom: 14px !important;
+    }
+
     h4 {
       font-size: 12px;
       line-height: 1.5;
@@ -107,7 +122,7 @@
   // Product Section ************** //
 
   .dropdown-hover-effect-div {
-    padding: 8px 32px;
+    padding: 15px 28px;
     border-radius: 6px;
     cursor: pointer;
     margin-bottom: 4px;
@@ -199,7 +214,7 @@
     }
 
     .content-div {
-      width: 374px;
+      width: 324px;
       padding: 10px;
 
       h4 {
