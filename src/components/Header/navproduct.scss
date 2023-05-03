@@ -368,6 +368,24 @@
 }
 
 @media (max-width: 1150px) {
+  .navDrapdownWrapper {
+    .navDrapdownListWrapper {
+      .db-tile {
+        max-width: 100% !important;
+        border-bottom: none;
+
+        .nav-link {
+          font-size: 14px !important;
+          white-space: nowrap;
+        }
+      }
+
+      .db-tile-four {
+        margin-top: -32px;
+      }
+    }
+  }
+
   .resources-dropdown {
     border-bottom: 1px solid #d5dee5;
     padding-bottom: 20px !important;
