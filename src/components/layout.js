@@ -86,6 +86,7 @@ const MaxWidth = styled('div')`
 `;
 
 const LeftSideBarWidth = styled('div')`
+  padding-top: 60px;
   width: 320px;
   background-color: rgb(244, 248, 251);
   /* padding: 16px; */
