@@ -306,7 +306,7 @@
       padding-right: 32px;
       cursor: pointer;
       border-radius: 4px;
-      border: 1px solid #BFCAD3;
+      border: 1px solid #bfcad3;
       height: 40px;
       padding: 0 8px !important;
       display: flex !important;
@@ -315,7 +315,7 @@
       flex: 1;
       .squareBox {
         border-radius: 2px;
-        border: 1px solid #BFCAD3;
+        border: 1px solid #bfcad3;
         margin-right: 8px;
         width: 20px;
         height: 20px;
@@ -327,7 +327,7 @@
       span {
         display: flex;
         align-items: center;
-        color: #909DA6;
+        color: #909da6;
         svg {
           margin-right: 6px;
         }
@@ -421,7 +421,7 @@
   padding: 0 15px;
   width: 100%;
 }
-@media (min-width: 1050px) {
+@media (min-width: 1150px) {
   .visibleMobile {
     display: none;
   }
@@ -431,7 +431,7 @@
     padding: 0 0px;
   }
 }
-@media (min-width: 1050px) and (max-width: 1325px) {
+@media (min-width: 1150px) and (max-width: 1325px) {
   .learnHeader {
     padding: 0 16px;
   }
@@ -466,10 +466,10 @@
   }
 }
 
-@media (max-width: 1049px) {
+@media (max-width: 1150px) {
   .visibleMobile {
     // transform: translateX(1050px);
-    right: -1050px;
+    right: -1150px;
   }
 
   .stickyOnMobile {
