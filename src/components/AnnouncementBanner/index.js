@@ -53,7 +53,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
           <a
             href="https://hasura.io/events/hasura-con-2023/"
             className="flex-center"
-            target="_blank"
+            // target="_blank"
             rel="noopener noreferrer"
           >
             <img
