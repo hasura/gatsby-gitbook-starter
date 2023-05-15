@@ -56,12 +56,19 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <img
+              loading="lazy"
+              className="promoBrand"
+              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1684144870/main-web/Group_2608666_1_c6irug.png"
+              alt="Icon"
+            />
             <div className="flex-center">
               {/* <div className="greenCircle" /> */}
               <div className="" fontWeight="font_bold">
                 {/* <div className="greenCircle pinkCircle" /> */}
                 <span className="displayInline">
                   Join us for the fourth annual Hasura User Conference on June 20-22. Register now
+                  <span className="mobile-arrow-text">&nbsp;&gt;</span>
                 </span>
               </div>
               <div className="arrowIcon">
