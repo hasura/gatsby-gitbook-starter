@@ -1060,7 +1060,7 @@ strong {
   -webkit-transition: top 0.5s, bottom 0.5s;
 }
 .thinBannerWrapper {
-  background: #000;
+  background: #ffef93;
   /* background-image: url("https://graphql-engine-cdn.hasura.io/assets/main-site/egc2022/egc-thin-bg.png"); */
   background-repeat: no-repeat;
   background-size: cover;
