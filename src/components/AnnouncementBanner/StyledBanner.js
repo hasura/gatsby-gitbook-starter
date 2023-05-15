@@ -4,7 +4,7 @@ import bannerIllus from '../images/banner-stripe-bg-egc.svg';
 import smallBgIllus from '../images/banner_small_bg.jpg';
 
 export const StyledBanner = styled.div`
-  background-color: #040100;
+  background-color: #ffef93;
   /* background-image: url(${bannerIllus}); */
   /* background-repeat: no-repeat; */
   /* background-size: cover; */
@@ -14,6 +14,34 @@ export const StyledBanner = styled.div`
     width: 50px;
     margin-right: 11px;
     /* margin-bottom: -10px */
+  }
+
+  .displayInline {
+    color: #1e56e3 !important;
+  }
+
+  .promoBrand {
+    width: auto;
+    height: 27px;
+    max-height: 27px;
+    margin-right: -30px;
+    margin-left: 3px;
+  }
+
+  @media (max-width: 980px) {
+    .promoBrand {
+      display: none;
+    }
+  }
+
+  .mobile-arrow-text {
+    display: none;
+  }
+
+  @media (max-width: 780px) {
+    .mobile-arrow-text {
+      display: inline-block;
+    }
   }
 
   .commonBannerStripWrapper {
@@ -31,7 +59,7 @@ export const StyledBanner = styled.div`
       text-align: center;
       font-size: 14px;
       line-height: 25px;
-      color: #f8fcff;
+      color: #1e56e3;
       font-weight: 400 !important;
       display: flex;
       justify-content: center;
@@ -66,7 +94,7 @@ export const StyledBanner = styled.div`
       margin-bottom: -5px;
 
       svg {
-        fill: #f8fcff;
+        fill: #1e56e3;
       }
       &:focus {
         outline: none;
@@ -127,14 +155,14 @@ export const StyledBanner = styled.div`
 `;
 
 export const StyledStripBanner = styled.div`
-  background: #000000;
-  background-image: url(${smallBgIllus});
-  background-repeat: no-repeat;
-  background-size: 30%;
-  background-position-x: right;
+  background: #ffef93;
+  /* background-image: url(${smallBgIllus}); */
+  /* background-repeat: no-repeat; */
+  /* background-size: 30%; */
+  /* background-position-x: right; */
   width: 100%;
   min-height: 60px;
-  padding-left: 7%;
+  padding-left: 32px;
   padding-right: 7%;
   display: flex;
   align-items: center;
