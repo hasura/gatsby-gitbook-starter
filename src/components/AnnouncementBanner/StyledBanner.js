@@ -140,6 +140,10 @@ export const StyledBanner = styled.div`
   }
 
   @media (max-width: 450px) {
+    .close_icon {
+      margin-left: 10px;
+    }
+
     .commonBannerStripWrapper {
       .text-contnet {
         font-size: 12px !important;
@@ -151,6 +155,10 @@ export const StyledBanner = styled.div`
     .ph-img {
       display: none;
     }
+  }
+
+  @media (max-width: 400px) {
+    font-size: 13px !important;
   }
 `;
 
