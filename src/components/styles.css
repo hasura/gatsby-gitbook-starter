@@ -1061,7 +1061,7 @@ strong {
 }
 
 .thinBannerWrapper {
-  background: #ffef93;
+  background: #111927;
   box-shadow: rgba(28, 38, 63, 0.1) 0px 1px 3px, rgba(28, 38, 63, 0.06) 0px 1px 2px;
   position: relative;
   z-index: 10000;
@@ -1346,7 +1346,7 @@ strong {
   }
 }
 
-@media (max-width: 1049px) {
+@media (max-width: 1149px) {
   .viewport {
     /* height: 100vh; */
     overflow-x: hidden;
