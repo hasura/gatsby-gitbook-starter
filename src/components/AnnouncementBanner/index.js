@@ -6,7 +6,7 @@ const CloseIconSvg = () => (
   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M15 5.49878L5 15.4988M5 5.49878L15 15.4988"
-      stroke="#1E56E3"
+      stroke="#80A3FF"
       stroke-width="1.43182"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -18,14 +18,14 @@ const ArrowRight = () => (
   <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M3.375 9.5L13.5 9.5"
-      stroke="#1e56e3"
+      stroke="#80A3FF"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M9.1875 14.5625L14.2501 9.49995L9.1875 4.4374"
-      stroke="#1e56e3"
+      stroke="#80A3FF"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -59,7 +59,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
             <img
               loading="lazy"
               className="promoBrand"
-              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1684144870/main-web/Group_2608666_1_c6irug.png"
+              src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1686143154/hasura-con-2023/has-con-light_j06vei.png"
               alt="Icon"
             />
             <div className="flex-center">

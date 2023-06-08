@@ -17,7 +17,7 @@ export const StyledBanner = styled.div`
   }
 
   .displayInline {
-    color: #1e56e3 !important;
+    color: #fff !important;
   }
 
   .promoBrand {
