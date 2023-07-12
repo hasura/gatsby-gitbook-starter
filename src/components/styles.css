@@ -1079,6 +1079,13 @@ strong {
   justify-content: space-between;
   font-family: 'IBM Plex Sans';
 }
+.thinBannerWrapper .flex-center .promoBrand {
+  width: auto;
+  height: 27px;
+  max-height: 27px;
+  margin-right: -30px;
+  margin-left: 3px;
+}
 .textGradient {
   background: linear-gradient(285.77deg, #1eb4d4 18.49%, #e8ffb8 107.05%);
   -webkit-background-clip: text;
