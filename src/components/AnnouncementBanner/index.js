@@ -51,7 +51,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
       <StyledBanner>
         <div className="thinBannerWrapper">
           <a
-            href="https://hasura.io/events/hasura-con-2023/"
+            href="https://hasura.io/events/hasura-con-2023#event-schedule"
             className="flex-center"
             // target="_blank"
             rel="noopener noreferrer"
@@ -67,7 +67,7 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
               <div className="" fontWeight="font_bold">
                 {/* <div className="greenCircle pinkCircle" /> */}
                 <span className="displayInline">
-                  Join us for the fourth annual Hasura User Conference on June 20-22. Register now
+                  Watch HasuraCon2023 replays now!
                   <span className="mobile-arrow-text">&nbsp;&gt;</span>
                 </span>
               </div>
