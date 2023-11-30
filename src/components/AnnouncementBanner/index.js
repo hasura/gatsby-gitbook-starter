@@ -51,23 +51,23 @@ export const AnnouncementBanner = ({ hideThinBanner }) => {
       <StyledBanner>
         <div className="thinBannerWrapper">
           <a
-            href="https://hasura.io/events/hasura-con-2023#event-schedule"
+            href="https://hasura.io/events/reinvent"
             className="flex-center"
             // target="_blank"
             rel="noopener noreferrer"
           >
-            <img
+            {/* <img
               loading="lazy"
               className="promoBrand"
               src="https://res.cloudinary.com/dh8fp23nd/image/upload/v1686143154/hasura-con-2023/has-con-light_j06vei.png"
               alt="Icon"
-            />
+            /> */}
             <div className="flex-center">
               {/* <div className="greenCircle" /> */}
               <div className="" fontWeight="font_bold">
                 {/* <div className="greenCircle pinkCircle" /> */}
                 <span className="displayInline">
-                  Watch HasuraCon2023 replays now!
+                  See us at AWS re:Invent Nov 27 - Dec 1
                   <span className="mobile-arrow-text">&nbsp;&gt;</span>
                 </span>
               </div>
