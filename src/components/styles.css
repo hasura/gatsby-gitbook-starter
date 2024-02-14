@@ -1157,6 +1157,13 @@ strong {
 .contentShowMobile {
   display: none;
 }
+
+@media (max-width: 1024px) {
+  .thinBannerWrapper {
+    border-bottom: 1px solid #d5dee5 !important;
+  }
+}
+
 @media (max-width: 767px) {
   .thinBannerWrapper a .arrowIcon {
     display: none;
