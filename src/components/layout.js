@@ -317,7 +317,6 @@ const Layout = ({ children, location }) => {
   const [isAliId, setIsAliId] = useState(false);
   const [isLocalSideBarSubscribe, setIsLocalSideBarSubscribe] = useState(false);
   const [isShowSubscribe, setIsShowSubscribe] = useState(true);
-  const [showThinBanner, setShowThinBanner] = useState(true);
   const wrapperRef = useRef(null);
   const mobileWrapperRef = useRef(null);
 
@@ -325,10 +324,6 @@ const Layout = ({ children, location }) => {
     if (typeof window !== undefined) {
       window.localStorage.setItem('sideBarSubscribeConsent', 'true');
     }
-  };
-
-  const hideThinBanner = () => {
-    setShowThinBanner(false);
   };
 
   useEffect(() => {
@@ -373,11 +368,12 @@ const Layout = ({ children, location }) => {
       }
     }
   };
+
   return (
     <>
       {/* <AnnouncementBanner /> */}
       <ThemeProvider location={location}>
-        <Header location={location} hideThinBanner={hideThinBanner} />
+        <Header location={location} />
         <MDXProvider components={mdxComponents}>
           <Wrapper className={toggleSideBar ? ' mainWrapperCollapse' : ''}>
             <StyledToggleSideNavWrapper
