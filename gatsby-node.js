@@ -1,7 +1,28 @@
-const componentWithMDXScope = require("gatsby-plugin-mdx/component-with-mdx-scope");
-const path = require("path");
-const startCase = require("lodash.startcase");
-const config = require("./config");
+const componentWithMDXScope = require('gatsby-plugin-mdx/component-with-mdx-scope');
+const path = require('path');
+const startCase = require('lodash.startcase');
+const config = require('./config');
+
+const fetch = (...args) => import(`node-fetch`).then(({ default: fetch }) => fetch(...args));
+
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+  // get data from GitHub API at build time
+  const result = await fetch(`https://cms.hasura-app.io/api/banners?populate=*`);
+
+  const bannerData = await result.json();
+
+  createNode({
+    bannerData: bannerData,
+    // required fields
+    id: `banner-build-time-data`,
+    parent: null,
+    children: [],
+    internal: {
+      type: `Banner`,
+      contentDigest: createContentDigest(bannerData),
+    },
+  });
+};
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -25,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         `
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors); // eslint-disable-line no-console
           reject(result.errors);
@@ -34,11 +55,11 @@ exports.createPages = ({ graphql, actions }) => {
         // Create blog posts pages.
         result.data.allMdx.edges.forEach(({ node }) => {
           createPage({
-            path: node.fields.slug ? node.fields.slug : "/",
-            component: path.resolve("./src/templates/docs.js"),
+            path: node.fields.slug ? node.fields.slug : '/',
+            component: path.resolve('./src/templates/docs.js'),
             context: {
-              id: node.fields.id
-            }
+              id: node.fields.id,
+            },
           });
         });
       })
@@ -49,18 +70,18 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-      alias: { 
-        $components: path.resolve(__dirname, "src/components"),
-        buble: '@philpl/buble' // to reduce bundle size
-      }
-    }
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      alias: {
+        $components: path.resolve(__dirname, 'src/components'),
+        buble: '@philpl/buble', // to reduce bundle size
+      },
+    },
   });
 };
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
-    name: "@babel/plugin-proposal-export-default-from"
+    name: '@babel/plugin-proposal-export-default-from',
   });
 };
 
@@ -69,21 +90,21 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   if (node.internal.type === `Mdx`) {
     const parent = getNode(node.parent);
-    let value = parent.relativePath.replace(parent.ext, "");
+    let value = parent.relativePath.replace(parent.ext, '');
 
-    if (value === "index") {
-      value = "";
+    if (value === 'index') {
+      value = '';
     }
 
     let slug = `/${value}`;
-    let url = "";
+    let url = '';
 
-    if(config?.gatsby?.trailingSlash) {
-      slug = value === "" ? `/` : `/${value}/`
+    if (config?.gatsby?.trailingSlash) {
+      slug = value === '' ? `/` : `/${value}/`;
     }
 
     if (config?.gatsby?.siteUrl && config?.gatsby?.pathPrefix) {
-      url = `${config.gatsby.siteUrl}${config.gatsby.pathPrefix}${slug}`
+      url = `${config.gatsby.siteUrl}${config.gatsby.pathPrefix}${slug}`;
     }
 
     createNodeField({
@@ -105,21 +126,21 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     });
 
     createNodeField({
-      name: "id",
+      name: 'id',
       node,
-      value: node.id
+      value: node.id,
     });
 
     createNodeField({
-      name: "title",
+      name: 'title',
       node,
-      value: node.frontmatter.title || startCase(parent.name)
+      value: node.frontmatter.title || startCase(parent.name),
     });
   }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+  const { createTypes } = actions;
 
   createTypes(`
     type Mdx implements Node {
@@ -130,5 +151,5 @@ exports.createSchemaCustomization = ({ actions }) => {
       metaDescription: String
       canonicalUrl: String
     }
-  `)
-}
+  `);
+};
