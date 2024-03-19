@@ -78,7 +78,7 @@ export const AnnouncementBanner = () => {
   `);
 
   if (
-    bannerData &&
+    banner && bannerData &&
     bannerData?.banner &&
     bannerData.banner.bannerData &&
     bannerData.banner.bannerData?.data &&
