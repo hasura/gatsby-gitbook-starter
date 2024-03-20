@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 
 import { StyledBanner } from './StyledBanner';
 
@@ -37,45 +36,7 @@ const ArrowRight = () => (
 export const AnnouncementBanner = () => {
   const [isBannerActive, toggleBanner] = useState(true);
 
-  const bannerData = useStaticQuery(graphql`
-    query {
-      banner {
-        bannerData {
-          data {
-            attributes {
-              bannerType
-              bannerTitle
-              linkUrl
-              isExternalLink
-              isGeneralAvailableBanner
-              isActiveOnLearn
-              isDarkMode
-              bgColor
-              button {
-                text
-                url
-                type
-              }
-              bannerLogoImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              bannerIllustrationBgImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  const bannerData = {};
 
   if (
     bannerData &&
