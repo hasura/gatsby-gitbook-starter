@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import { StyledBanner } from './StyledBanner';
+import { checkIsArray } from '../../globals/utils';
 
 const CloseIconSvg = () => (
   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,6 +38,16 @@ const ArrowRight = () => (
 export const AnnouncementBanner = () => {
   const [isBannerActive, toggleBanner] = useState(true);
 
+  const handleCloseButton = () => {
+    const buttonElement = document.getElementById('mobile-header-cta');
+
+    if (buttonElement) {
+      buttonElement.style.paddingBottom = '0px';
+    }
+
+    toggleBanner(false);
+  };
+
   const bannerData = {};
 
   if (
@@ -53,16 +65,6 @@ export const AnnouncementBanner = () => {
     );
 
     if (thinStripBannerData[0] && isBannerActive) {
-      const handleCloseButton = () => {
-        const buttonElement = document.getElementById('mobile-header-cta');
-
-        if (buttonElement) {
-          buttonElement.style.paddingBottom = '0px';
-        }
-
-        toggleBanner(false);
-      };
-
       const bannerData = thinStripBannerData[0]?.attributes;
 
       return (
