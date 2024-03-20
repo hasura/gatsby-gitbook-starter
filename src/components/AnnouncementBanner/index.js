@@ -38,6 +38,22 @@ const ArrowRight = () => (
 export const AnnouncementBanner = () => {
   const [isBannerActive, toggleBanner] = useState(true);
 
+  const [bannerData, updateBannerData] = useState([]);
+
+  const [isLoading, toggleLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`https://cms.hasura-app.io/api/banners?populate=*`)
+      .then((res) => res.json())
+      .then((data) => updateBannerData(data?.data));
+  }, []);
+
+  useEffect(() => {
+    if (checkIsArray(bannerData)) {
+      toggleLoading(false);
+    }
+  }, [bannerData]);
+
   const handleCloseButton = () => {
     const buttonElement = document.getElementById('mobile-header-cta');
 
@@ -48,7 +64,30 @@ export const AnnouncementBanner = () => {
     toggleBanner(false);
   };
 
-  const bannerData = {};
+  if (isLoading || !isLoading) {
+    return (
+      <StyledBanner>
+        <div className="thinBannerWrapper">
+          <div className="flex-center">
+            <div className="" fontWeight="font_bold">
+              {/* <div className="greenCircle pinkCircle" /> */}
+              <span className="displayInline">Loading...</span>
+            </div>
+          </div>
+          <div
+            className="close_icon"
+            role="button"
+            tabIndex="0"
+            onClick={() => {
+              handleCloseButton();
+            }}
+          >
+            <CloseIconSvg />
+          </div>
+        </div>
+      </StyledBanner>
+    );
+  }
 
   if (
     bannerData &&
