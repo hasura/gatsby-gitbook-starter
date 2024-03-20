@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 
 import { StyledBanner } from './StyledBanner';
 import { checkIsArray } from '../../globals/utils';
@@ -64,7 +63,7 @@ export const AnnouncementBanner = () => {
     toggleBanner(false);
   };
 
-  if (isLoading || !isLoading) {
+  if (isLoading) {
     return (
       <StyledBanner>
         <div className="thinBannerWrapper">
@@ -89,28 +88,21 @@ export const AnnouncementBanner = () => {
     );
   }
 
-  if (
-    bannerData &&
-    bannerData?.banner &&
-    bannerData.banner.bannerData &&
-    bannerData.banner.bannerData?.data &&
-    bannerData.banner.bannerData.data?.constructor.name === 'Array' &&
-    bannerData.banner.bannerData.data.length > 0
-  ) {
-    const thinStripBannerData = bannerData?.banner?.bannerData?.data.filter(
+  if (!isLoading) {
+    const learnStripBanner = bannerData.filter(
       (bannerObj) =>
         bannerObj?.attributes?.bannerType === 'thin-strip-banner' &&
         bannerObj?.attributes?.isActiveOnLearn
     );
 
-    if (thinStripBannerData[0] && isBannerActive) {
-      const bannerData = thinStripBannerData[0]?.attributes;
+    if (isBannerActive) {
+      const bannerData = learnStripBanner[0]?.attributes;
 
       return (
         <StyledBanner>
           <div className="thinBannerWrapper">
             <a
-              href={bannerData?.linkUrl}
+              href={`https://hasura.io${bannerData?.linkUrl}`}
               className="flex-center"
               // target="_blank"
               rel="noopener noreferrer"
