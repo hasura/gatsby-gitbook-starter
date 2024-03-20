@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React, { useState, useEffect } from 'react';
 
 import { StyledBanner } from './StyledBanner';
+import { checkIsArray } from '../../globals/utils';
 
 const CloseIconSvg = () => (
   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,78 +37,72 @@ const ArrowRight = () => (
 export const AnnouncementBanner = () => {
   const [isBannerActive, toggleBanner] = useState(true);
 
-  const bannerData = useStaticQuery(graphql`
-    query {
-      banner {
-        bannerData {
-          data {
-            attributes {
-              bannerType
-              bannerTitle
-              linkUrl
-              isExternalLink
-              isGeneralAvailableBanner
-              isActiveOnLearn
-              isDarkMode
-              bgColor
-              button {
-                text
-                url
-                type
-              }
-              bannerLogoImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              bannerIllustrationBgImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  const [bannerData, updateBannerData] = useState([]);
 
-  if (
-    bannerData &&
-    bannerData?.banner &&
-    bannerData.banner.bannerData &&
-    bannerData.banner.bannerData?.data &&
-    bannerData.banner.bannerData.data?.constructor.name === 'Array' &&
-    bannerData.banner.bannerData.data.length > 0
-  ) {
-    const thinStripBannerData = bannerData?.banner?.bannerData?.data.filter(
+  const [isLoading, toggleLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`https://cms.hasura-app.io/api/banners?populate=*`)
+      .then((res) => res.json())
+      .then((data) => updateBannerData(data?.data));
+  }, []);
+
+  useEffect(() => {
+    if (checkIsArray(bannerData)) {
+      toggleLoading(false);
+    }
+  }, [bannerData]);
+
+  const handleCloseButton = () => {
+    const buttonElement = document.getElementById('mobile-header-cta');
+
+    if (buttonElement) {
+      buttonElement.style.paddingBottom = '0px';
+    }
+
+    toggleBanner(false);
+  };
+
+  if (isLoading) {
+    return (
+      <StyledBanner>
+        <div className="thinBannerWrapper">
+          <div className="flex-center">
+            <div className="" fontWeight="font_bold">
+              {/* <div className="greenCircle pinkCircle" /> */}
+              <span className="displayInline">Loading...</span>
+            </div>
+          </div>
+          <div
+            className="close_icon"
+            role="button"
+            tabIndex="0"
+            onClick={() => {
+              handleCloseButton();
+            }}
+          >
+            <CloseIconSvg />
+          </div>
+        </div>
+      </StyledBanner>
+    );
+  }
+
+  if (!isLoading) {
+    const learnStripBanner = bannerData.filter(
       (bannerObj) =>
         bannerObj?.attributes?.bannerType === 'thin-strip-banner' &&
         bannerObj?.attributes?.isActiveOnLearn
     );
 
-    if (thinStripBannerData[0] && isBannerActive) {
-      const handleCloseButton = () => {
-        const buttonElement = document.getElementById('mobile-header-cta');
-
-        if (buttonElement) {
-          buttonElement.style.paddingBottom = '0px';
-        }
-
-        toggleBanner(false);
-      };
-
-      const bannerData = thinStripBannerData[0]?.attributes;
+    if (isBannerActive) {
+      const bannerData = learnStripBanner[0]?.attributes;
 
       return (
         <StyledBanner>
           <div className="thinBannerWrapper">
             <a
-              href={bannerData?.linkUrl}
+              href={`https://hasura.io${bannerData?.linkUrl}`}
               className="flex-center"
               // target="_blank"
               rel="noopener noreferrer"

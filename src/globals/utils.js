@@ -1,5 +1,5 @@
 // media query helpers, mixins etc.,
-import { BREAKPOINTS } from "./designSystem";
+import { BREAKPOINTS } from './designSystem';
 
 const above = Object.keys(BREAKPOINTS).reduce((acc, bp) => {
   acc[bp] = `@media (min-width: ${BREAKPOINTS[bp]}px)`;
@@ -21,3 +21,14 @@ const between = (lowerBp, higherBp) =>
 // Usage mq.between('sm', 'md') { ...styles }
 
 export const mq = { above, below, between };
+
+// Helper to check array data type
+export function checkIsArray(arrayInput) {
+  if (arrayInput) {
+    if (arrayInput?.constructor.name === 'Array' && arrayInput.length > 0) {
+      return true;
+    }
+  }
+
+  return false;
+}

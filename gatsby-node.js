@@ -3,27 +3,6 @@ const path = require('path');
 const startCase = require('lodash.startcase');
 const config = require('./config');
 
-const fetch = (...args) => import(`node-fetch`).then(({ default: fetch }) => fetch(...args));
-
-exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
-  // get data from GitHub API at build time
-  const result = await fetch(`https://cms.hasura-app.io/api/banners?populate=*`);
-
-  const bannerData = await result.json();
-
-  createNode({
-    bannerData: bannerData,
-    // required fields
-    id: `banner-build-time-data`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `Banner`,
-      contentDigest: createContentDigest(bannerData),
-    },
-  });
-};
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
