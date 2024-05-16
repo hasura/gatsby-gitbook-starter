@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { trackGAEvents } from '../trackGA';
-import hasuraLogoColor from '../images/hasura-logo-color.svg';
 import hasuraLogoWhite from '../images/hasura-logo-white.svg';
 import rightArrowImg from '../images/arrow-right.svg';
 import { getUTMPagePathName } from '../../utils/getUTMPagePathName';
@@ -131,7 +130,11 @@ const Header = (props) => {
                 <div className="brand">
                   <a href="https://hasura.io/">
                     <img
-                      src={isDark ? hasuraLogoWhite : hasuraLogoColor}
+                      src={
+                        isDark
+                          ? hasuraLogoWhite
+                          : `https://res.cloudinary.com/dh8fp23nd/image/upload/v1686659126/website%20v3/hasura-primary_y9cdnn.svg`
+                      }
                       alt="Hasura Logo"
                       title="Hasura Logo"
                     />
@@ -217,24 +220,6 @@ const Header = (props) => {
                       onClick={() => trackGAEvents('Learn course', 'HeaderClick', 'Contact Us')}
                     >
                       Contact Sales
-                    </a>
-                  </li>
-                  <li className="navLogIn">
-                    <a
-                      href={`https://cloud.hasura.io/login?pg=${utmPagePathName}&plcmt=header&cta=login&tech=default`}
-                      onClick={() => {
-                        trackGAEvents('Learn course', 'HeaderClick', 'Log In');
-                        saTrack('click', {
-                          placement: 'header',
-                          cta: 'LOG IN',
-                          page: utmPagePathName,
-                          screen_size: 'desktop',
-                          label: 'Clicked LOG IN',
-                          action: 'click',
-                        });
-                      }}
-                    >
-                      Login
                     </a>
                   </li>
                   <li>

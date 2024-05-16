@@ -17,15 +17,14 @@ export const StyledBanner = styled.div`
   }
 
   .displayInline {
-    color: #fff !important;
+    color: #4d5761 !important;
   }
 
   .promoBrand {
     width: auto;
     height: 27px;
     max-height: 27px;
-    margin-right: -30px;
-    margin-left: 3px;
+    margin-right: 0.6%;
   }
 
   @media (max-width: 980px) {
