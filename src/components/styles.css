@@ -462,7 +462,7 @@ b a:hover {
 }
 
 .sideBarUL {
-  max-height: calc(100vh - 420px) !important;
+  max-height: calc(100vh - 164px) !important;
   align-self: flex-start;
   overflow: auto;
 }

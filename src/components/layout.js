@@ -56,7 +56,7 @@ const Wrapper = styled('div')`
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1150px) {
     padding-left: 0;
     padding-right: 0;
     .translateXZero {
@@ -138,7 +138,7 @@ const LeftSideBarWidth = styled('div')`
   .mainSideBarTogglePos {
     left: 16px;
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 1150px) {
     z-index: 100000 !important;
     transform: translateX(-340px);
     min-height: 100vh;
@@ -164,7 +164,7 @@ const RightSideBarWidth = styled('div')`
   top: 72px;
   right: 0px;
   transition: all 0.3s ease-in-out 0s;
-  @media (max-width: 1024px) {
+  @media (max-width: 1150px) {
     display: none;
   }
 `;
@@ -411,7 +411,7 @@ const Layout = ({ children, location }) => {
                   <Sidebar location={location} sideBarULdecreaseHt={isShowSubscribe || isAliId} />
                 </div>
               ) : null}
-              <div className="alignSelfEnd">
+              {/* <div className="alignSelfEnd">
                 <LanguageWrapper ref={mobileWrapperRef} className="showMobile">
                   <div className="languageWrapper">
                     {!!config.language?.code && (
@@ -492,13 +492,6 @@ const Layout = ({ children, location }) => {
                         </div>
                         {isShowSubscribe ? (
                           <Fragment>
-                            {/* <MarketoForm
-                              onSubmitCB={onSubmitCB}
-                              formId={config.newsletter?.ebookAvailable ? "1244" : "1079"}
-                              marketoHost={marketoHost}
-                              id="631-HMN-492"
-                              styleClass="marketoFormWrapper sideBarSubscribeWrapper"
-                            /> */}
                             <Paperform
                               onSubmitCB={onSubmitCB}
                               formId={config.newsletter?.ebookAvailable ? 'hf-1244' : 'hf-1079'}
@@ -510,7 +503,7 @@ const Layout = ({ children, location }) => {
                     )}
                   </div>
                 ) : null}
-              </div>
+              </div> */}
             </LeftSideBarWidth>
             <Content className={toggleSideBar ? 'learnAsideWrapperPos' : ''}>
               <MaxWidth>{children}</MaxWidth>
