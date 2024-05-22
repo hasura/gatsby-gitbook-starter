@@ -168,10 +168,12 @@ const RightSideBarWidth = styled('div')`
     display: none;
   }
 `;
+
 const LanguageWrapper = styled('div')`
   .languageWrapper {
     position: relative;
     padding: 16px 24px;
+    margin-top: 77px;
     z-index: 1;
     display: flex;
     justify-content: space-between;
