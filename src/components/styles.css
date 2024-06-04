@@ -574,6 +574,19 @@ b a:hover {
   color: #005c8f;
 }
 
+.book-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.supergraph-guide-img {
+  width: 100%;
+  max-width: 200px;
+  padding-bottom: 24px;
+  /* margin-bottom: 20px; */
+}
+
 .hideFrontLine .collapser {
   background: transparent;
   border: none;
