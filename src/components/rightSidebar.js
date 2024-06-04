@@ -5,23 +5,23 @@ import './styles.css';
 import config from '../../config';
 import { customIdParser } from '../utils/customIdParser';
 
-import openNew from './images/open-new.svg';
+// import openNew from './images/open-new.svg';
 
-const hasuraBlogState = [
-  {
-    linkContent: 'Modern GraphQL examples with strings, compilers, and SDKs',
-    linkUrl: 'https://hasura.io/blog/graphql-examples/',
-  },
-  {
-    linkContent: 'Top ways to write a custom GraphQL Server with production ready features',
-    linkUrl:
-      'https://hasura.io/blog/top-ways-to-write-custom-graphql-server-production-ready-features/',
-  },
-  {
-    linkContent: 'A REST View of GraphQL',
-    linkUrl: 'https://hasura.io/blog/rest-view-of-graphql/',
-  },
-];
+// const hasuraBlogState = [
+//   {
+//     linkContent: 'Modern GraphQL examples with strings, compilers, and SDKs',
+//     linkUrl: 'https://hasura.io/blog/graphql-examples/',
+//   },
+//   {
+//     linkContent: 'Top ways to write a custom GraphQL Server with production ready features',
+//     linkUrl:
+//       'https://hasura.io/blog/top-ways-to-write-custom-graphql-server-production-ready-features/',
+//   },
+//   {
+//     linkContent: 'A REST View of GraphQL',
+//     linkUrl: 'https://hasura.io/blog/rest-view-of-graphql/',
+//   },
+// ];
 
 const Sidebar = styled('aside')`
   width: 100%;
