@@ -135,10 +135,10 @@ const SidebarLayout = ({ location }) => (
               {finalNavItems}
             </ul>
             <div className="book-wrapper">
-              <a href="https://hasura.io/resources/supergraph-architecture-guide">
+              <a href="https://hasura.io/resources/graphql-handbook-2024">
                 <img
-                  src="https://res.cloudinary.com/hasura-cms-uploads/image/upload/v1715782401/sg_arch_guide_b3b306a1af.png"
-                  alt="hasura-supergraph-guide"
+                  src="https://res.cloudinary.com/hasura-cms-uploads/image/upload/v1717758419/graphql_handbook_04ba1bba46.png"
+                  alt="graphql-handbook"
                   className="supergraph-guide-img"
                 />
               </a>
@@ -148,10 +148,10 @@ const SidebarLayout = ({ location }) => (
       } else {
         return (
           <div className="book-wrapper">
-            <a href="https://hasura.io/resources/supergraph-architecture-guide">
+            <a href="https://hasura.io/resources/graphql-handbook-2024">
               <img
-                src="https://res.cloudinary.com/hasura-cms-uploads/image/upload/v1715782401/sg_arch_guide_b3b306a1af.png"
-                alt="hasura-supergraph-guide"
+                src="https://res.cloudinary.com/hasura-cms-uploads/image/upload/v1717758419/graphql_handbook_04ba1bba46.png"
+                alt="graphql-handbook"
                 className="supergraph-guide-img"
                 loading="lazy"
               />
