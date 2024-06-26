@@ -1037,7 +1037,8 @@ strong {
   font-weight: 600;
 }
 .pre {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.5;
   margin: 0px;
   padding: 0;
   margin-bottom: 32px;
