@@ -68,7 +68,7 @@ const Edit = styled('div')`
   @media (max-width: 767px) {
     .editOnGithub {
       justify-content: center;
-      padding-top: 24px;
+      padding-top: 16px;
       .arrow {
         display: inline-block;
       }
@@ -95,7 +95,7 @@ const BreadCrumbHeader = styled('div')`
 const HelpfulGithubWrapper = styled('div')`
   display: flex;
   justify-content: space-between;
-  padding-top: 14px;
+  padding-bottom: 40px;
   .helpfulWrapper {
     display: flex;
     align-items: center;
