@@ -117,10 +117,16 @@ export const AnnouncementBanner = () => {
                     alt="Icon"
                   />
                 )}
-                <div className="" fontWeight="font_bold">
+                <div className="">
                   {/* <div className="greenCircle pinkCircle" /> */}
                   <span className="displayInline">
-                    {bannerData?.bannerTitle}
+                    <p>
+                      <b>
+                        With the Hasura Data Delivery Network now GA, these courses are now
+                        out-of-date and considered deprecated.
+                      </b>{' '}
+                      Learn more about Hasura DDN.
+                    </p>
                     <span className="mobile-arrow-text">&nbsp;&gt;</span>
                   </span>
                 </div>
