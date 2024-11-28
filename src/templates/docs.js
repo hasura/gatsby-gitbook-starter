@@ -517,7 +517,7 @@ export default class MDXRuntimeTest extends Component {
           </div>
           <EditGithubBtn docsLocation={docsLocation} parentRelativePath={mdx.parent.relativePath} />
         </HelpfulGithubWrapper>
-        <UseHasuraFree />
+        <UseHasuraFree {...this.props} />
         <FooterImag>
           <img
             loading="lazy"

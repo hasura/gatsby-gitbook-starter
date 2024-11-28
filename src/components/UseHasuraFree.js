@@ -1,5 +1,6 @@
 import React from "react";
 import styled from '@emotion/styled';
+import { getUTMPagePathName } from "../utils/getUTMPagePathName";
 
 import ArrowRight from "../globals/icons/ArrowRight";
 
@@ -98,7 +99,12 @@ const StyledPromoBanner = styled.div`
   }
 `;
 
-const UseHasuraFree = () => {
+const UseHasuraFree = (props) => {
+
+  const path = props.location.pathname;
+
+  const utmPagePathName = getUTMPagePathName(path);
+
   return (
     <StyledPromoBanner>
       <div className="p40">
@@ -118,7 +124,7 @@ const UseHasuraFree = () => {
           </li>
         </ul>
         <div className="contributeLink">
-          <a href="https://cloud.hasura.io/signup?pg=learn-course&plcmt=body&cta=try-graphql-with-hasura&tech=default">
+          <a href={`https://console.hasura.io/signup?pg=${utmPagePathName}&plcmt=body&cta=try-graphql-with-hasura&tech=default`}>
             Try GraphQL with Hasura
             <div className="arrow">
               <ArrowRight variant="grey100" size="xs" className="arrow"/>

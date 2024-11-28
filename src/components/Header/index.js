@@ -224,7 +224,7 @@ const Header = (props) => {
                   </li>
                   <li>
                     <a
-                      href={`https://cloud.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=get-started&tech=default`}
+                      href={`https://console.hasura.io/signup?pg=${utmPagePathName}&plcmt=header&cta=get-started&tech=default`}
                       onClick={() => {
                         trackGAEvents('Learn course', 'HeaderClick', 'Try Hasura');
                         saTrack('click', {
