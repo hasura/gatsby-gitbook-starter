@@ -5,22 +5,23 @@ import './styles.css';
 import config from '../../config';
 import { customIdParser } from '../utils/customIdParser';
 
-import openNew from "./images/open-new.svg";
+// import openNew from './images/open-new.svg';
 
-const hasuraBlogState = [
-  {
-    linkContent: "Modern GraphQL examples with strings, compilers, and SDKs",
-    linkUrl: "https://hasura.io/blog/graphql-examples/",
-  },
-  {
-    linkContent: "Top ways to write a custom GraphQL Server with production ready features",
-    linkUrl: "https://hasura.io/blog/top-ways-to-write-custom-graphql-server-production-ready-features/",
-  },
-  {
-    linkContent: "A REST View of GraphQL",
-    linkUrl: "https://hasura.io/blog/rest-view-of-graphql/",
-  },
-]
+// const hasuraBlogState = [
+//   {
+//     linkContent: 'Modern GraphQL examples with strings, compilers, and SDKs',
+//     linkUrl: 'https://hasura.io/blog/graphql-examples/',
+//   },
+//   {
+//     linkContent: 'Top ways to write a custom GraphQL Server with production ready features',
+//     linkUrl:
+//       'https://hasura.io/blog/top-ways-to-write-custom-graphql-server-production-ready-features/',
+//   },
+//   {
+//     linkContent: 'A REST View of GraphQL',
+//     linkUrl: 'https://hasura.io/blog/rest-view-of-graphql/',
+//   },
+// ];
 
 const Sidebar = styled('aside')`
   width: 100%;
@@ -58,7 +59,7 @@ const ListItem = styled(({ className, active, level, ...props }) => {
     position: relative;
 
     &:hover {
-      color: #005C8F;
+      color: #005c8f;
     }
 
     ${(props) =>
@@ -109,9 +110,7 @@ const SidebarLayout = ({ location }) => (
                 innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
                   const idParsedContent = customIdParser(innerItem.title);
 
-                  const itemId = innerItem.title
-                    ? idParsedContent.id
-                    : '#';
+                  const itemId = innerItem.title ? idParsedContent.id : '#';
 
                   return (
                     <ListItem key={index} to={`#${itemId}`} level={1}>
@@ -135,26 +134,29 @@ const SidebarLayout = ({ location }) => (
               <li className="rightSideTitle">CONTENTS</li>
               {finalNavItems}
             </ul>
-            <ul className="blogLinkWrapper">
-              <li className="rightSideTitle">from the hasura blog</li>
-              {
-                hasuraBlogState.map((item, index) => (
-                  <li key={index}><img src={openNew} alt="Open new window" /><a href={item.linkUrl} target="_blank">{item.linkContent}</a></li>
-                ))
-              }
-            </ul>
+            <div className="book-wrapper">
+              <a href="https://hasura.io/resources/graphql-handbook-2024">
+                <img
+                  src="https://res.cloudinary.com/hasura-cms-uploads/image/upload/v1717758419/graphql_handbook_04ba1bba46.png"
+                  alt="graphql-handbook"
+                  className="supergraph-guide-img"
+                />
+              </a>
+            </div>
           </Sidebar>
         );
       } else {
         return (
-          <ul className="blogLinkWrapper">
-            <li className="rightSideTitle">from the hasura blog</li>
-            {
-              hasuraBlogState.map((item, index) => (
-                <li key={index}><img src={openNew} alt="Open new window" /><a href={item.linkUrl} target="_blank">{item.linkContent}</a></li>
-              ))
-            }
-          </ul>
+          <div className="book-wrapper">
+            <a href="https://hasura.io/resources/graphql-handbook-2024">
+              <img
+                src="https://res.cloudinary.com/hasura-cms-uploads/image/upload/v1717758419/graphql_handbook_04ba1bba46.png"
+                alt="graphql-handbook"
+                className="supergraph-guide-img"
+                loading="lazy"
+              />
+            </a>
+          </div>
         );
       }
     }}

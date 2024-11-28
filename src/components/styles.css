@@ -520,8 +520,8 @@ b a:hover {
 
 .rightSideBarUL {
   overflow: auto;
-  max-height: calc(100vh - 436px);
-  height: calc(100vh - 436px);
+  max-height: calc(100vh - 505px);
+  height: calc(100vh - 505px);
   overflow: auto;
   align-self: flex-start;
   padding-bottom: 16px;
@@ -572,6 +572,19 @@ b a:hover {
 }
 .blogLinkWrapper li a:hover {
   color: #005c8f;
+}
+
+.book-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.supergraph-guide-img {
+  width: 100%;
+  max-width: 200px;
+  padding-bottom: 24px;
+  /* margin-bottom: 20px; */
 }
 
 .hideFrontLine .collapser {
@@ -1024,7 +1037,8 @@ strong {
   font-weight: 600;
 }
 .pre {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.5;
   margin: 0px;
   padding: 0;
   margin-bottom: 32px;
