@@ -15,6 +15,7 @@ import gitHub from '../components/images/github.svg';
 import footerIllustration from '../components/images/footer-img.png';
 import hasuraConDark from '../components/images/hasura-con-dark.svg';
 import { saTrack } from '../utils/segmentAnalytics';
+import MaintainedAdmonition from '../components/MaintainedAdmonition';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
@@ -342,7 +343,7 @@ export default class MDXRuntimeTest extends Component {
       allMdx,
       mdx,
       site: {
-        siteMetadata: { docsLocation, title },
+        siteMetadata: { docsLocation, title, isMaintained },
       },
     } = data;
 
@@ -457,6 +458,7 @@ export default class MDXRuntimeTest extends Component {
           />
         </BreadCrumbHeader>
         {/*getHasuraConBanner()*/}
+        {!isMaintained && <MaintainedAdmonition />}
         <div className="titleWrapper">
           <h1 className="title">{mdx.fields.title}</h1>
         </div>
@@ -537,6 +539,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         docsLocation
+        isMaintained
       }
     }
     mdx(fields: { id: { eq: $id } }) {

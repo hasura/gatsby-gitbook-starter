@@ -152,6 +152,7 @@ module.exports = {
     tweetText: config.header.tweetText,
     headerLinks: config.header.links,
     siteUrl: config.gatsby.siteUrl,
+    isMaintained: config.siteMetadata.isMaintained ?? true,
   },
   plugins: plugins,
 };
