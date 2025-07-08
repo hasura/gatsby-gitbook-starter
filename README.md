@@ -33,7 +33,7 @@ Here's a [live demo](https://learn.hasura.io/graphql/react)
 Get started by running the following commands:
 
 ```
-$ git clone git@github.com:hasura/gatsby-gitbook-starter.git
+$ git clone https://github.com/hasura/gatsby-gitbook-starter.git
 $ cd gatsby-gitbook-starter
 $ npm install
 $ npm start

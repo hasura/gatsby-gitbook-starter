@@ -22,7 +22,7 @@
     "emotion-server": "^11.0.0",
     "gatsby": "^4.0.2",
     "gatsby-link": "^4.0.0",
-    "gatsby-plugin-algolia": "^0.19.0",
+    "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-emotion": "^7.0.0",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-layout": "^3.0.0",
@@ -73,7 +73,6 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-react": "^7.23.2",
-    "gatsby-plugin-remove-trailing-slashes": "^3.4.0",
     "prettier": "^2.2.1",
     "prism-react-renderer": "^1.2.1"
   }
